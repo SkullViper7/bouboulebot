@@ -39,6 +39,7 @@ async def get_giphy_gif(tag_term):
         "api_key": GIPHY_TOKEN,
         "tag": tag_term, # On utilise 'tag' au lieu de 'q'
         "rating": "r"    # Pour garder le contenu non filtré comme demandé
+        "limit": 100
     }
     
     async with aiohttp.ClientSession() as session:
