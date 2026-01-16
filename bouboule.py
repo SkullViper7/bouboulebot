@@ -32,25 +32,27 @@ intents.members = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-async def get_giphy_gif(search_term):
-    url = "https://api.giphy.com/v1/gifs/search"
+async def get_giphy_gif(tag_term):
+    """Cherche un GIF UNIQUE et ALÉATOIRE sur Giphy via l'endpoint random"""
+    url = "https://api.giphy.com/v1/gifs/random"
     params = {
         "api_key": GIPHY_TOKEN,
-        "q": search_term,
-        "limit": 10,
+        "tag": tag_term, # On utilise 'tag' au lieu de 'q'
+        "rating": "r"    # Pour garder le contenu non filtré comme demandé
     }
+    
     async with aiohttp.ClientSession() as session:
         async with session.get(url, params=params) as response:
             if response.status == 200:
                 data = await response.json()
                 if data['data']:
-                    gif_data = random.choice(data['data'])
-                    return gif_data['images']['original']['url']
+                    # L'endpoint random renvoie directement UN seul objet
+                    return data['data']['images']['original']['url']
             return None
 
 @bot.command()
 async def shit(ctx, membre: discord.Member):
-    gif_url = await get_giphy_gif("pooping")
+    gif_url = await get_giphy_gif("poop")
     if gif_url:
         await ctx.send(f"Bouboule a chié sur {membre.mention} !")
         await ctx.send(gif_url) # Discord intègre automatiquement le lien
