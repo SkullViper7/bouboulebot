@@ -52,13 +52,13 @@ async def get_giphy_gif(tag_term):
             return None
 
 @bot.command()
-async def nigga(ctx, membre: discord.Member):
-    gif_url = await get_giphy_gif("black man")
+async def shit(ctx, membre: discord.Member):
+    gif_url = await get_giphy_gif("poop")
     if gif_url:
-        await ctx.send(f"Bouboule a niggéfié {membre.mention} !")
+        await ctx.send(f"Bouboule a chié sur {membre.mention} !")
         await ctx.send(gif_url) # Discord intègre automatiquement le lien
     else:
-        await ctx.send("Pas de nigga pour cette fois...")
+        await ctx.send("Pas de chiasse pour cette fois...")
 
 # 4. Lancement
 if __name__ == "__main__":
