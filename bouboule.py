@@ -53,7 +53,7 @@ async def get_giphy_gif(tag_term):
 
 @bot.command()
 async def nigga(ctx, membre: discord.Member):
-    gif_url = await get_giphy_gif("nigga")
+    gif_url = await get_giphy_gif("black man")
     if gif_url:
         await ctx.send(f"Bouboule a niggéfié {membre.mention} !")
         await ctx.send(gif_url) # Discord intègre automatiquement le lien
