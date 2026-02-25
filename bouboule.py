@@ -6,6 +6,8 @@ import os
 from flask import Flask
 from threading import Thread
 from dotenv import load_dotenv
+from bs4 import BeautifulSoup
+import urllib.parse
 
 # 1. Chargement des secrets
 load_dotenv()
