@@ -6,6 +6,7 @@ import os
 from flask import Flask
 from threading import Thread
 from dotenv import load_dotenv
+from keep_alive import keep_alive
 
 const express = require('express');
 const app = express();
