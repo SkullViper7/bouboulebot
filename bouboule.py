@@ -6,19 +6,6 @@ import os
 from flask import Flask
 from threading import Thread
 from dotenv import load_dotenv
-from keep_alive import keep_alive
-
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
-
-app.get('/', (req, res) => {
-  res.send('Le bot est en ligne !');
-});
-
-app.listen(port, () => {
-  console.log(`Serveur web lancé sur le port ${port}`);
-});
 
 # 1. Chargement des secrets
 load_dotenv()
