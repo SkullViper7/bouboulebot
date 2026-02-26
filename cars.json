@@ -1,0 +1,772 @@
+[
+    {
+        "nom": "Cobra Daytona Coupe '64",
+        "marque": "Shelby",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://images.squarespace-cdn.com/content/v1/612c930924ebe52c8f9b81fe/1635990864617-XL9VK516RL5NRYSPNMC0/2299+Daytona.jpeg"
+    },
+    {
+        "nom": "330 P4 '67",
+        "marque": "Ferrari",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://cdn.ferrari.com/cms/network/media/img/resize/5dcacdca2cdb32285a762097-ferrari-330-p4-1967-intro-share?width=1080"
+    },
+    {
+        "nom": "F1 '94",
+        "marque": "McLaren",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://images.caradisiac.com/logos-ref/modele/modele--mclaren-f1/S8-modele--mclaren-f1.jpg"
+    },
+    {
+        "nom": "300 SL '55",
+        "marque": "Mercedes-Benz",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://cdn.motor1.com/images/mgl/8VPWJ/s1/4x3/1954-mercedes-benz-300-sl-gullwing-auction.webp"
+    },
+    {
+        "nom": "917K '70",
+        "marque": "Porsche",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.renaissance-models.com/ter/media/com_hikashop/upload/tk24-208_porsche_917k_gulf_lm70_1.jpg"
+    },
+    {
+        "nom": "911 GT1 '97",
+        "marque": "Porsche",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://automobilist.com/cdn/shop/articles/LM100_Porsche911C_Magazine_Header_1000x563_363cbe04-9ae6-447a-ac83-96c3ac8dad7a.jpg?v=1685278071&width=2048"
+    },
+    {
+        "nom": "CLK-LM '98",
+        "marque": "Mercedes-Benz",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://cdn.prod.website-files.com/637dd83cd93444d7a965962c/64035a809d73415beb974d6f_6400dbeb8ed3c9dfa47988fd_media-56887.png"
+    },
+    {
+        "nom": "MP4/4 '88",
+        "marque": "McLaren",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://automobilist.com/cdn/shop/files/Senna-Championship-MP4-88_Story-Image.jpg?v=1695295499&width=1170"
+    },
+    {
+        "nom": "GT40 Mark I '66",
+        "marque": "Ford",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://images.squarespace-cdn.com/content/v1/612c930924ebe52c8f9b81fe/1632229302773-Y32Q14K0FG3Q8K4LDZV6/1015+at+66+LeMans+Color.jpg"
+    },
+    {
+        "nom": "Miura SV '71",
+        "marque": "Lamborghini",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://sf1.sportauto.fr/wp-content/uploads/sportauto/2023/07/lamborghini-miura-sv-1971-essai-test-3-750x410.jpg"
+    },
+    {
+        "nom": "Valkyrie '21",
+        "marque": "Aston Martin",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://gtplus.app/_next/image?url=%2Fimages%2Fcars%2Faston-martin-valkyrie-21.jpg&w=1920&q=75"
+    },
+    {
+        "nom": "P1 GTR '16",
+        "marque": "McLaren",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://cdn-s-www.ledauphine.com/images/360A5D15-DC87-4DD6-A208-E8EB1E19AD2D/NW_raw/la-nouvelle-mclaren-p1-gtr-1424304006.jpg"
+    },
+    {
+        "nom": "787B '91",
+        "marque": "Mazda",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://cdn.artphotolimited.com/images/63186a20bd40b809d5bac6c0/1000x1000/1991-mazda-787b-24h-du-mans-classis.jpg"
+    },
+    {
+        "nom": "F40 '92",
+        "marque": "Ferrari",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.tomhartleyjnr.com/wp-content/uploads/2019/06/Ferrari-F40-002-3.jpg"
+    },
+    {
+        "nom": "Skyline GT-R R34 '99",
+        "marque": "Nissan",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.pinimg.com/originals/dd/b8/22/ddb822a2a50a3d097746e43f4a601cf3.jpg"
+    },
+    {
+        "nom": "919 Hybrid '16",
+        "marque": "Porsche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://www.flat6mag.com/wp-content/uploads/2021/03/fooytrfcb.jpg"
+    },
+    {
+        "nom": "Chiron '16",
+        "marque": "Bugatti",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.ebayimg.com/images/g/HBsAAOSwISliEwrT/s-l1200.jpg"
+    },
+    {
+        "nom": "Cobra 427 '66",
+        "marque": "Shelby",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.cravate-avenue.com/modules/prestablog/views/img/grid-for-1-7/up-img/579.jpg"
+    },
+    {
+        "nom": "Enzo Ferrari '02",
+        "marque": "Ferrari",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://sf2.sportauto.fr/wp-content/uploads/sportauto/2024/02/ferrari-enzo-kilometree-a-vendre-1.jpeg"
+    },
+    {
+        "nom": "Carrera GT '04",
+        "marque": "Porsche",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.tomhartleyjnr.com/wp-content/uploads/2023/09/Porsche-Carrera-GT-059.jpg"
+    },
+    {
+        "nom": "Sport Quattro S1 '85",
+        "marque": "Audi",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://www.motorlegend.com/images-voiture/med/editorial-editorial-26572.jpg"
+    },
+    {
+        "nom": "Veyron 16.4 '13",
+        "marque": "Bugatti",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.stagespointspermis.com/wp-content/uploads/2014/01/bugatti-veyron-16-4-2.jpg"
+    },
+    {
+        "nom": "Espace F1 '95",
+        "marque": "Renault",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://www.turbo.fr/sites/default/files/2024-08/Renault%20Espace%20F1-001.jpg"
+    },
+    {
+        "nom": "Zonda R '09",
+        "marque": "Pagani",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.supercars.net/blog/wp-content/uploads/2016/04/2010-Pagani-Zonda-R-001-1080.jpg"
+    },
+    {
+        "nom": "918 Spyder '13",
+        "marque": "Porsche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://www.automobile-propre.com/_next/image/?url=https%3A%2F%2Fcdn.automobile-propre.com%2Fuploads%2F2016%2F02%2Fporsche-918-spyder-0011.jpg&w=1920&q=75"
+    },
+    {
+        "nom": "LaFerrari '13",
+        "marque": "Ferrari",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://www.guide-autosport.com/wp-content/uploads/2016/07/ferrari-laferrari-cabriolet-3.jpg"
+    },
+    {
+        "nom": "FXX K '15",
+        "marque": "Ferrari",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.tomhartleyjnr.com/wp-content/uploads/2023/09/Ferrari-FXX-K-001.jpg"
+    },
+    {
+        "nom": "LFA '10",
+        "marque": "Lexus",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://preview.redd.it/lexus-lfa-comeback-a-dream-too-far-away-v0-rqmf4264u5ud1.jpg?width=640&crop=smart&auto=webp&s=e1ec8a0394274a1e622aefd99226f0c453bfbd93"
+    },
+    {
+        "nom": "Countach LP400 S '78",
+        "marque": "Lamborghini",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.gotothegrid.com/storage/ads/SDeYB1HB1KgPGmuFenu2Yy8AECdTaYBNf4hrVQZm-800.webp"
+    },
+    {
+        "nom": "Huayra '13",
+        "marque": "Pagani",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.gaw.to/content/photos/08/17/081707_Pagani_Huayra_Un_missile_sur_quatre_roues.jpg"
+    },
+    {
+        "nom": "One-77 '11",
+        "marque": "Aston Martin",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://www.topgear.com/sites/default/files/cars-car/image/2021/05/dsc08261_0.jpg"
+    },
+    {
+        "nom": "908 HDi FAP '10",
+        "marque": "Peugeot",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.endurance-info.com/sites/default/files/import/classic/20645/D-Porter-908-_7.jpg"
+    },
+    {
+        "nom": "205 Turbo 16 Evolution 2 '86",
+        "marque": "Peugeot",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://images.squarespace-cdn.com/content/v1/5caed8960cf57d49530e8c60/1606762326794-305R8G0GAB0GDQJQMFYZ/art-mg-peugeot205t16evo2a.jpg"
+    },
+    {
+        "nom": "2000GT '67",
+        "marque": "Toyota",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://www.largus.fr/images/styles/max_1300x1300/public/2023-02/Toyota-2000-GT-1967-Degeneve-001.jpg?itok=2_gDPQQb"
+    },
+    {
+        "nom": "NSX '90",
+        "marque": "Honda",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://external-preview.redd.it/aKbTda2IDpLMEHTR7OWhKw8cz-O0dUCTM-LBuRfcCys.jpg?width=640&crop=smart&auto=webp&s=dec8fadba592564a56be9980e1e461a6a705b377"
+    },
+    {
+        "nom": "DB5 '64",
+        "marque": "Aston Martin",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://images.caradisiac.com/images/0/7/7/8/200778/S0-voici-60-ans-l-aston-martin-db5-sortait-dans-une-certaine-indifference-745852.jpg"
+    },
+    {
+        "nom": "Diablo GT '00",
+        "marque": "Lamborghini",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://cdn.prod.website-files.com/662e6423ff88861916362956/67ec0cdc582cb537b2a759b0_gallery_image_0-1743523032135.webp"
+    },
+    {
+        "nom": "911 Carrera RS (901) '73",
+        "marque": "Porsche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://lautomobileancienne.com/wp-content/uploads/2018/07/Porsche-911-Carrera-RS-2.7-3.jpg"
+    },
+    {
+        "nom": "Impreza STI 22B '98",
+        "marque": "Subaru",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://sf2.sportauto.fr/wp-content/uploads/sportauto/2021/04/1615165271490238117473eb6lipman_723819.jpeg"
+    },
+    {
+        "nom": "155 2.5 V6 TI '93",
+        "marque": "Alfa Romeo",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://preview.redd.it/vbvb538hii531.jpg?auto=webp&s=ff4e7e3bc1ce615bcb3f1dfecf86a902cdc5af98"
+    },
+    {
+        "nom": "Skyline 2000GT-R '73",
+        "marque": "Nissan",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://diecastcars1.com/cdn/shop/products/image_e4742a3e-8b82-4780-b200-c1be80040627_1200x1200.jpg?v=1679328911"
+    },
+    {
+        "nom": "Skyline C10 '72",
+        "marque": "Nissan",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://img-4.linternaute.com/SvQqnSPAZ2UiOjJCJnwv0pYU-cE=/1080x720/smart/7d0709f1e50544dbbb1c5d114cac97cd/ccmcms-linternaute/10078012-16-nissan-c10-skyline-gtr-1971.jpg"
+    },
+    {
+        "nom": "Stratos '73",
+        "marque": "Lancia",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://www.lanciastratos.com/images/4.Scuderie/Lancia_Stratos-scuderie-3.jpg"
+    },
+    {
+        "nom": "DeLorean DMC-12 '81",
+        "marque": "DMC",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.goodtimers.com/fr/medias/2021/02/TeamTimeCar.com-BTTF_DeLorean_Time_Machine-OtoGodfrey.com-JMortonPhoto.com-07-1-edited.jpg"
+    },
+    {
+        "nom": "Mangusta '66",
+        "marque": "De Tomaso",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://cdn.classic-trader.com/I/images/640_480_inset/vehicle_ad_standard_image_c8ebc72dfc5a546c29647de298de9f9c.jpg"
+    },
+    {
+        "nom": "Ford GT '06",
+        "marque": "Ford",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://cdn.motor1.com/images/mgl/4OvLk/s1/2006-ford-gt-for-sale.jpg"
+    },
+    {
+        "nom": "4C '13",
+        "marque": "Alfa Romeo",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://www.automotivpress.fr/wp-content/uploads/2014/03/AR_4C_Spider_01.jpg"
+    },
+    {
+        "nom": "458 Italia '09",
+        "marque": "Ferrari",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.funcars.biz/wp-content/uploads/2023/07/1684959048-ferrari-458-002.jpg"
+    },
+    {
+        "nom": "Superbird '70",
+        "marque": "Plymouth",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://static.overfuel.com/dealers/trust-auto/image/1970-Plymouth-Superbird-1024x576.jpg"
+    },
+    {
+        "nom": "Aventador LP 700-4 '11",
+        "marque": "Lamborghini",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://johnscottiluxuryprestige.com/wp-content/uploads/2016/02/35-1643904002369.jpg"
+    },
+    {
+        "nom": "GT-R NISMO (R32) '90",
+        "marque": "Nissan",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.super-hobby.fr/zdjecia/7/9/9/10482_rd.jpg"
+    },
+    {
+        "nom": "Murciélago SV '09",
+        "marque": "Lamborghini",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://cdn.prod.website-files.com/662e6423ff88861916362956/682d18e3136df728bed2013d_gallery_image_17-1747785950541.webp"
+    },
+    {
+        "nom": "430 Scuderia '07",
+        "marque": "Ferrari",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://tcv-images.s3.eu-west-2.amazonaws.com/cars/lDMQ3dQ3hedZWZpv5BA3vILQIfvV-MjRM9NskNJ5lhukKx30mMRFOfgEFtz4A6odCuCMvcvEDZHBnimvHgK1BA.jpeg"
+    },
+    {
+        "nom": "Testarossa '91",
+        "marque": "Ferrari",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.largus.fr/images/styles/max_1300x1300/public/images/testarossa-fioravanti-avd.jpg?itok=OdwXAz9Y"
+    },
+    {
+        "nom": "SLS AMG '10",
+        "marque": "Mercedes-Benz",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Mercedes-Benz_SLS_AMG_%28C_197%29_%E2%80%93_Frontansicht_ge%C3%B6ffnet%2C_10._August_2011%2C_D%C3%BCsseldorf.jpg/1280px-Mercedes-Benz_SLS_AMG_%28C_197%29_%E2%80%93_Frontansicht_ge%C3%B6ffnet%2C_10._August_2011%2C_D%C3%BCsseldorf.jpg"
+    },
+    {
+        "nom": "GT86 '12",
+        "marque": "Toyota",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://images.caradisiac.com/logos-ref/modele/modele--toyota-gt86/S0-modele--toyota-gt86.jpg"
+    },
+    {
+        "nom": "Viper GTS '96",
+        "marque": "Dodge",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://orbiteservicesdassurances.ca/Orbit/media/Documents/Dodge_viper_gts.png"
+    },
+    {
+        "nom": "GTR R35 '07",
+        "marque": "Nissan",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://www.downshift.fr/wp-content/uploads/2018/05/Guide-achat-Nissan-GT-R-1-e1530612100740.jpg"
+    },
+    {
+        "nom": "Cayman GT4 RS '19",
+        "marque": "Porsche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://sf1.sportauto.fr/wp-content/uploads/sportauto/2022/05/mf_3580234.jpg"
+    },
+    {
+        "nom": "GR Supra '22",
+        "marque": "Toyota",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://www.auto-mag.fr/wp-content/uploads/2022/06/toyota-gr-supra-bvm-2022-01.jpg"
+    },
+    {
+        "nom": "911 (992) GT3 RS '22",
+        "marque": "Porsche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://www.asphalt-cafe.com/wp-content/uploads/2024/07/BKOS4531_edit_V01_highres-copie.webp"
+    },
+    {
+        "nom": "Fairlady Z 432 '69",
+        "marque": "Nissan",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://bringatrailer.com/wp-content/uploads/2023/12/1971_datsun_fairlady-z-432_mark_brinker_1971_datsun_z432-1-08946.jpg"
+    },
+    {
+        "nom": "190 E 2.5 - 16 Evolution II '91",
+        "marque": "Mercedes-Benz",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://res.cloudinary.com/dsxfn6o4q/image/upload/c_fill,g_center,h_467,w_624/v1660069482/kdf1zeb4nxecgsbcmec5.jpg"
+    },
+    {
+        "nom": "Delta S4 '86",
+        "marque": "Lancia",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://www.auto-forever.com/wp-content/uploads/2023/02/Sport_Delta_S4_Group-B_1986_1.jpg"
+    },
+    {
+        "nom": "S2000 '99",
+        "marque": "Honda",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://images.caradisiac.com/logos/0/2/9/3/260293/S7-honda-s2000-1999-2009-un-moteur-de-legende-des-16-000-eur-183095.jpg"
+    },
+    {
+        "nom": "RX-7 Spirit R Type A (FD) '02",
+        "marque": "Mazda",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://images.pistonheads.com/nimg/49310/rx74.jpg"
+    },
+    {
+        "nom": "Corvette (C2) '63",
+        "marque": "Chevrolet",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://media.hagerty.com/media/wp-content/uploads/2020/04/1963-Corvette-C2709-0033.jpg"
+    },
+    {
+        "nom": "Mono '16",
+        "marque": "BAC",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://p.turbosquid.com/ts-thumb/j7/iBi40D/S7/bac_mono_2014_0000/jpg/1658476144/600x600/fit_q87/e4e478fc955f2a65b7edc082eb748d6381f06828/bac_mono_2014_0000.jpg"
+    },
+    {
+        "nom": "Celica GT-FOUR '95",
+        "marque": "Toyota",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://dmodelkits.store/cdn/shop/files/CelicaPortugalNormal_c5c22598-c58a-4587-b0fb-6279afaa40b8.jpg?v=1686260587&width=1946"
+    },
+    {
+        "nom": "MP4-12C '10",
+        "marque": "McLaren",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://auto.cdn-rivamedia.com/2414/166528407-ibig.jpg"
+    },
+    {
+        "nom": "911 Turbo (930) '81",
+        "marque": "Porsche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://cdn.prod.website-files.com/63fe11299d35c575d57a5632/68f9236ecedd3a204248d3f1_Porsche-930-Turbo-3.3.webp"
+    },
+    {
+        "nom": "E-Type Coupé '61",
+        "marque": "Jaguar",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.amalgamcollection.com/cdn/shop/products/Front3.4Blend_f0b06c3f-219c-43f3-9def-74f1880fe2cb_4000x2677_crop_center.jpg?v=1624278555"
+    },
+    {
+        "nom": "Sprinter Trueno AE86 '83",
+        "marque": "Toyota",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://static.jdmexport.com/wp-content/uploads/sites/9/2022/12/08095258/toyota-ae86.jpg"
+    },
+    {
+        "nom": "Supra RZ '97",
+        "marque": "Toyota",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://bringatrailer.com/wp-content/uploads/2025/02/1997_toyota_supra_SUPRA_390-24324-scaled.jpg"
+    },
+    {
+        "nom": "Giulia Sprint GT Veloce '67",
+        "marque": "Alfa Romeo",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://carjager-dev.mo.cloudinary.net/images/production/CJVCL2611251631NYL-exteriors-TrLFxJEGjT6UZ0yF20x7b-giulia?tx=w_640"
+    },
+    {
+        "nom": "Civic Type R (EK9) '97",
+        "marque": "Honda",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://images.caradisiac.com/logos-ref/modele/modele--honda-civic-type-r/S0-modele--honda-civic-type-r.jpg"
+    },
+    {
+        "nom": "Pantera '71",
+        "marque": "De Tomaso",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://cdn-s-www.vosgesmatin.fr/images/6035e386-ca02-4488-a564-85a5cee273b2/NW_raw/l-homologation-en-groupe-4-permet-d-optimiser-la-pantera-pour-en-faire-un-vrai-monstre-de-competition-elle-atteindra-440-ch-photo-artcurial-1678356345.jpg"
+    },
+    {
+        "nom": "R8 V10 Plus '16",
+        "marque": "Audi",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/Audi_R8_-_Flickr_-_Alexandre_Pr%C3%A9vot_%28164%29.jpg"
+    },
+    {
+        "nom": "M3 E30 '89",
+        "marque": "BMW",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://www.annonces-automobile.com/images/data/actualite/main/111113.jpg"
+    },
+    {
+        "nom": "Lancer Evolution VI '99",
+        "marque": "Mitsubishi",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://images.postwarclassic.com/pics/r2w-1200x800-caradverts/493915/r-2001-mitsubishi-lancer-evo-vi-1.jpg"
+    },
+    {
+        "nom": "Charger R/T '68",
+        "marque": "Dodge",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://passionautos.com/wp-content/uploads/2022/04/1968-dodge-charger-rt-hemi-426-4spd-xs29-vin-rotisserie-restored-9.jpg"
+    },
+    {
+        "nom": "R5 Turbo '80",
+        "marque": "Renault",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.artcurial.com/item-images/FR/342/10585342_Vue.jpg?w=700&force_webp=true"
+    },
+    {
+        "nom": "A110 '72",
+        "marque": "Alpine",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.artcurial.com/item-images/FR/487/10771487_View.jpg?w=1024&force_webp=false"
+    },
+    {
+        "nom": "Camaro Z28 '69",
+        "marque": "Chevrolet",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://heacockclassic.com/wp-content/uploads/Red-1969-Chevy-Camaro-Z28-With-Black-Racing-Stripes.jpg"
+    },
+    {
+        "nom": "Supra 3.0GT Turbo A '88",
+        "marque": "Toyota",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://preview.redd.it/question-about-mk3-supra-v0-342d10ympvsb1.jpg?auto=webp&s=3bc75a32bcba1891fafa49033daab974d62c3b62"
+    },
+    {
+        "nom": "Corvette (C1) '58",
+        "marque": "Chevrolet",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Corvette-je-1958.jpg"
+    },
+    {
+        "nom": "X-BOW R '12",
+        "marque": "KTM",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://www.caterham-sv.com/wp-content/uploads/2020/03/2022-SV-Autos-KTM_X-BOW_R_3.jpg"
+    },
+    {
+        "nom": "Firebird Trans Am '78",
+        "marque": "Pontiac",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://www.voiture-de-film.fr/wp-content/uploads/trans-am-burt-reynolds-750x375.jpg"
+    },
+    {
+        "nom": "Clio V6 '01",
+        "marque": "Renault",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://www.largus.fr/images/styles/max_1300x1300/public/images/renault-clio-v6-renault-sport-2003-1280-061.jpg?itok=LRuosWAb"
+    },
+    {
+        "nom": "Lancer Evolution VIII '04",
+        "marque": "Mitsubishi",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://cdn.classic-trader.com/I/images/640_480_inset/vehicle_ad_standard_image_f091fa90cea0cccec484267764098cc2.jpg"
+    },
+    {
+        "nom": "205 GTi '88",
+        "marque": "Peugeot",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://framerusercontent.com/images/JI5TndCdfWDej0HAQ1SDMCSSLPU.jpg"
+    },
+    {
+        "nom": "Silvia (S14) '96",
+        "marque": "Nissan",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.redd.it/4k4laylk2vca1.jpg"
+    },
+    {
+        "nom": "Corvette Stingray (C3) '69",
+        "marque": "Chevrolet",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://www.spirit-oflemans.com/media/images/garage/6622/z2_6625.webp"
+    },
+    {
+        "nom": "Fairlady Z 300ZX '89",
+        "marque": "Nissan",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://preview.redd.it/nqj3oppo2k351.jpg?auto=webp&s=beead77c298457795cdc3f92d1d4b32c2dee5d8c"
+    },
+    {
+        "nom": "Avantime '02",
+        "marque": "Renault",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://public.carjager.com/content/2014/04/Concept-01.jpg"
+    },
+    {
+        "nom": "Impreza WRX STi '04",
+        "marque": "Subaru",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://bringatrailer.com/wp-content/uploads/2021/05/2004_subaru_impreza_wrx_sti_16243892890994c2522fcb1f2102004_subaru_impreza_wrx_sti_16223089118495d565ef60786992f-3970-4da9-91d7-688b652373bc-X3X2m3.jpg?fit=940%2C627"
+    },
+    {
+        "nom": "DS '70",
+        "marque": "Citroën",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://public.carjager.com/content/2018/09/Citro%C3%ABn-DS-21-04.jpg"
+    },
+    {
+        "nom": "Golf I GTI '83",
+        "marque": "Volkswagen",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://www.guide-autosport.com/wp-content/uploads/2014/01/volkswagen-golf-gti-1600-6.jpg"
+    },
+    {
+        "nom": "GR Yaris '22",
+        "marque": "Toyota",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://cdn.motor1.com/images/mgl/GMexA/s1/2020-toyota-gr-yaris.webp"
+    },
+    {
+        "nom": "Mini-Cooper 'S' '65",
+        "marque": "Mini",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://storagegohistorics.bidpath.cloud/stock/6997-0-medium.jpg?v=63847401460700"
+    },
+    {
+        "nom": "Coccinelle '68",
+        "marque": "Volkswagen",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://www.gt-vintage.com/12302-big_image/volkswagen-coccinelle-1968.jpg"
+    },
+    {
+        "nom": "R8 GORDINI '66",
+        "marque": "Renault",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://lesvoitures.fr/wp-content/uploads/2024/06/Renault-8-Gordini-1967-CARJAGER-1967-6-uai-2481x1654.png"
+    },
+    {
+        "nom": "R4 GTL '85",
+        "marque": "Renault",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://cdn.prod.website-files.com/637dd83cd93444d7a965962c/64035998a2b653db824afc32_6400c5d8b75c2053d1ba0e10_a7f126682fd6b889e5de20485602b16e.jpeg"
+    },
+    {
+        "nom": "Cappuccino '91",
+        "marque": "Suzuki",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://public.carjager.com/production/cms/SUZU_355549efbc.jpeg"
+    },
+    {
+        "nom": "500 F '68",
+        "marque": "Fiat",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://d1zlgejnyf0gxt.cloudfront.net/production/car_pictures/large/fiat-500-f-furiani-f048b2b159c89417c34b93a3e217bc54.jpg"
+    },
+    {
+        "nom": "Carry KC '12",
+        "marque": "Suzuki",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://hips.hearstapps.com/hmg-prod/images/carry-1-1631633422.jpg?crop=0.672xw:0.998xh;0.206xw,0.00244xh&resize=1200:*"
+    },
+    {
+        "nom": "Civic '92",
+        "marque": "Honda",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://images.caradisiac.com/logos-ref/modele/modele--honda-civic/S0-modele--honda-civic.jpg"
+    },
+    {
+        "nom": "2cv '77",
+        "marque": "Citroën",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/gallery/2cv-2l6AKsq"
+    },
+    {
+        "nom": "Abarth 131 '71",
+        "marque": "Fiat",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Fiat_131_Abarth%2C_Bangsaen_Speed_Festival_2007.jpg"
+    },
+    {
+        "nom": "Type 57SC Atlantic '36",
+        "marque": "Bugatti",
+        "rareté": "GOAT 🟠",
+        "poids": 1,
+        "image": "https://cdn.rmsothebys.com/e/d/6/4/e/b/ed64eb7c2182f16a6a2d6fdaa8ccef8690ddefea.webp"
+    }
+]

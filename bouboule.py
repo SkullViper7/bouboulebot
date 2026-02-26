@@ -8,11 +8,26 @@ from threading import Thread
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 import urllib.parse
+from motor.motor_asyncio import AsyncIOMotorClient
+import random
+from collections import Counter
+import json
+import asyncio
+import math
+from collections import Counter
 
 # 1. Chargement des secrets
 load_dotenv()
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 GIPHY_TOKEN = os.getenv("GIPHY_KEY")
+MONGO_URI = os.getenv("MONGO_URI")
+
+mongo_client = AsyncIOMotorClient(MONGO_URI)
+db = mongo_client["bouboule_cars"]
+collection_inventaires = db["inventaires"]
+
+with open('cars.json', 'r', encoding='utf-8') as f:
+    VOITURES = json.load(f)
 
 # 2. Serveur Web fictif pour maintenir le bot en vie
 app = Flask('')
@@ -123,6 +138,316 @@ async def crack(ctx, *, jeu: str):
     embed.add_field(name="Liens de recherche manuelle", value=f"[Voir sur Online-Fix]({url_onlinefix})\n[Voir sur FreeTP]({url_freetp})", inline=False)
     
     await ctx.send(embed=embed)
+
+@bot.command()
+@commands.cooldown(1, 3600, commands.BucketType.user)
+async def roll(ctx):
+    # 1. Préparer les poids pour le tirage
+    # On crée une liste qui contient tous les "poids" dans le même ordre que les voitures
+    # Le '10' à la fin est une sécurité : si tu oublies de mettre un poids dans ton JSON, le bot mettra 10 par défaut.
+    poids_voitures = [voiture.get("poids", 10) for voiture in VOITURES]
+
+    # 2. Tirer une voiture au hasard EN PRENANT EN COMPTE LES POIDS
+    # random.choices renvoie toujours une liste, donc on ajoute [0] pour récupérer le premier (et unique) élément
+    voiture_gagnee = random.choices(VOITURES, weights=poids_voitures, k=1)[0]
+    
+    user_id = str(ctx.author.id)
+
+    # 3. Sauvegarder dans MongoDB (Le reste ne change pas !)
+    await collection_inventaires.update_one(
+        {"_id": user_id},
+        {"$push": {"garage": f"{voiture_gagnee['marque']} {voiture_gagnee['nom']}"}},
+        upsert=True
+    )
+
+    # 4. Créer l'Embed
+    embed = discord.Embed(
+        title=f"🎰 Tu as obtenu : {voiture_gagnee['marque']} {voiture_gagnee['nom']} !", 
+        color=discord.Color.gold()
+    )
+    embed.set_image(url=voiture_gagnee['image'])
+    
+    # On peut même afficher la probabilité que le joueur avait de l'obtenir !
+    total_poids = sum(poids_voitures)
+    chance_pourcent = (voiture_gagnee.get("poids", 10) / total_poids) * 100
+    
+    embed.set_footer(text=f"Rareté : {voiture_gagnee['rareté']} (Drop rate: {chance_pourcent:.1f}%) | Appartient à {ctx.author.display_name}")
+    
+    await ctx.send(embed=embed)
+
+# --- Gestion de l'erreur si le joueur spam la commande ---
+@roll.error
+async def roll_error(ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+        minutes_restantes = int(error.retry_after // 60)
+        await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Ton prochain tirage est dispo dans **{minutes_restantes} minutes**.")
+
+# 1. On crée une "Vue" (View) qui va contenir nos boutons
+class GaragePagination(discord.ui.View):
+    def __init__(self, ctx, pages, total_voitures):
+        super().__init__(timeout=120) # Les boutons se désactivent après 2 minutes
+        self.ctx = ctx
+        self.pages = pages
+        self.total_voitures = total_voitures
+        self.current_page = 0
+        self.update_buttons()
+
+    # Met à jour l'état des boutons (grisé si on est à la première ou dernière page)
+    def update_buttons(self):
+        self.bouton_prec.disabled = self.current_page == 0
+        self.bouton_suiv.disabled = self.current_page == len(self.pages) - 1
+
+    # Construit l'Embed pour la page actuelle
+    def get_embed(self):
+        embed = discord.Embed(
+            title=f"🚗 Le Garage de {self.ctx.author.display_name}", 
+            description=self.pages[self.current_page], 
+            color=discord.Color.blue()
+        )
+        embed.set_footer(text=f"Page {self.current_page + 1}/{len(self.pages)} | Total : {self.total_voitures} voitures")
+        return embed
+
+    # Bouton Précédent
+    @discord.ui.button(label="◀️", style=discord.ButtonStyle.primary, custom_id="prec")
+    async def bouton_prec(self, interaction: discord.Interaction, button: discord.ui.Button):
+        # On vérifie que c'est bien le propriétaire du garage qui clique
+        if interaction.user != self.ctx.author:
+            await interaction.response.send_message("Ce n'est pas ton garage !", ephemeral=True)
+            return
+            
+        self.current_page -= 1
+        self.update_buttons()
+        # On met à jour le message original avec la nouvelle page
+        await interaction.response.edit_message(embed=self.get_embed(), view=self)
+
+    # Bouton Suivant
+    @discord.ui.button(label="▶️", style=discord.ButtonStyle.primary, custom_id="suiv")
+    async def bouton_suiv(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user != self.ctx.author:
+            await interaction.response.send_message("Ce n'est pas ton garage !", ephemeral=True)
+            return
+            
+        self.current_page += 1
+        self.update_buttons()
+        await interaction.response.edit_message(embed=self.get_embed(), view=self)
+
+
+# 2. La commande qui lance tout ça
+@bot.command()
+async def garage(ctx):
+    user_id = str(ctx.author.id)
+    
+    # On va chercher le profil du joueur
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    
+    if not profil or not profil.get("garage"):
+        await ctx.send(f"Ton garage est vide, {ctx.author.mention} ! Fais `!roll` pour gagner ta première voiture.")
+        return
+    
+    mes_voitures = profil["garage"]
+    inventaire_compte = Counter(mes_voitures)
+    
+    # On crée une liste avec toutes les lignes d'affichage
+    lignes_inventaire = []
+    for voiture, quantite in inventaire_compte.items():
+        if quantite > 1:
+            lignes_inventaire.append(f"• {voiture} **(x{quantite})**")
+        else:
+            lignes_inventaire.append(f"• {voiture}")
+            
+    # On découpe cette liste en morceaux (10 voitures par page)
+    lignes_par_page = 10
+    pages = []
+    for i in range(0, len(lignes_inventaire), lignes_par_page):
+        # On joint les 10 lignes avec des retours à la ligne
+        morceau = "\n".join(lignes_inventaire[i:i + lignes_par_page])
+        pages.append(morceau)
+        
+    # On initialise la vue et on envoie le premier message
+    view = GaragePagination(ctx, pages, len(mes_voitures))
+    await ctx.send(embed=view.get_embed(), view=view)
+
+@bot.command()
+async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
+    # On empêche de s'échanger à soi-même
+    if ctx.author == membre:
+        await ctx.send("Tu ne peux pas faire un échange avec toi-même !")
+        return
+
+    user_id = str(ctx.author.id)
+    target_id = str(membre.id)
+
+    # 1. Récupérer les profils dans la base de données
+    profil_user = await collection_inventaires.find_one({"_id": user_id})
+    profil_target = await collection_inventaires.find_one({"_id": target_id})
+
+    # Vérifications de base (Est-ce qu'ils ont un garage ?)
+    if not profil_user or ma_voiture not in profil_user.get("garage", []):
+        await ctx.send(f"❌ Tu ne possèdes pas la voiture **{ma_voiture}** !")
+        return
+    if not profil_target or sa_voiture not in profil_target.get("garage", []):
+        await ctx.send(f"❌ {membre.display_name} ne possède pas la voiture **{sa_voiture}** !")
+        return
+
+    # 2. Demander confirmation à l'autre joueur
+    msg = await ctx.send(f"Hey {membre.mention} ! {ctx.author.mention} te propose d'échanger sa **{ma_voiture}** contre ta **{sa_voiture}**.\nRéagis avec ✅ pour accepter ou ❌ pour refuser.")
+    await msg.add_reaction("✅")
+    await msg.add_reaction("❌")
+
+    # Fonction pour vérifier que c'est bien la bonne personne qui clique sur la réaction
+    def check(reaction, user):
+        return user == membre and str(reaction.emoji) in ["✅", "❌"] and reaction.message.id == msg.id
+
+    try:
+        # On attend la réaction pendant 60 secondes
+        reaction, user = await bot.wait_for('reaction_add', timeout=60.0, check=check)
+        
+        if str(reaction.emoji) == "✅":
+            # 3. L'échange est accepté, on modifie les inventaires en Python
+            garage_user = profil_user["garage"]
+            garage_target = profil_target["garage"]
+
+            # On retire les voitures (une seule fois au cas où il y a des doublons)
+            garage_user.remove(ma_voiture)
+            garage_target.remove(sa_voiture)
+
+            # On ajoute les nouvelles voitures
+            garage_user.append(sa_voiture)
+            garage_target.append(ma_voiture)
+
+            # 4. On sauvegarde les nouveaux garages dans MongoDB
+            await collection_inventaires.update_one({"_id": user_id}, {"$set": {"garage": garage_user}})
+            await collection_inventaires.update_one({"_id": target_id}, {"$set": {"garage": garage_target}})
+
+            await ctx.send(f"🎉 Échange réussi entre {ctx.author.mention} et {membre.mention} !")
+        else:
+            await ctx.send(f"❌ {membre.display_name} a refusé l'échange.")
+
+    except asyncio.TimeoutError:
+        await ctx.send(f"⏳ Temps écoulé, l'échange proposé par {ctx.author.mention} est annulé.")
+
+@bot.command()
+async def search(ctx, *, recherche: str):
+    # On met tout en minuscules pour faciliter la recherche (insensible à la casse)
+    recherche_lower = recherche.lower()
+
+    # 1. Vérifier si c'est une MARQUE
+    # On cherche toutes les voitures dont la marque correspond exactement
+    voitures_marque = [v for v in VOITURES if v["marque"].lower() == recherche_lower]
+    
+    if voitures_marque:
+        # Si on a trouvé des voitures pour cette marque, on crée une liste
+        description = ""
+        for v in voitures_marque:
+            description += f"• **{v['nom']}** ({v['rareté']})\n"
+        
+        embed = discord.Embed(
+            title=f"🏢 Modèles disponibles chez {voitures_marque[0]['marque']}", 
+            description=description, 
+            color=discord.Color.blue()
+        )
+        await ctx.send(embed=embed)
+        return # On arrête la commande ici puisque c'était une marque
+
+    # 2. Vérifier si c'est un MODÈLE
+    # On cherche le premier modèle dont le nom contient ce que l'utilisateur a tapé
+    modele_trouve = next((v for v in VOITURES if recherche_lower in v["nom"].lower()), None)
+
+    if modele_trouve:
+        # Le nom exact tel qu'il est sauvegardé dans la base de données
+        nom_complet = f"{modele_trouve['marque']} {modele_trouve['nom']}"
+        
+        # On demande à MongoDB de trouver tous les joueurs qui ont ce nom exact dans leur liste "garage"
+        curseur = collection_inventaires.find({"garage": nom_complet})
+        docs = await curseur.to_list(length=100) # On limite à 100 au cas où tout le serveur l'aurait
+        
+        proprietaires_mentions = []
+        for doc in docs:
+            # En Discord, écrire <@ID_DU_JOUEUR> affiche directement sa mention/son pseudo !
+            proprietaires_mentions.append(f"<@{doc['_id']}>")
+
+        # On formate le texte des propriétaires
+        if proprietaires_mentions:
+            texte_proprietaires = ", ".join(proprietaires_mentions)
+        else:
+            texte_proprietaires = "Personne ne possède ce bijou pour le moment... 😢"
+
+        # On crée l'Embed final pour la voiture
+        embed = discord.Embed(
+            title=f"🔍 {nom_complet}", 
+            color=discord.Color.green()
+        )
+        embed.set_image(url=modele_trouve['image'])
+        embed.add_field(name="Rareté", value=modele_trouve['rareté'], inline=True)
+        embed.add_field(name="Propriétaires", value=texte_proprietaires, inline=False)
+        
+        await ctx.send(embed=embed)
+        return
+
+    # 3. Si la recherche n'a rien donné du tout
+    await ctx.send(f"❌ Je n'ai trouvé aucune marque ni aucun modèle correspondant à **{recherche}** dans le catalogue.")
+
+# 1. La Vue (View) pour les boutons du catalogue
+class CataloguePagination(discord.ui.View):
+    def __init__(self, ctx, pages):
+        super().__init__(timeout=120)
+        self.ctx = ctx
+        self.pages = pages
+        self.current_page = 0
+        self.update_buttons()
+
+    def update_buttons(self):
+        # Désactive le bouton Précédent sur la première page, et Suivant sur la dernière
+        self.bouton_prec.disabled = self.current_page == 0
+        self.bouton_suiv.disabled = self.current_page == len(self.pages) - 1
+
+    def get_embed(self):
+        embed = discord.Embed(
+            title="📖 Catalogue officiel du Garage", 
+            description=self.pages[self.current_page], 
+            color=discord.Color.dark_theme()
+        )
+        embed.set_footer(text=f"Page {self.current_page + 1}/{len(self.pages)} | Total : {len(VOITURES)} modèles disponibles")
+        return embed
+
+    @discord.ui.button(label="◀️", style=discord.ButtonStyle.secondary, custom_id="cat_prec")
+    async def bouton_prec(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.current_page -= 1
+        self.update_buttons()
+        await interaction.response.edit_message(embed=self.get_embed(), view=self)
+
+    @discord.ui.button(label="▶️", style=discord.ButtonStyle.secondary, custom_id="cat_suiv")
+    async def bouton_suiv(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.current_page += 1
+        self.update_buttons()
+        await interaction.response.edit_message(embed=self.get_embed(), view=self)
+
+
+# 2. La commande pour lancer le catalogue
+@bot.command(aliases=["catalog", "liste", "voitures"])
+async def catalogue(ctx):
+    if not VOITURES:
+        await ctx.send("Le catalogue est vide pour le moment !")
+        return
+
+    # On trie les voitures par Marque, puis par Nom (ordre alphabétique)
+    voitures_triees = sorted(VOITURES, key=lambda x: (x['marque'], x['nom']))
+    
+    lignes_catalogue = []
+    for v in voitures_triees:
+        # Format de l'affichage : **Renault** Twingo 1 - Commun ⚪
+        lignes_catalogue.append(f"**{v['marque']}** {v['nom']} - *{v['rareté']}*")
+
+    # On découpe en pages de 15 voitures
+    lignes_par_page = 15
+    pages = []
+    for i in range(0, len(lignes_catalogue), lignes_par_page):
+        morceau = "\n".join(lignes_catalogue[i:i + lignes_par_page])
+        pages.append(morceau)
+        
+    # On envoie le message avec les boutons
+    view = CataloguePagination(ctx, pages)
+    await ctx.send(embed=view.get_embed(), view=view)
 
 # 4. Lancement
 if __name__ == "__main__":
