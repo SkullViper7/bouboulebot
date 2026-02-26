@@ -182,49 +182,45 @@ async def roll_error(ctx, error):
         minutes_restantes = int(error.retry_after // 60)
         await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Ton prochain tirage est dispo dans **{minutes_restantes} minutes**.")
 
-# 1. On crée une "Vue" (View) qui va contenir nos boutons
+# 1. La Vue mise à jour pour accepter un "target_member" (le propriétaire du garage qu'on regarde)
 class GaragePagination(discord.ui.View):
-    def __init__(self, ctx, pages, total_voitures):
-        super().__init__(timeout=120) # Les boutons se désactivent après 2 minutes
+    def __init__(self, ctx, pages, total_voitures, target_member):
+        super().__init__(timeout=120)
         self.ctx = ctx
         self.pages = pages
         self.total_voitures = total_voitures
+        self.target_member = target_member # Le joueur qu'on inspecte
         self.current_page = 0
         self.update_buttons()
 
-    # Met à jour l'état des boutons (grisé si on est à la première ou dernière page)
     def update_buttons(self):
         self.bouton_prec.disabled = self.current_page == 0
         self.bouton_suiv.disabled = self.current_page == len(self.pages) - 1
 
-    # Construit l'Embed pour la page actuelle
     def get_embed(self):
         embed = discord.Embed(
-            title=f"🚗 Le Garage de {self.ctx.author.display_name}", 
+            title=f"🚗 Le Garage de {self.target_member.display_name}", 
             description=self.pages[self.current_page], 
             color=discord.Color.blue()
         )
         embed.set_footer(text=f"Page {self.current_page + 1}/{len(self.pages)} | Total : {self.total_voitures} voitures")
         return embed
 
-    # Bouton Précédent
     @discord.ui.button(label="◀️", style=discord.ButtonStyle.primary, custom_id="prec")
     async def bouton_prec(self, interaction: discord.Interaction, button: discord.ui.Button):
-        # On vérifie que c'est bien le propriétaire du garage qui clique
+        # On vérifie que c'est bien celui qui a TAPÉ la commande qui clique
         if interaction.user != self.ctx.author:
-            await interaction.response.send_message("Ce n'est pas ton garage !", ephemeral=True)
+            await interaction.response.send_message("Ce n'est pas toi qui a demandé à voir ce garage !", ephemeral=True)
             return
             
         self.current_page -= 1
         self.update_buttons()
-        # On met à jour le message original avec la nouvelle page
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
-    # Bouton Suivant
     @discord.ui.button(label="▶️", style=discord.ButtonStyle.primary, custom_id="suiv")
     async def bouton_suiv(self, interaction: discord.Interaction, button: discord.ui.Button):
         if interaction.user != self.ctx.author:
-            await interaction.response.send_message("Ce n'est pas ton garage !", ephemeral=True)
+            await interaction.response.send_message("Ce n'est pas toi qui a demandé à voir ce garage !", ephemeral=True)
             return
             
         self.current_page += 1
@@ -232,22 +228,28 @@ class GaragePagination(discord.ui.View):
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
 
-# 2. La commande qui lance tout ça
+# 2. La nouvelle commande !garage
+# "membre: discord.Member = None" signifie que si on ne tague personne, la valeur est vide par défaut
 @bot.command()
-async def garage(ctx):
-    user_id = str(ctx.author.id)
+async def garage(ctx, membre: discord.Member = None):
+    # Si aucun membre n'est mentionné, on cible l'auteur du message
+    cible = membre or ctx.author
+    user_id = str(cible.id)
     
-    # On va chercher le profil du joueur
+    # On va chercher le profil du joueur ciblé
     profil = await collection_inventaires.find_one({"_id": user_id})
     
+    # Si le profil n'existe pas ou que le garage est vide
     if not profil or not profil.get("garage"):
-        await ctx.send(f"Ton garage est vide, {ctx.author.mention} ! Fais `!roll` pour gagner ta première voiture.")
+        if cible == ctx.author:
+            await ctx.send(f"Ton garage est vide, {ctx.author.mention} ! Fais `!roll` pour gagner ta première voiture.")
+        else:
+            await ctx.send(f"Le garage de **{cible.display_name}** est complètement vide pour le moment !")
         return
     
     mes_voitures = profil["garage"]
     inventaire_compte = Counter(mes_voitures)
     
-    # On crée une liste avec toutes les lignes d'affichage
     lignes_inventaire = []
     for voiture, quantite in inventaire_compte.items():
         if quantite > 1:
@@ -255,18 +257,16 @@ async def garage(ctx):
         else:
             lignes_inventaire.append(f"• {voiture}")
             
-    # On découpe cette liste en morceaux (10 voitures par page)
     lignes_par_page = 10
     pages = []
     for i in range(0, len(lignes_inventaire), lignes_par_page):
-        # On joint les 10 lignes avec des retours à la ligne
         morceau = "\n".join(lignes_inventaire[i:i + lignes_par_page])
         pages.append(morceau)
         
-    # On initialise la vue et on envoie le premier message
-    view = GaragePagination(ctx, pages, len(mes_voitures))
+    # On initialise la vue en passant le membre "cible" pour le titre de l'Embed
+    view = GaragePagination(ctx, pages, len(mes_voitures), cible)
     await ctx.send(embed=view.get_embed(), view=view)
-
+    
 @bot.command()
 async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
     # On empêche de s'échanger à soi-même
