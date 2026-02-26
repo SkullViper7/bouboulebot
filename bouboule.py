@@ -266,7 +266,7 @@ async def garage(ctx, membre: discord.Member = None):
     # On initialise la vue en passant le membre "cible" pour le titre de l'Embed
     view = GaragePagination(ctx, pages, len(mes_voitures), cible)
     await ctx.send(embed=view.get_embed(), view=view)
-    
+
 @bot.command()
 async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
     # On empêche de s'échanger à soi-même
@@ -448,6 +448,58 @@ async def catalogue(ctx):
     # On envoie le message avec les boutons
     view = CataloguePagination(ctx, pages)
     await ctx.send(embed=view.get_embed(), view=view)
+
+@bot.command(aliases=["commandes", "menu", "aide"])
+async def cmd(ctx):
+    embed = discord.Embed(
+        title="🛠️ Liste des commandes de Bouboule",
+        description="Voici tout ce que je peux faire pour l'instant :",
+        color=discord.Color.blurple()
+    )
+    
+    # --- Section Gacha / Voitures ---
+    embed.add_field(
+        name="🎰 `!roll`", 
+        value="Tire une voiture au hasard pour l'ajouter à ton garage (1 fois par heure).", 
+        inline=False
+    )
+    embed.add_field(
+        name="🚗 `!garage [@pseudo]`", 
+        value="Affiche ton garage. Tu peux mentionner quelqu'un pour voir le sien !", 
+        inline=False
+    )
+    embed.add_field(
+        name="🤝 `!trade @pseudo \"Ma Voiture\" \"Sa Voiture\"`", 
+        value="Propose un échange avec un joueur. *N'oublie pas les guillemets !*", 
+        inline=False
+    )
+    embed.add_field(
+        name="🔍 `!voiture [modèle ou marque]`", 
+        value="Cherche une voiture pour voir à quoi elle ressemble et qui la possède. *(Alias: `!search`)*", 
+        inline=False
+    )
+    embed.add_field(
+        name="📖 `!catalogue`", 
+        value="Affiche la liste complète de toutes les voitures disponibles dans le jeu. *(Alias: `!liste`)*", 
+        inline=False
+    )
+
+    # --- Section Fun & Utilitaires (Tes anciennes commandes) ---
+    embed.add_field(
+        name="💩 `!shit @pseudo`", 
+        value="Bouboule lâche une caisse sur la personne mentionnée avec un GIF aléatoire.", 
+        inline=False
+    )
+    embed.add_field(
+        name="🏴‍☠️ `!crack [nom du jeu]`", 
+        value="Cherche un jeu cracké sur les réseaux russes (Online-fix / FreeTP).", 
+        inline=False
+    )
+    
+    embed.set_footer(text="Développé avec amour (et un peu de cambouis) ⚙️")
+    embed.set_thumbnail(url=bot.user.avatar.url if bot.user.avatar else None) # Ajoute la photo de profil de ton bot en haut à droite !
+
+    await ctx.send(embed=embed)
 
 # 4. Lancement
 if __name__ == "__main__":
