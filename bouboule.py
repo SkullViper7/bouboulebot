@@ -142,39 +142,57 @@ async def crack(ctx, *, jeu: str):
 @bot.command()
 @commands.cooldown(1, 3600, commands.BucketType.user)
 async def roll(ctx):
-    # 1. Préparer les poids pour le tirage
-    # On crée une liste qui contient tous les "poids" dans le même ordre que les voitures
-    # Le '10' à la fin est une sécurité : si tu oublies de mettre un poids dans ton JSON, le bot mettra 10 par défaut.
-    poids_voitures = [voiture.get("poids", 10) for voiture in VOITURES]
-
-    # 2. Tirer une voiture au hasard EN PRENANT EN COMPTE LES POIDS
-    # random.choices renvoie toujours une liste, donc on ajoute [0] pour récupérer le premier (et unique) élément
-    voiture_gagnee = random.choices(VOITURES, weights=poids_voitures, k=1)[0]
-    
     user_id = str(ctx.author.id)
 
-    # 3. Sauvegarder dans MongoDB (Le reste ne change pas !)
+    # 1. Récupérer l'inventaire actuel du joueur
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    # Si le profil existe on prend son garage, sinon on crée une liste vide
+    voitures_possedees = profil.get("garage", []) if profil else []
+
+    # 2. Filtrer le catalogue pour ne garder que les voitures NON possédées
+    voitures_disponibles = []
+    poids_disponibles = []
+
+    for voiture in VOITURES:
+        nom_complet = f"{voiture['marque']} {voiture['nom']}"
+        # On vérifie si la voiture N'EST PAS dans le garage du joueur
+        if nom_complet not in voitures_possedees:
+            voitures_disponibles.append(voiture)
+            poids_disponibles.append(voiture.get("poids", 10))
+
+    # 3. Vérifier s'il reste des voitures à gagner
+    if not voitures_disponibles:
+        # On annule le cooldown (temps d'attente) pour ne pas le punir pour rien
+        ctx.command.reset_cooldown(ctx)
+        await ctx.send(f"🏆 Incroyable {ctx.author.mention}, tu possèdes déjà **TOUTES** les voitures du jeu ! Attends une mise à jour.")
+        return
+
+    # 4. Tirer une voiture parmi celles RESTANTES (en prenant en compte les poids)
+    voiture_gagnee = random.choices(voitures_disponibles, weights=poids_disponibles, k=1)[0]
+    nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']}"
+
+    # 5. Sauvegarder dans MongoDB
     await collection_inventaires.update_one(
         {"_id": user_id},
-        {"$push": {"garage": f"{voiture_gagnee['marque']} {voiture_gagnee['nom']}"}},
+        {"$push": {"garage": nom_complet_gagnee}},
         upsert=True
     )
 
-    # 4. Créer l'Embed
+    # 6. Créer l'Embed
     embed = discord.Embed(
-        title=f"🎰 Tu as obtenu : {voiture_gagnee['marque']} {voiture_gagnee['nom']} !", 
+        title=f"🎰 Tu as obtenu : {nom_complet_gagnee} !", 
         color=discord.Color.gold()
     )
     embed.set_image(url=voiture_gagnee['image'])
     
-    # On peut même afficher la probabilité que le joueur avait de l'obtenir !
-    total_poids = sum(poids_voitures)
+    # On calcule les probabilités par rapport aux voitures qu'il restait à tirer
+    total_poids = sum(poids_disponibles)
     chance_pourcent = (voiture_gagnee.get("poids", 10) / total_poids) * 100
     
-    embed.set_footer(text=f"Rareté : {voiture_gagnee['rareté']} (Drop rate: {chance_pourcent:.1f}%) | Appartient à {ctx.author.display_name}")
+    embed.set_footer(text=f"Rareté : {voiture_gagnee['rareté']} (Drop rate actuel : {chance_pourcent:.1f}%) | Appartient à {ctx.author.display_name}")
     
     await ctx.send(embed=embed)
-
+    
 # --- Gestion de l'erreur si le joueur spam la commande ---
 @roll.error
 async def roll_error(ctx, error):
@@ -287,7 +305,7 @@ async def garage(ctx, membre: discord.Member = None):
     # On initialise la vue avec notre nouvelle liste d'objets "voiture"
     view = GaragePagination(ctx, pages_voitures, len(mes_voitures), cible)
     await ctx.send(embed=view.get_embed(), view=view)
-    
+
 @bot.command()
 async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
     # On empêche de s'échanger à soi-même
