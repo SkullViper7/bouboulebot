@@ -375,6 +375,37 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
     except asyncio.TimeoutError:
         await ctx.send(f"⏳ Temps écoulé, l'échange proposé par {ctx.author.mention} est annulé.")
 
+@bot.command(aliases=["jeter", "poubelle", "vendre"])
+async def sell(ctx, *, voiture_a_vendre: str):
+    user_id = str(ctx.author.id)
+
+    # 1. On va chercher l'inventaire du joueur
+    profil = await collection_inventaires.find_one({"_id": user_id})
+
+    # 2. Vérification : est-ce qu'il a un garage ?
+    if not profil or not profil.get("garage"):
+        await ctx.send(f"❌ Ton garage est complètement vide, {ctx.author.mention} !")
+        return
+
+    garage = profil["garage"]
+
+    # 3. Vérification : est-ce qu'il possède bien CETTE voiture ?
+    if voiture_a_vendre not in garage:
+        await ctx.send(f"❌ Tu ne possèdes pas la voiture **{voiture_a_vendre}** ! (Vérifie bien les majuscules et les espaces en faisant `!garage`)")
+        return
+
+    # 4. On retire la voiture de son inventaire
+    garage.remove(voiture_a_vendre)
+
+    # 5. On sauvegarde le nouvel inventaire allégé dans MongoDB
+    await collection_inventaires.update_one(
+        {"_id": user_id},
+        {"$set": {"garage": garage}}
+    )
+
+    # 6. Message de confirmation
+    await ctx.send(f"🗑️ C'est fait {ctx.author.mention} ! Tu t'es débarrassé de ta **{voiture_a_vendre}**. Elle est de nouveau disponible dans ta pioche.")
+
 @bot.command()
 async def search(ctx, *, recherche: str):
     # On met tout en minuscules pour faciliter la recherche (insensible à la casse)
