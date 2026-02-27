@@ -155,8 +155,8 @@ async def roll(ctx):
         temps_ecoule = maintenant - profil["last_roll"]
         if temps_ecoule < cooldown_secondes:
             temps_restant = int(cooldown_secondes - temps_ecoule)
-            minutes = temps_restant // 60
-            secondes = temps_restant % 60
+            minutes = temps_restant // 3600
+            secondes = (temps_restant % 3600) // 60
             await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Ton prochain tirage est dispo dans **{minutes} minutes et {secondes} secondes**.")
             return # On arrête la commande ici
 
@@ -563,13 +563,13 @@ async def timer(ctx):
         return
 
     maintenant = time.time()
-    cooldown_secondes = 3600
+    cooldown_secondes = 43200
     temps_ecoule = maintenant - profil["last_roll"]
     
     if temps_ecoule < cooldown_secondes:
         temps_restant = int(cooldown_secondes - temps_ecoule)
-        minutes = temps_restant // 60
-        secondes = temps_restant % 60
+        minutes = temps_restant // 3600
+        secondes = (temps_restant % 3600) // 60
         await ctx.send(f"⏳ Patience {ctx.author.mention} ! Ton prochain tirage sera disponible dans **{minutes} minutes et {secondes} secondes**.")
     else:
         await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton tirage est prêt ! Fais `!roll` pour tenter ta chance.")
