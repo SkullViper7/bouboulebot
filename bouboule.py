@@ -608,49 +608,76 @@ async def cmd(ctx):
     # --- Section Gacha / Voitures ---
     embed.add_field(
         name="🎰 `!roll`", 
-        value="Tire une voiture au hasard pour l'ajouter à ton garage (1 fois par heure).", 
+        value="Tire une voiture au hasard (2 fois par jour).", 
         inline=False
     )
     embed.add_field(
         name="🚗 `!garage [@pseudo]`", 
-        value="Affiche ton garage. Tu peux mentionner quelqu'un pour voir le sien !", 
+        value="Affiche ton garage et ton solde. Tu peux mentionner quelqu'un !", 
+        inline=False
+    )
+    embed.add_field(
+        name="⏳ `!timer`", 
+        value="Affiche le temps restant avant ton prochain `!roll` gratuit.", 
         inline=False
     )
     embed.add_field(
         name="🛒 `!sell [Ma voiture]`", 
-        value="Vends ta voiture. *Pas de guillemets !*", 
+        value="Vends ta voiture au concessionnaire contre des 🪙. *(Alias: !vendre)*", 
         inline=False
     )
     embed.add_field(
         name="🤝 `!trade @pseudo \"Ma Voiture\" \"Sa Voiture\"`", 
-        value="Propose un échange avec un joueur. *N'oublie pas les guillemets !*", 
+        value="Propose un échange. *N'oublie pas les guillemets !*", 
         inline=False
     )
     embed.add_field(
         name="🔍 `!voiture [modèle ou marque]`", 
-        value="Cherche une voiture pour voir à quoi elle ressemble et qui la possède. *(Alias: `!search`)*", 
+        value="Cherche une voiture pour voir à quoi elle ressemble. *(Alias: !search)*", 
         inline=False
     )
     embed.add_field(
         name="📖 `!catalogue`", 
-        value="Affiche la liste complète de toutes les voitures disponibles dans le jeu. *(Alias: `!liste`)*", 
+        value="Affiche la liste complète des voitures disponibles. *(Alias: !liste)*", 
         inline=False
     )
 
-    # --- Section Fun & Utilitaires (Tes anciennes commandes) ---
+    # --- Section Économie & Compétition ---
+    embed.add_field(
+        name="💸 `!daily`", 
+        value="Récupère ton salaire de 500 🪙 toutes les 24h.", 
+        inline=False
+    )
+    embed.add_field(
+        name="💳 `!solde [@pseudo]`", 
+        value="Regarde combien d'argent tu as en banque. *(Alias: !argent)*", 
+        inline=False
+    )
+    embed.add_field(
+        name="🎟️ `!buyroll`", 
+        value="Achète un tirage supplémentaire immédiat pour 1500 🪙.", 
+        inline=False
+    )
+    embed.add_field(
+        name="🏆 `!top`", 
+        value="Affiche le classement des joueurs les plus riches et des plus gros garages.", 
+        inline=False
+    )
+
+    # --- Section Fun & Utilitaires ---
     embed.add_field(
         name="💩 `!shit @pseudo`", 
-        value="Bouboule lâche une caisse sur la personne mentionnée avec un GIF aléatoire.", 
+        value="Bouboule lâche une caisse sur la personne mentionnée.", 
         inline=False
     )
     embed.add_field(
         name="🏴‍☠️ `!crack [nom du jeu]`", 
-        value="Cherche un jeu cracké sur les réseaux russes (Online-fix / FreeTP).", 
+        value="Cherche un jeu cracké sur les réseaux russes.", 
         inline=False
     )
     
     embed.set_footer(text="Développé avec amour (et un peu de cambouis) ⚙️")
-    embed.set_thumbnail(url=bot.user.avatar.url if bot.user.avatar else None) # Ajoute la photo de profil de ton bot en haut à droite !
+    embed.set_thumbnail(url=bot.user.avatar.url if bot.user.avatar else None)
 
     await ctx.send(embed=embed)
 #endregion
