@@ -192,7 +192,7 @@ async def roll(ctx):
     embed.set_footer(text=f"Rareté : {voiture_gagnee['rareté']} (Drop rate actuel : {chance_pourcent:.1f}%) | Appartient à {ctx.author.display_name}")
     
     await ctx.send(embed=embed)
-    
+
 # --- Gestion de l'erreur si le joueur spam la commande ---
 @roll.error
 async def roll_error(ctx, error):
@@ -539,6 +539,22 @@ async def cmd(ctx):
     embed.set_thumbnail(url=bot.user.avatar.url if bot.user.avatar else None) # Ajoute la photo de profil de ton bot en haut à droite !
 
     await ctx.send(embed=embed)
+
+@bot.command(aliases=["cd", "cooldown", "temps"])
+async def timer(ctx):
+    # 1. On récupère l'objet de la commande 'roll'
+    cmd_roll = bot.get_command('roll')
+    
+    # 2. On demande à Discord combien de temps il reste pour cet utilisateur (en secondes)
+    temps_restant = cmd_roll.get_cooldown_retry_after(ctx)
+    
+    # 3. On affiche la réponse correspondante
+    if temps_restant > 0:
+        minutes = int(temps_restant // 60)
+        secondes = int(temps_restant % 60)
+        await ctx.send(f"⏳ Patience {ctx.author.mention} ! Ton prochain tirage sera disponible dans **{minutes} minutes et {secondes} secondes**.")
+    else:
+        await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton tirage est prêt ! Fais `!roll` pour tenter ta chance.")
 
 # 4. Lancement
 if __name__ == "__main__":
