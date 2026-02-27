@@ -782,7 +782,7 @@ async def buyroll(ctx):
 
 #region leaderboard
 @bot.command(aliases=["top", "lb", "classement", "leaderboard"])
-async def leaderboard(ctx):
+async def toplist(ctx):
     # 1. On récupère tous les profils de la base de données (limité à 1000 joueurs pour éviter les crashs)
     profils = await collection_inventaires.find({}).to_list(length=1000)
 
