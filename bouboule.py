@@ -649,6 +649,11 @@ async def cmd(ctx):
         inline=False
     )
     embed.add_field(
+        name="⏱️ `!dailytimer`", 
+        value="Affiche le temps restant avant ton prochain salaire. *(Alias: !dtimer)*", 
+        inline=False
+    )
+    embed.add_field(
         name="💳 `!solde [@pseudo]`", 
         value="Regarde combien d'argent tu as en banque. *(Alias: !argent)*", 
         inline=False
@@ -706,6 +711,33 @@ async def timer(ctx):
         await ctx.send(f"⏳ Patience {ctx.author.mention} ! Ton prochain tirage sera disponible dans **{heures}h et {minutes}m**.")
     else:
         await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton tirage est prêt ! Fais `!roll` pour tenter ta chance.")
+#endregion
+
+#region dailytimer
+@bot.command(aliases=["dtimer", "dailycd", "tempsdaily"])
+async def dailytimer(ctx):
+    user_id = str(ctx.author.id)
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    
+    # Si le joueur n'a jamais fait de daily
+    if not profil or "last_daily" not in profil:
+        await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton salaire est prêt ! Fais `!daily` pour le récupérer.")
+        return
+
+    maintenant = time.time()
+    cooldown_daily = 86400 # 24 heures en secondes
+    temps_ecoule = maintenant - profil["last_daily"]
+    
+    if temps_ecoule < cooldown_daily:
+        temps_restant = int(cooldown_daily - temps_ecoule)
+        
+        # Le calcul des heures et des minutes
+        heures = temps_restant // 3600
+        minutes = (temps_restant % 3600) // 60
+        
+        await ctx.send(f"⏳ Patience {ctx.author.mention} ! Ton prochain salaire sera disponible dans **{heures}h et {minutes}m**.")
+    else:
+        await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton salaire est prêt ! Fais `!daily` pour le récupérer.")
 #endregion
 
 #region argent
