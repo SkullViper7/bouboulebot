@@ -54,19 +54,19 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 # --- ÉCONOMIE ---
 PRIX_REVENTE = {
-    "Commune ⚪": 100,
+    "Commun ⚪": 100,
     "Rare 🔵": 500,
     "Mythique 🟣": 2500,
     "Légendaire 🟡": 5000,
-    "GOAT 👑": 20000
+    "GOAT 🔴": 20000
 }
 # --- COULEURS DES RARETÉS ---
 COULEURS_RARETE = {
-    "Commune ⚪": discord.Color.light_grey(),
+    "Commun ⚪": discord.Color.light_grey(),
     "Rare 🔵": discord.Color.blue(),
     "Mythique 🟣": discord.Color.dark_purple(),
     "Légendaire 🟡": discord.Color.gold(),
-    "GOAT 👑": discord.Color.red()
+    "GOAT 🔴": discord.Color.red()
 }
 
 #region gifhy
