@@ -17,6 +17,7 @@ import math
 from collections import Counter
 import time
 
+#region Init
 # 1. Chargement des secrets
 load_dotenv()
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
@@ -49,7 +50,9 @@ intents.message_content = True
 intents.members = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
+#endregion
 
+#region gifhy
 async def get_giphy_gif(tag_term):
     """Cherche un GIF UNIQUE et ALÉATOIRE sur Giphy via l'endpoint random"""
     url = "https://api.giphy.com/v1/gifs/random"
@@ -68,7 +71,9 @@ async def get_giphy_gif(tag_term):
                     # L'endpoint random renvoie directement UN seul objet
                     return data['data']['images']['original']['url']
             return None
+#endregion
 
+#region shit
 @bot.command()
 async def shit(ctx, membre: discord.Member):
     gif_url = await get_giphy_gif("poop")
@@ -77,7 +82,9 @@ async def shit(ctx, membre: discord.Member):
         await ctx.send(gif_url) # Discord intègre automatiquement le lien
     else:
         await ctx.send("Pas de chiasse pour cette fois...")
+#endregion
 
+#region crack
 @bot.command()
 async def crack(ctx, *, jeu: str):
     """Cherche un jeu sur Online-fix et FreeTP"""
@@ -139,7 +146,9 @@ async def crack(ctx, *, jeu: str):
     embed.add_field(name="Liens de recherche manuelle", value=f"[Voir sur Online-Fix]({url_onlinefix})\n[Voir sur FreeTP]({url_freetp})", inline=False)
     
     await ctx.send(embed=embed)
+#endregion
 
+#region roll
 @bot.command()
 # On a supprimé le @commands.cooldown d'ici !
 async def roll(ctx):
@@ -209,7 +218,9 @@ async def roll_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         minutes_restantes = int(error.retry_after // 60)
         await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Ton prochain tirage est dispo dans **{minutes_restantes} minutes**.")
+#endregion
 
+#region garage
 # 1. La Vue mise à jour pour afficher 1 voiture par page
 class GaragePagination(discord.ui.View):
     def __init__(self, ctx, pages, total_voitures, target_member):
@@ -315,7 +326,9 @@ async def garage(ctx, membre: discord.Member = None):
     # On initialise la vue avec notre nouvelle liste d'objets "voiture"
     view = GaragePagination(ctx, pages_voitures, len(mes_voitures), cible)
     await ctx.send(embed=view.get_embed(), view=view)
+#endregion
 
+#region trade
 @bot.command()
 async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
     # On empêche de s'échanger à soi-même
@@ -374,7 +387,9 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
 
     except asyncio.TimeoutError:
         await ctx.send(f"⏳ Temps écoulé, l'échange proposé par {ctx.author.mention} est annulé.")
+#endregion
 
+#region sell
 @bot.command(aliases=["jeter", "poubelle", "vendre"])
 async def sell(ctx, *, voiture_a_vendre: str):
     user_id = str(ctx.author.id)
@@ -382,30 +397,49 @@ async def sell(ctx, *, voiture_a_vendre: str):
     # 1. On va chercher l'inventaire du joueur
     profil = await collection_inventaires.find_one({"_id": user_id})
 
-    # 2. Vérification : est-ce qu'il a un garage ?
     if not profil or not profil.get("garage"):
         await ctx.send(f"❌ Ton garage est complètement vide, {ctx.author.mention} !")
         return
 
     garage = profil["garage"]
 
-    # 3. Vérification : est-ce qu'il possède bien CETTE voiture ?
     if voiture_a_vendre not in garage:
         await ctx.send(f"❌ Tu ne possèdes pas la voiture **{voiture_a_vendre}** ! (Vérifie bien les majuscules et les espaces en faisant `!garage`)")
         return
 
-    # 4. On retire la voiture de son inventaire
-    garage.remove(voiture_a_vendre)
+    # 2. Demande de confirmation avec un message clair
+    msg = await ctx.send(f"⚠️ {ctx.author.mention}, es-tu **sûr et certain** de vouloir jeter ta **{voiture_a_vendre}** ?\nElle retournera dans la pioche globale.\n\n*Réagis avec ✅ pour confirmer ou ❌ pour annuler.*")
+    await msg.add_reaction("✅")
+    await msg.add_reaction("❌")
 
-    # 5. On sauvegarde le nouvel inventaire allégé dans MongoDB
-    await collection_inventaires.update_one(
-        {"_id": user_id},
-        {"$set": {"garage": garage}}
-    )
+    # Fonction pour s'assurer que seul l'auteur de la commande peut cliquer
+    def check(reaction, user):
+        return user == ctx.author and str(reaction.emoji) in ["✅", "❌"] and reaction.message.id == msg.id
 
-    # 6. Message de confirmation
-    await ctx.send(f"🗑️ C'est fait {ctx.author.mention} ! Tu t'es débarrassé de ta **{voiture_a_vendre}**. Elle est de nouveau disponible dans ta pioche.")
+    try:
+        # 3. On attend la réaction du joueur (timeout de 30 secondes)
+        reaction, user = await bot.wait_for('reaction_add', timeout=30.0, check=check)
+        
+        if str(reaction.emoji) == "✅":
+            # Le joueur a confirmé, on supprime !
+            garage.remove(voiture_a_vendre)
 
+            await collection_inventaires.update_one(
+                {"_id": user_id},
+                {"$set": {"garage": garage}}
+            )
+
+            await ctx.send(f"🗑️ C'est fait {ctx.author.mention} ! Tu t'es débarrassé de ta **{voiture_a_vendre}**.")
+        else:
+            # Le joueur a cliqué sur la croix
+            await ctx.send(f"❌ Vente annulée. Tu gardes ta **{voiture_a_vendre}** bien au chaud !")
+
+    except asyncio.TimeoutError:
+        # Le joueur a mis trop de temps à répondre
+        await ctx.send(f"⏳ Temps écoulé, la vente de ta **{voiture_a_vendre}** est annulée.")
+#endregion
+
+#region search
 @bot.command()
 async def search(ctx, *, recherche: str):
     # On met tout en minuscules pour faciliter la recherche (insensible à la casse)
@@ -466,7 +500,9 @@ async def search(ctx, *, recherche: str):
 
     # 3. Si la recherche n'a rien donné du tout
     await ctx.send(f"❌ Je n'ai trouvé aucune marque ni aucun modèle correspondant à **{recherche}** dans le catalogue.")
+#endregion
 
+#region catalogue
 # 1. La Vue (View) pour les boutons du catalogue
 class CataloguePagination(discord.ui.View):
     def __init__(self, ctx, pages):
@@ -528,7 +564,9 @@ async def catalogue(ctx):
     # On envoie le message avec les boutons
     view = CataloguePagination(ctx, pages)
     await ctx.send(embed=view.get_embed(), view=view)
+#endregion
 
+#region commandes
 @bot.command(aliases=["commandes", "menu", "aide"])
 async def cmd(ctx):
     embed = discord.Embed(
@@ -546,6 +584,11 @@ async def cmd(ctx):
     embed.add_field(
         name="🚗 `!garage [@pseudo]`", 
         value="Affiche ton garage. Tu peux mentionner quelqu'un pour voir le sien !", 
+        inline=False
+    )
+    embed.add_field(
+        name="🛒 `!sell [Ma voiture]`", 
+        value="Vends ta voiture. *Pas de guillemets !*", 
         inline=False
     )
     embed.add_field(
@@ -580,7 +623,9 @@ async def cmd(ctx):
     embed.set_thumbnail(url=bot.user.avatar.url if bot.user.avatar else None) # Ajoute la photo de profil de ton bot en haut à droite !
 
     await ctx.send(embed=embed)
+#endregion
 
+#region timer
 @bot.command(aliases=["cd", "cooldown", "temps"])
 async def timer(ctx):
     user_id = str(ctx.author.id)
@@ -604,7 +649,8 @@ async def timer(ctx):
         await ctx.send(f"⏳ Patience {ctx.author.mention} ! Ton prochain tirage sera disponible dans **{minutes} minutes et {secondes} secondes**.")
     else:
         await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton tirage est prêt ! Fais `!roll` pour tenter ta chance.")
-        
+#endregion
+
 # 4. Lancement
 if __name__ == "__main__":
     keep_alive()
