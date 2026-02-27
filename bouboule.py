@@ -629,24 +629,24 @@ async def cmd(ctx):
 @bot.command(aliases=["cd", "cooldown", "temps"])
 async def timer(ctx):
     user_id = str(ctx.author.id)
-    
-    # On va chercher le profil pour voir quand était le dernier tirage
     profil = await collection_inventaires.find_one({"_id": user_id})
     
-    # Si le joueur n'a jamais joué, ou n'a pas encore de chronomètre enregistré
     if not profil or "last_roll" not in profil:
         await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton tirage est prêt ! Fais `!roll` pour tenter ta chance.")
         return
 
     maintenant = time.time()
-    cooldown_secondes = 43200
+    cooldown_secondes = 43200 # 12 heures en secondes
     temps_ecoule = maintenant - profil["last_roll"]
     
     if temps_ecoule < cooldown_secondes:
         temps_restant = int(cooldown_secondes - temps_ecoule)
-        minutes = temps_restant // 3600
-        secondes = (temps_restant % 3600) // 60
-        await ctx.send(f"⏳ Patience {ctx.author.mention} ! Ton prochain tirage sera disponible dans **{minutes} minutes et {secondes} secondes**.")
+        
+        # Le calcul magique
+        heures = temps_restant // 3600
+        minutes = (temps_restant % 3600) // 60
+        
+        await ctx.send(f"⏳ Patience {ctx.author.mention} ! Ton prochain tirage sera disponible dans **{heures}h et {minutes}m**.")
     else:
         await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton tirage est prêt ! Fais `!roll` pour tenter ta chance.")
 #endregion
