@@ -182,14 +182,14 @@ async def roll_error(ctx, error):
         minutes_restantes = int(error.retry_after // 60)
         await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Ton prochain tirage est dispo dans **{minutes_restantes} minutes**.")
 
-# 1. La Vue mise à jour pour accepter un "target_member" (le propriétaire du garage qu'on regarde)
+# 1. La Vue mise à jour pour afficher 1 voiture par page
 class GaragePagination(discord.ui.View):
     def __init__(self, ctx, pages, total_voitures, target_member):
         super().__init__(timeout=120)
         self.ctx = ctx
-        self.pages = pages
+        self.pages = pages # 'pages' contient maintenant une liste de dictionnaires (les infos de chaque voiture)
         self.total_voitures = total_voitures
-        self.target_member = target_member # Le joueur qu'on inspecte
+        self.target_member = target_member
         self.current_page = 0
         self.update_buttons()
 
@@ -198,19 +198,34 @@ class GaragePagination(discord.ui.View):
         self.bouton_suiv.disabled = self.current_page == len(self.pages) - 1
 
     def get_embed(self):
+        # On récupère les infos de la voiture sur la page actuelle
+        voiture_actuelle = self.pages[self.current_page]
+        
+        # On prépare le titre
+        description = f"### {voiture_actuelle['nom_complet']}"
+        if voiture_actuelle['quantite'] > 1:
+            description += f" **(x{voiture_actuelle['quantite']})**"
+            
         embed = discord.Embed(
             title=f"🚗 Le Garage de {self.target_member.display_name}", 
-            description=self.pages[self.current_page], 
+            description=description, 
             color=discord.Color.blue()
         )
-        embed.set_footer(text=f"Page {self.current_page + 1}/{len(self.pages)} | Total : {self.total_voitures} voitures")
+        
+        # On affiche l'image si elle a été trouvée
+        if voiture_actuelle['image']:
+            embed.set_image(url=voiture_actuelle['image'])
+            
+        embed.add_field(name="Rareté", value=voiture_actuelle['rareté'])
+        
+        # Le footer indique le modèle en cours sur le total de modèles différents
+        embed.set_footer(text=f"Modèle {self.current_page + 1}/{len(self.pages)} | Total dans le garage : {self.total_voitures} voitures")
         return embed
 
     @discord.ui.button(label="◀️", style=discord.ButtonStyle.primary, custom_id="prec")
     async def bouton_prec(self, interaction: discord.Interaction, button: discord.ui.Button):
-        # On vérifie que c'est bien celui qui a TAPÉ la commande qui clique
         if interaction.user != self.ctx.author:
-            await interaction.response.send_message("Ce n'est pas toi qui a demandé à voir ce garage !", ephemeral=True)
+            await interaction.response.send_message("Ce n'est pas toi qui as demandé à voir ce garage !", ephemeral=True)
             return
             
         self.current_page -= 1
@@ -220,7 +235,7 @@ class GaragePagination(discord.ui.View):
     @discord.ui.button(label="▶️", style=discord.ButtonStyle.primary, custom_id="suiv")
     async def bouton_suiv(self, interaction: discord.Interaction, button: discord.ui.Button):
         if interaction.user != self.ctx.author:
-            await interaction.response.send_message("Ce n'est pas toi qui a demandé à voir ce garage !", ephemeral=True)
+            await interaction.response.send_message("Ce n'est pas toi qui as demandé à voir ce garage !", ephemeral=True)
             return
             
         self.current_page += 1
@@ -229,17 +244,13 @@ class GaragePagination(discord.ui.View):
 
 
 # 2. La nouvelle commande !garage
-# "membre: discord.Member = None" signifie que si on ne tague personne, la valeur est vide par défaut
 @bot.command()
 async def garage(ctx, membre: discord.Member = None):
-    # Si aucun membre n'est mentionné, on cible l'auteur du message
     cible = membre or ctx.author
     user_id = str(cible.id)
     
-    # On va chercher le profil du joueur ciblé
     profil = await collection_inventaires.find_one({"_id": user_id})
     
-    # Si le profil n'existe pas ou que le garage est vide
     if not profil or not profil.get("garage"):
         if cible == ctx.author:
             await ctx.send(f"Ton garage est vide, {ctx.author.mention} ! Fais `!roll` pour gagner ta première voiture.")
@@ -248,25 +259,35 @@ async def garage(ctx, membre: discord.Member = None):
         return
     
     mes_voitures = profil["garage"]
-    inventaire_compte = Counter(mes_voitures)
+    inventaire_compte = Counter(mes_voitures) # Compte les doublons
     
-    lignes_inventaire = []
-    for voiture, quantite in inventaire_compte.items():
-        if quantite > 1:
-            lignes_inventaire.append(f"• {voiture} **(x{quantite})**")
-        else:
-            lignes_inventaire.append(f"• {voiture}")
-            
-    lignes_par_page = 10
-    pages = []
-    for i in range(0, len(lignes_inventaire), lignes_par_page):
-        morceau = "\n".join(lignes_inventaire[i:i + lignes_par_page])
-        pages.append(morceau)
+    pages_voitures = []
+    
+    # On reconstruit les informations pour chaque modèle possédé
+    for nom_complet, quantite in inventaire_compte.items():
+        # On cherche cette voiture dans le catalogue global VOITURES pour récupérer son image
+        voiture_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']}" == nom_complet), None)
         
-    # On initialise la vue en passant le membre "cible" pour le titre de l'Embed
-    view = GaragePagination(ctx, pages, len(mes_voitures), cible)
+        if voiture_info:
+            pages_voitures.append({
+                "nom_complet": nom_complet,
+                "quantite": quantite,
+                "image": voiture_info["image"],
+                "rareté": voiture_info["rareté"]
+            })
+        else:
+            # Sécurité : si la voiture a été supprimée du fichier JSON entre temps
+            pages_voitures.append({
+                "nom_complet": nom_complet,
+                "quantite": quantite,
+                "image": None,
+                "rareté": "Inconnue (Supprimée du catalogue)"
+            })
+            
+    # On initialise la vue avec notre nouvelle liste d'objets "voiture"
+    view = GaragePagination(ctx, pages_voitures, len(mes_voitures), cible)
     await ctx.send(embed=view.get_embed(), view=view)
-
+    
 @bot.command()
 async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
     # On empêche de s'échanger à soi-même
