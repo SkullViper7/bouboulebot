@@ -608,7 +608,7 @@ async def cmd(ctx):
     # --- Section Gacha / Voitures ---
     embed.add_field(
         name="🎰 `!roll`", 
-        value="Tire une voiture au hasard (2 fois par jour).", 
+        value="Tire une voiture au hasard toutes les 12h.", 
         inline=False
     )
     embed.add_field(
