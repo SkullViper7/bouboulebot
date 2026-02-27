@@ -55,12 +55,18 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 # --- ÉCONOMIE ---
 PRIX_REVENTE = {
     "Commune ⚪": 100,
-    "Atypique 🟢": 200,
     "Rare 🔵": 500,
-    "Épique 🟣": 1000,
-    "Légendaire 🟡": 2500,
-    "Mythique 🟣": 5000,
+    "Mythique 🟣": 2500,
+    "Légendaire 🟡": 5000,
     "GOAT 👑": 20000
+}
+# --- COULEURS DES RARETÉS ---
+COULEURS_RARETE = {
+    "Commune ⚪": discord.Color.light_grey(),
+    "Rare 🔵": discord.Color.blue(),
+    "Mythique 🟣": discord.Color.dark_purple(),
+    "Légendaire 🟡": discord.Color.gold(),
+    "GOAT 👑": discord.Color.red()
 }
 
 #region gifhy
@@ -217,11 +223,14 @@ async def roll(ctx):
         upsert=True
     )
 
+    # Création de l'Embed avec la couleur dynamique
+    couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.gold())
+
     # 6. Création de l'Embed
     embed = discord.Embed(
         title=f"🎰 Tu as obtenu : {nom_complet_gagnee} !", 
         description=f"🎁 Bonus de tirage : **+{bonus_coins} 🪙** ajoutés à ton solde !",
-        color=discord.Color.gold()
+        color=couleur_dynamique
     )
     embed.set_image(url=voiture_gagnee['image'])
     
@@ -259,6 +268,10 @@ class GaragePagination(discord.ui.View):
 
     def get_embed(self):
         voiture_actuelle = self.pages[self.current_page]
+        rarete = voiture_actuelle['rareté']
+        
+        # On va chercher la couleur associée à la rareté (bleu par défaut si bug)
+        couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.blue())
         
         # On intègre le solde et la voiture dans la description
         description = f"**💳 Solde :** {self.solde} 🪙\n\n### {voiture_actuelle['nom_complet']}"
@@ -269,13 +282,13 @@ class GaragePagination(discord.ui.View):
         embed = discord.Embed(
             title=f"🚗 Le Garage de {self.target_member.display_name}", 
             description=description, 
-            color=discord.Color.blue()
+            color=couleur_dynamique # <-- La couleur magique s'applique ici !
         )
         
         if voiture_actuelle['image']:
             embed.set_image(url=voiture_actuelle['image'])
             
-        embed.add_field(name="Rareté", value=voiture_actuelle['rareté'])
+        embed.add_field(name="Rareté", value=rarete)
         
         embed.set_footer(text=f"Modèle {self.current_page + 1}/{len(self.pages)} | Total : {self.total_voitures} voitures")
         return embed
@@ -516,10 +529,13 @@ async def search(ctx, *, recherche: str):
         else:
             texte_proprietaires = "Personne ne possède ce bijou pour le moment... 😢"
 
+        rarete = modele_trouve['rareté']
+        couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.green())
+
         # On crée l'Embed final pour la voiture
         embed = discord.Embed(
             title=f"🔍 {nom_complet}", 
-            color=discord.Color.green()
+            color=couleur_dynamique
         )
         embed.set_image(url=modele_trouve['image'])
         embed.add_field(name="Rareté", value=modele_trouve['rareté'], inline=True)
