@@ -1218,10 +1218,192 @@
         "image": "https://i.gaw.to/content/photos/12/16/121625_Mercedes-Benz_G63_AMG_6X6_plus_imposant_que_l_Hummer_H1.jpg"
     },
     {
-        "nom": "F1 '94",
-        "marque": "McLaren",
+        "nom": "GTR R33 '93",
+        "marque": "Nissan",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://ecar18.fr/wp-content/uploads/2024/05/Nissan-Skyline-R33.jpeg"
+    },
+    {
+        "nom": "350Z '02",
+        "marque": "Nissan",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://media.whichcar.com.au/uploads/2024/12/f0cc84d0-edewar-240712-nissan-350z-3640-edit.jpg"
+    },
+    {
+        "nom": "Silvia S15 '99",
+        "marque": "Nissan",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://preview.redd.it/1fe926jhwxu61.jpg?width=640&crop=smart&auto=webp&s=6c72c60ae01c8d59804b108d11984916d6fd50be"
+    },
+    {
+        "nom": "M600 '11",
+        "marque": "Noble",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://influenceassociates.com/wordpress-cms/wp-content/uploads/2018/02/BRG-carbon-sport-1.jpg"
+    },
+    {
+        "nom": "Utopia '22",
+        "marque": "Pagani",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://sf2.autojournal.fr/wp-content/uploads/autojournal/2025/05/pagani-utopia.jpg"
+    },
+    {
+        "nom": "Type 57SC Atlantic '36",
+        "marque": "Bugatti",
+        "rareté": "GOAT 🔴",
+        "poids": 1,
+        "image": "https://cdn.rmsothebys.com/a/5/2/a/b/9/a52ab97aa52ac5b6fc255373bf299de6fdb267aa.webp"
+    },
+    {
+        "nom": "206 WRC '99",
+        "marque": "Peugeot",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://peugeot-sport.com/wp-content/uploads/2022/01/2000-suede-gronholm-min-1920x1278.jpg"
+    },
+    {
+        "nom": "306 Maxi '95",
+        "marque": "Peugeot",
         "rareté": "Légendaire 🟡",
         "poids": 2,
-        "image": "https://images.caradisiac.com/logos-ref/modele/modele--mclaren-f1/S8-modele--mclaren-f1.jpg"
+        "image": "https://delessencedansmesveines.com/wp-content/uploads/2014/01/Panizzi_Charbo97_2.jpg"
+    },
+    {
+        "nom": "905 '90",
+        "marque": "Peugeot",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.lemans.org/media/cache/api_news_large/assets/fileuploads/57/4e/574eddde8c33d.jpeg"
+    },
+    {
+        "nom": "405 T16 Pikes Peak '88",
+        "marque": "Peugeot",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://public.carjager.com/production/cms/Peugeot_405_Turbo_16_Pikes_Peak_01_92db4b746a.jpg"
+    },
+    {
+        "nom": "3008 DXR '16",
+        "marque": "Peugeot",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://static.actu.fr/uploads/2017/06/Peugeot-3008-DKR-Maxi.jpg"
+    },
+    {
+        "nom": "R25 '05",
+        "marque": "Renault",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/b/be/Alonso_%28Renault%29_qualifying_at_USGP_2005.jpg"
+    },
+    {
+        "nom": "Nevera '20",
+        "marque": "Rimac",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://www.automobile-propre.com/_next/image/?url=https%3A%2F%2Fcdn.automobile-propre.com%2Fuploads%2F2023%2F06%2FRimac-Nevera-1.jpg&w=1920&q=75"
+    },
+    {
+        "nom": "Silver Cloud III '63",
+        "marque": "Rolls-Royce",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://lh3.googleusercontent.com/Wop-YQqvX49FyR06oEmjd1BD4RIIYU43ZVsfp8Ko1uZZIipmNqZPkIuicwYZQox1wsM1DP74TG2vUhyEzu2-pzXFTB_Kql9giPlD=s0"
+    },
+    {
+        "nom": "S7 '00",
+        "marque": "Saleen",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://img4.autodeclics.com/photo_article/95723/36089/1200-L-saleen-s7-twin-turbo-la-supercar-exotique-made-in-america.jpg"
+    },
+    {
+        "nom": "MF5 GT '08",
+        "marque": "Wiesmann",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://delessencedansmesveines.com/wp-content/uploads/2022/01/DLEDMV-2022-Wiesmann-MF5-GT-V10-004.jpg"
+    },
+    {
+        "nom": "Ami '20",
+        "marque": "Citroën",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://im.qccdn.fr/node/actualite-citroen-ami-premieres-impressions-82347/thumbnail_800x480px-136122.jpg"
+    },
+    {
+        "nom": "Isetta '55",
+        "marque": "BMW",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://medias.gazette-drouot.com/prod/medias/mediatheque/147457.jpg"
+    },
+    {
+        "nom": "Tuatara '20",
+        "marque": "SSC",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://www.automoli.com/common/vehicles/_assets/img/gallery/f65/ssc-tuatara.jpg"
+    },
+    {
+        "nom": "Sagaris '05",
+        "marque": "TVR",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.redd.it/whats-the-general-option-about-tvr-which-seems-to-be-one-of-v0-8zxgkx2bzngd1.jpg?width=1440&format=pjpg&auto=webp&s=c3f08996f19d40430f67da4429c19788e762d968"
+    },
+    {
+        "nom": "Cebera Speed 12 '96",
+        "marque": "TVR",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://images.caradisiac.com/logos/8/0/2/2/288022/S0-l-inconduisible-triumph-tvr-speed-12-214920.jpg"
+    },
+    {
+        "nom": "Golf GTI W12 '07",
+        "marque": "Volkswagen",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://cdn-s-www.ledauphine.com/images/4bdbbc35-085d-49df-8c4a-f391a16aa99f/NW_raw/avec-ses-roues-enormes-et-son-chassis-surbaisse-elle-reprend-les-codes-du-tunning-1616144834.jpg"
+    },
+    {
+        "nom": "907 '04",
+        "marque": "Peugeot",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.motorlegend.com/images-voiture/med/peugeot-907-35313.jpg"
+    },
+    {
+        "nom": "ST1 '13",
+        "marque": "Zenvo",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://abcmoteur.fr/wp-content/uploads/2013/08/zenvo-st1.jpg"
+    },
+    {
+        "nom": "TSR-S '22",
+        "marque": "Zenvo",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://da8e1db6.delivery.rocketcdn.me/wp-content/uploads/2024/09/2020-zenvo-tsr-s.jpeg.webp"
+    },
+    {
+        "nom": "RAV4 '00",
+        "marque": "Toyota",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://www.tresbonplan.fr/wp-content/uploads/autocerfa/40300/1E2650AE-2DB9-4816-8A3A-E5E302B27577-D7BAE9EA-CB9B-42D1-8873-C5B2D528660D-IMG_6924-655673c222d5c6.19614621-700-552.jpg"
+    },
+    {
+        "nom": "Clio 4 Estate '13",
+        "marque": "Renault",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://images.caradisiac.com/logos-ref/modele/modele--renault-clio-4-estate/S0-modele--renault-clio-4-estate.jpg"
     }
 ]

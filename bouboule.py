@@ -15,6 +15,7 @@ import json
 import asyncio
 import math
 from collections import Counter
+import time
 
 # 1. Chargement des secrets
 load_dotenv()
@@ -140,52 +141,61 @@ async def crack(ctx, *, jeu: str):
     await ctx.send(embed=embed)
 
 @bot.command()
-@commands.cooldown(1, 3600, commands.BucketType.user)
+# On a supprimé le @commands.cooldown d'ici !
 async def roll(ctx):
     user_id = str(ctx.author.id)
+    maintenant = time.time() # L'heure exacte actuelle en secondes
+    cooldown_secondes = 3600 # 1 heure
 
-    # 1. Récupérer l'inventaire actuel du joueur
+    # 1. Récupérer le profil du joueur
     profil = await collection_inventaires.find_one({"_id": user_id})
-    # Si le profil existe on prend son garage, sinon on crée une liste vide
-    voitures_possedees = profil.get("garage", []) if profil else []
+    
+    # 2. VÉRIFIER LE TEMPS D'ATTENTE DANS MONGODB
+    if profil and "last_roll" in profil:
+        temps_ecoule = maintenant - profil["last_roll"]
+        if temps_ecoule < cooldown_secondes:
+            temps_restant = int(cooldown_secondes - temps_ecoule)
+            minutes = temps_restant // 60
+            secondes = temps_restant % 60
+            await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Ton prochain tirage est dispo dans **{minutes} minutes et {secondes} secondes**.")
+            return # On arrête la commande ici
 
-    # 2. Filtrer le catalogue pour ne garder que les voitures NON possédées
+    # 3. La suite du code (Filtrer les voitures possédées)
+    voitures_possedees = profil.get("garage", []) if profil else []
     voitures_disponibles = []
     poids_disponibles = []
 
     for voiture in VOITURES:
         nom_complet = f"{voiture['marque']} {voiture['nom']}"
-        # On vérifie si la voiture N'EST PAS dans le garage du joueur
         if nom_complet not in voitures_possedees:
             voitures_disponibles.append(voiture)
             poids_disponibles.append(voiture.get("poids", 10))
 
-    # 3. Vérifier s'il reste des voitures à gagner
     if not voitures_disponibles:
-        # On annule le cooldown (temps d'attente) pour ne pas le punir pour rien
-        ctx.command.reset_cooldown(ctx)
         await ctx.send(f"🏆 Incroyable {ctx.author.mention}, tu possèdes déjà **TOUTES** les voitures du jeu ! Attends une mise à jour.")
         return
 
-    # 4. Tirer une voiture parmi celles RESTANTES (en prenant en compte les poids)
+    # 4. Tirage de la voiture
     voiture_gagnee = random.choices(voitures_disponibles, weights=poids_disponibles, k=1)[0]
     nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']}"
 
-    # 5. Sauvegarder dans MongoDB
+    # 5. Sauvegarder dans MongoDB (L'inventaire ET l'heure du tirage !)
     await collection_inventaires.update_one(
         {"_id": user_id},
-        {"$push": {"garage": nom_complet_gagnee}},
+        {
+            "$push": {"garage": nom_complet_gagnee},
+            "$set": {"last_roll": maintenant} # On ajoute cette ligne magique
+        },
         upsert=True
     )
 
-    # 6. Créer l'Embed
+    # 6. Création de l'Embed
     embed = discord.Embed(
         title=f"🎰 Tu as obtenu : {nom_complet_gagnee} !", 
         color=discord.Color.gold()
     )
     embed.set_image(url=voiture_gagnee['image'])
     
-    # On calcule les probabilités par rapport aux voitures qu'il restait à tirer
     total_poids = sum(poids_disponibles)
     chance_pourcent = (voiture_gagnee.get("poids", 10) / total_poids) * 100
     
@@ -542,20 +552,28 @@ async def cmd(ctx):
 
 @bot.command(aliases=["cd", "cooldown", "temps"])
 async def timer(ctx):
-    # 1. On récupère l'objet de la commande 'roll'
-    cmd_roll = bot.get_command('roll')
+    user_id = str(ctx.author.id)
     
-    # 2. On demande à Discord combien de temps il reste pour cet utilisateur (en secondes)
-    temps_restant = cmd_roll.get_cooldown_retry_after(ctx)
+    # On va chercher le profil pour voir quand était le dernier tirage
+    profil = await collection_inventaires.find_one({"_id": user_id})
     
-    # 3. On affiche la réponse correspondante
-    if temps_restant > 0:
-        minutes = int(temps_restant // 60)
-        secondes = int(temps_restant % 60)
+    # Si le joueur n'a jamais joué, ou n'a pas encore de chronomètre enregistré
+    if not profil or "last_roll" not in profil:
+        await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton tirage est prêt ! Fais `!roll` pour tenter ta chance.")
+        return
+
+    maintenant = time.time()
+    cooldown_secondes = 3600
+    temps_ecoule = maintenant - profil["last_roll"]
+    
+    if temps_ecoule < cooldown_secondes:
+        temps_restant = int(cooldown_secondes - temps_ecoule)
+        minutes = temps_restant // 60
+        secondes = temps_restant % 60
         await ctx.send(f"⏳ Patience {ctx.author.mention} ! Ton prochain tirage sera disponible dans **{minutes} minutes et {secondes} secondes**.")
     else:
         await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton tirage est prêt ! Fais `!roll` pour tenter ta chance.")
-
+        
 # 4. Lancement
 if __name__ == "__main__":
     keep_alive()
