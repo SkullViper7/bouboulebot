@@ -145,7 +145,7 @@ async def crack(ctx, *, jeu: str):
 async def roll(ctx):
     user_id = str(ctx.author.id)
     maintenant = time.time() # L'heure exacte actuelle en secondes
-    cooldown_secondes = 3600 # 1 heure
+    cooldown_secondes = 43200 # 1 heure
 
     # 1. Récupérer le profil du joueur
     profil = await collection_inventaires.find_one({"_id": user_id})
