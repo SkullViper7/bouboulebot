@@ -52,6 +52,17 @@ intents.members = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 #endregion
 
+# --- ÉCONOMIE ---
+PRIX_REVENTE = {
+    "Commune ⚪": 100,
+    "Atypique 🟢": 200,
+    "Rare 🔵": 500,
+    "Épique 🟣": 1000,
+    "Légendaire 🟡": 2500,
+    "Mythique 🟣": 5000,
+    "GOAT 👑": 20000
+}
+
 #region gifhy
 async def get_giphy_gif(tag_term):
     """Cherche un GIF UNIQUE et ALÉATOIRE sur Giphy via l'endpoint random"""
@@ -150,26 +161,25 @@ async def crack(ctx, *, jeu: str):
 
 #region roll
 @bot.command()
-# On a supprimé le @commands.cooldown d'ici !
 async def roll(ctx):
     user_id = str(ctx.author.id)
-    maintenant = time.time() # L'heure exacte actuelle en secondes
-    cooldown_secondes = 43200 # 1 heure
+    maintenant = time.time()
+    cooldown_secondes = 43200 # 12 heures
 
     # 1. Récupérer le profil du joueur
     profil = await collection_inventaires.find_one({"_id": user_id})
     
-    # 2. VÉRIFIER LE TEMPS D'ATTENTE DANS MONGODB
+    # 2. Vérifier le temps d'attente
     if profil and "last_roll" in profil:
         temps_ecoule = maintenant - profil["last_roll"]
         if temps_ecoule < cooldown_secondes:
             temps_restant = int(cooldown_secondes - temps_ecoule)
-            minutes = temps_restant // 3600
-            secondes = (temps_restant % 3600) // 60
-            await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Ton prochain tirage est dispo dans **{minutes} minutes et {secondes} secondes**.")
-            return # On arrête la commande ici
+            heures = temps_restant // 3600
+            minutes = (temps_restant % 3600) // 60
+            await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Ton prochain tirage est dispo dans **{heures}h et {minutes}m**.")
+            return
 
-    # 3. La suite du code (Filtrer les voitures possédées)
+    # 3. Filtrer les voitures possédées
     voitures_possedees = profil.get("garage", []) if profil else []
     voitures_disponibles = []
     poids_disponibles = []
@@ -188,12 +198,21 @@ async def roll(ctx):
     voiture_gagnee = random.choices(voitures_disponibles, weights=poids_disponibles, k=1)[0]
     nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']}"
 
-    # 5. Sauvegarder dans MongoDB (L'inventaire ET l'heure du tirage !)
+    # --- NOUVEAU : CALCUL DU BONUS D'ARGENT ---
+    rarete = voiture_gagnee['rareté']
+    # On cherche le prix de base dans notre dictionnaire (50 par défaut si non trouvé)
+    prix_base = PRIX_REVENTE.get(rarete, 50)
+    
+    # On calcule le bonus (ici 20%, soit 0.20. Tu peux changer ce chiffre !)
+    bonus_coins = int(prix_base * 0.20) 
+
+    # 5. Sauvegarder dans MongoDB (L'inventaire, l'heure ET l'argent !)
     await collection_inventaires.update_one(
         {"_id": user_id},
         {
             "$push": {"garage": nom_complet_gagnee},
-            "$set": {"last_roll": maintenant} # On ajoute cette ligne magique
+            "$set": {"last_roll": maintenant},
+            "$inc": {"coins": bonus_coins} # On ajoute l'argent gagné au solde
         },
         upsert=True
     )
@@ -201,6 +220,7 @@ async def roll(ctx):
     # 6. Création de l'Embed
     embed = discord.Embed(
         title=f"🎰 Tu as obtenu : {nom_complet_gagnee} !", 
+        description=f"🎁 Bonus de tirage : **+{bonus_coins} 🪙** ajoutés à ton solde !",
         color=discord.Color.gold()
     )
     embed.set_image(url=voiture_gagnee['image'])
@@ -208,7 +228,7 @@ async def roll(ctx):
     total_poids = sum(poids_disponibles)
     chance_pourcent = (voiture_gagnee.get("poids", 10) / total_poids) * 100
     
-    embed.set_footer(text=f"Rareté : {voiture_gagnee['rareté']} (Drop rate actuel : {chance_pourcent:.1f}%) | Appartient à {ctx.author.display_name}")
+    embed.set_footer(text=f"Rareté : {rarete} (Drop rate : {chance_pourcent:.1f}%) | Appartient à {ctx.author.display_name}")
     
     await ctx.send(embed=embed)
 
@@ -221,14 +241,15 @@ async def roll_error(ctx, error):
 #endregion
 
 #region garage
-# 1. La Vue mise à jour pour afficher 1 voiture par page
+# 1. La Vue mise à jour avec le paramètre "solde"
 class GaragePagination(discord.ui.View):
-    def __init__(self, ctx, pages, total_voitures, target_member):
+    def __init__(self, ctx, pages, total_voitures, target_member, solde): # <-- On ajoute 'solde' ici
         super().__init__(timeout=120)
         self.ctx = ctx
-        self.pages = pages # 'pages' contient maintenant une liste de dictionnaires (les infos de chaque voiture)
+        self.pages = pages
         self.total_voitures = total_voitures
         self.target_member = target_member
+        self.solde = solde # <-- On le sauvegarde pour l'utiliser plus bas
         self.current_page = 0
         self.update_buttons()
 
@@ -237,11 +258,11 @@ class GaragePagination(discord.ui.View):
         self.bouton_suiv.disabled = self.current_page == len(self.pages) - 1
 
     def get_embed(self):
-        # On récupère les infos de la voiture sur la page actuelle
         voiture_actuelle = self.pages[self.current_page]
         
-        # On prépare le titre
-        description = f"### {voiture_actuelle['nom_complet']}"
+        # On intègre le solde et la voiture dans la description
+        description = f"**💳 Solde :** {self.solde} 🪙\n\n### {voiture_actuelle['nom_complet']}"
+        
         if voiture_actuelle['quantite'] > 1:
             description += f" **(x{voiture_actuelle['quantite']})**"
             
@@ -251,14 +272,12 @@ class GaragePagination(discord.ui.View):
             color=discord.Color.blue()
         )
         
-        # On affiche l'image si elle a été trouvée
         if voiture_actuelle['image']:
             embed.set_image(url=voiture_actuelle['image'])
             
         embed.add_field(name="Rareté", value=voiture_actuelle['rareté'])
         
-        # Le footer indique le modèle en cours sur le total de modèles différents
-        embed.set_footer(text=f"Modèle {self.current_page + 1}/{len(self.pages)} | Total dans le garage : {self.total_voitures} voitures")
+        embed.set_footer(text=f"Modèle {self.current_page + 1}/{len(self.pages)} | Total : {self.total_voitures} voitures")
         return embed
 
     @discord.ui.button(label="◀️", style=discord.ButtonStyle.primary, custom_id="prec")
@@ -290,21 +309,25 @@ async def garage(ctx, membre: discord.Member = None):
     
     profil = await collection_inventaires.find_one({"_id": user_id})
     
+    # On récupère le solde du joueur (0 s'il n'a rien)
+    solde = profil.get("coins", 0) if profil else 0
+    
+    # Modification ici : si le garage est vide, on affiche quand même un bel Embed avec son argent
     if not profil or not profil.get("garage"):
-        if cible == ctx.author:
-            await ctx.send(f"Ton garage est vide, {ctx.author.mention} ! Fais `!roll` pour gagner ta première voiture.")
-        else:
-            await ctx.send(f"Le garage de **{cible.display_name}** est complètement vide pour le moment !")
+        embed_vide = discord.Embed(
+            title=f"🚗 Le Garage de {cible.display_name}", 
+            description=f"**💳 Solde :** {solde} 🪙\n\nCe garage est complètement vide pour le moment ! Fais un `!roll`.", 
+            color=discord.Color.light_grey()
+        )
+        await ctx.send(embed=embed_vide)
         return
     
     mes_voitures = profil["garage"]
-    inventaire_compte = Counter(mes_voitures) # Compte les doublons
+    inventaire_compte = Counter(mes_voitures)
     
     pages_voitures = []
     
-    # On reconstruit les informations pour chaque modèle possédé
     for nom_complet, quantite in inventaire_compte.items():
-        # On cherche cette voiture dans le catalogue global VOITURES pour récupérer son image
         voiture_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']}" == nom_complet), None)
         
         if voiture_info:
@@ -315,7 +338,6 @@ async def garage(ctx, membre: discord.Member = None):
                 "rareté": voiture_info["rareté"]
             })
         else:
-            # Sécurité : si la voiture a été supprimée du fichier JSON entre temps
             pages_voitures.append({
                 "nom_complet": nom_complet,
                 "quantite": quantite,
@@ -323,8 +345,8 @@ async def garage(ctx, membre: discord.Member = None):
                 "rareté": "Inconnue (Supprimée du catalogue)"
             })
             
-    # On initialise la vue avec notre nouvelle liste d'objets "voiture"
-    view = GaragePagination(ctx, pages_voitures, len(mes_voitures), cible)
+    # On passe le paramètre 'solde' à notre vue !
+    view = GaragePagination(ctx, pages_voitures, len(mes_voitures), cible, solde)
     await ctx.send(embed=view.get_embed(), view=view)
 #endregion
 
@@ -393,8 +415,6 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
 @bot.command(aliases=["jeter", "poubelle", "vendre"])
 async def sell(ctx, *, voiture_a_vendre: str):
     user_id = str(ctx.author.id)
-
-    # 1. On va chercher l'inventaire du joueur
     profil = await collection_inventaires.find_one({"_id": user_id})
 
     if not profil or not profil.get("garage"):
@@ -404,39 +424,49 @@ async def sell(ctx, *, voiture_a_vendre: str):
     garage = profil["garage"]
 
     if voiture_a_vendre not in garage:
-        await ctx.send(f"❌ Tu ne possèdes pas la voiture **{voiture_a_vendre}** ! (Vérifie bien les majuscules et les espaces en faisant `!garage`)")
+        await ctx.send(f"❌ Tu ne possèdes pas la voiture **{voiture_a_vendre}** !")
         return
 
-    # 2. Demande de confirmation avec un message clair
-    msg = await ctx.send(f"⚠️ {ctx.author.mention}, es-tu **sûr et certain** de vouloir jeter ta **{voiture_a_vendre}** ?\nElle retournera dans la pioche globale.\n\n*Réagis avec ✅ pour confirmer ou ❌ pour annuler.*")
+    # NOUVEAU : On cherche les infos de la voiture pour connaître sa rareté
+    voiture_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']}" == voiture_a_vendre), None)
+    
+    if not voiture_info:
+        await ctx.send("❌ Erreur : Cette voiture n'existe plus dans le catalogue.")
+        return
+        
+    rarete = voiture_info["rareté"]
+    # On va chercher le prix dans notre dictionnaire (50 par défaut s'il ne trouve pas la rareté)
+    prix_vente = PRIX_REVENTE.get(rarete, 50)
+
+    # On modifie le message pour afficher le prix
+    msg = await ctx.send(f"⚠️ {ctx.author.mention}, veux-tu vendre ta **{voiture_a_vendre}** ?\nLe concessionnaire t'en offre **{prix_vente} 🪙**.\n\n*Réagis avec ✅ pour vendre ou ❌ pour annuler.*")
     await msg.add_reaction("✅")
     await msg.add_reaction("❌")
 
-    # Fonction pour s'assurer que seul l'auteur de la commande peut cliquer
     def check(reaction, user):
         return user == ctx.author and str(reaction.emoji) in ["✅", "❌"] and reaction.message.id == msg.id
 
     try:
-        # 3. On attend la réaction du joueur (timeout de 30 secondes)
         reaction, user = await bot.wait_for('reaction_add', timeout=30.0, check=check)
         
         if str(reaction.emoji) == "✅":
-            # Le joueur a confirmé, on supprime !
             garage.remove(voiture_a_vendre)
 
+            # On met à jour le garage ET on ajoute les pièces
             await collection_inventaires.update_one(
                 {"_id": user_id},
-                {"$set": {"garage": garage}}
+                {
+                    "$set": {"garage": garage},
+                    "$inc": {"coins": prix_vente}
+                }
             )
 
-            await ctx.send(f"🗑️ C'est fait {ctx.author.mention} ! Tu t'es débarrassé de ta **{voiture_a_vendre}**.")
+            await ctx.send(f"💵 Vente conclue {ctx.author.mention} ! Tu as gagné **{prix_vente} 🪙** en vendant ta {voiture_a_vendre}.")
         else:
-            # Le joueur a cliqué sur la croix
-            await ctx.send(f"❌ Vente annulée. Tu gardes ta **{voiture_a_vendre}** bien au chaud !")
+            await ctx.send(f"❌ Vente annulée. Tu gardes ta **{voiture_a_vendre}**.")
 
     except asyncio.TimeoutError:
-        # Le joueur a mis trop de temps à répondre
-        await ctx.send(f"⏳ Temps écoulé, la vente de ta **{voiture_a_vendre}** est annulée.")
+        await ctx.send(f"⏳ Temps écoulé, la vente est annulée.")
 #endregion
 
 #region search
@@ -649,6 +679,159 @@ async def timer(ctx):
         await ctx.send(f"⏳ Patience {ctx.author.mention} ! Ton prochain tirage sera disponible dans **{heures}h et {minutes}m**.")
     else:
         await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton tirage est prêt ! Fais `!roll` pour tenter ta chance.")
+#endregion
+
+#region argent
+@bot.command(aliases=["bal", "balance", "argent", "money"])
+async def solde(ctx, membre: discord.Member = None):
+    cible = membre or ctx.author
+    profil = await collection_inventaires.find_one({"_id": str(cible.id)})
+    
+    # Si le joueur n'a pas de profil ou pas de pièces, il a 0
+    coins = profil.get("coins", 0) if profil else 0
+    await ctx.send(f"💳 Le solde de **{cible.display_name}** est de **{coins} 🪙**.")
+
+@bot.command()
+async def daily(ctx):
+    user_id = str(ctx.author.id)
+    maintenant = time.time()
+    cooldown_daily = 86400 # 24 heures en secondes
+    salaire = 500 # Le montant gagné chaque jour
+
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    
+    if profil and "last_daily" in profil:
+        temps_ecoule = maintenant - profil["last_daily"]
+        if temps_ecoule < cooldown_daily:
+            temps_restant = int(cooldown_daily - temps_ecoule)
+            heures = temps_restant // 3600
+            minutes = (temps_restant % 3600) // 60
+            await ctx.send(f"⏳ Reviens demain {ctx.author.mention} ! Ton prochain salaire sera disponible dans **{heures}h et {minutes}m**.")
+            return
+
+    # On ajoute l'argent ($inc) et on met à jour l'heure du daily ($set)
+    await collection_inventaires.update_one(
+        {"_id": user_id},
+        {
+            "$inc": {"coins": salaire},
+            "$set": {"last_daily": maintenant}
+        },
+        upsert=True
+    )
+
+    # On récupère le nouveau solde pour l'afficher
+    nouveau_profil = await collection_inventaires.find_one({"_id": user_id})
+    solde_actuel = nouveau_profil.get("coins", salaire)
+
+    await ctx.send(f"💸 Bien joué {ctx.author.mention} ! Tu as récupéré ton salaire de **{salaire} 🪙**.\nTon nouveau solde est de **{solde_actuel} 🪙**.")
+#endregion
+
+#region buyroll
+@bot.command()
+async def buyroll(ctx):
+    user_id = str(ctx.author.id)
+    prix_roll = 1500 # Le prix que tu veux pour un tirage payant
+    
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    solde = profil.get("coins", 0) if profil else 0
+    
+    if solde < prix_roll:
+        await ctx.send(f"❌ Désolé {ctx.author.mention}, il te faut **{prix_roll} 🪙** pour faire un tirage payant. Il te manque **{prix_roll - solde} 🪙** !")
+        return
+
+    # On filtre les voitures comme dans le roll normal
+    voitures_possedees = profil.get("garage", []) if profil else []
+    voitures_disponibles = []
+    poids_disponibles = []
+
+    for voiture in VOITURES:
+        nom_complet = f"{voiture['marque']} {voiture['nom']}"
+        if nom_complet not in voitures_possedees:
+            voitures_disponibles.append(voiture)
+            poids_disponibles.append(voiture.get("poids", 10))
+
+    if not voitures_disponibles:
+        await ctx.send(f"🏆 Tu possèdes déjà **TOUTES** les voitures du jeu ! Garde ton argent.")
+        return
+
+    # Le tirage
+    voiture_gagnee = random.choices(voitures_disponibles, weights=poids_disponibles, k=1)[0]
+    nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']}"
+
+    # On sauvegarde la voiture ET on débite l'argent ($inc avec un nombre négatif)
+    await collection_inventaires.update_one(
+        {"_id": user_id},
+        {
+            "$push": {"garage": nom_complet_gagnee},
+            "$inc": {"coins": -prix_roll}
+        }
+    )
+
+    nouveau_solde = solde - prix_roll
+    
+    embed = discord.Embed(
+        title=f"🎰 Tirage Payant : {nom_complet_gagnee} !", 
+        description=f"Transaction acceptée : -{prix_roll} 🪙\nNouveau solde : **{nouveau_solde} 🪙**",
+        color=discord.Color.purple()
+    )
+    embed.set_image(url=voiture_gagnee['image'])
+    embed.set_footer(text=f"Rareté : {voiture_gagnee['rareté']} | Appartient à {ctx.author.display_name}")
+    
+    await ctx.send(embed=embed)
+#endregion
+
+#region leaderboard
+@bot.command(aliases=["top", "lb", "classement", "leaderboard"])
+async def leaderboard(ctx):
+    # 1. On récupère tous les profils de la base de données (limité à 1000 joueurs pour éviter les crashs)
+    profils = await collection_inventaires.find({}).to_list(length=1000)
+
+    if not profils:
+        await ctx.send("❌ Aucun joueur n'est enregistré dans la base de données pour le moment !")
+        return
+
+    # 2. On trie les joueurs pour l'Argent (les plus riches en premier)
+    # On prend les 10 premiers ([:10])
+    top_coins = sorted(profils, key=lambda x: x.get("coins", 0), reverse=True)[:10]
+    
+    # 3. On trie les joueurs pour le Garage (ceux qui ont le plus de voitures)
+    # len() permet de compter la taille de la liste "garage"
+    top_garage = sorted(profils, key=lambda x: len(x.get("garage", [])), reverse=True)[:10]
+
+    # --- Préparation du texte de la colonne ARGENT ---
+    texte_coins = ""
+    for i, profil in enumerate(top_coins, 1):
+        solde = profil.get('coins', 0)
+        if solde > 0: # On n'affiche que ceux qui ont au moins 1 pièce
+            texte_coins += f"**{i}.** <@{profil['_id']}> : {solde} 🪙\n"
+            
+    if not texte_coins:
+        texte_coins = "Tout le monde est fauché ! 💸"
+
+    # --- Préparation du texte de la colonne GARAGE ---
+    texte_garage = ""
+    for i, profil in enumerate(top_garage, 1):
+        taille = len(profil.get("garage", []))
+        if taille > 0: # On n'affiche que ceux qui ont au moins 1 voiture
+            texte_garage += f"**{i}.** <@{profil['_id']}> : {taille} 🚗\n"
+            
+    if not texte_garage:
+        texte_garage = "Tous les garages sont vides ! 🚶‍♂️"
+
+    # 4. Création de l'Embed final
+    embed = discord.Embed(
+        title="🏆 Classement Officiel du Serveur",
+        description="Qui dominera le marché automobile ?",
+        color=discord.Color.gold()
+    )
+    
+    # inline=True permet de mettre les deux classements côte à côte !
+    embed.add_field(name="💰 Top Richesse", value=texte_coins, inline=True)
+    embed.add_field(name="🚗 Top Collection", value=texte_garage, inline=True)
+    
+    embed.set_thumbnail(url=ctx.guild.icon.url if ctx.guild.icon else None) # Met l'icône de ton serveur Discord en haut à droite
+    
+    await ctx.send(embed=embed)
 #endregion
 
 # 4. Lancement
