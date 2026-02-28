@@ -2030,5 +2030,37 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/1CE1Ppc.png"
+    },
+    {
+        "nom": "Buggy",
+        "marque": "Half-Life 2",
+        "annee": "2004",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/bQEpcBC.png"
+    },
+    {
+        "nom": "Muscle Car",
+        "marque": "Half-Life 2: Episode Two",
+        "annee": "2007",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/yMnKzvD.png"
+    },
+    {
+        "nom": "Paramoteur Hydravion",
+        "marque": "Half-Life 2",
+        "annee": "2004",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ntsshFJ.png"
+    },
+    {
+        "nom": "X80 Proto",
+        "marque": "Grotti",
+        "annee": "2013",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Iitf8A5.png"
     }
 ]
