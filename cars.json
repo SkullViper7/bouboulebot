@@ -1616,11 +1616,259 @@
         "annee": "2022"
     },
     {
-        "nom": "CH46",
+        "nom": "CH46 Vilebrequin",
         "marque": "Chatenet",
         "annee": "2021",
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/wQ1SjHy.png"
+    },
+    {
+        "nom": "RX7 Veilside Han",
+        "marque": "Mazda",
+        "annee": "1997",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/nrLxHu8.png"
+    },
+    {
+        "nom": "Charger R/T Dom",
+        "marque": "Dodge",
+        "annee": "1969",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/CUmU24V.png"
+    },
+    {
+        "nom": "Skyline GTR R34 Brian",
+        "marque": "Nissan",
+        "annee": "1999",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/89lxsYb.png"
+    },
+    {
+        "nom": "Supra Mk4 Brian",
+        "marque": "Toyota",
+        "annee": "2001",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/AjS9zOz.png"
+    },
+    {
+        "nom": "Monte Carlo Sean",
+        "marque": "Chevrolet",
+        "annee": "1971",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/dakXdRU.png"
+    },
+    {
+        "nom": "Eclipse Brian",
+        "marque": "Mitsubishi",
+        "annee": "1995",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/NDnLET9.png"
+    },
+    {
+        "nom": "Eclipse Spyder GTS Roman",
+        "marque": "Mitsubishi",
+        "annee": "2003",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/knOgxlw.png"
+    },
+    {
+        "nom": "Lancer EVO VII",
+        "marque": "Mitsubishi",
+        "annee": "2002",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/eCbhO7A.png"
+    },
+    {
+        "nom": "350Z Takashi",
+        "marque": "Nissan",
+        "annee": "2003",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/DGIaKSH.png"
+    },
+    {
+        "nom": "Flip Car",
+        "marque": "Fast & Furious",
+        "annee": "2013",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/cFzIq7i.png"
+    },
+    {
+        "nom": "F-150 Brian",
+        "marque": "Ford",
+        "annee": "1999",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/g780meC.png"
+    },
+    {
+        "nom": "LAPV",
+        "marque": "Gurkha",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/JvW41MO.png"
+    },
+    {
+        "nom": "S2000 Suki",
+        "marque": "Honda",
+        "annee": "2000",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/sQCvk9O.png"
+    },
+    {
+        "nom": "S2000 Johnny Tran",
+        "marque": "Honda",
+        "annee": "2000",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/bF2rlyo.png"
+    },
+    {
+        "nom": "Mustang Fastback Sean",
+        "marque": "Ford",
+        "annee": "1967",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/5eaMfrz.png"
+    },
+    {
+        "nom": "Charger R/T Offroad Dom",
+        "marque": "Dodge",
+        "annee": "1969",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/e7aAqf7.png"
+    },
+    {
+        "nom": "Grand National",
+        "marque": "Buick",
+        "annee": "1987",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/1UGslCE.png"
+    },
+    {
+        "nom": "Silvia S15 Han",
+        "marque": "Nissan",
+        "annee": "2001",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/kITnCsz.png"
+    },
+    {
+        "nom": "Touran Hulk Twinkie",
+        "marque": "Volkswagen",
+        "annee": "2005",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/qINlnSP.png"
+    },
+    {
+        "nom": "Lancer EVO IX Sean",
+        "marque": "Mitsubishi",
+        "annee": "2006",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/HZBF2dx.png"
+    },
+    {
+        "nom": "Charger R/T Ice Dom",
+        "marque": "Dodge",
+        "annee": "1968",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/EIodmug.png"
+    },
+    {
+        "nom": "Charger Daytona Dom",
+        "marque": "Dodge",
+        "annee": "1963",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ctTUMXi.png"
+    },
+    {
+        "nom": "F-150 Hoonitruck Ken Block",
+        "marque": "Ford",
+        "annee": "1977",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/hF2S4zP.png"
+    },
+    {
+        "nom": "Mustang Hoonicorn Ken Block",
+        "marque": "Ford",
+        "annee": "1965",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/K6flnoF.png"
+    },
+    {
+        "nom": "GL Wagon Travis Pastrana",
+        "marque": "Subaru",
+        "annee": "1983",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/jxogHCn.png"
+    },
+    {
+        "nom": "Brataroo Travis Pastrana",
+        "marque": "Subaru",
+        "annee": "1978",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/jjxtFaS.png"
+    },
+    {
+        "nom": "406 Taxi 2",
+        "marque": "Peugeot",
+        "annee": "1995",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ZKiBwUf.png"
+    },
+    {
+        "nom": "Mystery Machine",
+        "marque": "Scooby-Doo",
+        "annee": "1969",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/OsjCwC9.png"
+    },
+    {
+        "nom": "Batmobile The Dark Knight",
+        "marque": "Batman",
+        "annee": "2008",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/m1TjIrl.png"
+    },
+    {
+        "nom": "Bounder",
+        "marque": "Fleetwood",
+        "annee": "1986",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/TodKPPn.png"
+    },
+    {
+        "nom": "Trans Am K2000",
+        "marque": "Pontiac",
+        "annee": "1982",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/yaSbY9d.png"
     }
 ]
