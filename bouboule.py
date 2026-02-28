@@ -508,7 +508,7 @@ async def search(ctx, *, recherche: str):
 
     # 2. Vérifier si c'est un MODÈLE
     # On cherche le premier modèle dont le nom contient ce que l'utilisateur a tapé
-    modele_trouve = next((v for v in VOITURES if recherche_lower in v["nom"].lower()), None)
+    modele_trouve = next((v for v in VOITURES if recherche_lower in f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()), None)
 
     if modele_trouve:
         # Le nom exact tel qu'il est sauvegardé dans la base de données

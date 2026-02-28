@@ -2278,5 +2278,13 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/RtplyQs.png"
+    },
+    {
+        "nom": "Impreza WRX STI Baby Driver",
+        "marque": "Subaru",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "blob:https://imgur.com/69f00b33-a194-439c-a510-96d570f80695"
     }
 ]
