@@ -191,7 +191,7 @@ async def roll(ctx):
     poids_disponibles = []
 
     for voiture in VOITURES:
-        nom_complet = f"{voiture['marque']} {voiture['nom']}"
+        nom_complet = f"{voiture['marque']} {voiture['nom']}{voiture.get('annee', '')}".strip()
         if nom_complet not in voitures_possedees:
             voitures_disponibles.append(voiture)
             poids_disponibles.append(voiture.get("poids", 10))
@@ -202,7 +202,7 @@ async def roll(ctx):
 
     # 4. Tirage de la voiture
     voiture_gagnee = random.choices(voitures_disponibles, weights=poids_disponibles, k=1)[0]
-    nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']}"
+    nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']} {voiture_gagnee.get('annee', '')}".strip()
 
     # --- NOUVEAU : CALCUL DU BONUS D'ARGENT ---
     rarete = voiture_gagnee['rareté']
@@ -341,7 +341,7 @@ async def garage(ctx, membre: discord.Member = None):
     pages_voitures = []
     
     for nom_complet, quantite in inventaire_compte.items():
-        voiture_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']}" == nom_complet), None)
+        voiture_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom_complet), None)
         
         if voiture_info:
             pages_voitures.append({
@@ -512,7 +512,7 @@ async def search(ctx, *, recherche: str):
 
     if modele_trouve:
         # Le nom exact tel qu'il est sauvegardé dans la base de données
-        nom_complet = f"{modele_trouve['marque']} {modele_trouve['nom']}"
+        nom_complet = f"{modele_trouve['marque']} {modele_trouve['nom']} {modele_trouve.get('annee', '')}".strip()
         
         # On demande à MongoDB de trouver tous les joueurs qui ont ce nom exact dans leur liste "garage"
         curseur = collection_inventaires.find({"garage": nom_complet})
@@ -598,7 +598,7 @@ async def catalogue(ctx):
     lignes_catalogue = []
     for v in voitures_triees:
         # Format de l'affichage : **Renault** Twingo 1 - Commun ⚪
-        lignes_catalogue.append(f"**{v['marque']}** {v['nom']} - *{v['rareté']}*")
+        lignes_catalogue.append(f"**{v['marque']}** {v['nom']} {v.get('annee', '')} - *{v['rareté']}*")
 
     # On découpe en pages de 15 voitures
     lignes_par_page = 15
@@ -820,7 +820,7 @@ async def buyroll(ctx):
     poids_disponibles = []
 
     for voiture in VOITURES:
-        nom_complet = f"{voiture['marque']} {voiture['nom']}"
+        nom_complet = f"{voiture['marque']} {voiture['nom']}{voiture.get('annee', '')}".strip()
         if nom_complet not in voitures_possedees:
             voitures_disponibles.append(voiture)
             poids_disponibles.append(voiture.get("poids", 10))
@@ -831,7 +831,7 @@ async def buyroll(ctx):
 
     # Le tirage
     voiture_gagnee = random.choices(voitures_disponibles, weights=poids_disponibles, k=1)[0]
-    nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']}"
+    nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']} {voiture_gagnee.get('annee', '')}".strip()
 
     # On sauvegarde la voiture ET on débite l'argent ($inc avec un nombre négatif)
     await collection_inventaires.update_one(
