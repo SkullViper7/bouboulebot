@@ -2062,5 +2062,221 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/Iitf8A5.png"
+    },
+    {
+        "nom": "Clio Williams",
+        "marque": "Renault",
+        "annee": "1990",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/HeLQ8x6.png"
+    },
+    {
+        "nom": "Megane RS Trophy",
+        "marque": "Renault",
+        "annee": "2018",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/OPwN11t.png"
+    },
+    {
+        "nom": "Megane R26R",
+        "marque": "Renault",
+        "annee": "2008",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/T4PToqD.png"
+    },
+    {
+        "nom": "Clio 3 RS",
+        "marque": "Renault",
+        "annee": "2009",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "blob:https://imgur.com/578a110e-7c7a-4052-b009-d22880c5e0be"
+    },
+    {
+        "nom": "205 Rallye",
+        "marque": "Peugeot",
+        "annee": "1988",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "blob:https://imgur.com/9a962a42-e8d1-401d-abd0-17435b73db89"
+    },
+    {
+        "nom": "505 GTI",
+        "marque": "Peugeot",
+        "annee": "1984",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "blob:https://imgur.com/c188b81c-9dd0-4aaa-8997-18017cc9be0a"
+    },
+    {
+        "nom": "100 S Coupé",
+        "marque": "Audi",
+        "annee": "1969",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "blob:https://imgur.com/709c1e16-1032-4b6f-91ac-5f4344feb686"
+    },
+    {
+        "nom": "504 Pickup",
+        "marque": "Peugeot",
+        "annee": "1968",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "blob:https://imgur.com/c3574584-9ff7-4c40-b5c4-69731ea6c43b"
+    },
+    {
+        "nom": "Golf Caddy Pickup",
+        "marque": "Volkswagen",
+        "annee": "1980",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "blob:https://imgur.com/1c2f5f1e-f965-4bd2-8c54-6dcfa0740a0e"
+    },
+    {
+        "nom": "Supra V12 Top Secret",
+        "marque": "Toyota",
+        "annee": "1995",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "blob:https://imgur.com/2764d793-d4f9-4208-a52f-9555355c9527"
+    },
+    {
+        "nom": "Defender 90",
+        "marque": "Land Rover",
+        "annee": "2007",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "blob:https://imgur.com/95c89fc2-4c87-407e-b8e9-11bc389add26"
+    },
+    {
+        "nom": "Light Runner",
+        "marque": "Tron: Legacy",
+        "annee": "2010",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "blob:https://imgur.com/104a7ad4-d823-43c7-8a60-c93fb2092294"
+    },
+    {
+        "nom": "P50",
+        "marque": "Peel",
+        "annee": "1962",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "blob:https://imgur.com/bd877c51-1ef0-406f-8d83-2d6f15d9ce87"
+    },
+    {
+        "nom": "Robin",
+        "marque": "Reliant",
+        "annee": "1973",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Kk0OTky.png"
+    },
+    {
+        "nom": "DS Mille-Pattes",
+        "marque": "Citroën",
+        "annee": "1972",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "blob:https://imgur.com/5b645684-8e41-4a28-960b-a042df33590a"
+    },
+    {
+        "nom": "Serie S High Roof V8",
+        "marque": "Scania",
+        "annee": "2017",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "blob:https://imgur.com/6614cb0f-78c7-4c08-9105-67e936b8a67d"
+    },
+    {
+        "nom": "C15",
+        "marque": "Citroën",
+        "annee": "1984",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/2gzhvnx.jpeg"
+    },
+    {
+        "nom": "C15 6 Roues",
+        "marque": "Citroën",
+        "annee": "1984",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/3NFuk2d.png"
+    },
+    {
+        "nom": "SM Breadvan",
+        "marque": "Citroên",
+        "annee": "1972",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "blob:https://imgur.com/9234a37f-2d7b-4156-8afe-51cb3d5e3efd"
+    },
+    {
+        "nom": "Turbine",
+        "marque": "Chrysler",
+        "annee": "1963",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "blob:https://imgur.com/d7045a50-c4a6-41ce-b68d-2a6ea480098e"
+    },
+    {
+        "nom": "P34",
+        "marque": "Tyrrell",
+        "annee": "1976",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "blob:https://imgur.com/4a589d09-6ec0-42eb-812e-92e247c1690e"
+    },
+    {
+        "nom": "Hélica",
+        "marque": "Leyat",
+        "annee": "1921",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/yreScQo.jpeg"
+    },
+    {
+        "nom": "Yugo",
+        "marque": "Zastava",
+        "annee": "1980",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "blob:https://imgur.com/5ddd0119-2929-4f66-b6c1-16e6ad130a53"
+    },
+    {
+        "nom": "Cruiser",
+        "marque": "Lethal Company",
+        "annee": "2023",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "blob:https://imgur.com/a3566680-fe7f-48e3-b6bf-bc985074c4e7"
+    },
+    {
+        "nom": "Vroom Vroom Drive Truck",
+        "marque": "VRChat",
+        "annee": "2017",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "blob:https://imgur.com/06334a55-d05b-43b4-a7f6-fa1773ebf5da"
+    },
+    {
+        "nom": "Leclerc",
+        "marque": "GIAT",
+        "annee": "1978",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "blob:https://imgur.com/57b1b101-e14b-4d9a-9341-4423e4e0ed3d"
+    },
+    {
+        "nom": "Mustang Fastback",
+        "marque": "Ford",
+        "annee": "1967",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/RtplyQs.png"
     }
 ]
