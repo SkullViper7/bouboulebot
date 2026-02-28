@@ -1870,5 +1870,165 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/yaSbY9d.png"
+    },
+    {
+        "nom": "Octane",
+        "marque": "Rocket League",
+        "annee": "2015",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "blob:https://imgur.com/3f81c9d8-83b3-49fa-9135-a8afee9d2f61"
+    },
+    {
+        "nom": "Fennec",
+        "marque": "Rocket League",
+        "annee": "2015",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/DaaOnbF.png"
+    },
+    {
+        "nom": "Scarab",
+        "marque": "Rocket League",
+        "annee": "2015",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/11lLRVT.png"
+    },
+    {
+        "nom": "Miller-Meteor Ghostbusters",
+        "marque": "Cadillac",
+        "annee": "1959",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/uIF5DES.png"
+    },
+    {
+        "nom": "Flash Mcqueen",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/GD0fdXN.png"
+    },
+    {
+        "nom": "The King",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/qk4DtkZ.png"
+    },
+    {
+        "nom": "Chick Hicks",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/hGA1Rkp.png"
+    },
+    {
+        "nom": "Mack",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ubfg99e.png"
+    },
+    {
+        "nom": "Flo",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "blob:https://imgur.com/95629f8d-7d23-4651-be09-1b6dbe523c49"
+    },
+    {
+        "nom": "Ramone",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/zFHSXI3.png"
+    },
+    {
+        "nom": "Guido",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/DR4a7DP.png"
+    },
+    {
+        "nom": "Luigi",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/B9fGUuI.png"
+    },
+    {
+        "nom": "Hudson Hornet",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/ekkP1Xq.png"
+    },
+    {
+        "nom": "Martin",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/rVQ2WRW.png"
+    },
+    {
+        "nom": "Raoul Caroule",
+        "marque": "Cars 2",
+        "annee": "2011",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/0RVvR0k.png"
+    },
+    {
+        "nom": "Sheriff",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/97jGgkv.png"
+    },
+    {
+        "nom": "Boost",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Ub9Nmpp.png"
+    },
+    {
+        "nom": "Wingo",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/LhoDFeg.png"
+    },
+    {
+        "nom": "Snot Rod",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ZRiAy7J.png"
+    },
+    {
+        "nom": "DJ",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/1CE1Ppc.png"
     }
 ]
