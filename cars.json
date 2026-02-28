@@ -1405,5 +1405,12 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://images.caradisiac.com/logos-ref/modele/modele--renault-clio-4-estate/S0-modele--renault-clio-4-estate.jpg"
+    },
+    {
+        "nom": "1000tipla '22",
+        "marque": "Fiat",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Fiat_Multipla_Vilebrequin_1000tipla%2C_Salon_de_l%27Automobile%2C_Paris%2C_2022%2C_Stand_de_Vilebrequin.jpg"
     }
 ]
