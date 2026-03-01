@@ -3,8 +3,6 @@ from discord.ext import commands
 import aiohttp
 import random
 import os
-from flask import Flask
-from threading import Thread
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 import urllib.parse
@@ -30,19 +28,6 @@ collection_inventaires = db["inventaires"]
 
 with open('cars.json', 'r', encoding='utf-8') as f:
     VOITURES = json.load(f)
-
-# 2. Serveur Web fictif pour maintenir le bot en vie
-app = Flask('')
-@app.route('/')
-def home():
-    return "Bot en ligne !"
-
-def run_web():
-    app.run(host='0.0.0.0', port=os.getenv("PORT", 8080))
-
-def keep_alive():
-    t = Thread(target=run_web)
-    t.start()
 
 # 3. Configuration du Bot Discord
 intents = discord.Intents.default()
@@ -911,5 +896,4 @@ async def toplist(ctx):
 
 # 4. Lancement
 if __name__ == "__main__":
-    keep_alive()
     bot.run(DISCORD_TOKEN)
