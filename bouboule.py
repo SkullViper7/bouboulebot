@@ -380,7 +380,7 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
     profil_user = await collection_inventaires.find_one({"_id": user_id})
     profil_target = await collection_inventaires.find_one({"_id": target_id})
 
-    # Vérifications de base (Est-ce qu'ils ont un garage ?)
+    # Vérifications de base (Est-ce qu'ils ont un garage et la voiture demandée ?)
     if not profil_user or ma_voiture not in profil_user.get("garage", []):
         await ctx.send(f"❌ Tu ne possèdes pas la voiture **{ma_voiture}** !")
         return
@@ -388,37 +388,83 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
         await ctx.send(f"❌ {membre.display_name} ne possède pas la voiture **{sa_voiture}** !")
         return
 
+    # --- NOUVEAU : GESTION DE LA RARETÉ ET DE L'ARGENT ---
+    def trouver_info(nom_complet_recherche):
+        return next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom_complet_recherche), None)
+
+    info_ma = trouver_info(ma_voiture)
+    info_sa = trouver_info(sa_voiture)
+
+    if not info_ma or not info_sa:
+        await ctx.send("❌ Erreur : Impossible de retrouver les informations de ces voitures dans le catalogue.")
+        return
+
+    # On récupère le prix selon la rareté (50 par défaut si bug)
+    prix_ma = PRIX_REVENTE.get(info_ma["rareté"], 50)
+    prix_sa = PRIX_REVENTE.get(info_sa["rareté"], 50)
+
+    diff = abs(prix_ma - prix_sa)
+    solde_user = profil_user.get("coins", 0)
+    solde_target = profil_target.get("coins", 0)
+    
+    payeur_id = None
+    msg_compensation = "\n⚖️ **Échange équitable** (Même rareté) : Aucun argent ne sera échangé."
+
+    # Si l'auteur donne la voiture la plus chère, la cible doit payer
+    if prix_ma > prix_sa:
+        if solde_target < diff:
+            await ctx.send(f"❌ **Échange annulé** : {membre.mention} n'a pas assez d'argent pour compenser la différence de valeur. Il lui manque **{diff - solde_target} 🪙** !")
+            return
+        payeur_id = target_id
+        msg_compensation = f"\n⚠️ **Compensation financière :** {membre.display_name} devra payer la différence de **{diff} 🪙** à {ctx.author.display_name}."
+
+    # Si la cible donne la voiture la plus chère, l'auteur doit payer
+    elif prix_sa > prix_ma:
+        if solde_user < diff:
+            await ctx.send(f"❌ **Échange annulé** : {ctx.author.mention} n'a pas assez d'argent pour compenser la différence de valeur. Il te manque **{diff - solde_user} 🪙** !")
+            return
+        payeur_id = user_id
+        msg_compensation = f"\n⚠️ **Compensation financière :** {ctx.author.display_name} devra payer la différence de **{diff} 🪙** à {membre.display_name}."
+
+
     # 2. Demander confirmation à l'autre joueur
-    msg = await ctx.send(f"Hey {membre.mention} ! {ctx.author.mention} te propose d'échanger sa **{ma_voiture}** contre ta **{sa_voiture}**.\nRéagis avec ✅ pour accepter ou ❌ pour refuser.")
+    msg = await ctx.send(f"Hey {membre.mention} ! {ctx.author.mention} te propose d'échanger sa **{ma_voiture}** contre ta **{sa_voiture}**.{msg_compensation}\n\n*Réagis avec ✅ pour accepter ou ❌ pour refuser.*")
     await msg.add_reaction("✅")
     await msg.add_reaction("❌")
 
-    # Fonction pour vérifier que c'est bien la bonne personne qui clique sur la réaction
     def check(reaction, user):
         return user == membre and str(reaction.emoji) in ["✅", "❌"] and reaction.message.id == msg.id
 
     try:
-        # On attend la réaction pendant 60 secondes
         reaction, user = await bot.wait_for('reaction_add', timeout=60.0, check=check)
         
         if str(reaction.emoji) == "✅":
-            # 3. L'échange est accepté, on modifie les inventaires en Python
+            # 3. Modification des inventaires en Python
             garage_user = profil_user["garage"]
             garage_target = profil_target["garage"]
 
-            # On retire les voitures (une seule fois au cas où il y a des doublons)
             garage_user.remove(ma_voiture)
             garage_target.remove(sa_voiture)
-
-            # On ajoute les nouvelles voitures
             garage_user.append(sa_voiture)
             garage_target.append(ma_voiture)
 
-            # 4. On sauvegarde les nouveaux garages dans MongoDB
-            await collection_inventaires.update_one({"_id": user_id}, {"$set": {"garage": garage_user}})
-            await collection_inventaires.update_one({"_id": target_id}, {"$set": {"garage": garage_target}})
+            # 4. Sauvegarde dans MongoDB (Mise à jour des garages et des portefeuilles)
+            update_user = {"$set": {"garage": garage_user}}
+            update_target = {"$set": {"garage": garage_target}}
 
-            await ctx.send(f"🎉 Échange réussi entre {ctx.author.mention} et {membre.mention} !")
+            # Si de l'argent doit être échangé, on ajoute les instructions MongoDB
+            if diff > 0:
+                if payeur_id == user_id:
+                    update_user["$inc"] = {"coins": -diff}
+                    update_target["$inc"] = {"coins": diff}
+                else:
+                    update_user["$inc"] = {"coins": diff}
+                    update_target["$inc"] = {"coins": -diff}
+
+            await collection_inventaires.update_one({"_id": user_id}, update_user)
+            await collection_inventaires.update_one({"_id": target_id}, update_target)
+
+            await ctx.send(f"🎉 **Échange réussi** entre {ctx.author.mention} et {membre.mention} ! Les garages (et les portefeuilles) ont été mis à jour.")
         else:
             await ctx.send(f"❌ {membre.display_name} a refusé l'échange.")
 
