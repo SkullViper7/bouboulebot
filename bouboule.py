@@ -167,6 +167,54 @@ async def crack(ctx, *, jeu: str):
     await ctx.send(embed=embed)
 #endregion
 
+#region succes
+async def verifier_succes_marque(ctx, user_id, marque):
+    # 1. Lister toutes les voitures de cette marque qui existent dans le json
+    voitures_de_la_marque = [
+        f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() 
+        for v in VOITURES if v['marque'] == marque
+    ]
+    
+    if not voitures_de_la_marque:
+        return # Sécurité
+
+    # 2. Regarder le profil du joueur
+    profil = await collection_inventaires.find_one({"_id": str(user_id)})
+    if not profil:
+        return
+        
+    # Vérifier s'il a déjà touché la récompense pour cette marque !
+    succes_debloques = profil.get("succes_marques", [])
+    if marque in succes_debloques:
+        return 
+        
+    garage = profil.get("garage", [])
+    
+    # 3. Vérifier s'il possède TOUTES les voitures de la liste
+    possede_toutes = all(voiture in garage for voiture in voitures_de_la_marque)
+    
+    if possede_toutes:
+        # Calcul de la récompense (10 000 par voiture dans la collection)
+        recompense = len(voitures_de_la_marque) * 10000 
+        
+        # 4. On le paie et on note qu'il a eu le succès
+        await collection_inventaires.update_one(
+            {"_id": str(user_id)},
+            {
+                "$push": {"succes_marques": marque},
+                "$inc": {"coins": recompense}
+            }
+        )
+        
+        # 5. On fait péter le champagne dans le chat
+        embed = discord.Embed(
+            title="🏆 NOUVEAU SUCCÈS DÉBLOQUÉ !",
+            description=f"Incroyable ! <@{user_id}> vient de collectionner **absolument tous** les modèles de la marque **{marque}** !\n\n🎁 **Bonus de collectionnneur : +{recompense} 🪙**",
+            color=discord.Color.brand_green()
+        )
+        await ctx.send(embed=embed)
+#endregion
+
 #region roll
 @bot.command()
 async def roll(ctx):
@@ -240,7 +288,8 @@ async def roll(ctx):
     chance_pourcent = (voiture_gagnee.get("poids", 10) / total_poids) * 100
     
     embed.set_footer(text=f"Rareté : {rarete} (Drop rate : {chance_pourcent:.1f}%) | Appartient à {ctx.author.display_name}")
-    
+    # Vérification du succès de collection
+    await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
     await ctx.send(embed=embed)
 
 # --- Gestion de l'erreur si le joueur spam la commande ---
@@ -465,6 +514,9 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
             await collection_inventaires.update_one({"_id": target_id}, update_target)
 
             await ctx.send(f"🎉 **Échange réussi** entre {ctx.author.mention} et {membre.mention} ! Les garages (et les portefeuilles) ont été mis à jour.")
+            # Vérification des succès pour les deux joueurs
+            await verifier_succes_marque(ctx, user_id, info_sa['marque'])
+            await verifier_succes_marque(ctx, target_id, info_ma['marque'])
         else:
             await ctx.send(f"❌ {membre.display_name} a refusé l'échange.")
 
@@ -899,7 +951,8 @@ async def buyroll(ctx):
     )
     embed.set_image(url=voiture_gagnee['image'])
     embed.set_footer(text=f"Rareté : {voiture_gagnee['rareté']} | Appartient à {ctx.author.display_name}")
-    
+    # Vérification du succès de collection
+    await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
     await ctx.send(embed=embed)
 #endregion
 
