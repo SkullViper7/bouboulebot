@@ -14,6 +14,8 @@ import asyncio
 import math
 from collections import Counter
 import time
+from flask import Flask
+from threading import Thread
 
 #region Init
 # 1. Chargement des secrets
@@ -28,6 +30,21 @@ collection_inventaires = db["inventaires"]
 
 with open('cars.json', 'r', encoding='utf-8') as f:
     VOITURES = json.load(f)
+
+# --- Faux Serveur Web pour Render ---
+app = Flask('')
+@app.route('/')
+def home():
+    return "Bot en ligne !"
+
+def run_web():
+    # Render utilise la variable d'environnement PORT, sinon 8080 par défaut
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
+
+def keep_alive():
+    t = Thread(target=run_web)
+    t.start()
 
 # 3. Configuration du Bot Discord
 intents = discord.Intents.default()
@@ -896,4 +913,5 @@ async def toplist(ctx):
 
 # 4. Lancement
 if __name__ == "__main__":
+    keep_alive()
     bot.run(DISCORD_TOKEN)
