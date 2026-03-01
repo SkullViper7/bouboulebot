@@ -195,7 +195,7 @@ async def verifier_succes_marque(ctx, user_id, marque):
     
     if possede_toutes:
         # Calcul de la récompense (10 000 par voiture dans la collection)
-        recompense = len(voitures_de_la_marque) * 10000 
+        recompense = len(voitures_de_la_marque) * 5000 
         
         # 4. On le paie et on note qu'il a eu le succès
         await collection_inventaires.update_one(
