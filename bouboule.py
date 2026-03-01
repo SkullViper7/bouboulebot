@@ -678,7 +678,7 @@ async def cmd(ctx):
     )
     embed.add_field(
         name="🎟️ `!buyroll`", 
-        value="Achète un tirage supplémentaire immédiat pour 10000 🪙.", 
+        value="Achète un tirage supplémentaire immédiat pour 5000 🪙.", 
         inline=False
     )
     embed.add_field(
@@ -807,7 +807,7 @@ async def daily(ctx):
 @bot.command()
 async def buyroll(ctx):
     user_id = str(ctx.author.id)
-    prix_roll = 10000 # Le prix que tu veux pour un tirage payant
+    prix_roll = 5000 # Le prix que tu veux pour un tirage payant
     
     profil = await collection_inventaires.find_one({"_id": user_id})
     solde = profil.get("coins", 0) if profil else 0
