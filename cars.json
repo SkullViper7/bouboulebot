@@ -634,10 +634,10 @@
     {
         "nom": "Lancer Evolution VI",
         "marque": "Mitsubishi",
+        "annee": "1999",
         "rareté": "Commun ⚪",
         "poids": 100,
-        "image": "https://images.postwarclassic.com/pics/r2w-1200x800-caradverts/493915/r-2001-mitsubishi-lancer-evo-vi-1.jpg",
-        "annee": "1999"
+        "image": "https://i.imgur.com/WAkjvan.png"
     },
     {
         "nom": "Charger R/T",
@@ -1530,10 +1530,10 @@
     {
         "nom": "Isetta",
         "marque": "BMW",
+        "annee": "1955",
         "rareté": "Rare 🔵",
         "poids": 30,
-        "image": "https://medias.gazette-drouot.com/prod/medias/mediatheque/147457.jpg",
-        "annee": "1955"
+        "image": "https://i.imgur.com/rSc7MDk.png"
     },
     {
         "nom": "Tuatara",
@@ -2342,5 +2342,45 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/jBOhAn8.png"
+    },
+    {
+        "nom": "MR2",
+        "marque": "Toyota",
+        "annee": "1984",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/xFc3liZ.png"
+    },
+    {
+        "nom": "MR2",
+        "marque": "Toyota",
+        "annee": "1989",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/oeufM2G.png"
+    },
+    {
+        "nom": "Espace V6",
+        "marque": "Renault",
+        "annee": "2002",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/ulUsFry.png"
+    },
+    {
+        "nom": "Battle Bus",
+        "marque": "Fortnite",
+        "annee": "2017",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/52yYpsE.jpeg"
+    },
+    {
+        "nom": "Marcel",
+        "marque": "C'est Pas Sorcier",
+        "annee": "1993",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/JLlowGk.png"
     }
 ]
