@@ -2,10 +2,10 @@
     {
         "nom": "Cobra Daytona Coupe",
         "marque": "Shelby",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://images.squarespace-cdn.com/content/v1/612c930924ebe52c8f9b81fe/1635990864617-XL9VK516RL5NRYSPNMC0/2299+Daytona.jpeg",
-        "annee": "1964"
+        "annee": "1964",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://images.squarespace-cdn.com/content/v1/612c930924ebe52c8f9b81fe/1635990864617-XL9VK516RL5NRYSPNMC0/2299+Daytona.jpeg"
     },
     {
         "nom": "330 P4",
@@ -1538,10 +1538,10 @@
     {
         "nom": "Tuatara",
         "marque": "SSC",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://www.automoli.com/common/vehicles/_assets/img/gallery/f65/ssc-tuatara.jpg",
-        "annee": "2020"
+        "annee": "2020",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.automoli.com/common/vehicles/_assets/img/gallery/f65/ssc-tuatara.jpg"
     },
     {
         "nom": "Sagaris",
@@ -3406,5 +3406,189 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/Zj4oQrR.png"
+    },
+    {
+        "nom": "959",
+        "marque": "Porsche",
+        "annee": "1986",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/utnpRQf.png"
+    },
+    {
+        "nom": "959 Dakar",
+        "marque": "Porsche",
+        "annee": "1985",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Kl2AHwo.png"
+    },
+    {
+        "nom": "550 Spyder",
+        "marque": "Porsche",
+        "annee": "1953",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/OVkSFZi.png"
+    },
+    {
+        "nom": "911 GT2",
+        "marque": "Porsche",
+        "annee": "1995",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/qA6l8r4.png"
+    },
+    {
+        "nom": "918 Spyder",
+        "marque": "Porsche",
+        "annee": "2013",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/R03WHev.png"
+    },
+    {
+        "nom": "Scimitar GTE",
+        "marque": "Reliant",
+        "annee": "1968",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/4hnAA22.png"
+    },
+    {
+        "nom": "Bond Bug",
+        "marque": "Reliant",
+        "annee": "1970",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/kxJ3lpt.png"
+    },
+    {
+        "nom": "R5 Alpine",
+        "marque": "Renault",
+        "annee": "1978",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ZecjFwx.png"
+    },
+    {
+        "nom": "Phantom V John Lennon",
+        "marque": "Rolls Royce",
+        "annee": "1959",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/EAgg0Tx.png"
+    },
+    {
+        "nom": "Phantom VIII Centenary Edition",
+        "marque": "Rolls Royce",
+        "annee": "2018",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/lCw1Q0u.png"
+    },
+    {
+        "nom": "S7-R",
+        "marque": "Saleen",
+        "annee": "2008",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/yS3gugp.png"
+    },
+    {
+        "nom": "GT500 Eleanor",
+        "marque": "Shelby",
+        "annee": "1965",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/guiliQK.png"
+    },
+    {
+        "nom": "Ultimate Aero",
+        "marque": "SSC",
+        "annee": "2007",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/M69jE32.png"
+    },
+    {
+        "nom": "Impreza WRC Colin McRae",
+        "marque": "Subaru",
+        "annee": "1997",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/GasBJRC.jpeg"
+    },
+    {
+        "nom": "Escudo Pikes Peak",
+        "marque": "Suzuki",
+        "annee": "1996",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/P6zuLmu.png"
+    },
+    {
+        "nom": "GT-One",
+        "marque": "Toyota",
+        "annee": "1998",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/XNV7y19.png"
+    },
+    {
+        "nom": "Tuscan",
+        "marque": "TVR",
+        "annee": "2000",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/dT8rhAA.png"
+    },
+    {
+        "nom": "Cerbera",
+        "marque": "TVR",
+        "annee": "1996",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/BWre6cE.jpeg"
+    },
+    {
+        "nom": "Combi T1",
+        "marque": "Volkswagen",
+        "annee": "1950",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/0PkRzsB.jpeg"
+    },
+    {
+        "nom": "Karmann Ghia",
+        "marque": "Volkswagen",
+        "annee": "1955",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Uu4OPVZ.png"
+    },
+    {
+        "nom": "Corrado VR6",
+        "marque": "Volkswagen",
+        "annee": "1992",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Ff7E16N.png"
+    },
+    {
+        "nom": "Nardo",
+        "marque": "Volkswagen",
+        "annee": "1997",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/q7E8xX8.png"
+    },
+    {
+        "nom": "MF3 Roadster",
+        "marque": "Wiesmann",
+        "annee": "1993",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/9Z8y9F2.jpeg"
     }
 ]
