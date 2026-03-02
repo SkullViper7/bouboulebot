@@ -3950,5 +3950,21 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/CtouXt5.png"
+    },
+    {
+        "nom": "XKR S",
+        "marque": "Jaguar",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/7IpfLjh.png"
+    },
+    {
+        "nom": "288 GTO",
+        "marque": "Ferrari",
+        "annee": "1984",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/5MyA8qR.png"
     }
 ]

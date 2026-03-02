@@ -221,8 +221,7 @@ async def verifier_succes_marque(ctx, user_id, marque):
 async def roll(ctx):
     user_id = str(ctx.author.id)
     maintenant = time.time()
-    cooldown_secondes = 43200 # 12 heures
-
+    cooldown_secondes = 21600 # 6 heures
     # 1. Récupérer le profil du joueur
     profil = await collection_inventaires.find_one({"_id": user_id})
     
@@ -815,7 +814,7 @@ async def timer(ctx):
         return
 
     maintenant = time.time()
-    cooldown_secondes = 43200 # 12 heures en secondes
+    cooldown_secondes = 21600 # 6 heures    
     temps_ecoule = maintenant - profil["last_roll"]
     
     if temps_ecoule < cooldown_secondes:
@@ -842,7 +841,7 @@ async def dailytimer(ctx):
         return
 
     maintenant = time.time()
-    cooldown_daily = 86400 # 24 heures en secondes
+    cooldown_daily = 72000 # 20 heures en secondes
     temps_ecoule = maintenant - profil["last_daily"]
     
     if temps_ecoule < cooldown_daily:
@@ -871,7 +870,7 @@ async def solde(ctx, membre: discord.Member = None):
 async def daily(ctx):
     user_id = str(ctx.author.id)
     maintenant = time.time()
-    cooldown_daily = 86400 # 24 heures en secondes
+    cooldown_daily = 72000 # 20 heures en secondes
     salaire = 500 # Le montant gagné chaque jour
 
     profil = await collection_inventaires.find_one({"_id": user_id})
