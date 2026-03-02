@@ -3590,5 +3590,365 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/9Z8y9F2.jpeg"
+    },
+    {
+        "nom": "Veloster Turbo",
+        "marque": "Hyundai",
+        "annee": "2012",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/NYsq4Ex.png"
+    },
+    {
+        "nom": "Coupé",
+        "marque": "Hyundai",
+        "annee": "2002",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/kgXlwgz.png"
+    },
+    {
+        "nom": "Genesis Coupé",
+        "marque": "Hyundai",
+        "annee": "2010",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/CoVl4jj.png"
+    },
+    {
+        "nom": "i20 N WRC",
+        "marque": "Hyundai",
+        "annee": "2022",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/tDTMPps.png"
+    },
+    {
+        "nom": "N Vision 74",
+        "marque": "Hyundai",
+        "annee": "2022",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/XhVWLJ1.png"
+    },
+    {
+        "nom": "Tacoma Pikes Peak",
+        "marque": "Toyota",
+        "annee": "1998",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/nErk5AD.png"
+    },
+    {
+        "nom": "Sports 800",
+        "marque": "Toyota",
+        "annee": "1965",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/RogLQdv.png"
+    },
+    {
+        "nom": "Celica GT-Four",
+        "marque": "Toyota",
+        "annee": "1995",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/QLLVACx.png"
+    },
+    {
+        "nom": "GR86",
+        "marque": "Toyota",
+        "annee": "2021",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/FurGgN1.png"
+    },
+    {
+        "nom": "GR Corolla",
+        "marque": "Toyota",
+        "annee": "2022",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/QCv1PDZ.png"
+    },
+    {
+        "nom": "Corolla WRC",
+        "marque": "Toyota",
+        "annee": "1997",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/jtp28LT.png"
+    },
+    {
+        "nom": "GR Yaris WRC",
+        "marque": "Toyota",
+        "annee": "2022",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/R1GVSqu.png"
+    },
+    {
+        "nom": "Castrol Tom's Supra",
+        "marque": "Toyota",
+        "annee": "1997",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/mEOS0jM.png"
+    },
+    {
+        "nom": "Mustang Fox Body",
+        "marque": "Ford",
+        "annee": "1988",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/BwqCV0R.png"
+    },
+    {
+        "nom": "Mustang SVT Cobra",
+        "marque": "Ford",
+        "annee": "1993",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/flGEk3Y.png"
+    },
+    {
+        "nom": "GT",
+        "marque": "Ford",
+        "annee": "2017",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/zXpc9Bx.png"
+    },
+    {
+        "nom": "RS200",
+        "marque": "Ford",
+        "annee": "1986",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/FC9LviG.png"
+    },
+    {
+        "nom": "Supervan 3",
+        "marque": "Ford",
+        "annee": "1994",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/xKkkiH0.png"
+    },
+    {
+        "nom": "S800",
+        "marque": "Honda",
+        "annee": "1966",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/1EQDuaN.png"
+    },
+    {
+        "nom": "NSX",
+        "marque": "Honda",
+        "annee": "2016",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/m6gIpWR.png"
+    },
+    {
+        "nom": "507",
+        "marque": "BMW",
+        "annee": "1955",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/bebLhPB.png"
+    },
+    {
+        "nom": "M635CSi",
+        "marque": "BMW",
+        "annee": "1984",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/1bkyvrI.png"
+    },
+    {
+        "nom": "1M Coupé",
+        "marque": "BMW",
+        "annee": "2011",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/nZHysZI.jpeg"
+    },
+    {
+        "nom": "M3 E46 CSL",
+        "marque": "BMW",
+        "annee": "2001",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/hc5cxhO.png"
+    },
+    {
+        "nom": "M3 E92",
+        "marque": "BMW",
+        "annee": "2007",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/dzUXhf1.png"
+    },
+    {
+        "nom": "M3 GTS",
+        "marque": "BMW",
+        "annee": "2009",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/l5K53Tz.png"
+    },
+    {
+        "nom": "M4",
+        "marque": "BMW",
+        "annee": "2014",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ZPsHQmv.png"
+    },
+    {
+        "nom": "M2 CS",
+        "marque": "BMW",
+        "annee": "2016",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Cv1CXC0.png"
+    },
+    {
+        "nom": "Z1",
+        "marque": "BMW",
+        "annee": "1988",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/5tngyrg.png"
+    },
+    {
+        "nom": "Z3M Coupé",
+        "marque": "BMW",
+        "annee": "1998",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/5zZbVRd.jpeg"
+    },
+    {
+        "nom": "Z4M Coupé",
+        "marque": "BMW",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/s11Ze7r.png"
+    },
+    {
+        "nom": "M3 E30 DTM",
+        "marque": "BMW",
+        "annee": "1987",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Pu6aPJr.png"
+    },
+    {
+        "nom": "Sport Quattro",
+        "marque": "Audi",
+        "annee": "1983",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/nTHTOYj.png"
+    },
+    {
+        "nom": "Charger SRT Hellcat",
+        "marque": "Dodge",
+        "annee": "2015",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/wCZPkJs.png"
+    },
+    {
+        "nom": "Charger LX SRT",
+        "marque": "Dodge",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/tRTcMbY.png"
+    },
+    {
+        "nom": "Celica ST",
+        "marque": "Toyota",
+        "annee": "1970",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/8NyjWbE.png"
+    },
+    {
+        "nom": "Pulsar GTI-R",
+        "marque": "Nissan",
+        "annee": "1990",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/dKEJXX9.png"
+    },
+    {
+        "nom": "R390 GT1",
+        "marque": "Nissan",
+        "annee": "1997",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/HS1E4dH.png"
+    },
+    {
+        "nom": "356 Speedster",
+        "marque": "Porsche",
+        "annee": "1948",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/5lPjg3N.png"
+    },
+    {
+        "nom": "924 Carrera GT",
+        "marque": "Porsche",
+        "annee": "1981",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/9iq9AjQ.jpeg"
+    },
+    {
+        "nom": "928",
+        "marque": "Porsche",
+        "annee": "1977",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/NqY0TjC.png"
+    },
+    {
+        "nom": "944 Tubo Cup",
+        "marque": "Porsche",
+        "annee": "1988",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/VHtBRy1.png"
+    },
+    {
+        "nom": "935",
+        "marque": "Porsche",
+        "annee": "1976",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/zekToG7.png"
+    },
+    {
+        "nom": "956",
+        "marque": "Porsche",
+        "annee": "1981",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/dbsaelb.png"
+    },
+    {
+        "nom": "911 Safari",
+        "marque": "Porsche",
+        "annee": "1978",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/CtouXt5.png"
     }
 ]
