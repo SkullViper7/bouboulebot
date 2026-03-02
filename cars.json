@@ -144,12 +144,12 @@
         "annee": "1966"
     },
     {
-        "nom": "Enzo Ferrari",
+        "nom": "Enzo",
         "marque": "Ferrari",
+        "annee": "2002",
         "rareté": "Mythique 🟣",
         "poids": 8,
-        "image": "https://sf2.sportauto.fr/wp-content/uploads/sportauto/2024/02/ferrari-enzo-kilometree-a-vendre-1.jpeg",
-        "annee": "2002"
+        "image": "https://sf2.sportauto.fr/wp-content/uploads/sportauto/2024/02/ferrari-enzo-kilometree-a-vendre-1.jpeg"
     },
     {
         "nom": "Carrera GT",
@@ -186,10 +186,10 @@
     {
         "nom": "Zonda R",
         "marque": "Pagani",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
-        "image": "https://www.supercars.net/blog/wp-content/uploads/2016/04/2010-Pagani-Zonda-R-001-1080.jpg",
-        "annee": "2009"
+        "annee": "2009",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://www.supercars.net/blog/wp-content/uploads/2016/04/2010-Pagani-Zonda-R-001-1080.jpg"
     },
     {
         "nom": "918 Spyder",
@@ -234,10 +234,10 @@
     {
         "nom": "Huayra",
         "marque": "Pagani",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
-        "image": "https://i.gaw.to/content/photos/08/17/081707_Pagani_Huayra_Un_missile_sur_quatre_roues.jpg",
-        "annee": "2013"
+        "annee": "2013",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.gaw.to/content/photos/08/17/081707_Pagani_Huayra_Un_missile_sur_quatre_roues.jpg"
     },
     {
         "nom": "One-77",
@@ -288,12 +288,12 @@
         "annee": "1964"
     },
     {
-        "nom": "Diablo GT",
+        "nom": "Diablo GTR",
         "marque": "Lamborghini",
+        "annee": "2000",
         "rareté": "Mythique 🟣",
         "poids": 8,
-        "image": "https://cdn.prod.website-files.com/662e6423ff88861916362956/67ec0cdc582cb537b2a759b0_gallery_image_0-1743523032135.webp",
-        "annee": "2000"
+        "image": "https://i.imgur.com/RJblFQP.png"
     },
     {
         "nom": "911 Carrera RS (901)",
@@ -360,12 +360,12 @@
         "annee": "1966"
     },
     {
-        "nom": "Ford GT",
+        "nom": "GT",
         "marque": "Ford",
+        "annee": "2006",
         "rareté": "Rare 🔵",
         "poids": 30,
-        "image": "https://cdn.motor1.com/images/mgl/4OvLk/s1/2006-ford-gt-for-sale.jpg",
-        "annee": "2006"
+        "image": "https://cdn.motor1.com/images/mgl/4OvLk/s1/2006-ford-gt-for-sale.jpg"
     },
     {
         "nom": "4C",
@@ -394,10 +394,10 @@
     {
         "nom": "Aventador LP 700-4",
         "marque": "Lamborghini",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://johnscottiluxuryprestige.com/wp-content/uploads/2016/02/35-1643904002369.jpg",
-        "annee": "2011"
+        "annee": "2011",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://johnscottiluxuryprestige.com/wp-content/uploads/2016/02/35-1643904002369.jpg"
     },
     {
         "nom": "GT-R NISMO (R32)",
@@ -410,10 +410,10 @@
     {
         "nom": "Murciélago SV",
         "marque": "Lamborghini",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://cdn.prod.website-files.com/662e6423ff88861916362956/682d18e3136df728bed2013d_gallery_image_17-1747785950541.webp",
-        "annee": "2009"
+        "annee": "2009",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://cdn.prod.website-files.com/662e6423ff88861916362956/682d18e3136df728bed2013d_gallery_image_17-1747785950541.webp"
     },
     {
         "nom": "430 Scuderia",
@@ -434,10 +434,10 @@
     {
         "nom": "SLS AMG",
         "marque": "Mercedes-Benz",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Mercedes-Benz_SLS_AMG_%28C_197%29_%E2%80%93_Frontansicht_ge%C3%B6ffnet%2C_10._August_2011%2C_D%C3%BCsseldorf.jpg/1280px-Mercedes-Benz_SLS_AMG_%28C_197%29_%E2%80%93_Frontansicht_ge%C3%B6ffnet%2C_10._August_2011%2C_D%C3%BCsseldorf.jpg",
-        "annee": "2010"
+        "annee": "2010",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Mercedes-Benz_SLS_AMG_%28C_197%29_%E2%80%93_Frontansicht_ge%C3%B6ffnet%2C_10._August_2011%2C_D%C3%BCsseldorf.jpg/1280px-Mercedes-Benz_SLS_AMG_%28C_197%29_%E2%80%93_Frontansicht_ge%C3%B6ffnet%2C_10._August_2011%2C_D%C3%BCsseldorf.jpg"
     },
     {
         "nom": "GT86",
@@ -498,10 +498,10 @@
     {
         "nom": "190 E 2.5 - 16 Evolution II",
         "marque": "Mercedes-Benz",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://res.cloudinary.com/dsxfn6o4q/image/upload/c_fill,g_center,h_467,w_624/v1660069482/kdf1zeb4nxecgsbcmec5.jpg",
-        "annee": "1991"
+        "annee": "1991",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://res.cloudinary.com/dsxfn6o4q/image/upload/c_fill,g_center,h_467,w_624/v1660069482/kdf1zeb4nxecgsbcmec5.jpg"
     },
     {
         "nom": "Delta S4",
@@ -635,8 +635,8 @@
         "nom": "Lancer Evolution VI",
         "marque": "Mitsubishi",
         "annee": "1999",
-        "rareté": "Commun ⚪",
-        "poids": 100,
+        "rareté": "Rare 🔵",
+        "poids": 30,
         "image": "https://i.imgur.com/WAkjvan.png"
     },
     {
@@ -793,11 +793,11 @@
     },
     {
         "nom": "Mini-Cooper 'S'",
-        "marque": "Mini",
+        "marque": "Austin",
+        "annee": "1965",
         "rareté": "Commun ⚪",
         "poids": 100,
-        "image": "https://storagegohistorics.bidpath.cloud/stock/6997-0-medium.jpg?v=63847401460700",
-        "annee": "1965"
+        "image": "https://storagegohistorics.bidpath.cloud/stock/6997-0-medium.jpg?v=63847401460700"
     },
     {
         "nom": "Coccinelle",
@@ -1058,10 +1058,10 @@
     {
         "nom": "Type 32 Tank",
         "marque": "Bugatti",
+        "annee": "1929",
         "rareté": "Rare 🔵",
         "poids": 30,
-        "image": "https://www.the7exclusivejournal.com/wp-content/uploads/2023/07/t32tank_100ans_08.jpg",
-        "annee": "2029"
+        "image": "https://www.the7exclusivejournal.com/wp-content/uploads/2023/07/t32tank_100ans_08.jpg"
     },
     {
         "nom": "R500",
@@ -1378,18 +1378,18 @@
     {
         "nom": "SENNA",
         "marque": "McLaren",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://website-images.mclaren.com/1705/mclaren-ultimate-senna-silverstone-hero-expanded.jpg",
-        "annee": "2018"
-    },
-    {
-        "nom": "C63 AMG 6X6",
-        "marque": "Mercedes-Benz",
+        "annee": "2018",
         "rareté": "Mythique 🟣",
         "poids": 8,
-        "image": "https://i.gaw.to/content/photos/12/16/121625_Mercedes-Benz_G63_AMG_6X6_plus_imposant_que_l_Hummer_H1.jpg",
-        "annee": "2013"
+        "image": "https://website-images.mclaren.com/1705/mclaren-ultimate-senna-silverstone-hero-expanded.jpg"
+    },
+    {
+        "nom": "G63 AMG 6X6",
+        "marque": "Mercedes-Benz",
+        "annee": "2013",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.gaw.to/content/photos/12/16/121625_Mercedes-Benz_G63_AMG_6X6_plus_imposant_que_l_Hummer_H1.jpg"
     },
     {
         "nom": "GTR R33",
@@ -1667,8 +1667,8 @@
         "nom": "Eclipse Brian",
         "marque": "Mitsubishi",
         "annee": "1995",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://i.imgur.com/NDnLET9.png"
     },
     {
@@ -1712,8 +1712,8 @@
         "image": "https://i.imgur.com/g780meC.png"
     },
     {
-        "nom": "LAPV",
-        "marque": "Gurkha",
+        "nom": "Gurkha LAPV",
+        "marque": "Terradyne",
         "annee": "2006",
         "rareté": "Rare 🔵",
         "poids": 30,
@@ -1859,8 +1859,8 @@
         "nom": "Bounder",
         "marque": "Fleetwood",
         "annee": "1986",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://i.imgur.com/TodKPPn.png"
     },
     {
@@ -2235,8 +2235,8 @@
         "nom": "Hélica",
         "marque": "Leyat",
         "annee": "1921",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://i.imgur.com/yreScQo.jpeg"
     },
     {
@@ -2251,8 +2251,8 @@
         "nom": "Cruiser",
         "marque": "Lethal Company",
         "annee": "2023",
-        "rareté": "Commun ⚪",
-        "poids": 100,
+        "rareté": "Rare 🔵",
+        "poids": 30,
         "image": "https://i.imgur.com/WEqFZZM.png"
     },
     {
@@ -2267,8 +2267,8 @@
         "nom": "Leclerc",
         "marque": "GIAT",
         "annee": "1978",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://i.imgur.com/4ML7Xo3.png"
     },
     {
@@ -2337,7 +2337,7 @@
     },
     {
         "nom": "DMC 12 Alexandre Claudin",
-        "marque": "Delorean",
+        "marque": "DMC",
         "annee": "2021",
         "rareté": "Mythique 🟣",
         "poids": 8,
@@ -2382,5 +2382,1029 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/JLlowGk.png"
+    },
+    {
+        "nom": "33 Stradale",
+        "marque": "Alfa Romeo",
+        "annee": "1967",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/q6rn9fR.png"
+    },
+    {
+        "nom": "Spider Duetto",
+        "marque": "Alfa Romeo",
+        "annee": "1966",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/bbZB04U.png"
+    },
+    {
+        "nom": "Giulia Quadrifoglio",
+        "marque": "Alfa Romeo",
+        "annee": "2020",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/L9QY9En.png"
+    },
+    {
+        "nom": "Giulia TZ2",
+        "marque": "Alfa Romeo",
+        "annee": "1965",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/VyiBjaZ.png"
+    },
+    {
+        "nom": "A310",
+        "marque": "Alpine",
+        "annee": "1971",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/MCIgrKA.png"
+    },
+    {
+        "nom": "A110",
+        "marque": "Alpine",
+        "annee": "2017",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/oRim4HY.jpeg"
+    },
+    {
+        "nom": "A424",
+        "marque": "Alpine",
+        "annee": "2023",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/n5rUKHg.png"
+    },
+    {
+        "nom": "Intensa Emozione Evo",
+        "marque": "Apollo",
+        "annee": "2021",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Rnwjs3g.png"
+    },
+    {
+        "nom": "V8 Vantage",
+        "marque": "Aston Martin",
+        "annee": "1977",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/G8sU0ps.png"
+    },
+    {
+        "nom": "DB4 Zagato",
+        "marque": "Aston Martin",
+        "annee": "1960",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/rMHoCpw.png"
+    },
+    {
+        "nom": "DBR9",
+        "marque": "Aston Martin",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/U8aATYc.png"
+    },
+    {
+        "nom": "TT TDI",
+        "marque": "Audi",
+        "annee": "2006",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/mFSFyjX.png"
+    },
+    {
+        "nom": "R8 LMS",
+        "marque": "Audi",
+        "annee": "2009",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Nr0XRzp.jpeg"
+    },
+    {
+        "nom": "R-Type Continental",
+        "marque": "Bentley",
+        "annee": "1953",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/8wNTHCU.jpeg"
+    },
+    {
+        "nom": "Continental GT",
+        "marque": "Bentley",
+        "annee": "2002",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/biG3Cu8.png"
+    },
+    {
+        "nom": "Mulsanne Speed",
+        "marque": "Bentley",
+        "annee": "2016",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/TULkFPD.png"
+    },
+    {
+        "nom": "Speed 6 Blue Train",
+        "marque": "Bentley",
+        "annee": "1930",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/sGQjYgc.png"
+    },
+    {
+        "nom": "Nomad 2",
+        "marque": "Ariel",
+        "annee": "2019",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/mquwRNY.png"
+    },
+    {
+        "nom": "Speirling",
+        "marque": "McMurty",
+        "annee": "2024",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/t38hh6E.png"
+    },
+    {
+        "nom": "Mono R",
+        "marque": "BAC",
+        "annee": "2023",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/5c8qZ6E.jpeg"
+    },
+    {
+        "nom": "Batmobile",
+        "marque": "Batman",
+        "annee": "1989",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/wuoyODE.png"
+    },
+    {
+        "nom": "Z8",
+        "marque": "BMW",
+        "annee": "2000",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/mvfLWmK.png"
+    },
+    {
+        "nom": "M1 Procar",
+        "marque": "BMW",
+        "annee": "1979",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/2DeZ4RU.png"
+    },
+    {
+        "nom": "Riviera Boat Tail",
+        "marque": "Buick",
+        "annee": "1971",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/RXRoLYf.png"
+    },
+    {
+        "nom": "GSX Stage 1",
+        "marque": "Buick",
+        "annee": "1971",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/eMyQdol.png"
+    },
+    {
+        "nom": "Eldorado Biarritz",
+        "marque": "Cadillac",
+        "annee": "1959",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/e746Of5.png"
+    },
+    {
+        "nom": "V16 Series 452",
+        "marque": "Cadillac",
+        "annee": "1930",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/FP4LRcB.png"
+    },
+    {
+        "nom": "Series 61 Le Monstre",
+        "marque": "Cadillac",
+        "annee": "1950",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/BlV75yk.png"
+    },
+    {
+        "nom": "Francesco Bernoulli",
+        "marque": "Cars 2",
+        "annee": "2011",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/nmjU3b4.png"
+    },
+    {
+        "nom": "Finn McMissile",
+        "marque": "Cars 2",
+        "annee": "2011",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/eZASHUv.png"
+    },
+    {
+        "nom": "Holley Shiftwell",
+        "marque": "Cars 2",
+        "annee": "2011",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/sja8Nbw.png"
+    },
+    {
+        "nom": "Professeur Zundapp",
+        "marque": "Cars 2",
+        "annee": "2011",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/fB8I3bz.png"
+    },
+    {
+        "nom": "Darrel Cartrip",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/yP7LozD.png"
+    },
+    {
+        "nom": "Mia & Tia",
+        "marque": "Cars",
+        "annee": "2006",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/u0LjMRK.png"
+    },
+    {
+        "nom": "Super Seven 2000",
+        "marque": "Caterham",
+        "annee": "2023",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/F5Jl6ER.jpeg"
+    },
+    {
+        "nom": "Chevelle SS",
+        "marque": "Chevrolet",
+        "annee": "1970",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/84nWb4y.png"
+    },
+    {
+        "nom": "Bel Air",
+        "marque": "Chevrolet",
+        "annee": "1957",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/VBwews5.png"
+    },
+    {
+        "nom": "Camaro Garage 56",
+        "marque": "Chevrolet",
+        "annee": "2023",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/bXmbOFQ.png"
+    },
+    {
+        "nom": "Corvette C6",
+        "marque": "Chevrolet",
+        "annee": "2005",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/BakSOrm.jpeg"
+    },
+    {
+        "nom": "Corvette C6R",
+        "marque": "Chevrolet",
+        "annee": "2005",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/vN8J1he.png"
+    },
+    {
+        "nom": "Corvette C7",
+        "marque": "Chevrolet",
+        "annee": "2013",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ud1rKhm.png"
+    },
+    {
+        "nom": "Corvette C7R",
+        "marque": "Chevrolet",
+        "annee": "2014",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/sZ6KPnZ.png"
+    },
+    {
+        "nom": "Prowler",
+        "marque": "Chrysler",
+        "annee": "1997",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/vW0OUUF.png"
+    },
+    {
+        "nom": "PT Cruiser",
+        "marque": "Chrysler",
+        "annee": "2000",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/NVskfFz.png"
+    },
+    {
+        "nom": "510",
+        "marque": "Datsun",
+        "annee": "1968",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/QouLkoN.jpeg"
+    },
+    {
+        "nom": "510 BRE",
+        "marque": "Datsun",
+        "annee": "1971",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/6j2tthh.png"
+    },
+    {
+        "nom": "Vallelunga",
+        "marque": "De Tomaso",
+        "annee": "1963",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/QGsGwjC.png"
+    },
+    {
+        "nom": "P72",
+        "marque": "De Tomaso",
+        "annee": "2024",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/1iCzUqQ.png"
+    },
+    {
+        "nom": "Challenger R/T",
+        "marque": "Dodge",
+        "annee": "1970",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Pn0JqXM.png"
+    },
+    {
+        "nom": "Viper SRT-10",
+        "marque": "Dodge",
+        "annee": "2008",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/wfnVGpJ.png"
+    },
+    {
+        "nom": "Viper ACR",
+        "marque": "Dodge",
+        "annee": "2013",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/FX1HoPI.png"
+    },
+    {
+        "nom": "Challenger SRT Hellcat",
+        "marque": "Dodge",
+        "annee": "2015",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/SEZ84i5.png"
+    },
+    {
+        "nom": "KH II",
+        "marque": "Facel Vega",
+        "annee": "1962",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/kSUWReG.png"
+    },
+    {
+        "nom": "Mongo Truck",
+        "marque": "Fast & Furious",
+        "annee": "2011",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/jYVPs4X.png"
+    },
+    {
+        "nom": "250 GTO",
+        "marque": "Ferrari",
+        "annee": "1962",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/QkYMEeH.png"
+    },
+    {
+        "nom": "499P",
+        "marque": "Ferrari",
+        "annee": "2022",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ZVdpIQz.png"
+    },
+    {
+        "nom": "296 GT3",
+        "marque": "Ferrari",
+        "annee": "2023",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/YI4trWI.png"
+    },
+    {
+        "nom": "Dino Spider",
+        "marque": "Fiat",
+        "annee": "1966",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/eZGKUtw.png"
+    },
+    {
+        "nom": "Panda 4x4",
+        "marque": "Fiat",
+        "annee": "1983",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/rxxDJ0L.png"
+    },
+    {
+        "nom": "S76 La Bete de Turin",
+        "marque": "Fiat",
+        "annee": "1911",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/DjrB8zv.png"
+    },
+    {
+        "nom": "8V",
+        "marque": "Fiat",
+        "annee": "1952",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/r418R9C.png"
+    },
+    {
+        "nom": "Escort RS Cosworth",
+        "marque": "Ford",
+        "annee": "1993",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/UuCSZig.png"
+    },
+    {
+        "nom": "F-150 Raptor",
+        "marque": "Ford",
+        "annee": "2020",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/OADXTHm.png"
+    },
+    {
+        "nom": "Capri RS 2600",
+        "marque": "Ford",
+        "annee": "1972",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/NVqRCv5.png"
+    },
+    {
+        "nom": "Fiesta Ken Block",
+        "marque": "Ford",
+        "annee": "2010",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/f1y7CVt.png"
+    },
+    {
+        "nom": "Focus RS",
+        "marque": "Ford",
+        "annee": "2007",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/TG875bD.png"
+    },
+    {
+        "nom": "All Terrain Kart",
+        "marque": "Fortnite",
+        "annee": "2017",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/nIiQ817.png"
+    },
+    {
+        "nom": "Turismo R",
+        "marque": "Grotti",
+        "annee": "2013",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/nQPeLrk.jpeg"
+    },
+    {
+        "nom": "Apollo Enraged",
+        "marque": "Gumpert",
+        "annee": "2013",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/XZ3Acy8.png"
+    },
+    {
+        "nom": "Gurkha RPV",
+        "marque": "Terradyne",
+        "annee": "2006",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/UO4MZza.png"
+    },
+    {
+        "nom": "Integra Type R",
+        "marque": "Honda",
+        "annee": "1995",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/A41nkVn.png"
+    },
+    {
+        "nom": "Civic",
+        "marque": "Honda",
+        "annee": "1973",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/443R7wh.png"
+    },
+    {
+        "nom": "Commodore Eight Wagon",
+        "marque": "Hudson",
+        "annee": "1948",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/i1dcDG4.png"
+    },
+    {
+        "nom": "Italia",
+        "marque": "Hudson",
+        "annee": "1953",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/unE64Xr.png"
+    },
+    {
+        "nom": "H2 Limo",
+        "marque": "Hummer",
+        "annee": "2003",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/DIAlE4b.png"
+    },
+    {
+        "nom": "H3 Dakar",
+        "marque": "Hummer",
+        "annee": "2005",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/BVJ23nD.png"
+    },
+    {
+        "nom": "QX70",
+        "marque": "Infiniti",
+        "annee": "2014",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/ds7HrG7.png"
+    },
+    {
+        "nom": "Q60 Red Sport 400",
+        "marque": "Infiniti",
+        "annee": "2017",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/1IPsy8c.png"
+    },
+    {
+        "nom": "XK120",
+        "marque": "Jaguar",
+        "annee": "1948",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/hgM0G9C.png"
+    },
+    {
+        "nom": "F-Type SVR",
+        "marque": "Jaguar",
+        "annee": "2013",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ITsSFLS.png"
+    },
+    {
+        "nom": "Type C",
+        "marque": "Jaguar",
+        "annee": "1951",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/OiwTE8v.png"
+    },
+    {
+        "nom": "Type D",
+        "marque": "Jaguar",
+        "annee": "1954",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Wr5KIon.png"
+    },
+    {
+        "nom": "XJ12C Broadspeed",
+        "marque": "Jaguar",
+        "annee": "1974",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/StBkQNB.png"
+    },
+    {
+        "nom": "Grand Cherokee Trackhawk",
+        "marque": "Jeep",
+        "annee": "2017",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/JW2uTSn.png"
+    },
+    {
+        "nom": "Grand Wagoneer",
+        "marque": "Jeep",
+        "annee": "1963",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/Jl3KLG9.png"
+    },
+    {
+        "nom": "Regera",
+        "marque": "Koenigsegg",
+        "annee": "2016",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/nvgIpUk.png"
+    },
+    {
+        "nom": "Agera RS",
+        "marque": "Koenigsegg",
+        "annee": "2015",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/lV5GeLX.png"
+    },
+    {
+        "nom": "X-Bow GT4",
+        "marque": "KTM",
+        "annee": "2015",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/4WM4WV7.png"
+    },
+    {
+        "nom": "Huracan GT3 EVO2",
+        "marque": "Lamborghini",
+        "annee": "2023",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ZgdtG2K.png"
+    },
+    {
+        "nom": "Huracan Sterrato",
+        "marque": "Lamborghini",
+        "annee": "2022",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/KX2EEiU.png"
+    },
+    {
+        "nom": "Fulvia Coupé",
+        "marque": "Lancia",
+        "annee": "1969",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/sZpztPW.png"
+    },
+    {
+        "nom": "Delta HF Integrale",
+        "marque": "Lancia",
+        "annee": "1988",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Uq0M9lE.png"
+    },
+    {
+        "nom": "Range Rover",
+        "marque": "Land Rover",
+        "annee": "1970",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/6vIbMaY.png"
+    },
+    {
+        "nom": "Bowler Wildcat",
+        "marque": "Land Rover",
+        "annee": "1998",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/hfuvlpp.png"
+    },
+    {
+        "nom": "RC F GT3",
+        "marque": "Lexus",
+        "annee": "2014",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/VRkkQKu.png"
+    },
+    {
+        "nom": "RC F",
+        "marque": "Lexus",
+        "annee": "2016",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/JlJQHQT.png"
+    },
+    {
+        "nom": "Town Car Limo",
+        "marque": "Lincoln",
+        "annee": "1989",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/bweJpxG.png"
+    },
+    {
+        "nom": "SS-100-X",
+        "marque": "Lincoln",
+        "annee": "1961",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/5hvAN5i.png"
+    },
+    {
+        "nom": "B1",
+        "marque": "Marussia",
+        "annee": "2009",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/t5LIq5n.png"
+    },
+    {
+        "nom": "3500 GT",
+        "marque": "Maserati",
+        "annee": "1957",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/klZswDa.png"
+    },
+    {
+        "nom": "205F",
+        "marque": "Maserati",
+        "annee": "1953",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/vxGKLGK.png"
+    },
+    {
+        "nom": "Tipo 61 Birdcage",
+        "marque": "Maserati",
+        "annee": "1961",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/KAw8cHS.png"
+    },
+    {
+        "nom": "GranTurismo",
+        "marque": "Maserati",
+        "annee": "2007",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/8xw4zVa.png"
+    },
+    {
+        "nom": "MX-5 Miata",
+        "marque": "Mazda",
+        "annee": "1989",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/CurPS2J.png"
+    },
+    {
+        "nom": "3 MPS",
+        "marque": "Mazda",
+        "annee": "2004",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/JrWt95b.png"
+    },
+    {
+        "nom": "Furai",
+        "marque": "Mazda",
+        "annee": "2008",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/eybfJEa.png"
+    },
+    {
+        "nom": "765 LT",
+        "marque": "McLaren",
+        "annee": "2020",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/AK7uBsf.png"
+    },
+    {
+        "nom": "W1",
+        "marque": "McLaren",
+        "annee": "2025",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/JPBInrf.png"
+    },
+    {
+        "nom": "P1",
+        "marque": "McLaren",
+        "annee": "2013",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/J8dGNeq.png"
+    },
+    {
+        "nom": "F1 LM",
+        "marque": "McLaren",
+        "annee": "1995",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/jk7vCNN.png"
+    },
+    {
+        "nom": "Speedtail",
+        "marque": "McLaren",
+        "annee": "2020",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/9O5GYI6.png"
+    },
+    {
+        "nom": "AMG ONE",
+        "marque": "Mercedes-Benz",
+        "annee": "2022",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/z6es6aA.png"
+    },
+    {
+        "nom": "AMG 300 SEL Die Rote Sau",
+        "marque": "Mercedes-Benz",
+        "annee": "1968",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/fq6o3Fo.png"
+    },
+    {
+        "nom": "AMG GTR",
+        "marque": "Mercedes-Benz",
+        "annee": "2014",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/XVHbsvG.png"
+    },
+    {
+        "nom": "C63 AMG Black Series",
+        "marque": "Mercedes-Benz",
+        "annee": "2012",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/0Vq944o.png"
+    },
+    {
+        "nom": "3000",
+        "marque": "Austin",
+        "annee": "1959",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/HveYJXO.png"
+    },
+    {
+        "nom": "Lancer EVO X",
+        "marque": "Mitsubishi",
+        "annee": "2008",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/HVzIlUj.jpeg"
+    },
+    {
+        "nom": "3000 GT",
+        "marque": "Mitsubishi",
+        "annee": "1990",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/nLPlklF.png"
+    },
+    {
+        "nom": "Skyline GTR R32 Godzilla",
+        "marque": "Nissan",
+        "annee": "1989",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/PRo4Pcv.png"
+    },
+    {
+        "nom": "M12 GTO-3R",
+        "marque": "Noble",
+        "annee": "2000",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/zjFXUl8.png"
+    },
+    {
+        "nom": "M500",
+        "marque": "Noble",
+        "annee": "2022",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/LRf9r41.png"
+    },
+    {
+        "nom": "Zonda Cinque",
+        "marque": "Pagani",
+        "annee": "2009",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/i74Lt3n.png"
+    },
+    {
+        "nom": "Huayra BC",
+        "marque": "Pagani",
+        "annee": "2016",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/S5JmS3F.png"
+    },
+    {
+        "nom": "Trident",
+        "marque": "Peel",
+        "annee": "1965",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/5DcCqg1.png"
+    },
+    {
+        "nom": "Road Runner",
+        "marque": "Plymouth",
+        "annee": "1970",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/I9K7VMz.png"
+    },
+    {
+        "nom": "Fury",
+        "marque": "Plymouth",
+        "annee": "1957",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/N4EWG6t.png"
+    },
+    {
+        "nom": "GTO",
+        "marque": "Pontiac",
+        "annee": "1966",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/8swxlnt.jpeg"
+    },
+    {
+        "nom": "GTO xXx",
+        "marque": "Pontiac",
+        "annee": "2002",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Zj4oQrR.png"
     }
 ]

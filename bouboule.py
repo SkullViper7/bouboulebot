@@ -175,9 +175,10 @@ async def verifier_succes_marque(ctx, user_id, marque):
         for v in VOITURES if v['marque'] == marque
     ]
     
-    if not voitures_de_la_marque:
-        return # Sécurité
-
+    # Sécurité + Condition : au moins 2 voitures requises pour le succès
+    if len(voitures_de_la_marque) < 2:
+        return
+    
     # 2. Regarder le profil du joueur
     profil = await collection_inventaires.find_one({"_id": str(user_id)})
     if not profil:
