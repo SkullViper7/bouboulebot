@@ -5920,5 +5920,14 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/wCKCl7S.png"
+    },
+    {
+        "nom": "9X8",
+        "marque": "Peugeot",
+        "annee": "2021",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/7dv7sTz.png"
     }
 ]
