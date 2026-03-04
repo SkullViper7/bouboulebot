@@ -298,8 +298,20 @@ async def roll(ctx):
     )
     embed.set_image(url=voiture_gagnee['image'])
     
+    # NOUVEAU : Message personnalisé selon la rareté
+    messages_rarete = {
+        "Commun ⚪": "Ouais basique",
+        "Rare 🔵": "Eh pas mal",
+        "Mythique 🟣": "Eh beh mon salaud",
+        "Légendaire 🟡": "Oh pétard",
+        "GOAT 🔴": "WAAAAAAAA"
+    }
+    phrase = messages_rarete.get(rarete, "Bien joué")
+
     await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
-    await ctx.send(embed=embed)
+    
+    # On ajoute le message dans le `content` (le texte normal Discord) avec la mention du joueur !
+    await ctx.send(content=f"{ctx.author.mention} **{phrase} !**", embed=embed)
 
 @roll.error
 async def roll_error(ctx, error):
@@ -330,7 +342,7 @@ class GaragePagination(discord.ui.View):
         rarete = voiture['rareté']
         couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.blue())
         
-        # Construction de la nouvelle disposition verticale
+        # Construction de la nouvelle disposition verticale (SANS la quantité)
         lignes = [
             voiture['nom'],
             f"**{voiture['marque']}**"
@@ -341,9 +353,6 @@ class GaragePagination(discord.ui.View):
         lignes.append("")
         lignes.append("**Rareté**")
         lignes.append(rarete)
-        lignes.append("")
-        lignes.append("**Exemplaires possédés :**")
-        lignes.append(f"x{voiture['quantite']}")
         lignes.append("")
         lignes.append(f"💳 *Solde : {self.solde} 🪙*")
         
@@ -413,7 +422,7 @@ async def garage(ctx, membre: discord.Member = None):
                 "marque": voiture_info["marque"],
                 "annee": voiture_info.get("annee", ""),
                 "pays": voiture_info.get("pays", "🏁"),
-                "quantite": quantite,
+                "quantite": quantite, # On le garde dans les données au cas où, mais il ne s'affiche plus
                 "image": voiture_info["image"],
                 "rareté": voiture_info["rareté"]
             })
@@ -988,8 +997,18 @@ async def buyroll(ctx):
     )
     embed.set_image(url=voiture_gagnee['image'])
     
+    # NOUVEAU : Message personnalisé selon la rareté (idem que pour roll classique)
+    messages_rarete = {
+        "Commun ⚪": "Ouais basique",
+        "Rare 🔵": "Eh pas mal",
+        "Mythique 🟣": "Eh beh mon salaud",
+        "Légendaire 🟡": "Oh pétard",
+        "GOAT 🔴": "WAAAAAAAA"
+    }
+    phrase = messages_rarete.get(rarete, "Bien joué")
+
     await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
-    await ctx.send(embed=embed)
+    await ctx.send(content=f"{ctx.author.mention} **{phrase} !**", embed=embed)
 #endregion
 
 #region leaderboard
