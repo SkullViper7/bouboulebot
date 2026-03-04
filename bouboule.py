@@ -292,7 +292,7 @@ async def roll(ctx):
     couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.gold())
     
     embed = discord.Embed(
-        title=f"🎰 {nom_complet_gagnee}", 
+        title=f"🎰 Vous avez eu : {nom_complet_gagnee}", 
         description="\n".join(lignes),
         color=couleur_dynamique
     )
@@ -309,15 +309,15 @@ async def roll_error(ctx, error):
 #endregion
 
 #region garage
-# 1. La Vue mise à jour avec le paramètre "solde"
+# 1. La Vue mise à jour avec la nouvelle disposition
 class GaragePagination(discord.ui.View):
-    def __init__(self, ctx, pages, total_voitures, target_member, solde): # <-- On ajoute 'solde' ici
+    def __init__(self, ctx, pages, total_voitures, target_member, solde):
         super().__init__(timeout=120)
         self.ctx = ctx
         self.pages = pages
         self.total_voitures = total_voitures
         self.target_member = target_member
-        self.solde = solde # <-- On le sauvegarde pour l'utiliser plus bas
+        self.solde = solde 
         self.current_page = 0
         self.update_buttons()
 
@@ -326,29 +326,36 @@ class GaragePagination(discord.ui.View):
         self.bouton_suiv.disabled = self.current_page == len(self.pages) - 1
 
     def get_embed(self):
-        voiture_actuelle = self.pages[self.current_page]
-        rarete = voiture_actuelle['rareté']
-        
-        # On va chercher la couleur associée à la rareté (bleu par défaut si bug)
+        voiture = self.pages[self.current_page]
+        rarete = voiture['rareté']
         couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.blue())
         
-        # On intègre le solde et la voiture dans la description
-        description = f"**💳 Solde :** {self.solde} 🪙\n\n### {voiture_actuelle['nom_complet']}"
+        # Construction de la nouvelle disposition verticale
+        lignes = [
+            voiture['nom'],
+            f"**{voiture['marque']}**"
+        ]
+        if voiture.get('annee'):
+            lignes.append(str(voiture['annee']))
+        lignes.append(voiture.get('pays', '🏁'))
+        lignes.append("")
+        lignes.append("**Rareté**")
+        lignes.append(rarete)
+        lignes.append("")
+        lignes.append("**Exemplaires possédés :**")
+        lignes.append(f"x{voiture['quantite']}")
+        lignes.append("")
+        lignes.append(f"💳 *Solde : {self.solde} 🪙*")
         
-        if voiture_actuelle['quantite'] > 1:
-            description += f" **(x{voiture_actuelle['quantite']})**"
-            
         embed = discord.Embed(
             title=f"🚗 Le Garage de {self.target_member.display_name}", 
-            description=description, 
-            color=couleur_dynamique # <-- La couleur magique s'applique ici !
+            description="\n".join(lignes), 
+            color=couleur_dynamique
         )
         
-        if voiture_actuelle['image']:
-            embed.set_image(url=voiture_actuelle['image'])
+        if voiture['image']:
+            embed.set_image(url=voiture['image'])
             
-        embed.add_field(name="Rareté", value=rarete)
-        
         embed.set_footer(text=f"Modèle {self.current_page + 1}/{len(self.pages)} | Total : {self.total_voitures} voitures")
         return embed
 
@@ -373,29 +380,27 @@ class GaragePagination(discord.ui.View):
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
 
-# 2. La nouvelle commande !garage
+# 2. La commande !garage
 @bot.command()
 async def garage(ctx, membre: discord.Member = None):
     cible = membre or ctx.author
     user_id = str(cible.id)
     
     profil = await collection_inventaires.find_one({"_id": user_id})
-    
-    # On récupère le solde du joueur (0 s'il n'a rien)
     solde = profil.get("coins", 0) if profil else 0
     
-    # Modification ici : si le garage est vide, on affiche quand même un bel Embed avec son argent
     if not profil or not profil.get("garage"):
         embed_vide = discord.Embed(
             title=f"🚗 Le Garage de {cible.display_name}", 
-            description=f"**💳 Solde :** {solde} 🪙\n\nCe garage est complètement vide pour le moment ! Fais un `!roll`.", 
+            description=f"💳 *Solde : {solde} 🪙*\n\nCe garage est complètement vide pour le moment ! Fais un `!roll`.", 
             color=discord.Color.light_grey()
         )
         await ctx.send(embed=embed_vide)
         return
     
     mes_voitures = profil["garage"]
-    inventaire_compte = Counter(mes_voitures)
+    import collections
+    inventaire_compte = collections.Counter(mes_voitures)
     
     pages_voitures = []
     
@@ -404,20 +409,26 @@ async def garage(ctx, membre: discord.Member = None):
         
         if voiture_info:
             pages_voitures.append({
-                "nom_complet": nom_complet,
+                "nom": voiture_info["nom"],
+                "marque": voiture_info["marque"],
+                "annee": voiture_info.get("annee", ""),
+                "pays": voiture_info.get("pays", "🏁"),
                 "quantite": quantite,
                 "image": voiture_info["image"],
                 "rareté": voiture_info["rareté"]
             })
         else:
+            # Sécurité au cas où une voiture du garage a été supprimée du JSON
             pages_voitures.append({
-                "nom_complet": nom_complet,
+                "nom": nom_complet,
+                "marque": "Inconnue",
+                "annee": "",
+                "pays": "🏴‍☠️",
                 "quantite": quantite,
                 "image": None,
-                "rareté": "Inconnue (Supprimée du catalogue)"
+                "rareté": "Inconnue"
             })
             
-    # On passe le paramètre 'solde' à notre vue !
     view = GaragePagination(ctx, pages_voitures, len(mes_voitures), cible, solde)
     await ctx.send(embed=view.get_embed(), view=view)
 #endregion
@@ -971,7 +982,7 @@ async def buyroll(ctx):
     couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.purple())
     
     embed = discord.Embed(
-        title=f"🎰 {nom_complet_gagnee}", 
+        title=f"🎰 Vous avez eu : {nom_complet_gagnee}", 
         description="\n".join(lignes),
         color=couleur_dynamique
     )
