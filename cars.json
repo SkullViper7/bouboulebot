@@ -5929,5 +5929,230 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/7dv7sTz.png"
+    },
+    {
+        "nom": "240 Turbo",
+        "marque": "Volvo",
+        "annee": "1984",
+        "pays": "🇸🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/3nmheBE.png"
+    },
+    {
+        "nom": "P1800",
+        "marque": "Volvo",
+        "annee": "1961",
+        "pays": "🇸🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/siArUds.png"
+    },
+    {
+        "nom": "850 T5R",
+        "marque": "Volvo",
+        "annee": "1995",
+        "pays": "🇸🇪",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/973Tt20.png"
+    },
+    {
+        "nom": "1",
+        "marque": "Polestar",
+        "annee": "2019",
+        "pays": "🇸🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/9mAB4tv.png"
+    },
+    {
+        "nom": "W8",
+        "marque": "Vector",
+        "annee": "1978",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/KgQPQs3.png"
+    },
+    {
+        "nom": "5300 GT Strada",
+        "marque": "Bizzarini",
+        "annee": "1966",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/e3YrRiK.png"
+    },
+    {
+        "nom": "P538",
+        "marque": "Bizzarini",
+        "annee": "1966",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/VA7Ceds.png"
+    },
+    {
+        "nom": "Rivolta GT",
+        "marque": "Iso",
+        "annee": "1965",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/UmEvaIR.png"
+    },
+    {
+        "nom": "Grifo GL",
+        "marque": "Iso",
+        "annee": "1969",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/rPTIfoS.png"
+    },
+    {
+        "nom": "Fidia",
+        "marque": "Iso",
+        "annee": "1967",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/AVY607i.png"
+    },
+    {
+        "nom": "Lele",
+        "marque": "Iso",
+        "annee": "1973",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/HODzx3E.png"
+    },
+    {
+        "nom": "Orochi",
+        "marque": "Mitsuoka",
+        "annee": "2006",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/jMEZVro.png"
+    },
+    {
+        "nom": "Himiko",
+        "marque": "Mitsuoka",
+        "annee": "2009",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/i9pFTmf.png"
+    },
+    {
+        "nom": "T50",
+        "marque": "Gordon Murray",
+        "annee": "2022",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/lPPEPBb.png"
+    },
+    {
+        "nom": "T77",
+        "marque": "Tatra",
+        "annee": "1934",
+        "pays": "🇨🇿",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ewo81cQ.png"
+    },
+    {
+        "nom": "T87",
+        "marque": "Tatra",
+        "annee": "1936",
+        "pays": "🇨🇿",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/rR8xda3.png"
+    },
+    {
+        "nom": "T603",
+        "marque": "Tatra",
+        "annee": "1960",
+        "pays": "🇨🇿",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/XrvxPV6.jpeg"
+    },
+    {
+        "nom": "21C",
+        "marque": "Czinger",
+        "annee": "2021",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "blob:https://imgur.com/532b0b60-de52-45ea-8d47-24d74bb65107"
+    },
+    {
+        "nom": "Manx",
+        "marque": "Meyers",
+        "annee": "1965",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/oocoAvY.png"
+    },
+    {
+        "nom": "Type 135 Coupe des Alpes",
+        "marque": "Delahaye",
+        "annee": "1937",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/WDZs0FM.png"
+    },
+    {
+        "nom": "Type 135 CS",
+        "marque": "Delahaye",
+        "annee": "1936",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/AUZZny4.png"
+    },
+    {
+        "nom": "Type 145",
+        "marque": "Delahaye",
+        "annee": "1937",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/klUBjIF.png"
+    },
+    {
+        "nom": "Type 175 S",
+        "marque": "Delahaye",
+        "annee": "1949",
+        "pays": "🇫🇷",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/E4NzhVp.png"
+    },
+    {
+        "nom": "Type 235",
+        "marque": "Delahaye",
+        "annee": "1953",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/6JIkv2N.png"
+    },
+    {
+        "nom": "Type 165",
+        "marque": "Delahaye",
+        "annee": "1939",
+        "pays": "🇫🇷",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/mdy2G2u.png"
     }
 ]
