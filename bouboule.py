@@ -222,10 +222,9 @@ async def roll(ctx):
     user_id = str(ctx.author.id)
     maintenant = time.time()
     cooldown_secondes = 21600 # 6 heures
-    # 1. Récupérer le profil du joueur
+    
     profil = await collection_inventaires.find_one({"_id": user_id})
     
-    # 2. Vérifier le temps d'attente
     if profil and "last_roll" in profil:
         temps_ecoule = maintenant - profil["last_roll"]
         if temps_ecoule < cooldown_secondes:
@@ -235,13 +234,12 @@ async def roll(ctx):
             await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Ton prochain tirage est dispo dans **{heures}h et {minutes}m**.")
             return
 
-    # 3. Filtrer les voitures possédées
     voitures_possedees = profil.get("garage", []) if profil else []
     voitures_disponibles = []
     poids_disponibles = []
 
     for voiture in VOITURES:
-        nom_complet = f"{voiture['marque']} {voiture['nom']}{voiture.get('annee', '')}".strip()
+        nom_complet = f"{voiture['marque']} {voiture['nom']} {voiture.get('annee', '')}".strip()
         if nom_complet not in voitures_possedees:
             voitures_disponibles.append(voiture)
             poids_disponibles.append(voiture.get("poids", 10))
@@ -250,49 +248,59 @@ async def roll(ctx):
         await ctx.send(f"🏆 Incroyable {ctx.author.mention}, tu possèdes déjà **TOUTES** les voitures du jeu ! Attends une mise à jour.")
         return
 
-    # 4. Tirage de la voiture
     voiture_gagnee = random.choices(voitures_disponibles, weights=poids_disponibles, k=1)[0]
     nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']} {voiture_gagnee.get('annee', '')}".strip()
 
-    # --- NOUVEAU : CALCUL DU BONUS D'ARGENT ---
     rarete = voiture_gagnee['rareté']
-    # On cherche le prix de base dans notre dictionnaire (50 par défaut si non trouvé)
     prix_base = PRIX_REVENTE.get(rarete, 50)
-    
-    # On calcule le bonus (ici 20%, soit 0.20. Tu peux changer ce chiffre !)
     bonus_coins = int(prix_base * 0.20) 
 
-    # 5. Sauvegarder dans MongoDB (L'inventaire, l'heure ET l'argent !)
+    # On sauvegarde AVANT d'afficher, pour que le joueur soit compté dans les propriétaires
     await collection_inventaires.update_one(
         {"_id": user_id},
         {
             "$push": {"garage": nom_complet_gagnee},
             "$set": {"last_roll": maintenant},
-            "$inc": {"coins": bonus_coins} # On ajoute l'argent gagné au solde
+            "$inc": {"coins": bonus_coins}
         },
         upsert=True
     )
 
-    # Création de l'Embed avec la couleur dynamique
-    couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.gold())
+    # Récupération de tous les propriétaires
+    curseur = collection_inventaires.find({"garage": nom_complet_gagnee})
+    docs = await curseur.to_list(length=100)
+    proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
+    texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
-    # 6. Création de l'Embed
+    # Construction de la nouvelle disposition !
+    lignes = [
+        voiture_gagnee['nom'],
+        f"**{voiture_gagnee['marque']}**"
+    ]
+    if voiture_gagnee.get('annee'):
+        lignes.append(str(voiture_gagnee['annee']))
+    lignes.append(voiture_gagnee.get('pays', '🏁'))
+    lignes.append("")
+    lignes.append("**Rareté**")
+    lignes.append(rarete)
+    lignes.append("")
+    lignes.append("**Propriétaires :**")
+    lignes.append(texte_proprietaires)
+    lignes.append("")
+    lignes.append(f"🎁 *Bonus de drop : +{bonus_coins} 🪙*")
+
+    couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.gold())
+    
     embed = discord.Embed(
-        title=f"🎰 Tu as obtenu : {nom_complet_gagnee} !", 
-        description=f"🎁 Bonus de tirage : **+{bonus_coins} 🪙** ajoutés à ton solde !",
+        title=f"🎰 {nom_complet_gagnee}", 
+        description="\n".join(lignes),
         color=couleur_dynamique
     )
     embed.set_image(url=voiture_gagnee['image'])
     
-    total_poids = sum(poids_disponibles)
-    chance_pourcent = (voiture_gagnee.get("poids", 10) / total_poids) * 100
-    
-    embed.set_footer(text=f"Rareté : {rarete} (Drop rate : {chance_pourcent:.1f}%) | Appartient à {ctx.author.display_name}")
-    # Vérification du succès de collection
     await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
     await ctx.send(embed=embed)
 
-# --- Gestion de l'erreur si le joueur spam la commande ---
 @roll.error
 async def roll_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
@@ -585,15 +593,11 @@ async def sell(ctx, *, voiture_a_vendre: str):
 #region search
 @bot.command()
 async def search(ctx, *, recherche: str):
-    # On met tout en minuscules pour faciliter la recherche (insensible à la casse)
     recherche_lower = recherche.lower()
 
-    # 1. Vérifier si c'est une MARQUE
-    # On cherche toutes les voitures dont la marque correspond exactement
+    # 1. Marque
     voitures_marque = [v for v in VOITURES if v["marque"].lower() == recherche_lower]
-    
     if voitures_marque:
-        # Si on a trouvé des voitures pour cette marque, on crée une liste
         description = ""
         for v in voitures_marque:
             description += f"• **{v['nom']}** ({v['rareté']})\n"
@@ -604,47 +608,48 @@ async def search(ctx, *, recherche: str):
             color=discord.Color.blue()
         )
         await ctx.send(embed=embed)
-        return # On arrête la commande ici puisque c'était une marque
+        return
 
-    # 2. Vérifier si c'est un MODÈLE
-    # On cherche le premier modèle dont le nom contient ce que l'utilisateur a tapé
+    # 2. Modèle
     modele_trouve = next((v for v in VOITURES if recherche_lower in f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()), None)
 
     if modele_trouve:
-        # Le nom exact tel qu'il est sauvegardé dans la base de données
         nom_complet = f"{modele_trouve['marque']} {modele_trouve['nom']} {modele_trouve.get('annee', '')}".strip()
         
-        # On demande à MongoDB de trouver tous les joueurs qui ont ce nom exact dans leur liste "garage"
         curseur = collection_inventaires.find({"garage": nom_complet})
-        docs = await curseur.to_list(length=100) # On limite à 100 au cas où tout le serveur l'aurait
+        docs = await curseur.to_list(length=100)
         
-        proprietaires_mentions = []
-        for doc in docs:
-            # En Discord, écrire <@ID_DU_JOUEUR> affiche directement sa mention/son pseudo !
-            proprietaires_mentions.append(f"<@{doc['_id']}>")
-
-        # On formate le texte des propriétaires
-        if proprietaires_mentions:
-            texte_proprietaires = ", ".join(proprietaires_mentions)
-        else:
-            texte_proprietaires = "Personne ne possède ce bijou pour le moment... 😢"
+        proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
+        texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else "Personne ne possède ce bijou... 😢"
 
         rarete = modele_trouve['rareté']
         couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.green())
 
-        # On crée l'Embed final pour la voiture
+        # Construction du texte
+        lignes = [
+            modele_trouve['nom'],
+            f"**{modele_trouve['marque']}**"
+        ]
+        if modele_trouve.get('annee'):
+            lignes.append(str(modele_trouve['annee']))
+        lignes.append(modele_trouve.get('pays', '🏁'))
+        lignes.append("")
+        lignes.append("**Rareté**")
+        lignes.append(rarete)
+        lignes.append("")
+        lignes.append("**Propriétaires :**")
+        lignes.append(texte_proprietaires)
+
         embed = discord.Embed(
             title=f"🔍 {nom_complet}", 
+            description="\n".join(lignes),
             color=couleur_dynamique
         )
         embed.set_image(url=modele_trouve['image'])
-        embed.add_field(name="Rareté", value=modele_trouve['rareté'], inline=True)
-        embed.add_field(name="Propriétaires", value=texte_proprietaires, inline=False)
         
         await ctx.send(embed=embed)
         return
 
-    # 3. Si la recherche n'a rien donné du tout
     await ctx.send(f"❌ Je n'ai trouvé aucune marque ni aucun modèle correspondant à **{recherche}** dans le catalogue.")
 #endregion
 
@@ -905,35 +910,33 @@ async def daily(ctx):
 @bot.command()
 async def buyroll(ctx):
     user_id = str(ctx.author.id)
-    prix_roll = 5000 # Le prix que tu veux pour un tirage payant
+    prix_roll = 5000 
     
     profil = await collection_inventaires.find_one({"_id": user_id})
     solde = profil.get("coins", 0) if profil else 0
     
     if solde < prix_roll:
-        await ctx.send(f"❌ Désolé {ctx.author.mention}, il te faut **{prix_roll} 🪙** pour faire un tirage payant. Il te manque **{prix_roll - solde} 🪙** !")
+        await ctx.send(f"❌ Désolé {ctx.author.mention}, il te faut **{prix_roll} 🪙**. Il te manque **{prix_roll - solde} 🪙** !")
         return
 
-    # On filtre les voitures comme dans le roll normal
     voitures_possedees = profil.get("garage", []) if profil else []
     voitures_disponibles = []
     poids_disponibles = []
 
     for voiture in VOITURES:
-        nom_complet = f"{voiture['marque']} {voiture['nom']}{voiture.get('annee', '')}".strip()
+        nom_complet = f"{voiture['marque']} {voiture['nom']} {voiture.get('annee', '')}".strip()
         if nom_complet not in voitures_possedees:
             voitures_disponibles.append(voiture)
             poids_disponibles.append(voiture.get("poids", 10))
 
     if not voitures_disponibles:
-        await ctx.send(f"🏆 Tu possèdes déjà **TOUTES** les voitures du jeu ! Garde ton argent.")
+        await ctx.send(f"🏆 Tu possèdes déjà **TOUTES** les voitures du jeu !")
         return
 
-    # Le tirage
     voiture_gagnee = random.choices(voitures_disponibles, weights=poids_disponibles, k=1)[0]
     nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']} {voiture_gagnee.get('annee', '')}".strip()
+    rarete = voiture_gagnee['rareté']
 
-    # On sauvegarde la voiture ET on débite l'argent ($inc avec un nombre négatif)
     await collection_inventaires.update_one(
         {"_id": user_id},
         {
@@ -942,16 +945,38 @@ async def buyroll(ctx):
         }
     )
 
-    nouveau_solde = solde - prix_roll
+    # Récupération des propriétaires
+    curseur = collection_inventaires.find({"garage": nom_complet_gagnee})
+    docs = await curseur.to_list(length=100)
+    proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
+    texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
+
+    # Construction du texte
+    lignes = [
+        voiture_gagnee['nom'],
+        f"**{voiture_gagnee['marque']}**"
+    ]
+    if voiture_gagnee.get('annee'):
+        lignes.append(str(voiture_gagnee['annee']))
+    lignes.append(voiture_gagnee.get('pays', '🏁'))
+    lignes.append("")
+    lignes.append("**Rareté**")
+    lignes.append(rarete)
+    lignes.append("")
+    lignes.append("**Propriétaires :**")
+    lignes.append(texte_proprietaires)
+    lignes.append("")
+    lignes.append(f"💸 *Nouveau solde : {solde - prix_roll} 🪙*")
+
+    couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.purple())
     
     embed = discord.Embed(
-        title=f"🎰 Tirage Payant : {nom_complet_gagnee} !", 
-        description=f"Transaction acceptée : -{prix_roll} 🪙\nNouveau solde : **{nouveau_solde} 🪙**",
-        color=discord.Color.purple()
+        title=f"🎰 {nom_complet_gagnee}", 
+        description="\n".join(lignes),
+        color=couleur_dynamique
     )
     embed.set_image(url=voiture_gagnee['image'])
-    embed.set_footer(text=f"Rareté : {voiture_gagnee['rareté']} | Appartient à {ctx.author.display_name}")
-    # Vérification du succès de collection
+    
     await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
     await ctx.send(embed=embed)
 #endregion
