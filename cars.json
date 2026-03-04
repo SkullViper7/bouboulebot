@@ -5875,5 +5875,50 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/zBiofWl.png"
+    },
+    {
+        "nom": "G12",
+        "marque": "Ginetta",
+        "annee": "2006",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/2zicMCp.png"
+    },
+    {
+        "nom": "G50 GT4",
+        "marque": "Ginetta",
+        "annee": "2007",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/cpoOZZP.png"
+    },
+    {
+        "nom": "G60",
+        "marque": "Ginetta",
+        "annee": "2010",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Zey3gFW.png"
+    },
+    {
+        "nom": "04-LM",
+        "marque": "Pescarolo Sport",
+        "annee": "2017",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/gNNtqtX.png"
+    },
+    {
+        "nom": "03",
+        "marque": "Pescarolo Sport",
+        "annee": "2012",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/wCKCl7S.png"
     }
 ]
