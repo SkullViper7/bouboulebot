@@ -5839,5 +5839,14 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/ME5wjns.png"
+    },
+    {
+        "nom": "Véga Myssil",
+        "marque": "Ford",
+        "annee": "1990",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Y59wSIz.png"
     }
 ]
