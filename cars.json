@@ -5848,5 +5848,32 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/Y59wSIz.png"
+    },
+    {
+        "nom": "Venom GT",
+        "marque": "Hennessey",
+        "annee": "2011",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ML6VHz3.png"
+    },
+    {
+        "nom": "Venom F5",
+        "marque": "Hennessey",
+        "annee": "2020",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/k2VP6La.png"
+    },
+    {
+        "nom": "Velociraptor 6x6",
+        "marque": "Hennessey",
+        "annee": "2022",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/zBiofWl.png"
     }
 ]
