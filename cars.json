@@ -1794,10 +1794,10 @@
         "nom": "RAV4",
         "marque": "Toyota",
         "annee": "2000",
+        "pays": "🇯🇵",
         "rareté": "Commun ⚪",
         "poids": 100,
-        "image": "https://i.imgur.com/EfthxNs.png",
-        "pays": "🇯🇵"
+        "image": "https://i.imgur.com/YSgy9DA.png"
     },
     {
         "nom": "Clio 4 Estate",
@@ -5830,5 +5830,14 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/Mh9y5Eb.png"
+    },
+    {
+        "nom": "Clio 3",
+        "marque": "Renault",
+        "annee": "2005",
+        "pays": "🇫🇷",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/ME5wjns.png"
     }
 ]
