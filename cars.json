@@ -1388,11 +1388,11 @@
     {
         "nom": "Willys MB",
         "marque": "Jeep",
+        "annee": "1941",
+        "pays": "🇺🇸",
         "rareté": "Commun ⚪",
         "poids": 100,
-        "image": "https://media.lesechos.com/api/v1/images/view/6425ab41ff4db5738b654998/1280x720/0703367264690-web-tete.jpg",
-        "annee": "1941",
-        "pays": "🇺🇸"
+        "image": "https://i.imgur.com/znkJF7k.png"
     },
     {
         "nom": "CCX",
