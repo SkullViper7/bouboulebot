@@ -16,6 +16,11 @@ from collections import Counter
 import time
 from flask import Flask
 from threading import Thread
+from datetime import datetime, timedelta
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:
+    pass
 
 #region Init
 # 1. Chargement des secrets
@@ -167,6 +172,39 @@ async def crack(ctx, *, jeu: str):
     await ctx.send(embed=embed)
 #endregion
 
+#region time
+def get_reset_timestamps():
+    try:
+        # On force l'heure française (gère l'heure d'été/hiver automatiquement)
+        tz = ZoneInfo("Europe/Paris") 
+    except:
+        from datetime import timezone
+        tz = timezone(timedelta(hours=1)) 
+        
+    now = datetime.now(tz)
+    
+    # On crée les balises fixes de la journée
+    t7 = now.replace(hour=7, minute=0, second=0, microsecond=0)
+    t12 = now.replace(hour=12, minute=0, second=0, microsecond=0)
+    t20 = now.replace(hour=20, minute=0, second=0, microsecond=0)
+    
+    # On détermine dans quel créneau on est, et quand est le prochain
+    if now < t7:
+        last_reset = t20 - timedelta(days=1)
+        next_reset = t7
+    elif now < t12:
+        last_reset = t7
+        next_reset = t12
+    elif now < t20:
+        last_reset = t12
+        next_reset = t20
+    else:
+        last_reset = t20
+        next_reset = t7 + timedelta(days=1)
+        
+    return last_reset.timestamp(), next_reset.timestamp(), next_reset
+#endregion
+
 #region succes
 async def verifier_succes_marque(ctx, user_id, marque):
     # 1. Lister toutes les voitures de cette marque qui existent dans le json
@@ -220,18 +258,21 @@ async def verifier_succes_marque(ctx, user_id, marque):
 @bot.command()
 async def roll(ctx):
     user_id = str(ctx.author.id)
-    maintenant = time.time()
-    cooldown_secondes = 21600 # 6 heures
+    
+    # Récupération des horaires de réinitialisation
+    last_reset_ts, next_reset_ts, next_reset_dt = get_reset_timestamps()
     
     profil = await collection_inventaires.find_one({"_id": user_id})
     
+    # Vérification : si le dernier roll a été fait APRES la dernière réinitialisation, c'est bloqué !
     if profil and "last_roll" in profil:
-        temps_ecoule = maintenant - profil["last_roll"]
-        if temps_ecoule < cooldown_secondes:
-            temps_restant = int(cooldown_secondes - temps_ecoule)
+        if profil["last_roll"] >= last_reset_ts:
+            temps_restant = int(next_reset_ts - time.time())
             heures = temps_restant // 3600
             minutes = (temps_restant % 3600) // 60
-            await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Ton prochain tirage est dispo dans **{heures}h et {minutes}m**.")
+            
+            heure_cible = next_reset_dt.strftime("%Hh00")
+            await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Tu as déjà fait ton tirage pour ce créneau.\nLe prochain sera dispo à **{heure_cible}** (dans {heures}h et {minutes}m).")
             return
 
     voitures_possedees = profil.get("garage", []) if profil else []
@@ -255,7 +296,8 @@ async def roll(ctx):
     prix_base = PRIX_REVENTE.get(rarete, 50)
     bonus_coins = int(prix_base * 0.20) 
 
-    # On sauvegarde AVANT d'afficher, pour que le joueur soit compté dans les propriétaires
+    # On sauvegarde AVANT d'afficher, en utilisant l'heure exacte du serveur
+    maintenant = time.time()
     await collection_inventaires.update_one(
         {"_id": user_id},
         {
@@ -272,7 +314,7 @@ async def roll(ctx):
     proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
-    # Construction de la nouvelle disposition !
+    # Construction de la disposition
     lignes = [
         voiture_gagnee['nom'],
         f"**{voiture_gagnee['marque']}**"
@@ -298,7 +340,6 @@ async def roll(ctx):
     )
     embed.set_image(url=voiture_gagnee['image'])
     
-    # NOUVEAU : Message personnalisé selon la rareté
     messages_rarete = {
         "Commun ⚪": "Ouais basique",
         "Rare 🔵": "Eh pas mal",
@@ -309,15 +350,13 @@ async def roll(ctx):
     phrase = messages_rarete.get(rarete, "Bien joué")
 
     await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
-    
-    # On ajoute le message dans le `content` (le texte normal Discord) avec la mention du joueur !
     await ctx.send(content=f"{ctx.author.mention} **{phrase} !**", embed=embed)
 
 @roll.error
 async def roll_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         minutes_restantes = int(error.retry_after // 60)
-        await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Ton prochain tirage est dispo dans **{minutes_restantes} minutes**.")
+        await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Trop de commandes en même temps.")
 #endregion
 
 #region garage
@@ -832,26 +871,24 @@ async def cmd(ctx):
 @bot.command(aliases=["cd", "cooldown", "temps"])
 async def timer(ctx):
     user_id = str(ctx.author.id)
+    
+    last_reset_ts, next_reset_ts, next_reset_dt = get_reset_timestamps()
+    
     profil = await collection_inventaires.find_one({"_id": user_id})
     
-    if not profil or "last_roll" not in profil:
+    # Si le joueur n'a jamais roll, ou s'il a roll AVANT le dernier point de reset, il peut jouer !
+    if not profil or "last_roll" not in profil or profil["last_roll"] < last_reset_ts:
         await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton tirage est prêt ! Fais `!roll` pour tenter ta chance.")
         return
 
-    maintenant = time.time()
-    cooldown_secondes = 21600 # 6 heures    
-    temps_ecoule = maintenant - profil["last_roll"]
+    # S'il a déjà roll dans le créneau actuel, on calcule le temps d'attente
+    temps_restant = int(next_reset_ts - time.time())
+    heures = temps_restant // 3600
+    minutes = (temps_restant % 3600) // 60
     
-    if temps_ecoule < cooldown_secondes:
-        temps_restant = int(cooldown_secondes - temps_ecoule)
-        
-        # Le calcul magique
-        heures = temps_restant // 3600
-        minutes = (temps_restant % 3600) // 60
-        
-        await ctx.send(f"⏳ Patience {ctx.author.mention} ! Ton prochain tirage sera disponible dans **{heures}h et {minutes}m**.")
-    else:
-        await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton tirage est prêt ! Fais `!roll` pour tenter ta chance.")
+    heure_cible = next_reset_dt.strftime("%Hh00")
+    
+    await ctx.send(f"⏳ Patience {ctx.author.mention} ! Ton prochain tirage sera disponible à **{heure_cible}** (dans {heures}h et {minutes}m).")
 #endregion
 
 #region dailytimer
