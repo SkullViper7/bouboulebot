@@ -849,12 +849,16 @@ class CataloguePagination(discord.ui.View):
 
     @discord.ui.button(label="◀️", style=discord.ButtonStyle.secondary, custom_id="cat_prec")
     async def bouton_prec(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user != self.ctx.author:
+            return await interaction.response.send_message("Tu n'es pas l'auteur de cette commande !", ephemeral=True)
         self.current_page -= 1
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
     @discord.ui.button(label="▶️", style=discord.ButtonStyle.secondary, custom_id="cat_suiv")
     async def bouton_suiv(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user != self.ctx.author:
+            return await interaction.response.send_message("Tu n'es pas l'auteur de cette commande !", ephemeral=True)
         self.current_page += 1
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
@@ -867,13 +871,22 @@ async def catalogue(ctx):
         await ctx.send("Le catalogue est vide pour le moment !")
         return
 
+    # --- NOUVEAU : Récupération du garage du joueur pour les coches ✅ ---
+    user_id = str(ctx.author.id)
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    mon_garage = profil.get("garage", []) if profil else []
+
     # On trie les voitures par Marque, puis par Nom (ordre alphabétique)
     voitures_triees = sorted(VOITURES, key=lambda x: (x['marque'], x['nom']))
     
     lignes_catalogue = []
     for v in voitures_triees:
-        # Format de l'affichage : **Renault** Twingo 1 - Commun ⚪
-        lignes_catalogue.append(f"**{v['marque']}** {v['nom']} {v.get('annee', '')} - *{v['rareté']}*")
+        # NOUVEAU : On reconstruit le nom et on vérifie s'il est dans le garage
+        nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
+        possede = " ✅" if nom_complet in mon_garage else ""
+        
+        # Format de l'affichage : **Renault** Twingo 1 - Commun ⚪ ✅
+        lignes_catalogue.append(f"**{v['marque']}** {v['nom']} {v.get('annee', '')} - *{v['rareté']}*{possede}")
 
     # On découpe en pages de 15 voitures
     lignes_par_page = 15
