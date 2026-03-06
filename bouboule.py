@@ -648,26 +648,137 @@ async def sell(ctx, *, voiture_a_vendre: str):
 #endregion
 
 #region search
+# 1. La Vue pour faire défiler les pages de recherche
+class SearchPagination(discord.ui.View):
+    def __init__(self, ctx, pages, titre, couleur):
+        super().__init__(timeout=120)
+        self.ctx = ctx
+        self.pages = pages
+        self.titre = titre
+        self.couleur = couleur
+        self.current_page = 0
+        self.update_buttons()
+
+    def update_buttons(self):
+        self.bouton_prec.disabled = self.current_page == 0
+        self.bouton_suiv.disabled = self.current_page == len(self.pages) - 1
+
+    def get_embed(self):
+        embed = discord.Embed(
+            title=self.titre, 
+            description=self.pages[self.current_page], 
+            color=self.couleur
+        )
+        embed.set_footer(text=f"Page {self.current_page + 1}/{len(self.pages)}")
+        return embed
+
+    @discord.ui.button(label="◀️", style=discord.ButtonStyle.secondary, custom_id="search_prec")
+    async def bouton_prec(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user != self.ctx.author:
+            return await interaction.response.send_message("Tu n'es pas l'auteur de cette recherche !", ephemeral=True)
+        self.current_page -= 1
+        self.update_buttons()
+        await interaction.response.edit_message(embed=self.get_embed(), view=self)
+
+    @discord.ui.button(label="▶️", style=discord.ButtonStyle.secondary, custom_id="search_suiv")
+    async def bouton_suiv(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user != self.ctx.author:
+            return await interaction.response.send_message("Tu n'es pas l'auteur de cette recherche !", ephemeral=True)
+        self.current_page += 1
+        self.update_buttons()
+        await interaction.response.edit_message(embed=self.get_embed(), view=self)
+
+
+# 2. La commande Search principale
 @bot.command()
 async def search(ctx, *, recherche: str):
-    recherche_lower = recherche.lower()
+    recherche_lower = recherche.lower().strip()
+    
+    # --- NOUVEAU : Récupération du garage du joueur pour les coches ✅ ---
+    user_id = str(ctx.author.id)
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    mon_garage = profil.get("garage", []) if profil else []
 
-    # 1. Marque
-    voitures_marque = [v for v in VOITURES if v["marque"].lower() == recherche_lower]
-    if voitures_marque:
-        description = ""
-        for v in voitures_marque:
-            description += f"• **{v['nom']}** ({v['rareté']})\n"
+    # --- DICTIONNAIRES "MAGIQUES" POUR LA RECHERCHE ---
+    MOTS_RARETES = {
+        "commun": "Commun ⚪", "commune": "Commun ⚪", "blanc": "Commun ⚪",
+        "rare": "Rare 🔵", "bleu": "Rare 🔵",
+        "mythique": "Mythique 🟣", "violet": "Mythique 🟣",
+        "legendaire": "Légendaire 🟡", "légendaire": "Légendaire 🟡", "jaune": "Légendaire 🟡",
+        "goat": "GOAT 🔴", "rouge": "GOAT 🔴"
+    }
+    
+    NOMS_PAYS_RECHERCHE = {
+        "france": "🇫🇷", "fr": "🇫🇷", "allemagne": "🇩🇪", "de": "🇩🇪", "italie": "🇮🇹", "it": "🇮🇹",
+        "royaume-uni": "🇬🇧", "angleterre": "🇬🇧", "uk": "🇬🇧", "gb": "🇬🇧",
+        "suede": "🇸🇪", "suède": "🇸🇪", "se": "🇸🇪", "espagne": "🇪🇸", "es": "🇪🇸",
+        "tchequie": "🇨🇿", "cz": "🇨🇿", "roumanie": "🇷🇴", "ro": "🇷🇴", "russie": "🇷🇺", "ru": "🇷🇺",
+        "japon": "🇯🇵", "jp": "🇯🇵", "coree": "🇰🇷", "kr": "🇰🇷", "chine": "🇨🇳", "cn": "🇨🇳",
+        "usa": "🇺🇸", "etats-unis": "🇺🇸", "etats unis": "🇺🇸", "amerique": "🇺🇸", "us": "🇺🇸",
+        "autriche": "🇦🇹", "at": "🇦🇹", "croatie": "🇭🇷", "hr": "🇭🇷", "danemark": "🇩🇰", "dk": "🇩🇰",
+        "ile de man": "🇮🇲", "im": "🇮🇲", "serbie": "🇷🇸", "rs": "🇷🇸", "australie": "🇦🇺", "au": "🇦🇺",
+        "pays-bas": "🇳🇱", "pays bas": "🇳🇱", "hollande": "🇳🇱", "nl": "🇳🇱",
+        "emirats": "🇦🇪", "ae": "🇦🇪",
+        "cinema": "🎬", "film": "🎬", "serie": "🎬",
+        "jeu": "🎮", "jeux": "🎮", "jeux video": "🎮", "jeu video": "🎮",
+        "pirate": "🏴‍☠️", "inconnu": "🏴‍☠️"
+    }
+
+    resultats = []
+    titre_recherche = ""
+    couleur_embed = discord.Color.blue()
+
+    # 1. Recherche par Rareté
+    if recherche_lower in MOTS_RARETES:
+        rarete_cible = MOTS_RARETES[recherche_lower]
+        resultats = [v for v in VOITURES if v["rareté"] == rarete_cible]
+        titre_recherche = f"🔮 Modèles de rareté : {rarete_cible}"
+        couleur_embed = COULEURS_RARETE.get(rarete_cible, discord.Color.blue())
+
+    # 2. Recherche par Pays (texte ou emoji)
+    elif recherche_lower in NOMS_PAYS_RECHERCHE or any(recherche_lower == p for p in NOMS_PAYS_RECHERCHE.values()):
+        drapeau_cible = NOMS_PAYS_RECHERCHE.get(recherche_lower, recherche_lower)
+        resultats = [v for v in VOITURES if v.get("pays", "🏁") == drapeau_cible]
+        titre_recherche = f"🌍 Modèles du pays : {drapeau_cible}"
+        couleur_embed = discord.Color.green()
+
+    # 3. Recherche par Marque
+    elif any(v["marque"].lower() == recherche_lower for v in VOITURES):
+        resultats = [v for v in VOITURES if v["marque"].lower() == recherche_lower]
+        titre_recherche = f"🏢 Modèles de la marque : {resultats[0]['marque']}"
+        couleur_embed = discord.Color.orange()
+
+    # --- Affichage des listes (Rareté, Pays, Marque) ---
+    if resultats:
+        # On trie les voitures trouvées par marque puis par nom
+        resultats_tries = sorted(resultats, key=lambda x: (x.get('marque',''), x.get('nom','')))
         
-        embed = discord.Embed(
-            title=f"🏢 Modèles disponibles chez {voitures_marque[0]['marque']}", 
-            description=description, 
-            color=discord.Color.blue()
-        )
-        await ctx.send(embed=embed)
+        lignes = []
+        for v in resultats_tries:
+            # NOUVEAU : On reconstruit le nom et on vérifie s'il est dans le garage
+            nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
+            possede = " ✅" if nom_complet in mon_garage else ""
+            
+            lignes.append(f"• **{v['marque']}** {v['nom']} {v.get('annee', '')} ({v['rareté']}) {v.get('pays', '🏁')}{possede}")
+
+        # Découpage en pages (15 éléments max par page)
+        lignes_par_page = 15
+        pages = []
+        for i in range(0, len(lignes), lignes_par_page):
+            pages.append("\n".join(lignes[i:i + lignes_par_page]))
+        
+        # Si la recherche donne peu de résultats (1 seule page)
+        if len(pages) == 1:
+            embed = discord.Embed(title=titre_recherche, description=pages[0], color=couleur_embed)
+            embed.set_footer(text=f"Total : {len(resultats)} modèles")
+            await ctx.send(embed=embed)
+        # S'il y a beaucoup de résultats, on lance la vue avec les boutons !
+        else:
+            view = SearchPagination(ctx, pages, titre_recherche, couleur_embed)
+            await ctx.send(embed=view.get_embed(), view=view)
         return
 
-    # 2. Modèle
+    # 4. Recherche par Modèle précis (Carte unique)
     modele_trouve = next((v for v in VOITURES if recherche_lower in f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()), None)
 
     if modele_trouve:
@@ -681,8 +792,10 @@ async def search(ctx, *, recherche: str):
 
         rarete = modele_trouve['rareté']
         couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.green())
+        
+        # NOUVEAU : On ajoute l'encoche dans le titre si le joueur le possède
+        titre_possede = " ✅" if nom_complet in mon_garage else ""
 
-        # Construction du texte
         lignes = [
             modele_trouve['nom'],
             f"**{modele_trouve['marque']}**"
@@ -698,7 +811,7 @@ async def search(ctx, *, recherche: str):
         lignes.append(texte_proprietaires)
 
         embed = discord.Embed(
-            title=f"🔍 {nom_complet}", 
+            title=f"🔍 {nom_complet}{titre_possede}", 
             description="\n".join(lignes),
             color=couleur_dynamique
         )
@@ -707,7 +820,7 @@ async def search(ctx, *, recherche: str):
         await ctx.send(embed=embed)
         return
 
-    await ctx.send(f"❌ Je n'ai trouvé aucune marque ni aucun modèle correspondant à **{recherche}** dans le catalogue.")
+    await ctx.send(f"❌ Je n'ai trouvé aucun pays, rareté, marque ni modèle correspondant à **{recherche}**.")
 #endregion
 
 #region catalogue
