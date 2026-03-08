@@ -1010,11 +1010,11 @@
     {
         "nom": "8C Competizione",
         "marque": "Alfa Romeo",
+        "annee": "2007",
+        "pays": "🇮🇹",
         "rareté": "Rare 🔵",
         "poids": 30,
-        "image": "https://images.caradisiac.com/logos/5/9/4/3/135943/S0-Speculation-sur-l-Alfa-Romeo-8C-Competizione-plus-chere-en-occasion-que-neuve-Graine-de-collector-40625.jpg",
-        "annee": "2007",
-        "pays": "🇮🇹"
+        "image": "https://i.imgur.com/vTMITYS.png"
     },
     {
         "nom": "DBS Superleggera",
@@ -8494,5 +8494,572 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/I51xYei.png"
+    },
+    {
+        "nom": "E-motion",
+        "marque": "MG",
+        "annee": "2017",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/MZxmaIn.png"
+    },
+    {
+        "nom": "Cyberster Concept",
+        "marque": "MG",
+        "annee": "2021",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ETgLYat.png"
+    },
+    {
+        "nom": "EXE181 Vision",
+        "marque": "MG",
+        "annee": "2025",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/kZiiKDa.png"
+    },
+    {
+        "nom": "HSR-II",
+        "marque": "Mitsubishi",
+        "annee": "1989",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/FW2kQy7.png"
+    },
+    {
+        "nom": "HSR-I",
+        "marque": "Mitsubishi",
+        "annee": "1987",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/l7mDpKz.png"
+    },
+    {
+        "nom": "HSR-V",
+        "marque": "Mitsubishi",
+        "annee": "1995",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/TsGdnyZ.png"
+    },
+    {
+        "nom": "HSR-VI",
+        "marque": "Mitsubishi",
+        "annee": "1997",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/dyQoLfC.png"
+    },
+    {
+        "nom": "EVA GT",
+        "marque": "Morgan",
+        "annee": "2010",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Pl2osDX.png"
+    },
+    {
+        "nom": "GTR R50",
+        "marque": "Nissan",
+        "annee": "2020",
+        "pays": "🇯🇵",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/jpb21Hi.png"
+    },
+    {
+        "nom": "Hyper Force",
+        "marque": "Nissan",
+        "annee": "2023",
+        "pays": "🇯🇵",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/EokgxSP.png"
+    },
+    {
+        "nom": "IDx Freeflow/nismo",
+        "marque": "Nissan",
+        "annee": "2013",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/SLxBpYh.png"
+    },
+    {
+        "nom": "Concept 2020 Vision GT",
+        "marque": "Nissan",
+        "annee": "2014",
+        "pays": "🇯🇵",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/024n1aX.png"
+    },
+    {
+        "nom": "CD",
+        "marque": "Opel",
+        "annee": "1969",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/nYlknfr.png"
+    },
+    {
+        "nom": "Monza Concept",
+        "marque": "Opel",
+        "annee": "2013",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/WiIsNbG.png"
+    },
+    {
+        "nom": "Quasar",
+        "marque": "Peugeot",
+        "annee": "1984",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/jtnM7ag.png"
+    },
+    {
+        "nom": "Proxima",
+        "marque": "Peugeot",
+        "annee": "1986",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/3eMRQLP.png"
+    },
+    {
+        "nom": "Oxia",
+        "marque": "Peugeot",
+        "annee": "1988",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/AZvIqwF.png"
+    },
+    {
+        "nom": "Onyx",
+        "marque": "Peugeot",
+        "annee": "2012",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/imH7Pbi.png"
+    },
+    {
+        "nom": "Fractal",
+        "marque": "Peugeot",
+        "annee": "2015",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/CPXCyxy.png"
+    },
+    {
+        "nom": "Instinct",
+        "marque": "Peugeot",
+        "annee": "2017",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Ff5dWLe.png"
+    },
+    {
+        "nom": "Inception",
+        "marque": "Peugeot",
+        "annee": "2023",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/6fqDIcI.png"
+    },
+    {
+        "nom": "Belmont",
+        "marque": "Plymouth",
+        "annee": "1954",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Ba1GxvS.png"
+    },
+    {
+        "nom": "Explorer",
+        "marque": "Plymouth",
+        "annee": "1954",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ZYpWkLY.png"
+    },
+    {
+        "nom": "XNR",
+        "marque": "Plymouth",
+        "annee": "1960",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/pwJHuFG.png"
+    },
+    {
+        "nom": "XP-VIP",
+        "marque": "Plymouth",
+        "annee": "1965",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/EcFylus.png"
+    },
+    {
+        "nom": "Pronto",
+        "marque": "Plymouth",
+        "annee": "1997",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Pv2aO0h.png"
+    },
+    {
+        "nom": "Bonneville Special",
+        "marque": "Pontiac",
+        "annee": "1954",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/CSJToyZ.png"
+    },
+    {
+        "nom": "Club de Mer",
+        "marque": "Pontiac",
+        "annee": "1956",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/0pP2rM5.png"
+    },
+    {
+        "nom": "Banshee I",
+        "marque": "Pontiac",
+        "annee": "1965",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/6AdmW24.png"
+    },
+    {
+        "nom": "Banshee II",
+        "marque": "Pontiac",
+        "annee": "1968",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/IImqGMe.png"
+    },
+    {
+        "nom": "Banshee III",
+        "marque": "Pontiac",
+        "annee": "1974",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/1kOukdP.png"
+    },
+    {
+        "nom": "Banshee IV",
+        "marque": "Pontiac",
+        "annee": "1988",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/DXcMJI1.png"
+    },
+    {
+        "nom": "Firebird Type K",
+        "marque": "Pontiac",
+        "annee": "1977",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/0AIBhwH.png"
+    },
+    {
+        "nom": "Rageous",
+        "marque": "Pontiac",
+        "annee": "1997",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/TQsdFWM.png"
+    },
+    {
+        "nom": "Aztek",
+        "marque": "Pontiac",
+        "annee": "2000",
+        "pays": "🇺🇸",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/12KBdVl.png"
+    },
+    {
+        "nom": "GTO Concept",
+        "marque": "Pontiac",
+        "annee": "1999",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/c9bVIFx.png"
+    },
+    {
+        "nom": "Solstice Concept",
+        "marque": "Pontiac",
+        "annee": "2002",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Uea4HKZ.png"
+    },
+    {
+        "nom": "911 SC/RS",
+        "marque": "Porsche",
+        "annee": "1984",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/LQoNcfr.png"
+    },
+    {
+        "nom": "Mission X",
+        "marque": "Porsche",
+        "annee": "2023",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/SKazROR.png"
+    },
+    {
+        "nom": "919 Street",
+        "marque": "Porsche",
+        "annee": "2017",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/PsdfD83.png"
+    },
+    {
+        "nom": "Vision Spyder",
+        "marque": "Porsche",
+        "annee": "2019",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/XR4QSfR.png"
+    },
+    {
+        "nom": "Vision 357",
+        "marque": "Porsche",
+        "annee": "2023",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/8SAy297.png"
+    },
+    {
+        "nom": "Vision 357 R",
+        "marque": "Porsche",
+        "annee": "2023",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/h1EEh4r.png"
+    },
+    {
+        "nom": "Vision Gran Turismo",
+        "marque": "Porsche",
+        "annee": "2022",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/3BCatwr.png"
+    },
+    {
+        "nom": "Dezir",
+        "marque": "Renault",
+        "annee": "2010",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/vBLtS1e.png"
+    },
+    {
+        "nom": "Trezor",
+        "marque": "Renault",
+        "annee": "2016",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/35N1Xjq.png"
+    },
+    {
+        "nom": "Twingo E-Tech Prototype",
+        "marque": "Renault",
+        "annee": "2026",
+        "pays": "🇫🇷",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/BtHDIOo.png"
+    },
+    {
+        "nom": "R5 Turbo 3E",
+        "marque": "Renault",
+        "annee": "2024",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/E2L2q2p.png"
+    },
+    {
+        "nom": "103EX",
+        "marque": "Rolls-Royce",
+        "annee": "2016",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/xbebLf4.png"
+    },
+    {
+        "nom": "Coachbuild Boat Tail",
+        "marque": "Rolls-Royce",
+        "annee": "2021",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/aYYXShD.png"
+    },
+    {
+        "nom": "Coachbuild Sweptail",
+        "marque": "Rolls-Royce",
+        "annee": "2017",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/peb1evd.png"
+    },
+    {
+        "nom": "Coachbuild",
+        "marque": "Rolls-Royce",
+        "annee": "2023",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/qKb7zhR.png"
+    },
+    {
+        "nom": "Jet 1",
+        "marque": "Rover",
+        "annee": "1950",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/0MLAI3t.png"
+    },
+    {
+        "nom": "BRM",
+        "marque": "Rover",
+        "annee": "1963",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/s6t0iv0.png"
+    },
+    {
+        "nom": "9-X",
+        "marque": "Saab",
+        "annee": "2001",
+        "pays": "🇸🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Du02v6C.png"
+    },
+    {
+        "nom": "Aero-X",
+        "marque": "Saab",
+        "annee": "2006",
+        "pays": "🇸🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/OjMRdwG.png"
+    },
+    {
+        "nom": "PhoeniX",
+        "marque": "Saab",
+        "annee": "2011",
+        "pays": "🇸🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/UjvqqmH.png"
+    },
+    {
+        "nom": "F9X",
+        "marque": "Subaru",
+        "annee": "1985",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/bkeVmw0.png"
+    },
+    {
+        "nom": "B9 Scrambler",
+        "marque": "Subaru",
+        "annee": "2003",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/myhGvHm.png"
+    },
+    {
+        "nom": "Viziv Performance",
+        "marque": "Subaru",
+        "annee": "2017",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/vP8w1i1.png"
+    },
+    {
+        "nom": "GR GT",
+        "marque": "Toyota",
+        "annee": "2026",
+        "pays": "🇯🇵",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/58TlIow.png"
+    },
+    {
+        "nom": "Griffith",
+        "marque": "TVR",
+        "annee": "2017",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "blob:https://imgur.com/4e009dd0-7a3d-4c27-8530-b2407029e8e9"
+    },
+    {
+        "nom": "XL1",
+        "marque": "Volkswagen",
+        "annee": "2013",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/95GAULm.png"
     }
 ]
