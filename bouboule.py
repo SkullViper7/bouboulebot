@@ -183,22 +183,18 @@ def get_reset_timestamps():
         
     now = datetime.now(tz)
     
-    # On crée les nouvelles balises : Minuit (0h), 12h et 20h
-    t0 = now.replace(hour=0, minute=0, second=0, microsecond=0)
-    t12 = now.replace(hour=12, minute=0, second=0, microsecond=0)
-    t20 = now.replace(hour=20, minute=0, second=0, microsecond=0)
+    # L'astuce mathématique pour des créneaux de 4h :
+    # Ex: S'il est 14h -> 14 // 4 = 3 -> 3 * 4 = 12h (le dernier reset était à 12h)
+    heure_dernier_reset = (now.hour // 4) * 4
+    heure_prochain_reset = heure_dernier_reset + 4
     
-    # On détermine dans quel créneau on est, et quand est le prochain
-    if now < t12:
-        last_reset = t0
-        next_reset = t12
-    elif now < t20:
-        last_reset = t12
-        next_reset = t20
+    last_reset = now.replace(hour=heure_dernier_reset, minute=0, second=0, microsecond=0)
+    
+    # Si le prochain reset est à 24h, on bascule à minuit le jour suivant !
+    if heure_prochain_reset == 24:
+        next_reset = now.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)
     else:
-        # Si on a passé 20h, le prochain reset est minuit (t0) LE LENDEMAIN
-        last_reset = t20
-        next_reset = t0 + timedelta(days=1)
+        next_reset = now.replace(hour=heure_prochain_reset, minute=0, second=0, microsecond=0)
         
     return last_reset.timestamp(), next_reset.timestamp(), next_reset
 #endregion
