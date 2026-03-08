@@ -7936,5 +7936,563 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/S39TxOK.png"
+    },
+    {
+        "nom": "Aprilia Aerodinamica",
+        "marque": "Lancia",
+        "annee": "1937",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Gu0slwb.png"
+    },
+    {
+        "nom": "Aurelia B52 PF200",
+        "marque": "Lancia",
+        "annee": "1952",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/rttj9G6.png"
+    },
+    {
+        "nom": "Florida I",
+        "marque": "Lancia",
+        "annee": "1955",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/IGLkHmR.png"
+    },
+    {
+        "nom": "Stratos Zero",
+        "marque": "Lancia",
+        "annee": "1970",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/dIgf5qa.png"
+    },
+    {
+        "nom": "Sibilo",
+        "marque": "Lancia",
+        "annee": "1978",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/6zXz17B.png"
+    },
+    {
+        "nom": "ECV",
+        "marque": "Lancia",
+        "annee": "1986",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/9zQoxGu.png"
+    },
+    {
+        "nom": "ECV2",
+        "marque": "Lancia",
+        "annee": "1988",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/p0i5b5c.png"
+    },
+    {
+        "nom": "Pu+Ra HPE",
+        "marque": "Lancia",
+        "annee": "2023",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/U3tf30f.png"
+    },
+    {
+        "nom": "LFA Concept",
+        "marque": "Lexus",
+        "annee": "2025",
+        "pays": "🇯🇵",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/16SKiul.png"
+    },
+    {
+        "nom": "LFA Concept BEV",
+        "marque": "Lexus",
+        "annee": "2025",
+        "pays": "🇯🇵",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/V6sBZiP.png"
+    },
+    {
+        "nom": "XL-500",
+        "marque": "Lincoln",
+        "annee": "1953",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/7zXS5Cs.png"
+    },
+    {
+        "nom": "Indianapolis",
+        "marque": "Lincoln",
+        "annee": "1955",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ZyZn6Vh.png"
+    },
+    {
+        "nom": "Sentinel",
+        "marque": "Lincoln",
+        "annee": "1996",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/1vKQDx4.png"
+    },
+    {
+        "nom": "Continental Concept",
+        "marque": "Lincoln",
+        "annee": "2002",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/N04zw2z.png"
+    },
+    {
+        "nom": "Anniversary Concept",
+        "marque": "Lincoln",
+        "annee": "2021",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/1UNgjcr.png"
+    },
+    {
+        "nom": "Model L100 Concept",
+        "marque": "Lincoln",
+        "annee": "2022",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/HYx10eW.png"
+    },
+    {
+        "nom": "Esprit Concept",
+        "marque": "Lotus",
+        "annee": "1972",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Ncp3Ty4.png"
+    },
+    {
+        "nom": "Esprit Concept",
+        "marque": "Lotus",
+        "annee": "2010",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/frkzmEH.png"
+    },
+    {
+        "nom": "Emotion",
+        "marque": "Lotus",
+        "annee": "1991",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/p3WOpuO.png"
+    },
+    {
+        "nom": "Elan Concept",
+        "marque": "Lotus",
+        "annee": "2010",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/OboMUBN.png"
+    },
+    {
+        "nom": "Elite Concept",
+        "marque": "Lotus",
+        "annee": "2010",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/i5wTFWd.jpeg"
+    },
+    {
+        "nom": "Elise Concept",
+        "marque": "Lotus",
+        "annee": "2010",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/6fQQC7y.png"
+    },
+    {
+        "nom": "Evija",
+        "marque": "Lotus",
+        "annee": "2019",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/1nXqJPc.png"
+    },
+    {
+        "nom": "Theory 1",
+        "marque": "Lotus",
+        "annee": "2024",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/knl3zAN.png"
+    },
+    {
+        "nom": "Simun",
+        "marque": "Maserati",
+        "annee": "1968",
+        "pays": "🇮🇹",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/3FnWP5K.png"
+    },
+    {
+        "nom": "Boomerang",
+        "marque": "Maserati",
+        "annee": "1971",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/kZX2STe.jpeg"
+    },
+    {
+        "nom": "Chubasco",
+        "marque": "Maserati",
+        "annee": "1990",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/T2aws4D.png"
+    },
+    {
+        "nom": "Birdcage 75th",
+        "marque": "Maserati",
+        "annee": "2005",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Q8gwplt.png"
+    },
+    {
+        "nom": "Alfieri",
+        "marque": "Maserati",
+        "annee": "2014",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/d5XQdny.png"
+    },
+    {
+        "nom": "MC20 Cielo",
+        "marque": "Maserati",
+        "annee": "2025",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/HibUOvP.png"
+    },
+    {
+        "nom": "GranCabrio Folgore Tignanello",
+        "marque": "Maserati",
+        "annee": "2024",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/KTBJPG2.png"
+    },
+    {
+        "nom": "MCPURA",
+        "marque": "Maserati",
+        "annee": "2026",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/xJCcywB.png"
+    },
+    {
+        "nom": "Laser",
+        "marque": "Matra",
+        "annee": "1971",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/WPPwZci.png"
+    },
+    {
+        "nom": "P29",
+        "marque": "Matra",
+        "annee": "1986",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/EAvPpoN.png"
+    },
+    {
+        "nom": "Zoom",
+        "marque": "Matra",
+        "annee": "1992",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/phx7ndK.png"
+    },
+    {
+        "nom": "Espider",
+        "marque": "Matra",
+        "annee": "1998",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Zu89xWI.png"
+    },
+    {
+        "nom": "RX-500",
+        "marque": "Mazda",
+        "annee": "1970",
+        "pays": "🇯🇵",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/DMcTNgf.png"
+    },
+    {
+        "nom": "Nagare",
+        "marque": "Mazda",
+        "annee": "2006",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/XapvJzF.png"
+    },
+    {
+        "nom": "Ryuga",
+        "marque": "Mazda",
+        "annee": "2007",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/wYT7hMv.png"
+    },
+    {
+        "nom": "Taiki",
+        "marque": "Mazda",
+        "annee": "2008",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/NtWRJwF.png"
+    },
+    {
+        "nom": "Shinari",
+        "marque": "Mazda",
+        "annee": "2010",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/YWY5htI.png"
+    },
+    {
+        "nom": "RX-Vision",
+        "marque": "Mazda",
+        "annee": "2015",
+        "pays": "🇯🇵",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/hoB3h28.png"
+    },
+    {
+        "nom": "RX-Vision GT3",
+        "marque": "Mazda",
+        "annee": "2015",
+        "pays": "🇯🇵",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/f3biAUl.png"
+    },
+    {
+        "nom": "Vision Coupe",
+        "marque": "Mazda",
+        "annee": "2017",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/8BWNuOe.png"
+    },
+    {
+        "nom": "Vision Study Model",
+        "marque": "Mazda",
+        "annee": "2022",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ODqzg46.png"
+    },
+    {
+        "nom": "M6GT",
+        "marque": "McLaren",
+        "annee": "1969",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/rszMAzu.png"
+    },
+    {
+        "nom": "F1GT",
+        "marque": "McLaren",
+        "annee": "1997",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/JegHLP8.png"
+    },
+    {
+        "nom": "Ultimate Vision Gran Turismo",
+        "marque": "Mazda",
+        "annee": "2017",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/fNsw4Tj.png"
+    },
+    {
+        "nom": "Elva",
+        "marque": "McLaren",
+        "annee": "2019",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/jGx7m2x.png"
+    },
+    {
+        "nom": "Artura",
+        "marque": "McLaren",
+        "annee": "2021",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/QRy5rUX.png"
+    },
+    {
+        "nom": "Project: Endurance",
+        "marque": "McLaren",
+        "annee": "2026",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/zF0aQ1z.png"
+    },
+    {
+        "nom": "C111 Type I",
+        "marque": "Mercedes-Benz",
+        "annee": "1969",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/w3ncH7j.png"
+    },
+    {
+        "nom": "C111 Type II",
+        "marque": "Mercedes-Benz",
+        "annee": "1969",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/GXFVJbl.png"
+    },
+    {
+        "nom": "C111 Type III",
+        "marque": "Mercedes-Benz",
+        "annee": "1969",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ENPSL2i.png"
+    },
+    {
+        "nom": "CW 311",
+        "marque": "Mercedes-Benz",
+        "annee": "1978",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/y3eOUoi.png"
+    },
+    {
+        "nom": "R63 AMG",
+        "marque": "Mercedes-Benz",
+        "annee": "2006",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Lhx44vl.png"
+    },
+    {
+        "nom": "F400 Carving",
+        "marque": "Mercedes-Benz",
+        "annee": "2001",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/dZXQzbF.png"
+    },
+    {
+        "nom": "F700",
+        "marque": "Mercedes-Benz",
+        "annee": "2007",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Bwxihx2.png"
+    },
+    {
+        "nom": "Vision Mercedes-Maybach 6 Cabriolet",
+        "marque": "Mercedes-Benz",
+        "annee": "2016",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/jrBt08n.png"
+    },
+    {
+        "nom": "Vision Mercedes-Maybach 6",
+        "marque": "Mercedes-Benz",
+        "annee": "2016",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/HUDDWks.png"
+    },
+    {
+        "nom": "Vision One-Eleven",
+        "marque": "Mercedes-Benz",
+        "annee": "2023",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/mJa3cLW.png"
+    },
+    {
+        "nom": "One",
+        "marque": "Carver",
+        "annee": "2007",
+        "pays": "🇳🇱",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/I51xYei.png"
     }
 ]
