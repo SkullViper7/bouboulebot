@@ -253,12 +253,9 @@ async def verifier_succes_marque(ctx, user_id, marque):
 async def roll(ctx):
     user_id = str(ctx.author.id)
     
-    # Récupération des horaires de réinitialisation
     last_reset_ts, next_reset_ts, next_reset_dt = get_reset_timestamps()
-    
     profil = await collection_inventaires.find_one({"_id": user_id})
     
-    # Vérification : si le dernier roll a été fait APRES la dernière réinitialisation, c'est bloqué !
     if profil and "last_roll" in profil:
         if profil["last_roll"] >= last_reset_ts:
             temps_restant = int(next_reset_ts - time.time())
@@ -270,6 +267,7 @@ async def roll(ctx):
             return
 
     voitures_possedees = profil.get("garage", []) if profil else []
+    wishlist_joueur = profil.get("wishlist", []) if profil else []
     voitures_disponibles = []
     poids_disponibles = []
 
@@ -277,7 +275,13 @@ async def roll(ctx):
         nom_complet = f"{voiture['marque']} {voiture['nom']} {voiture.get('annee', '')}".strip()
         if nom_complet not in voitures_possedees:
             voitures_disponibles.append(voiture)
-            poids_disponibles.append(voiture.get("poids", 10))
+            poids_base = voiture.get("poids", 10)
+            
+            # NOUVEAU : Si la voiture est dans la wishlist, on multiplie ses chances par 4 !
+            if nom_complet in wishlist_joueur:
+                poids_disponibles.append(poids_base * 4)
+            else:
+                poids_disponibles.append(poids_base)
 
     if not voitures_disponibles:
         await ctx.send(f"🏆 Incroyable {ctx.author.mention}, tu possèdes déjà **TOUTES** les voitures du jeu ! Attends une mise à jour.")
@@ -290,25 +294,29 @@ async def roll(ctx):
     prix_base = PRIX_REVENTE.get(rarete, 50)
     bonus_coins = int(prix_base * 0.20) 
 
-    # On sauvegarde AVANT d'afficher, en utilisant l'heure exacte du serveur
     maintenant = time.time()
+    
+    # NOUVEAU : Préparation de la mise à jour BDD (avec retrait de la wishlist si besoin)
+    update_query = {
+        "$push": {"garage": nom_complet_gagnee},
+        "$set": {"last_roll": maintenant},
+        "$inc": {"coins": bonus_coins}
+    }
+    
+    if nom_complet_gagnee in wishlist_joueur:
+        update_query["$pull"] = {"wishlist": nom_complet_gagnee}
+
     await collection_inventaires.update_one(
         {"_id": user_id},
-        {
-            "$push": {"garage": nom_complet_gagnee},
-            "$set": {"last_roll": maintenant},
-            "$inc": {"coins": bonus_coins}
-        },
+        update_query,
         upsert=True
     )
 
-    # Récupération de tous les propriétaires
     curseur = collection_inventaires.find({"garage": nom_complet_gagnee})
     docs = await curseur.to_list(length=100)
     proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
-    # Construction de la disposition
     lignes = [
         voiture_gagnee['nom'],
         f"**{voiture_gagnee['marque']}**"
@@ -342,9 +350,14 @@ async def roll(ctx):
         "GOAT 🔴": "WAAAAAAAA"
     }
     phrase = messages_rarete.get(rarete, "Bien joué")
+    
+    # NOUVEAU : Message de célébration si c'était dans la wishlist !
+    voeu_exauce = ""
+    if nom_complet_gagnee in wishlist_joueur:
+        voeu_exauce = "\n\n🌟 **VŒU EXAUCÉ !** Cette voiture était dans ta wishlist, elle a été retirée de la liste."
 
     await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
-    await ctx.send(content=f"{ctx.author.mention} **{phrase} !**", embed=embed)
+    await ctx.send(content=f"{ctx.author.mention} **{phrase} !**{voeu_exauce}", embed=embed)
 
 @roll.error
 async def roll_error(ctx, error):
@@ -1097,6 +1110,7 @@ async def buyroll(ctx):
         return
 
     voitures_possedees = profil.get("garage", []) if profil else []
+    wishlist_joueur = profil.get("wishlist", []) if profil else []
     voitures_disponibles = []
     poids_disponibles = []
 
@@ -1104,7 +1118,12 @@ async def buyroll(ctx):
         nom_complet = f"{voiture['marque']} {voiture['nom']} {voiture.get('annee', '')}".strip()
         if nom_complet not in voitures_possedees:
             voitures_disponibles.append(voiture)
-            poids_disponibles.append(voiture.get("poids", 10))
+            poids_base = voiture.get("poids", 10)
+            
+            if nom_complet in wishlist_joueur:
+                poids_disponibles.append(poids_base * 4) # Boost de chance x4
+            else:
+                poids_disponibles.append(poids_base)
 
     if not voitures_disponibles:
         await ctx.send(f"🏆 Tu possèdes déjà **TOUTES** les voitures du jeu !")
@@ -1114,21 +1133,24 @@ async def buyroll(ctx):
     nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']} {voiture_gagnee.get('annee', '')}".strip()
     rarete = voiture_gagnee['rareté']
 
+    update_query = {
+        "$push": {"garage": nom_complet_gagnee},
+        "$inc": {"coins": -prix_roll}
+    }
+    
+    if nom_complet_gagnee in wishlist_joueur:
+        update_query["$pull"] = {"wishlist": nom_complet_gagnee}
+
     await collection_inventaires.update_one(
         {"_id": user_id},
-        {
-            "$push": {"garage": nom_complet_gagnee},
-            "$inc": {"coins": -prix_roll}
-        }
+        update_query
     )
 
-    # Récupération des propriétaires
     curseur = collection_inventaires.find({"garage": nom_complet_gagnee})
     docs = await curseur.to_list(length=100)
     proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
-    # Construction du texte
     lignes = [
         voiture_gagnee['nom'],
         f"**{voiture_gagnee['marque']}**"
@@ -1154,7 +1176,6 @@ async def buyroll(ctx):
     )
     embed.set_image(url=voiture_gagnee['image'])
     
-    # NOUVEAU : Message personnalisé selon la rareté (idem que pour roll classique)
     messages_rarete = {
         "Commun ⚪": "Ouais basique",
         "Rare 🔵": "Eh pas mal",
@@ -1164,8 +1185,12 @@ async def buyroll(ctx):
     }
     phrase = messages_rarete.get(rarete, "Bien joué")
 
+    voeu_exauce = ""
+    if nom_complet_gagnee in wishlist_joueur:
+        voeu_exauce = "\n\n🌟 **VŒU EXAUCÉ !** Cette voiture était dans ta wishlist, elle a été retirée de la liste."
+
     await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
-    await ctx.send(content=f"{ctx.author.mention} **{phrase} !**", embed=embed)
+    await ctx.send(content=f"{ctx.author.mention} **{phrase} !**{voeu_exauce}", embed=embed)
 #endregion
 
 #region leaderboard
@@ -1219,6 +1244,101 @@ async def toplist(ctx):
     
     embed.set_thumbnail(url=ctx.guild.icon.url if ctx.guild.icon else None) # Met l'icône de ton serveur Discord en haut à droite
     
+    await ctx.send(embed=embed)
+#endregion
+
+#region wishlist
+@bot.command()
+async def wish(ctx, *, recherche: str):
+    user_id = str(ctx.author.id)
+    recherche_lower = recherche.lower().strip()
+    
+    # 1. Trouver la voiture (même logique que search)
+    modele_trouve = next((v for v in VOITURES if recherche_lower in f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()), None)
+    
+    if not modele_trouve:
+        await ctx.send(f"❌ Je n'ai trouvé aucune voiture correspondant à **{recherche}**.")
+        return
+        
+    nom_complet = f"{modele_trouve['marque']} {modele_trouve['nom']} {modele_trouve.get('annee', '')}".strip()
+    
+    # 2. Vérifier le profil
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    garage = profil.get("garage", []) if profil else []
+    wishlist = profil.get("wishlist", []) if profil else []
+    
+    if nom_complet in garage:
+        await ctx.send(f"❌ Tu possèdes déjà la **{nom_complet}** dans ton garage !")
+        return
+        
+    if nom_complet in wishlist:
+        await ctx.send(f"⚠️ La **{nom_complet}** est déjà dans ta wishlist !")
+        return
+        
+    if len(wishlist) >= 10:
+        await ctx.send(f"❌ Ta wishlist est pleine (10/10) ! Utilise `!unwish` pour faire de la place.")
+        return
+        
+    # 3. Ajouter à la wishlist
+    await collection_inventaires.update_one(
+        {"_id": user_id},
+        {"$push": {"wishlist": nom_complet}},
+        upsert=True
+    )
+    
+    await ctx.send(f"🌟 **{nom_complet}** a été ajoutée à ta wishlist ! (Ses chances d'apparition sont multipliées par 4).")
+
+@bot.command()
+async def unwish(ctx, *, recherche: str):
+    user_id = str(ctx.author.id)
+    recherche_lower = recherche.lower().strip()
+    
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    wishlist = profil.get("wishlist", []) if profil else []
+    
+    if not wishlist:
+        await ctx.send("❌ Ta wishlist est déjà vide !")
+        return
+        
+    # Chercher la voiture correspondante dans la wishlist
+    voiture_a_retirer = next((v for v in wishlist if recherche_lower in v.lower()), None)
+    
+    if not voiture_a_retirer:
+        await ctx.send(f"❌ Aucune voiture correspondant à **{recherche}** n'a été trouvée dans ta wishlist.")
+        return
+        
+    await collection_inventaires.update_one(
+        {"_id": user_id},
+        {"$pull": {"wishlist": voiture_a_retirer}}
+    )
+    
+    await ctx.send(f"🗑️ **{voiture_a_retirer}** a été retirée de ta wishlist.")
+
+@bot.command(aliases=["wl", "wishlists"])
+async def wishlist(ctx, membre: discord.Member = None):
+    cible = membre or ctx.author
+    user_id = str(cible.id)
+    
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    wishlist_cars = profil.get("wishlist", []) if profil else []
+    
+    if not wishlist_cars:
+        await ctx.send(f"📭 La wishlist de {cible.display_name} est vide.")
+        return
+        
+    description = ""
+    for i, nom_complet in enumerate(wishlist_cars, 1):
+        voiture_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom_complet), None)
+        if voiture_info:
+            description += f"**{i}.** {nom_complet} - *{voiture_info['rareté']}*\n"
+        else:
+            description += f"**{i}.** {nom_complet}\n"
+            
+    embed = discord.Embed(
+        title=f"🌟 Wishlist de {cible.display_name} ({len(wishlist_cars)}/10)",
+        description=description,
+        color=discord.Color.gold()
+    )
     await ctx.send(embed=embed)
 #endregion
 
