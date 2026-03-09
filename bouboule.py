@@ -277,9 +277,9 @@ async def roll(ctx):
             voitures_disponibles.append(voiture)
             poids_base = voiture.get("poids", 10)
             
-            # NOUVEAU : Si la voiture est dans la wishlist, on multiplie ses chances par 4 !
+            # NOUVEAU : Si la voiture est dans la wishlist, on multiplie ses chances par 2 !
             if nom_complet in wishlist_joueur:
-                poids_disponibles.append(poids_base * 4)
+                poids_disponibles.append(poids_base * 2)
             else:
                 poids_disponibles.append(poids_base)
 
@@ -1121,7 +1121,7 @@ async def buyroll(ctx):
             poids_base = voiture.get("poids", 10)
             
             if nom_complet in wishlist_joueur:
-                poids_disponibles.append(poids_base * 4) # Boost de chance x4
+                poids_disponibles.append(poids_base * 2) # Boost de chance x2
             else:
                 poids_disponibles.append(poids_base)
 
@@ -1286,7 +1286,7 @@ async def wish(ctx, *, recherche: str):
         upsert=True
     )
     
-    await ctx.send(f"🌟 **{nom_complet}** a été ajoutée à ta wishlist ! (Ses chances d'apparition sont multipliées par 4).")
+    await ctx.send(f"🌟 **{nom_complet}** a été ajoutée à ta wishlist ! (Ses chances d'apparition sont multipliées par 2).")
 
 @bot.command()
 async def unwish(ctx, *, recherche: str):
