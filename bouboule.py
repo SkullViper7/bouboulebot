@@ -600,7 +600,7 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
 
 #region sell
 @bot.command(aliases=["jeter", "poubelle", "vendre"])
-async def sell(ctx, *, voiture_a_vendre: str):
+async def sell(ctx, *, recherche: str):
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id})
 
@@ -609,24 +609,38 @@ async def sell(ctx, *, voiture_a_vendre: str):
         return
 
     garage = profil["garage"]
+    recherche_lower = recherche.lower().strip()
 
-    if voiture_a_vendre not in garage:
-        await ctx.send(f"❌ Tu ne possèdes pas la voiture **{voiture_a_vendre}** !")
+    # NOUVEAU : Recherche souple dans le garage du joueur
+    voitures_trouvees = [v for v in garage if recherche_lower in v.lower()]
+
+    if not voitures_trouvees:
+        await ctx.send(f"❌ Tu ne possèdes aucune voiture correspondant à **{recherche}** !")
         return
 
-    # NOUVEAU : On cherche les infos de la voiture pour connaître sa rareté
-    voiture_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']}" == voiture_a_vendre), None)
+    # S'il y a plusieurs correspondances, on demande d'être plus précis
+    if len(voitures_trouvees) > 1:
+        liste_conflits = "\n".join([f"• {v}" for v in voitures_trouvees[:5]]) # Affiche max 5
+        if len(voitures_trouvees) > 5:
+            liste_conflits += "\n..."
+        await ctx.send(f"⚠️ {ctx.author.mention}, sois plus précis ! J'ai trouvé plusieurs voitures dans ton garage qui correspondent :\n{liste_conflits}")
+        return
+
+    # Si on arrive ici, c'est qu'il n'y a qu'une seule correspondance parfaite !
+    voiture_exacte = voitures_trouvees[0]
+
+    # On récupère ses infos dans le catalogue en utilisant le nom exact trouvé
+    voiture_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == voiture_exacte), None)
     
     if not voiture_info:
         await ctx.send("❌ Erreur : Cette voiture n'existe plus dans le catalogue.")
         return
         
     rarete = voiture_info["rareté"]
-    # On va chercher le prix dans notre dictionnaire (50 par défaut s'il ne trouve pas la rareté)
     prix_vente = PRIX_REVENTE.get(rarete, 50)
 
-    # On modifie le message pour afficher le prix
-    msg = await ctx.send(f"⚠️ {ctx.author.mention}, veux-tu vendre ta **{voiture_a_vendre}** ?\nLe concessionnaire t'en offre **{prix_vente} 🪙**.\n\n*Réagis avec ✅ pour vendre ou ❌ pour annuler.*")
+    # On affiche le vrai nom complet trouvé (voiture_exacte)
+    msg = await ctx.send(f"⚠️ {ctx.author.mention}, veux-tu vendre ta **{voiture_exacte}** ?\nLe concessionnaire t'en offre **{prix_vente} 🪙**.\n\n*Réagis avec ✅ pour vendre ou ❌ pour annuler.*")
     await msg.add_reaction("✅")
     await msg.add_reaction("❌")
 
@@ -637,9 +651,8 @@ async def sell(ctx, *, voiture_a_vendre: str):
         reaction, user = await bot.wait_for('reaction_add', timeout=30.0, check=check)
         
         if str(reaction.emoji) == "✅":
-            garage.remove(voiture_a_vendre)
+            garage.remove(voiture_exacte) # On supprime le nom exact
 
-            # On met à jour le garage ET on ajoute les pièces
             await collection_inventaires.update_one(
                 {"_id": user_id},
                 {
@@ -648,9 +661,9 @@ async def sell(ctx, *, voiture_a_vendre: str):
                 }
             )
 
-            await ctx.send(f"💵 Vente conclue {ctx.author.mention} ! Tu as gagné **{prix_vente} 🪙** en vendant ta {voiture_a_vendre}.")
+            await ctx.send(f"💵 Vente conclue {ctx.author.mention} ! Tu as gagné **{prix_vente} 🪙** en vendant ta {voiture_exacte}.")
         else:
-            await ctx.send(f"❌ Vente annulée. Tu gardes ta **{voiture_a_vendre}**.")
+            await ctx.send(f"❌ Vente annulée. Tu gardes ta **{voiture_exacte}**.")
 
     except asyncio.TimeoutError:
         await ctx.send(f"⏳ Temps écoulé, la vente est annulée.")
