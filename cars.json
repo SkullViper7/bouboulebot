@@ -1091,11 +1091,11 @@
     {
         "nom": "Type 35",
         "marque": "Bugatti",
+        "annee": "1924",
+        "pays": "🇫🇷",
         "rareté": "Mythique 🟣",
         "poids": 8,
-        "image": "https://sf1.sportauto.fr/wp-content/uploads/sportauto/2022/05/bugatti-type_35-1928-1280-01.jpg",
-        "annee": "2024",
-        "pays": "🇫🇷"
+        "image": "https://sf1.sportauto.fr/wp-content/uploads/sportauto/2022/05/bugatti-type_35-1928-1280-01.jpg"
     },
     {
         "nom": "Type 41 Royale",
@@ -9061,5 +9061,68 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/95GAULm.png"
+    },
+    {
+        "nom": "Ectoblast 4000",
+        "marque": "Mario Kart",
+        "annee": "2005",
+        "pays": "🎮",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/N50OOXV.png"
+    },
+    {
+        "nom": "Mante Pelleteuse",
+        "marque": "Mario Kart",
+        "annee": "2005",
+        "pays": "🎮",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/GYwhqvw.png"
+    },
+    {
+        "nom": "Minecart",
+        "marque": "Minecraft",
+        "annee": "2009",
+        "pays": "🎮",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/j6xQBEf.png"
+    },
+    {
+        "nom": "FT",
+        "marque": "Renault",
+        "annee": "1917",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/nYYrziJ.png"
+    },
+    {
+        "nom": "Maus",
+        "marque": "Porsche",
+        "annee": "1944",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/7YdvZxI.png"
+    },
+    {
+        "nom": "911 Johnny Silverhand",
+        "marque": "Cyberpunk 2077",
+        "annee": "2020",
+        "pays": "🎮",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/eLADeJu.png"
+    },
+    {
+        "nom": "Colby C210 Camper Panam",
+        "marque": "Cyberpunk 2077",
+        "annee": "2020",
+        "pays": "🎮",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/mP7iNv9.png"
     }
 ]
