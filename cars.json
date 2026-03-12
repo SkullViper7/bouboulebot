@@ -4584,10 +4584,10 @@
         "nom": "Centenario",
         "marque": "Lamborghini",
         "annee": "2016",
+        "pays": "🇮🇹",
         "rareté": "Mythique 🟣",
         "poids": 8,
-        "image": "blob:https://imgur.com/667264e7-8ac3-480d-8b05-7bef5668cdd8",
-        "pays": "🇮🇹"
+        "image": "https://i.imgur.com/IIS0rCr.png"
     },
     {
         "nom": "A6GCS 53",
@@ -5172,7 +5172,7 @@
         "pays": "🇦🇺",
         "rareté": "Mythique 🟣",
         "poids": 8,
-        "image": "blob:https://imgur.com/6c382883-ebcd-4d8f-9a6b-aede6dd8edb7"
+        "image": "https://i.imgur.com/8yfdc1w.png"
     },
     {
         "nom": "P5B",
@@ -6090,7 +6090,7 @@
         "pays": "🇺🇸",
         "rareté": "Mythique 🟣",
         "poids": 8,
-        "image": "blob:https://imgur.com/532b0b60-de52-45ea-8d47-24d74bb65107"
+        "image": "https://i.imgur.com/t51Gt2q.png"
     },
     {
         "nom": "Manx",
@@ -6297,7 +6297,7 @@
         "pays": "🇮🇹",
         "rareté": "Mythique 🟣",
         "poids": 8,
-        "image": "blob:https://imgur.com/5d89e91d-5944-4ccd-a596-2ff3a2796db1"
+        "image": "https://i.imgur.com/rFtAFmP.png"
     },
     {
         "nom": "A110-50",
@@ -9051,7 +9051,7 @@
         "pays": "🇬🇧",
         "rareté": "Rare 🔵",
         "poids": 30,
-        "image": "blob:https://imgur.com/4e009dd0-7a3d-4c27-8530-b2407029e8e9"
+        "image": "https://i.imgur.com/Ph1JnpI.png"
     },
     {
         "nom": "XL1",
