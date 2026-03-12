@@ -367,7 +367,7 @@ async def roll_error(ctx, error):
 #endregion
 
 #region garage
-# 1. La Vue mise à jour avec la nouvelle disposition
+# 1. La Vue mise à jour avec la nouvelle disposition EN BOUCLE
 class GaragePagination(discord.ui.View):
     def __init__(self, ctx, pages, total_voitures, target_member, solde):
         super().__init__(timeout=120)
@@ -380,15 +380,15 @@ class GaragePagination(discord.ui.View):
         self.update_buttons()
 
     def update_buttons(self):
-        self.bouton_prec.disabled = self.current_page == 0
-        self.bouton_suiv.disabled = self.current_page == len(self.pages) - 1
+        # On ne désactive les boutons que s'il y a 1 seule page au total
+        self.bouton_prec.disabled = len(self.pages) <= 1
+        self.bouton_suiv.disabled = len(self.pages) <= 1
 
     def get_embed(self):
         voiture = self.pages[self.current_page]
         rarete = voiture['rareté']
         couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.blue())
         
-        # Construction de la nouvelle disposition verticale (SANS la quantité)
         lignes = [
             voiture['nom'],
             f"**{voiture['marque']}**"
@@ -420,7 +420,8 @@ class GaragePagination(discord.ui.View):
             await interaction.response.send_message("Ce n'est pas toi qui as demandé à voir ce garage !", ephemeral=True)
             return
             
-        self.current_page -= 1
+        # NOUVEAU : Boucle vers la fin si on est au début
+        self.current_page = (self.current_page - 1) % len(self.pages)
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
@@ -430,10 +431,10 @@ class GaragePagination(discord.ui.View):
             await interaction.response.send_message("Ce n'est pas toi qui as demandé à voir ce garage !", ephemeral=True)
             return
             
-        self.current_page += 1
+        # NOUVEAU : Boucle vers le début si on est à la fin
+        self.current_page = (self.current_page + 1) % len(self.pages)
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
-
 
 # 2. La commande !garage
 @bot.command()
@@ -670,7 +671,7 @@ async def sell(ctx, *, recherche: str):
 #endregion
 
 #region search
-# 1. La Vue pour faire défiler les pages de recherche
+# 1. La Vue pour faire défiler les pages de recherche EN BOUCLE
 class SearchPagination(discord.ui.View):
     def __init__(self, ctx, pages, titre, couleur):
         super().__init__(timeout=120)
@@ -682,8 +683,8 @@ class SearchPagination(discord.ui.View):
         self.update_buttons()
 
     def update_buttons(self):
-        self.bouton_prec.disabled = self.current_page == 0
-        self.bouton_suiv.disabled = self.current_page == len(self.pages) - 1
+        self.bouton_prec.disabled = len(self.pages) <= 1
+        self.bouton_suiv.disabled = len(self.pages) <= 1
 
     def get_embed(self):
         embed = discord.Embed(
@@ -698,7 +699,9 @@ class SearchPagination(discord.ui.View):
     async def bouton_prec(self, interaction: discord.Interaction, button: discord.ui.Button):
         if interaction.user != self.ctx.author:
             return await interaction.response.send_message("Tu n'es pas l'auteur de cette recherche !", ephemeral=True)
-        self.current_page -= 1
+            
+        # NOUVEAU : Boucle vers la fin
+        self.current_page = (self.current_page - 1) % len(self.pages)
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
@@ -706,10 +709,11 @@ class SearchPagination(discord.ui.View):
     async def bouton_suiv(self, interaction: discord.Interaction, button: discord.ui.Button):
         if interaction.user != self.ctx.author:
             return await interaction.response.send_message("Tu n'es pas l'auteur de cette recherche !", ephemeral=True)
-        self.current_page += 1
+            
+        # NOUVEAU : Boucle vers le début
+        self.current_page = (self.current_page + 1) % len(self.pages)
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
-
 
 # 2. La commande Search principale
 @bot.command()
@@ -846,7 +850,7 @@ async def search(ctx, *, recherche: str):
 #endregion
 
 #region catalogue
-# 1. La Vue (View) pour les boutons du catalogue
+# 1. La Vue (View) pour les boutons du catalogue EN BOUCLE
 class CataloguePagination(discord.ui.View):
     def __init__(self, ctx, pages):
         super().__init__(timeout=120)
@@ -856,9 +860,8 @@ class CataloguePagination(discord.ui.View):
         self.update_buttons()
 
     def update_buttons(self):
-        # Désactive le bouton Précédent sur la première page, et Suivant sur la dernière
-        self.bouton_prec.disabled = self.current_page == 0
-        self.bouton_suiv.disabled = self.current_page == len(self.pages) - 1
+        self.bouton_prec.disabled = len(self.pages) <= 1
+        self.bouton_suiv.disabled = len(self.pages) <= 1
 
     def get_embed(self):
         embed = discord.Embed(
@@ -873,7 +876,9 @@ class CataloguePagination(discord.ui.View):
     async def bouton_prec(self, interaction: discord.Interaction, button: discord.ui.Button):
         if interaction.user != self.ctx.author:
             return await interaction.response.send_message("Tu n'es pas l'auteur de cette commande !", ephemeral=True)
-        self.current_page -= 1
+            
+        # NOUVEAU : Boucle vers la fin
+        self.current_page = (self.current_page - 1) % len(self.pages)
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
@@ -881,10 +886,11 @@ class CataloguePagination(discord.ui.View):
     async def bouton_suiv(self, interaction: discord.Interaction, button: discord.ui.Button):
         if interaction.user != self.ctx.author:
             return await interaction.response.send_message("Tu n'es pas l'auteur de cette commande !", ephemeral=True)
-        self.current_page += 1
+            
+        # NOUVEAU : Boucle vers le début
+        self.current_page = (self.current_page + 1) % len(self.pages)
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
-
 
 # 2. La commande pour lancer le catalogue
 @bot.command(aliases=["catalog", "liste", "voitures"])
