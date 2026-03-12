@@ -340,8 +340,13 @@ async def roll(ctx):
         description="\n".join(lignes),
         color=couleur_dynamique
     )
-    embed.set_image(url=voiture_gagnee['image'])
-    
+
+    img_url = voiture_gagnee.get('image', '')
+    if img_url and img_url.startswith(('http://', 'https://')):
+        embed.set_image(url=img_url)
+    else:
+        embed.add_field(name="⚠️ Image indisponible", value="Le lien de cette image doit être corrigé dans le catalogue.", inline=False)
+
     messages_rarete = {
         "Commun ⚪": "Ouais basique",
         "Rare 🔵": "Eh pas mal",
@@ -408,8 +413,12 @@ class GaragePagination(discord.ui.View):
             color=couleur_dynamique
         )
         
-        if voiture['image']:
-            embed.set_image(url=voiture['image'])
+        # NOUVEAU : Vérification de la validité du lien de l'image
+        img_url = voiture.get('image', '')
+        if img_url and img_url.startswith(('http://', 'https://')):
+            embed.set_image(url=img_url)
+        else:
+            embed.add_field(name="⚠️ Image indisponible", value="Le lien de l'image est invalide ou cassé.", inline=False)
             
         embed.set_footer(text=f"Modèle {self.current_page + 1}/{len(self.pages)} | Total : {self.total_voitures} voitures")
         return embed
@@ -841,10 +850,15 @@ async def search(ctx, *, recherche: str):
             description="\n".join(lignes),
             color=couleur_dynamique
         )
-        embed.set_image(url=modele_trouve['image'])
-        
-        await ctx.send(embed=embed)
-        return
+    
+        img_url = modele_trouve.get('image', '')
+        if img_url and img_url.startswith(('http://', 'https://')):
+            embed.set_image(url=img_url)
+        else:
+            embed.add_field(name="⚠️ Image indisponible", value="Le lien de cette image doit être corrigé dans le catalogue.", inline=False)
+
+            await ctx.send(embed=embed)
+            return
 
     await ctx.send(f"❌ Je n'ai trouvé aucun pays, rareté, marque ni modèle correspondant à **{recherche}**.")
 #endregion
@@ -1193,8 +1207,13 @@ async def buyroll(ctx):
         description="\n".join(lignes),
         color=couleur_dynamique
     )
-    embed.set_image(url=voiture_gagnee['image'])
     
+    img_url = voiture_gagnee.get('image', '')
+    if img_url and img_url.startswith(('http://', 'https://')):
+        embed.set_image(url=img_url)
+    else:
+        embed.add_field(name="⚠️ Image indisponible", value="Le lien de cette image doit être corrigé dans le catalogue.", inline=False)
+
     messages_rarete = {
         "Commun ⚪": "Ouais basique",
         "Rare 🔵": "Eh pas mal",
