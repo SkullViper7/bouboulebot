@@ -7,12 +7,10 @@ from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 import urllib.parse
 from motor.motor_asyncio import AsyncIOMotorClient
-import random
 from collections import Counter
 import json
 import asyncio
 import math
-from collections import Counter
 import time
 from flask import Flask
 from threading import Thread
@@ -82,9 +80,9 @@ async def get_giphy_gif(tag_term):
     url = "https://api.giphy.com/v1/gifs/random"
     params = {
         "api_key": GIPHY_TOKEN,
-        "tag": tag_term, # On utilise 'tag' au lieu de 'q'
-        "limit": 100,    # Limitation de 100 GIFs par requête
-        "rating": "r"    # Pour garder le contenu non filtré comme demandé
+        "tag": tag_term, 
+        "limit": 100,    
+        "rating": "r"    
     }
     
     async with aiohttp.ClientSession() as session:
@@ -92,7 +90,6 @@ async def get_giphy_gif(tag_term):
             if response.status == 200:
                 data = await response.json()
                 if data['data']:
-                    # L'endpoint random renvoie directement UN seul objet
                     return data['data']['images']['original']['url']
             return None
 #endregion
@@ -103,7 +100,7 @@ async def shit(ctx, membre: discord.Member):
     gif_url = await get_giphy_gif("poop")
     if gif_url:
         await ctx.send(f"Bouboule a chié sur {membre.mention} !")
-        await ctx.send(gif_url) # Discord intègre automatiquement le lien
+        await ctx.send(gif_url) 
     else:
         await ctx.send("Pas de chiasse pour cette fois...")
 #endregion
@@ -114,14 +111,11 @@ async def crack(ctx, *, jeu: str):
     """Cherche un jeu sur Online-fix et FreeTP"""
     await ctx.send(f"🔍 Je cherche **{jeu}** sur les réseaux russes... (ça peut prendre 2-3 sec)")
 
-    # 1. Préparer les URLS de recherche
-    query = urllib.parse.quote(jeu) # Transforme "Call of Duty" en "Call%20of%20Duty"
+    query = urllib.parse.quote(jeu) 
     
-    # URLS de recherche directe (marche toujours)
     url_onlinefix = f"https://online-fix.me/index.php?do=search&subaction=search&story={query}"
     url_freetp = f"https://freetp.org/index.php?do=search&subaction=search&story={query}"
 
-    # Headers pour faire croire qu'on est un vrai navigateur (Firefox)
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0'
     }
@@ -129,27 +123,23 @@ async def crack(ctx, *, jeu: str):
     found_links = []
 
     async with aiohttp.ClientSession(headers=headers) as session:
-        # --- RECHERCHE SUR ONLINE-FIX ---
         try:
             async with session.get(url_onlinefix) as response:
                 if response.status == 200:
                     html = await response.text()
                     soup = BeautifulSoup(html, 'html.parser')
-                    # Sélecteur spécifique à Online-fix (peut changer si le site change)
                     results = soup.select(".article-content h2 a") 
                     
-                    for link in results[:3]: # On prend les 3 premiers
+                    for link in results[:3]: 
                         found_links.append(f"🏴‍☠️ [Online-Fix] {link.text} -> {link['href']}")
         except Exception as e:
             print(f"Erreur Online-fix: {e}")
 
-        # --- RECHERCHE SUR FREETP ---
         try:
             async with session.get(url_freetp) as response:
                 if response.status == 200:
                     html = await response.text()
                     soup = BeautifulSoup(html, 'html.parser')
-                    # Sélecteur spécifique à FreeTP
                     results = soup.select(".entry-title a") 
                     
                     for link in results[:3]:
@@ -157,7 +147,6 @@ async def crack(ctx, *, jeu: str):
         except Exception as e:
             print(f"Erreur FreeTP: {e}")
 
-    # --- CRÉATION DE LA RÉPONSE ---
     embed = discord.Embed(title=f"Résultats pour : {jeu}", color=discord.Color.dark_red())
     
     if found_links:
@@ -166,7 +155,6 @@ async def crack(ctx, *, jeu: str):
     else:
         embed.description = "Je n'ai pas réussi à extraire les liens précis (protection anti-bot ?)."
 
-    # On ajoute toujours les liens de recherche globaux au cas où le bot n'a rien trouvé
     embed.add_field(name="Liens de recherche manuelle", value=f"[Voir sur Online-Fix]({url_onlinefix})\n[Voir sur FreeTP]({url_freetp})", inline=False)
     
     await ctx.send(embed=embed)
@@ -175,7 +163,6 @@ async def crack(ctx, *, jeu: str):
 #region time
 def get_reset_timestamps():
     try:
-        # On force l'heure française (gère l'heure d'été/hiver automatiquement)
         tz = ZoneInfo("Europe/Paris") 
     except:
         from datetime import timezone
@@ -183,14 +170,11 @@ def get_reset_timestamps():
         
     now = datetime.now(tz)
     
-    # L'astuce mathématique pour des créneaux de 4h :
-    # Ex: S'il est 14h -> 14 // 4 = 3 -> 3 * 4 = 12h (le dernier reset était à 12h)
     heure_dernier_reset = (now.hour // 4) * 4
     heure_prochain_reset = heure_dernier_reset + 4
     
     last_reset = now.replace(hour=heure_dernier_reset, minute=0, second=0, microsecond=0)
     
-    # Si le prochain reset est à 24h, on bascule à minuit le jour suivant !
     if heure_prochain_reset == 24:
         next_reset = now.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)
     else:
@@ -201,36 +185,29 @@ def get_reset_timestamps():
 
 #region succes
 async def verifier_succes_marque(ctx, user_id, marque):
-    # 1. Lister toutes les voitures de cette marque qui existent dans le json
     voitures_de_la_marque = [
         f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() 
         for v in VOITURES if v['marque'] == marque
     ]
     
-    # Sécurité + Condition : au moins 2 voitures requises pour le succès
     if len(voitures_de_la_marque) < 2:
         return
     
-    # 2. Regarder le profil du joueur
     profil = await collection_inventaires.find_one({"_id": str(user_id)})
     if not profil:
         return
         
-    # Vérifier s'il a déjà touché la récompense pour cette marque !
     succes_debloques = profil.get("succes_marques", [])
     if marque in succes_debloques:
         return 
         
     garage = profil.get("garage", [])
     
-    # 3. Vérifier s'il possède TOUTES les voitures de la liste
     possede_toutes = all(voiture in garage for voiture in voitures_de_la_marque)
     
     if possede_toutes:
-        # Calcul de la récompense (10 000 par voiture dans la collection)
         recompense = len(voitures_de_la_marque) * 5000 
         
-        # 4. On le paie et on note qu'il a eu le succès
         await collection_inventaires.update_one(
             {"_id": str(user_id)},
             {
@@ -239,13 +216,95 @@ async def verifier_succes_marque(ctx, user_id, marque):
             }
         )
         
-        # 5. On fait péter le champagne dans le chat
         embed = discord.Embed(
             title="🏆 NOUVEAU SUCCÈS DÉBLOQUÉ !",
             description=f"Incroyable ! <@{user_id}> vient de collectionner **absolument tous** les modèles de la marque **{marque}** !\n\n🎁 **Bonus de collectionnneur : +{recompense} 🪙**",
             color=discord.Color.brand_green()
         )
         await ctx.send(embed=embed)
+#endregion
+
+#region sort
+# NOUVEAU : Fonction universelle pour trier le garage selon les préférences
+def appliquer_tri_garage(garage, preference):
+    if not preference:
+        return garage
+        
+    voiture_map = {f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip(): v for v in VOITURES}
+    
+    if preference == "rarity":
+        ordre_rarete = {"GOAT 🔴": 1, "Légendaire 🟡": 2, "Mythique 🟣": 3, "Rare 🔵": 4, "Commun ⚪": 5}
+        garage.sort(key=lambda x: (
+            ordre_rarete.get(voiture_map.get(x, {}).get("rareté", "Commun ⚪"), 99),
+            voiture_map.get(x, {}).get("marque", ""),
+            voiture_map.get(x, {}).get("nom", "")
+        ))
+    elif preference == "brand":
+        garage.sort(key=lambda x: (
+            voiture_map.get(x, {}).get("marque", ""),
+            voiture_map.get(x, {}).get("nom", "")
+        ))
+    elif preference == "year":
+        def get_year(nom_voiture):
+            try: return int(voiture_map.get(nom_voiture, {}).get("annee", ""))
+            except ValueError: return 9999
+        garage.sort(key=lambda x: (
+            get_year(x),
+            voiture_map.get(x, {}).get("marque", ""),
+            voiture_map.get(x, {}).get("nom", "")
+        ))
+    return garage
+
+@bot.command(aliases=["sortr", "trierrarte", "trier_rarete"])
+async def sortrarity(ctx):
+    user_id = str(ctx.author.id)
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    
+    if not profil or not profil.get("garage"):
+        await ctx.send(f"❌ Ton garage est vide, {ctx.author.mention} ! Rien à trier.")
+        return
+        
+    garage = appliquer_tri_garage(profil["garage"], "rarity")
+    
+    await collection_inventaires.update_one(
+        {"_id": user_id}, 
+        {"$set": {"garage": garage, "sort_preference": "rarity"}}
+    )
+    await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont classés **par rareté** (du plus rare au plus commun). Fais `!garage` pour admirer.")
+
+@bot.command(aliases=["sortb", "triermarque", "trier_marque"])
+async def sortbrand(ctx):
+    user_id = str(ctx.author.id)
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    
+    if not profil or not profil.get("garage"):
+        await ctx.send(f"❌ Ton garage est vide, {ctx.author.mention} ! Rien à trier.")
+        return
+        
+    garage = appliquer_tri_garage(profil["garage"], "brand")
+    
+    await collection_inventaires.update_one(
+        {"_id": user_id}, 
+        {"$set": {"garage": garage, "sort_preference": "brand"}}
+    )
+    await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont classés **par ordre alphabétique des marques**. Fais `!garage` pour admirer.")
+
+@bot.command(aliases=["sorty", "trierannee", "trier_annee"])
+async def sortyear(ctx):
+    user_id = str(ctx.author.id)
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    
+    if not profil or not profil.get("garage"):
+        await ctx.send(f"❌ Ton garage est vide, {ctx.author.mention} ! Rien à trier.")
+        return
+        
+    garage = appliquer_tri_garage(profil["garage"], "year")
+    
+    await collection_inventaires.update_one(
+        {"_id": user_id}, 
+        {"$set": {"garage": garage, "sort_preference": "year"}}
+    )
+    await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont classés **par ordre chronologique**. Fais `!garage` pour admirer l'évolution automobile !")
 #endregion
 
 #region roll
@@ -277,7 +336,6 @@ async def roll(ctx):
             voitures_disponibles.append(voiture)
             poids_base = voiture.get("poids", 10)
             
-            # NOUVEAU : Si la voiture est dans la wishlist, on multiplie ses chances par 2 !
             if nom_complet in wishlist_joueur:
                 poids_disponibles.append(poids_base * 2)
             else:
@@ -296,10 +354,18 @@ async def roll(ctx):
 
     maintenant = time.time()
     
-    # NOUVEAU : Préparation de la mise à jour BDD (avec retrait de la wishlist si besoin)
+    # NOUVEAU : Application du tri automatique sur le nouveau garage
+    sort_preference = profil.get("sort_preference") if profil else None
+    voitures_possedees.append(nom_complet_gagnee)
+    
+    if sort_preference:
+        voitures_possedees = appliquer_tri_garage(voitures_possedees, sort_preference)
+    
     update_query = {
-        "$push": {"garage": nom_complet_gagnee},
-        "$set": {"last_roll": maintenant},
+        "$set": {
+            "garage": voitures_possedees,
+            "last_roll": maintenant
+        },
         "$inc": {"coins": bonus_coins}
     }
     
@@ -356,7 +422,6 @@ async def roll(ctx):
     }
     phrase = messages_rarete.get(rarete, "Bien joué")
     
-    # NOUVEAU : Message de célébration si c'était dans la wishlist !
     voeu_exauce = ""
     if nom_complet_gagnee in wishlist_joueur:
         voeu_exauce = "\n\n🌟 **VŒU EXAUCÉ !** Cette voiture était dans ta wishlist, elle a été retirée de la liste."
@@ -372,7 +437,6 @@ async def roll_error(ctx, error):
 #endregion
 
 #region garage
-# 1. La Vue mise à jour avec la nouvelle disposition EN BOUCLE
 class GaragePagination(discord.ui.View):
     def __init__(self, ctx, pages, total_voitures, target_member, solde):
         super().__init__(timeout=120)
@@ -385,7 +449,6 @@ class GaragePagination(discord.ui.View):
         self.update_buttons()
 
     def update_buttons(self):
-        # On ne désactive les boutons que s'il y a 1 seule page au total
         self.bouton_prec.disabled = len(self.pages) <= 1
         self.bouton_suiv.disabled = len(self.pages) <= 1
 
@@ -413,7 +476,6 @@ class GaragePagination(discord.ui.View):
             color=couleur_dynamique
         )
         
-        # NOUVEAU : Vérification de la validité du lien de l'image
         img_url = voiture.get('image', '')
         if img_url and img_url.startswith(('http://', 'https://')):
             embed.set_image(url=img_url)
@@ -429,7 +491,6 @@ class GaragePagination(discord.ui.View):
             await interaction.response.send_message("Ce n'est pas toi qui as demandé à voir ce garage !", ephemeral=True)
             return
             
-        # NOUVEAU : Boucle vers la fin si on est au début
         self.current_page = (self.current_page - 1) % len(self.pages)
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
@@ -440,12 +501,10 @@ class GaragePagination(discord.ui.View):
             await interaction.response.send_message("Ce n'est pas toi qui as demandé à voir ce garage !", ephemeral=True)
             return
             
-        # NOUVEAU : Boucle vers le début si on est à la fin
         self.current_page = (self.current_page + 1) % len(self.pages)
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
-# 2. La commande !garage
 @bot.command()
 async def garage(ctx, membre: discord.Member = None):
     cible = membre or ctx.author
@@ -469,7 +528,14 @@ async def garage(ctx, membre: discord.Member = None):
     
     pages_voitures = []
     
-    for nom_complet, quantite in inventaire_compte.items():
+    # On itère directement sur `mes_voitures` et pas sur le Counter pour PRÉSERVER l'ordre de la base de données !
+    vus = set()
+    for nom_complet in mes_voitures:
+        if nom_complet in vus:
+            continue
+        vus.add(nom_complet)
+        
+        quantite = inventaire_compte[nom_complet]
         voiture_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom_complet), None)
         
         if voiture_info:
@@ -478,12 +544,11 @@ async def garage(ctx, membre: discord.Member = None):
                 "marque": voiture_info["marque"],
                 "annee": voiture_info.get("annee", ""),
                 "pays": voiture_info.get("pays", "🏁"),
-                "quantite": quantite, # On le garde dans les données au cas où, mais il ne s'affiche plus
+                "quantite": quantite, 
                 "image": voiture_info["image"],
                 "rareté": voiture_info["rareté"]
             })
         else:
-            # Sécurité au cas où une voiture du garage a été supprimée du JSON
             pages_voitures.append({
                 "nom": nom_complet,
                 "marque": "Inconnue",
@@ -501,7 +566,6 @@ async def garage(ctx, membre: discord.Member = None):
 #region trade
 @bot.command()
 async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
-    # On empêche de s'échanger à soi-même
     if ctx.author == membre:
         await ctx.send("Tu ne peux pas faire un échange avec toi-même !")
         return
@@ -509,11 +573,9 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
     user_id = str(ctx.author.id)
     target_id = str(membre.id)
 
-    # 1. Récupérer les profils dans la base de données
     profil_user = await collection_inventaires.find_one({"_id": user_id})
     profil_target = await collection_inventaires.find_one({"_id": target_id})
 
-    # Vérifications de base (Est-ce qu'ils ont un garage et la voiture demandée ?)
     if not profil_user or ma_voiture not in profil_user.get("garage", []):
         await ctx.send(f"❌ Tu ne possèdes pas la voiture **{ma_voiture}** !")
         return
@@ -521,7 +583,6 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
         await ctx.send(f"❌ {membre.display_name} ne possède pas la voiture **{sa_voiture}** !")
         return
 
-    # --- NOUVEAU : GESTION DE LA RARETÉ ET DE L'ARGENT ---
     def trouver_info(nom_complet_recherche):
         return next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom_complet_recherche), None)
 
@@ -532,7 +593,6 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
         await ctx.send("❌ Erreur : Impossible de retrouver les informations de ces voitures dans le catalogue.")
         return
 
-    # On récupère le prix selon la rareté (50 par défaut si bug)
     prix_ma = PRIX_REVENTE.get(info_ma["rareté"], 50)
     prix_sa = PRIX_REVENTE.get(info_sa["rareté"], 50)
 
@@ -543,7 +603,6 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
     payeur_id = None
     msg_compensation = "\n⚖️ **Échange équitable** (Même rareté) : Aucun argent ne sera échangé."
 
-    # Si l'auteur donne la voiture la plus chère, la cible doit payer
     if prix_ma > prix_sa:
         if solde_target < diff:
             await ctx.send(f"❌ **Échange annulé** : {membre.mention} n'a pas assez d'argent pour compenser la différence de valeur. Il lui manque **{diff - solde_target} 🪙** !")
@@ -551,7 +610,6 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
         payeur_id = target_id
         msg_compensation = f"\n⚠️ **Compensation financière :** {membre.display_name} devra payer la différence de **{diff} 🪙** à {ctx.author.display_name}."
 
-    # Si la cible donne la voiture la plus chère, l'auteur doit payer
     elif prix_sa > prix_ma:
         if solde_user < diff:
             await ctx.send(f"❌ **Échange annulé** : {ctx.author.mention} n'a pas assez d'argent pour compenser la différence de valeur. Il te manque **{diff - solde_user} 🪙** !")
@@ -559,8 +617,6 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
         payeur_id = user_id
         msg_compensation = f"\n⚠️ **Compensation financière :** {ctx.author.display_name} devra payer la différence de **{diff} 🪙** à {membre.display_name}."
 
-
-    # 2. Demander confirmation à l'autre joueur
     msg = await ctx.send(f"Hey {membre.mention} ! {ctx.author.mention} te propose d'échanger sa **{ma_voiture}** contre ta **{sa_voiture}**.{msg_compensation}\n\n*Réagis avec ✅ pour accepter ou ❌ pour refuser.*")
     await msg.add_reaction("✅")
     await msg.add_reaction("❌")
@@ -572,7 +628,6 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
         reaction, user = await bot.wait_for('reaction_add', timeout=60.0, check=check)
         
         if str(reaction.emoji) == "✅":
-            # 3. Modification des inventaires en Python
             garage_user = profil_user["garage"]
             garage_target = profil_target["garage"]
 
@@ -581,11 +636,16 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
             garage_user.append(sa_voiture)
             garage_target.append(ma_voiture)
 
-            # 4. Sauvegarde dans MongoDB (Mise à jour des garages et des portefeuilles)
+            # NOUVEAU : On re-trie les garages des deux joueurs après l'échange
+            pref_user = profil_user.get("sort_preference")
+            pref_target = profil_target.get("sort_preference")
+            
+            if pref_user: garage_user = appliquer_tri_garage(garage_user, pref_user)
+            if pref_target: garage_target = appliquer_tri_garage(garage_target, pref_target)
+
             update_user = {"$set": {"garage": garage_user}}
             update_target = {"$set": {"garage": garage_target}}
 
-            # Si de l'argent doit être échangé, on ajoute les instructions MongoDB
             if diff > 0:
                 if payeur_id == user_id:
                     update_user["$inc"] = {"coins": -diff}
@@ -598,7 +658,6 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
             await collection_inventaires.update_one({"_id": target_id}, update_target)
 
             await ctx.send(f"🎉 **Échange réussi** entre {ctx.author.mention} et {membre.mention} ! Les garages (et les portefeuilles) ont été mis à jour.")
-            # Vérification des succès pour les deux joueurs
             await verifier_succes_marque(ctx, user_id, info_sa['marque'])
             await verifier_succes_marque(ctx, target_id, info_ma['marque'])
         else:
@@ -621,25 +680,21 @@ async def sell(ctx, *, recherche: str):
     garage = profil["garage"]
     recherche_lower = recherche.lower().strip()
 
-    # NOUVEAU : Recherche souple dans le garage du joueur
     voitures_trouvees = [v for v in garage if recherche_lower in v.lower()]
 
     if not voitures_trouvees:
         await ctx.send(f"❌ Tu ne possèdes aucune voiture correspondant à **{recherche}** !")
         return
 
-    # S'il y a plusieurs correspondances, on demande d'être plus précis
     if len(voitures_trouvees) > 1:
-        liste_conflits = "\n".join([f"• {v}" for v in voitures_trouvees[:5]]) # Affiche max 5
+        liste_conflits = "\n".join([f"• {v}" for v in voitures_trouvees[:5]]) 
         if len(voitures_trouvees) > 5:
             liste_conflits += "\n..."
         await ctx.send(f"⚠️ {ctx.author.mention}, sois plus précis ! J'ai trouvé plusieurs voitures dans ton garage qui correspondent :\n{liste_conflits}")
         return
 
-    # Si on arrive ici, c'est qu'il n'y a qu'une seule correspondance parfaite !
     voiture_exacte = voitures_trouvees[0]
 
-    # On récupère ses infos dans le catalogue en utilisant le nom exact trouvé
     voiture_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == voiture_exacte), None)
     
     if not voiture_info:
@@ -649,7 +704,6 @@ async def sell(ctx, *, recherche: str):
     rarete = voiture_info["rareté"]
     prix_vente = PRIX_REVENTE.get(rarete, 50)
 
-    # On affiche le vrai nom complet trouvé (voiture_exacte)
     msg = await ctx.send(f"⚠️ {ctx.author.mention}, veux-tu vendre ta **{voiture_exacte}** ?\nLe concessionnaire t'en offre **{prix_vente} 🪙**.\n\n*Réagis avec ✅ pour vendre ou ❌ pour annuler.*")
     await msg.add_reaction("✅")
     await msg.add_reaction("❌")
@@ -661,7 +715,7 @@ async def sell(ctx, *, recherche: str):
         reaction, user = await bot.wait_for('reaction_add', timeout=30.0, check=check)
         
         if str(reaction.emoji) == "✅":
-            garage.remove(voiture_exacte) # On supprime le nom exact
+            garage.remove(voiture_exacte) 
 
             await collection_inventaires.update_one(
                 {"_id": user_id},
@@ -680,7 +734,6 @@ async def sell(ctx, *, recherche: str):
 #endregion
 
 #region search
-# 1. La Vue pour faire défiler les pages de recherche EN BOUCLE
 class SearchPagination(discord.ui.View):
     def __init__(self, ctx, pages, titre, couleur):
         super().__init__(timeout=120)
@@ -709,7 +762,6 @@ class SearchPagination(discord.ui.View):
         if interaction.user != self.ctx.author:
             return await interaction.response.send_message("Tu n'es pas l'auteur de cette recherche !", ephemeral=True)
             
-        # NOUVEAU : Boucle vers la fin
         self.current_page = (self.current_page - 1) % len(self.pages)
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
@@ -719,22 +771,18 @@ class SearchPagination(discord.ui.View):
         if interaction.user != self.ctx.author:
             return await interaction.response.send_message("Tu n'es pas l'auteur de cette recherche !", ephemeral=True)
             
-        # NOUVEAU : Boucle vers le début
         self.current_page = (self.current_page + 1) % len(self.pages)
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
-# 2. La commande Search principale
 @bot.command()
 async def search(ctx, *, recherche: str):
     recherche_lower = recherche.lower().strip()
     
-    # --- NOUVEAU : Récupération du garage du joueur pour les coches ✅ ---
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id})
     mon_garage = profil.get("garage", []) if profil else []
 
-    # --- DICTIONNAIRES "MAGIQUES" POUR LA RECHERCHE ---
     MOTS_RARETES = {
         "commun": "Commun ⚪", "commune": "Commun ⚪", "blanc": "Commun ⚪",
         "rare": "Rare 🔵", "bleu": "Rare 🔵",
@@ -763,57 +811,47 @@ async def search(ctx, *, recherche: str):
     titre_recherche = ""
     couleur_embed = discord.Color.blue()
 
-    # 1. Recherche par Rareté
     if recherche_lower in MOTS_RARETES:
         rarete_cible = MOTS_RARETES[recherche_lower]
         resultats = [v for v in VOITURES if v["rareté"] == rarete_cible]
         titre_recherche = f"🔮 Modèles de rareté : {rarete_cible}"
         couleur_embed = COULEURS_RARETE.get(rarete_cible, discord.Color.blue())
 
-    # 2. Recherche par Pays (texte ou emoji)
     elif recherche_lower in NOMS_PAYS_RECHERCHE or any(recherche_lower == p for p in NOMS_PAYS_RECHERCHE.values()):
         drapeau_cible = NOMS_PAYS_RECHERCHE.get(recherche_lower, recherche_lower)
         resultats = [v for v in VOITURES if v.get("pays", "🏁") == drapeau_cible]
         titre_recherche = f"🌍 Modèles du pays : {drapeau_cible}"
         couleur_embed = discord.Color.green()
 
-    # 3. Recherche par Marque
     elif any(v["marque"].lower() == recherche_lower for v in VOITURES):
         resultats = [v for v in VOITURES if v["marque"].lower() == recherche_lower]
         titre_recherche = f"🏢 Modèles de la marque : {resultats[0]['marque']}"
         couleur_embed = discord.Color.orange()
 
-    # --- Affichage des listes (Rareté, Pays, Marque) ---
     if resultats:
-        # On trie les voitures trouvées par marque puis par nom
         resultats_tries = sorted(resultats, key=lambda x: (x.get('marque',''), x.get('nom','')))
         
         lignes = []
         for v in resultats_tries:
-            # NOUVEAU : On reconstruit le nom et on vérifie s'il est dans le garage
             nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
             possede = " ✅" if nom_complet in mon_garage else ""
             
             lignes.append(f"• **{v['marque']}** {v['nom']} {v.get('annee', '')} ({v['rareté']}) {v.get('pays', '🏁')}{possede}")
 
-        # Découpage en pages (15 éléments max par page)
         lignes_par_page = 15
         pages = []
         for i in range(0, len(lignes), lignes_par_page):
             pages.append("\n".join(lignes[i:i + lignes_par_page]))
         
-        # Si la recherche donne peu de résultats (1 seule page)
         if len(pages) == 1:
             embed = discord.Embed(title=titre_recherche, description=pages[0], color=couleur_embed)
             embed.set_footer(text=f"Total : {len(resultats)} modèles")
             await ctx.send(embed=embed)
-        # S'il y a beaucoup de résultats, on lance la vue avec les boutons !
         else:
             view = SearchPagination(ctx, pages, titre_recherche, couleur_embed)
             await ctx.send(embed=view.get_embed(), view=view)
         return
 
-    # 4. Recherche par Modèle précis (Carte unique)
     modele_trouve = next((v for v in VOITURES if recherche_lower in f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()), None)
 
     if modele_trouve:
@@ -828,7 +866,6 @@ async def search(ctx, *, recherche: str):
         rarete = modele_trouve['rareté']
         couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.green())
         
-        # NOUVEAU : On ajoute l'encoche dans le titre si le joueur le possède
         titre_possede = " ✅" if nom_complet in mon_garage else ""
 
         lignes = [
@@ -851,14 +888,12 @@ async def search(ctx, *, recherche: str):
             color=couleur_dynamique
         )
     
-        # CORRECTION DE L'INDENTATION ICI !
         img_url = modele_trouve.get('image', '')
         if img_url and img_url.startswith(('http://', 'https://')):
             embed.set_image(url=img_url)
         else:
             embed.add_field(name="⚠️ Image indisponible", value="Le lien de cette image doit être corrigé dans le catalogue.", inline=False)
 
-        # L'envoi du message sort du bloc `else`
         await ctx.send(embed=embed)
         return
 
@@ -866,7 +901,6 @@ async def search(ctx, *, recherche: str):
 #endregion
 
 #region catalogue
-# 1. La Vue (View) pour les boutons du catalogue EN BOUCLE
 class CataloguePagination(discord.ui.View):
     def __init__(self, ctx, pages):
         super().__init__(timeout=120)
@@ -893,7 +927,6 @@ class CataloguePagination(discord.ui.View):
         if interaction.user != self.ctx.author:
             return await interaction.response.send_message("Tu n'es pas l'auteur de cette commande !", ephemeral=True)
             
-        # NOUVEAU : Boucle vers la fin
         self.current_page = (self.current_page - 1) % len(self.pages)
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
@@ -903,43 +936,35 @@ class CataloguePagination(discord.ui.View):
         if interaction.user != self.ctx.author:
             return await interaction.response.send_message("Tu n'es pas l'auteur de cette commande !", ephemeral=True)
             
-        # NOUVEAU : Boucle vers le début
         self.current_page = (self.current_page + 1) % len(self.pages)
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
-# 2. La commande pour lancer le catalogue
 @bot.command(aliases=["catalog", "liste", "voitures"])
 async def catalogue(ctx):
     if not VOITURES:
         await ctx.send("Le catalogue est vide pour le moment !")
         return
 
-    # --- NOUVEAU : Récupération du garage du joueur pour les coches ✅ ---
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id})
     mon_garage = profil.get("garage", []) if profil else []
 
-    # On trie les voitures par Marque, puis par Nom (ordre alphabétique)
     voitures_triees = sorted(VOITURES, key=lambda x: (x['marque'], x['nom']))
     
     lignes_catalogue = []
     for v in voitures_triees:
-        # NOUVEAU : On reconstruit le nom et on vérifie s'il est dans le garage
         nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
         possede = " ✅" if nom_complet in mon_garage else ""
         
-        # Format de l'affichage : **Renault** Twingo 1 - Commun ⚪ ✅
         lignes_catalogue.append(f"**{v['marque']}** {v['nom']} {v.get('annee', '')} - *{v['rareté']}*{possede}")
 
-    # On découpe en pages de 15 voitures
     lignes_par_page = 15
     pages = []
     for i in range(0, len(lignes_catalogue), lignes_par_page):
         morceau = "\n".join(lignes_catalogue[i:i + lignes_par_page])
         pages.append(morceau)
         
-    # On envoie le message avec les boutons
     view = CataloguePagination(ctx, pages)
     await ctx.send(embed=view.get_embed(), view=view)
 #endregion
@@ -953,7 +978,6 @@ async def cmd(ctx):
         color=discord.Color.blurple()
     )
     
-    # --- Section Gacha / Voitures ---
     embed.add_field(
         name="🎰 `!roll`", 
         value="Tire une voiture au hasard toutes les 12h.", 
@@ -962,6 +986,11 @@ async def cmd(ctx):
     embed.add_field(
         name="🚗 `!garage [@pseudo]`", 
         value="Affiche ton garage et ton solde. Tu peux mentionner quelqu'un !", 
+        inline=False
+    )
+    embed.add_field(
+        name="🗂️ `!sortrarity` / `!sortbrand` / `!sortyear`", 
+        value="Trie ton garage par ordre de rareté, par marque, ou chronologiquement par année de sortie.", 
         inline=False
     )
     embed.add_field(
@@ -990,7 +1019,6 @@ async def cmd(ctx):
         inline=False
     )
 
-    # --- Section Économie & Compétition ---
     embed.add_field(
         name="💸 `!daily`", 
         value="Récupère ton salaire de 500 🪙 toutes les 24h.", 
@@ -1016,8 +1044,12 @@ async def cmd(ctx):
         value="Affiche le classement des joueurs les plus riches et des plus gros garages.", 
         inline=False
     )
+    embed.add_field(
+        name="🌟 `!wish [voiture]` / `!wishlist`", 
+        value="Ajoute des voitures à ta liste de souhaits pour doubler tes chances de les obtenir !", 
+        inline=False
+    )
 
-    # --- Section Fun & Utilitaires ---
     embed.add_field(
         name="💩 `!shit @pseudo`", 
         value="Bouboule lâche une caisse sur la personne mentionnée.", 
@@ -1044,12 +1076,10 @@ async def timer(ctx):
     
     profil = await collection_inventaires.find_one({"_id": user_id})
     
-    # Si le joueur n'a jamais roll, ou s'il a roll AVANT le dernier point de reset, il peut jouer !
     if not profil or "last_roll" not in profil or profil["last_roll"] < last_reset_ts:
         await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton tirage est prêt ! Fais `!roll` pour tenter ta chance.")
         return
 
-    # S'il a déjà roll dans le créneau actuel, on calcule le temps d'attente
     temps_restant = int(next_reset_ts - time.time())
     heures = temps_restant // 3600
     minutes = (temps_restant % 3600) // 60
@@ -1065,19 +1095,16 @@ async def dailytimer(ctx):
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id})
     
-    # Si le joueur n'a jamais fait de daily
     if not profil or "last_daily" not in profil:
         await ctx.send(f"✅ C'est bon {ctx.author.mention}, ton salaire est prêt ! Fais `!daily` pour le récupérer.")
         return
 
     maintenant = time.time()
-    cooldown_daily = 72000 # 20 heures en secondes
+    cooldown_daily = 72000 
     temps_ecoule = maintenant - profil["last_daily"]
     
     if temps_ecoule < cooldown_daily:
         temps_restant = int(cooldown_daily - temps_ecoule)
-        
-        # Le calcul des heures et des minutes
         heures = temps_restant // 3600
         minutes = (temps_restant % 3600) // 60
         
@@ -1092,7 +1119,6 @@ async def solde(ctx, membre: discord.Member = None):
     cible = membre or ctx.author
     profil = await collection_inventaires.find_one({"_id": str(cible.id)})
     
-    # Si le joueur n'a pas de profil ou pas de pièces, il a 0
     coins = profil.get("coins", 0) if profil else 0
     await ctx.send(f"💳 Le solde de **{cible.display_name}** est de **{coins} 🪙**.")
 
@@ -1100,8 +1126,8 @@ async def solde(ctx, membre: discord.Member = None):
 async def daily(ctx):
     user_id = str(ctx.author.id)
     maintenant = time.time()
-    cooldown_daily = 72000 # 20 heures en secondes
-    salaire = 500 # Le montant gagné chaque jour
+    cooldown_daily = 72000 
+    salaire = 500 
 
     profil = await collection_inventaires.find_one({"_id": user_id})
     
@@ -1114,7 +1140,6 @@ async def daily(ctx):
             await ctx.send(f"⏳ Reviens demain {ctx.author.mention} ! Ton prochain salaire sera disponible dans **{heures}h et {minutes}m**.")
             return
 
-    # On ajoute l'argent ($inc) et on met à jour l'heure du daily ($set)
     await collection_inventaires.update_one(
         {"_id": user_id},
         {
@@ -1124,7 +1149,6 @@ async def daily(ctx):
         upsert=True
     )
 
-    # On récupère le nouveau solde pour l'afficher
     nouveau_profil = await collection_inventaires.find_one({"_id": user_id})
     solde_actuel = nouveau_profil.get("coins", salaire)
 
@@ -1156,7 +1180,7 @@ async def buyroll(ctx):
             poids_base = voiture.get("poids", 10)
             
             if nom_complet in wishlist_joueur:
-                poids_disponibles.append(poids_base * 2) # Boost de chance x2
+                poids_disponibles.append(poids_base * 2) 
             else:
                 poids_disponibles.append(poids_base)
 
@@ -1168,8 +1192,15 @@ async def buyroll(ctx):
     nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']} {voiture_gagnee.get('annee', '')}".strip()
     rarete = voiture_gagnee['rareté']
 
+    # NOUVEAU : Application du tri automatique sur le nouveau garage
+    sort_preference = profil.get("sort_preference") if profil else None
+    voitures_possedees.append(nom_complet_gagnee)
+    
+    if sort_preference:
+        voitures_possedees = appliquer_tri_garage(voitures_possedees, sort_preference)
+
     update_query = {
-        "$push": {"garage": nom_complet_gagnee},
+        "$set": {"garage": voitures_possedees},
         "$inc": {"coins": -prix_roll}
     }
     
@@ -1236,53 +1267,43 @@ async def buyroll(ctx):
 #region leaderboard
 @bot.command(aliases=["top", "lb", "classement", "leaderboard"])
 async def toplist(ctx):
-    # 1. On récupère tous les profils de la base de données (limité à 1000 joueurs pour éviter les crashs)
     profils = await collection_inventaires.find({}).to_list(length=1000)
 
     if not profils:
         await ctx.send("❌ Aucun joueur n'est enregistré dans la base de données pour le moment !")
         return
 
-    # 2. On trie les joueurs pour l'Argent (les plus riches en premier)
-    # On prend les 10 premiers ([:10])
     top_coins = sorted(profils, key=lambda x: x.get("coins", 0), reverse=True)[:10]
-    
-    # 3. On trie les joueurs pour le Garage (ceux qui ont le plus de voitures)
-    # len() permet de compter la taille de la liste "garage"
     top_garage = sorted(profils, key=lambda x: len(x.get("garage", [])), reverse=True)[:10]
 
-    # --- Préparation du texte de la colonne ARGENT ---
     texte_coins = ""
     for i, profil in enumerate(top_coins, 1):
         solde = profil.get('coins', 0)
-        if solde > 0: # On n'affiche que ceux qui ont au moins 1 pièce
+        if solde > 0: 
             texte_coins += f"**{i}.** <@{profil['_id']}> : {solde} 🪙\n"
             
     if not texte_coins:
         texte_coins = "Tout le monde est fauché ! 💸"
 
-    # --- Préparation du texte de la colonne GARAGE ---
     texte_garage = ""
     for i, profil in enumerate(top_garage, 1):
         taille = len(profil.get("garage", []))
-        if taille > 0: # On n'affiche que ceux qui ont au moins 1 voiture
+        if taille > 0: 
             texte_garage += f"**{i}.** <@{profil['_id']}> : {taille} 🚗\n"
             
     if not texte_garage:
         texte_garage = "Tous les garages sont vides ! 🚶‍♂️"
 
-    # 4. Création de l'Embed final
     embed = discord.Embed(
         title="🏆 Classement Officiel du Serveur",
         description="Qui dominera le marché automobile ?",
         color=discord.Color.gold()
     )
     
-    # inline=True permet de mettre les deux classements côte à côte !
     embed.add_field(name="💰 Top Richesse", value=texte_coins, inline=True)
     embed.add_field(name="🚗 Top Collection", value=texte_garage, inline=True)
     
-    embed.set_thumbnail(url=ctx.guild.icon.url if ctx.guild.icon else None) # Met l'icône de ton serveur Discord en haut à droite
+    embed.set_thumbnail(url=ctx.guild.icon.url if ctx.guild.icon else None) 
     
     await ctx.send(embed=embed)
 #endregion
@@ -1293,7 +1314,6 @@ async def wish(ctx, *, recherche: str):
     user_id = str(ctx.author.id)
     recherche_lower = recherche.lower().strip()
     
-    # 1. Trouver la voiture (même logique que search)
     modele_trouve = next((v for v in VOITURES if recherche_lower in f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()), None)
     
     if not modele_trouve:
@@ -1302,7 +1322,6 @@ async def wish(ctx, *, recherche: str):
         
     nom_complet = f"{modele_trouve['marque']} {modele_trouve['nom']} {modele_trouve.get('annee', '')}".strip()
     
-    # 2. Vérifier le profil
     profil = await collection_inventaires.find_one({"_id": user_id})
     garage = profil.get("garage", []) if profil else []
     wishlist = profil.get("wishlist", []) if profil else []
@@ -1319,7 +1338,6 @@ async def wish(ctx, *, recherche: str):
         await ctx.send(f"❌ Ta wishlist est pleine (10/10) ! Utilise `!unwish` pour faire de la place.")
         return
         
-    # 3. Ajouter à la wishlist
     await collection_inventaires.update_one(
         {"_id": user_id},
         {"$push": {"wishlist": nom_complet}},
@@ -1340,7 +1358,6 @@ async def unwish(ctx, *, recherche: str):
         await ctx.send("❌ Ta wishlist est déjà vide !")
         return
         
-    # Chercher la voiture correspondante dans la wishlist
     voiture_a_retirer = next((v for v in wishlist if recherche_lower in v.lower()), None)
     
     if not voiture_a_retirer:
@@ -1380,116 +1397,6 @@ async def wishlist(ctx, membre: discord.Member = None):
         color=discord.Color.gold()
     )
     await ctx.send(embed=embed)
-#endregion
-
-#region sort
-@bot.command(aliases=["sortr", "trierrarte", "trier_rarete"])
-async def sortrarity(ctx):
-    user_id = str(ctx.author.id)
-    profil = await collection_inventaires.find_one({"_id": user_id})
-    
-    if not profil or not profil.get("garage"):
-        await ctx.send(f"❌ Ton garage est vide, {ctx.author.mention} ! Rien à trier.")
-        return
-        
-    garage = profil["garage"]
-    
-    # Dictionnaire pour retrouver les infos de chaque voiture rapidement
-    voiture_map = {}
-    for v in VOITURES:
-        nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
-        voiture_map[nom_complet] = v
-        
-    # Ordre de puissance des raretés (1 = le plus haut, 5 = le plus bas)
-    ordre_rarete = {
-        "GOAT 🔴": 1,
-        "Légendaire 🟡": 2,
-        "Mythique 🟣": 3,
-        "Rare 🔵": 4,
-        "Commun ⚪": 5
-    }
-    
-    # On trie la liste du garage :
-    # 1. Par ordre de rareté
-    # 2. Par marque (pour regrouper les voitures de même rareté)
-    # 3. Par nom
-    garage.sort(key=lambda x: (
-        ordre_rarete.get(voiture_map.get(x, {}).get("rareté", "Commun ⚪"), 99),
-        voiture_map.get(x, {}).get("marque", ""),
-        voiture_map.get(x, {}).get("nom", "")
-    ))
-    
-    # Mise à jour de la base de données avec la nouvelle liste triée
-    await collection_inventaires.update_one({"_id": user_id}, {"$set": {"garage": garage}})
-    await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont maintenant classés **par ordre de rareté** (du plus rare au plus commun). Fais `!garage` pour admirer.")
-
-@bot.command(aliases=["sortb", "triermarque", "trier_marque"])
-async def sortbrand(ctx):
-    user_id = str(ctx.author.id)
-    profil = await collection_inventaires.find_one({"_id": user_id})
-    
-    if not profil or not profil.get("garage"):
-        await ctx.send(f"❌ Ton garage est vide, {ctx.author.mention} ! Rien à trier.")
-        return
-        
-    garage = profil["garage"]
-    
-    voiture_map = {}
-    for v in VOITURES:
-        nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
-        voiture_map[nom_complet] = v
-        
-    # On trie la liste du garage alphabétiquement :
-    # 1. Par marque
-    # 2. Par nom du modèle
-    garage.sort(key=lambda x: (
-        voiture_map.get(x, {}).get("marque", ""),
-        voiture_map.get(x, {}).get("nom", "")
-    ))
-    
-    # Mise à jour de la base de données
-    await collection_inventaires.update_one({"_id": user_id}, {"$set": {"garage": garage}})
-    await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont maintenant classés **par ordre alphabétique des marques**. Fais `!garage` pour admirer.")
-
-@bot.command(aliases=["sorty", "trierannee", "trier_annee"])
-async def sortyear(ctx):
-    user_id = str(ctx.author.id)
-    profil = await collection_inventaires.find_one({"_id": user_id})
-    
-    if not profil or not profil.get("garage"):
-        await ctx.send(f"❌ Ton garage est vide, {ctx.author.mention} ! Rien à trier.")
-        return
-        
-    garage = profil["garage"]
-    
-    # Dictionnaire pour retrouver les infos de chaque voiture
-    voiture_map = {}
-    for v in VOITURES:
-        nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
-        voiture_map[nom_complet] = v
-        
-    # Fonction pour extraire l'année proprement et la convertir en nombre
-    def get_year(nom_voiture):
-        voiture = voiture_map.get(nom_voiture, {})
-        annee_str = voiture.get("annee", "")
-        try:
-            return int(annee_str)
-        except ValueError:
-            return 9999 # Si la voiture n'a pas d'année définie, on la met tout à la fin du garage
-
-    # On trie la liste du garage :
-    # 1. Par année (du plus petit au plus grand)
-    # 2. Par marque (si deux voitures sont de la même année)
-    # 3. Par nom
-    garage.sort(key=lambda x: (
-        get_year(x),
-        voiture_map.get(x, {}).get("marque", ""),
-        voiture_map.get(x, {}).get("nom", "")
-    ))
-    
-    # Mise à jour de la base de données
-    await collection_inventaires.update_one({"_id": user_id}, {"$set": {"garage": garage}})
-    await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont maintenant classés **par ordre chronologique** (des plus anciens aux plus récents). Fais `!garage` pour admirer l'évolution automobile !")
 #endregion
 
 # 4. Lancement
