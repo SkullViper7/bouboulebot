@@ -1382,6 +1382,116 @@ async def wishlist(ctx, membre: discord.Member = None):
     await ctx.send(embed=embed)
 #endregion
 
+#region sort
+@bot.command(aliases=["sortr", "trierrarte", "trier_rarete"])
+async def sortrarity(ctx):
+    user_id = str(ctx.author.id)
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    
+    if not profil or not profil.get("garage"):
+        await ctx.send(f"❌ Ton garage est vide, {ctx.author.mention} ! Rien à trier.")
+        return
+        
+    garage = profil["garage"]
+    
+    # Dictionnaire pour retrouver les infos de chaque voiture rapidement
+    voiture_map = {}
+    for v in VOITURES:
+        nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
+        voiture_map[nom_complet] = v
+        
+    # Ordre de puissance des raretés (1 = le plus haut, 5 = le plus bas)
+    ordre_rarete = {
+        "GOAT 🔴": 1,
+        "Légendaire 🟡": 2,
+        "Mythique 🟣": 3,
+        "Rare 🔵": 4,
+        "Commun ⚪": 5
+    }
+    
+    # On trie la liste du garage :
+    # 1. Par ordre de rareté
+    # 2. Par marque (pour regrouper les voitures de même rareté)
+    # 3. Par nom
+    garage.sort(key=lambda x: (
+        ordre_rarete.get(voiture_map.get(x, {}).get("rareté", "Commun ⚪"), 99),
+        voiture_map.get(x, {}).get("marque", ""),
+        voiture_map.get(x, {}).get("nom", "")
+    ))
+    
+    # Mise à jour de la base de données avec la nouvelle liste triée
+    await collection_inventaires.update_one({"_id": user_id}, {"$set": {"garage": garage}})
+    await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont maintenant classés **par ordre de rareté** (du plus rare au plus commun). Fais `!garage` pour admirer.")
+
+@bot.command(aliases=["sortb", "triermarque", "trier_marque"])
+async def sortbrand(ctx):
+    user_id = str(ctx.author.id)
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    
+    if not profil or not profil.get("garage"):
+        await ctx.send(f"❌ Ton garage est vide, {ctx.author.mention} ! Rien à trier.")
+        return
+        
+    garage = profil["garage"]
+    
+    voiture_map = {}
+    for v in VOITURES:
+        nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
+        voiture_map[nom_complet] = v
+        
+    # On trie la liste du garage alphabétiquement :
+    # 1. Par marque
+    # 2. Par nom du modèle
+    garage.sort(key=lambda x: (
+        voiture_map.get(x, {}).get("marque", ""),
+        voiture_map.get(x, {}).get("nom", "")
+    ))
+    
+    # Mise à jour de la base de données
+    await collection_inventaires.update_one({"_id": user_id}, {"$set": {"garage": garage}})
+    await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont maintenant classés **par ordre alphabétique des marques**. Fais `!garage` pour admirer.")
+
+@bot.command(aliases=["sorty", "trierannee", "trier_annee"])
+async def sortyear(ctx):
+    user_id = str(ctx.author.id)
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    
+    if not profil or not profil.get("garage"):
+        await ctx.send(f"❌ Ton garage est vide, {ctx.author.mention} ! Rien à trier.")
+        return
+        
+    garage = profil["garage"]
+    
+    # Dictionnaire pour retrouver les infos de chaque voiture
+    voiture_map = {}
+    for v in VOITURES:
+        nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
+        voiture_map[nom_complet] = v
+        
+    # Fonction pour extraire l'année proprement et la convertir en nombre
+    def get_year(nom_voiture):
+        voiture = voiture_map.get(nom_voiture, {})
+        annee_str = voiture.get("annee", "")
+        try:
+            return int(annee_str)
+        except ValueError:
+            return 9999 # Si la voiture n'a pas d'année définie, on la met tout à la fin du garage
+
+    # On trie la liste du garage :
+    # 1. Par année (du plus petit au plus grand)
+    # 2. Par marque (si deux voitures sont de la même année)
+    # 3. Par nom
+    garage.sort(key=lambda x: (
+        get_year(x),
+        voiture_map.get(x, {}).get("marque", ""),
+        voiture_map.get(x, {}).get("nom", "")
+    ))
+    
+    # Mise à jour de la base de données
+    await collection_inventaires.update_one({"_id": user_id}, {"$set": {"garage": garage}})
+    await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont maintenant classés **par ordre chronologique** (des plus anciens aux plus récents). Fais `!garage` pour admirer l'évolution automobile !")
+#endregion
+
 # 4. Lancement
 if __name__ == "__main__":
     keep_alive()
