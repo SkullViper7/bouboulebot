@@ -851,14 +851,16 @@ async def search(ctx, *, recherche: str):
             color=couleur_dynamique
         )
     
+        # CORRECTION DE L'INDENTATION ICI !
         img_url = modele_trouve.get('image', '')
         if img_url and img_url.startswith(('http://', 'https://')):
             embed.set_image(url=img_url)
         else:
             embed.add_field(name="⚠️ Image indisponible", value="Le lien de cette image doit être corrigé dans le catalogue.", inline=False)
 
-            await ctx.send(embed=embed)
-            return
+        # L'envoi du message sort du bloc `else`
+        await ctx.send(embed=embed)
+        return
 
     await ctx.send(f"❌ Je n'ai trouvé aucun pays, rareté, marque ni modèle correspondant à **{recherche}**.")
 #endregion
