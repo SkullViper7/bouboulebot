@@ -57,6 +57,17 @@ intents.members = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 #endregion
 
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+# --- NOUVEAU : Événement de démarrage ---
+@bot.event
+async def on_ready():
+    print("="*30)
+    print(f"✅ CONNECTÉ AVEC SUCCÈS !")
+    print(f"🤖 Nom du bot : {bot.user.name}")
+    print(f"🆔 ID du bot  : {bot.user.id}")
+    print("="*30)
+
 # --- ÉCONOMIE ---
 PRIX_REVENTE = {
     "Commun ⚪": 100,
