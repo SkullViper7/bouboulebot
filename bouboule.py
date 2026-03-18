@@ -217,7 +217,7 @@ async def verifier_succes_marque(ctx, user_id, marque):
     possede_toutes = all(voiture in garage for voiture in voitures_de_la_marque)
     
     if possede_toutes:
-        recompense = len(voitures_de_la_marque) * 5000 
+        recompense = len(voitures_de_la_marque) * 1000 
         
         await collection_inventaires.update_one(
             {"_id": str(user_id)},
