@@ -10204,5 +10204,419 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/VI27gVa.png"
+    },
+    {
+        "nom": "442",
+        "marque": "Oldsmobile",
+        "annee": "1969",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/0r6Jh9A.png"
+    },
+    {
+        "nom": "Toronado",
+        "marque": "Oldsmobile",
+        "annee": "1966",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/glAsHSQ.png"
+    },
+    {
+        "nom": "Vista Cruiser",
+        "marque": "Oldsmobile",
+        "annee": "1964",
+        "pays": "🇺🇸",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/RyDmN8M.png"
+    },
+    {
+        "nom": "Jetfire",
+        "marque": "Oldsmobile",
+        "annee": "1962",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/wROReUv.png"
+    },
+    {
+        "nom": "Avanti",
+        "marque": "Oldsmobile",
+        "annee": "1962",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/mxAzFYU.png"
+    },
+    {
+        "nom": "Golden Hawk",
+        "marque": "Oldsmobile",
+        "annee": "1956",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/S6xUSof.png"
+    },
+    {
+        "nom": "Champion",
+        "marque": "Oldsmobile",
+        "annee": "1950",
+        "pays": "🇺🇸",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/I4hldVb.jpeg"
+    },
+    {
+        "nom": "117 Coupé",
+        "marque": "Isuzu",
+        "annee": "1968",
+        "pays": "🇯🇵",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/6IVjdwj.png"
+    },
+    {
+        "nom": "Bellett GT-R",
+        "marque": "Isuzu",
+        "annee": "1969",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/dv2EqbE.png"
+    },
+    {
+        "nom": "AZ-1 F40 Liberty Walk Kit",
+        "marque": "Autozam",
+        "annee": "2024",
+        "pays": "🇯🇵",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/TLwMqyH.png"
+    },
+    {
+        "nom": "AZ-1",
+        "marque": "Autozam",
+        "annee": "1992",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ap4p6ul.png"
+    },
+    {
+        "nom": "TR6",
+        "marque": "Triumph",
+        "annee": "1968",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/KtThTOG.png"
+    },
+    {
+        "nom": "Spitfire",
+        "marque": "Triumph",
+        "annee": "1962",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Aa7YAg8.png"
+    },
+    {
+        "nom": "Stag Mark II",
+        "marque": "Triumph",
+        "annee": "1975",
+        "pays": "🇬🇧",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "blob:https://imgur.com/40c1d614-5da1-4825-b384-0861dcb81358"
+    },
+    {
+        "nom": "GT6",
+        "marque": "Triumph",
+        "annee": "1966",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/5e2O1oF.png"
+    },
+    {
+        "nom": "TR3A",
+        "marque": "Triumph",
+        "annee": "1960",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ZoGqE1F.png"
+    },
+    {
+        "nom": "Frua",
+        "marque": "AC",
+        "annee": "1965",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/YdCSl3t.png"
+    },
+    {
+        "nom": "Greyhound",
+        "marque": "AC",
+        "annee": "1959",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/n7vOlVy.jpeg"
+    },
+    {
+        "nom": "3000ME",
+        "marque": "AC",
+        "annee": "1979",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/P4zMPku.png"
+    },
+    {
+        "nom": "Syclone",
+        "marque": "GMC",
+        "annee": "1991",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/FtYMraP.png"
+    },
+    {
+        "nom": "Sprint",
+        "marque": "GMC",
+        "annee": "1977",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/nDtesvc.png"
+    },
+    {
+        "nom": "Stradale",
+        "marque": "Dallara",
+        "annee": "2017",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/oH2tt3Q.png"
+    },
+    {
+        "nom": "Bianchina",
+        "marque": "Autobianchi",
+        "annee": "1957",
+        "pays": "🇮🇹",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/VZMVvZR.png"
+    },
+    {
+        "nom": "Stellina",
+        "marque": "Autobianchi",
+        "annee": "1963",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/dSLCZxv.png"
+    },
+    {
+        "nom": "RS 1000",
+        "marque": "Melkus",
+        "annee": "1969",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/0hNHybO.png"
+    },
+    {
+        "nom": "RS 2000",
+        "marque": "Melkus",
+        "annee": "2009",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/tWPSMlC.png"
+    },
+    {
+        "nom": "Italia",
+        "marque": "Intermeccanica",
+        "annee": "1967",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/VBWUpVA.png"
+    },
+    {
+        "nom": "Indra",
+        "marque": "Intermeccanica",
+        "annee": "1971",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Q0BhSZe.png"
+    },
+    {
+        "nom": "Apollo GT",
+        "marque": "Intermeccanica",
+        "annee": "1961",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/4FbLQY2.png"
+    },
+    {
+        "nom": "Murena GT",
+        "marque": "Intermeccanica",
+        "annee": "1961",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/8yiSWew.png"
+    },
+    {
+        "nom": "AMX",
+        "marque": "AMC",
+        "annee": "1968",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/QpaW4Oa.png"
+    },
+    {
+        "nom": "Javelin",
+        "marque": "AMC",
+        "annee": "1968",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/zyU70xR.jpeg"
+    },
+    {
+        "nom": "Eagle",
+        "marque": "AMC",
+        "annee": "1980",
+        "pays": "🇺🇸",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/5BKbPDv.png"
+    },
+    {
+        "nom": "Rebel The Machine",
+        "marque": "AMC",
+        "annee": "1970",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/DwyXSUS.png"
+    },
+    {
+        "nom": "Gremlin",
+        "marque": "AMC",
+        "annee": "1970",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/bKI7c6y.png"
+    },
+    {
+        "nom": "Pacer",
+        "marque": "AMC",
+        "annee": "1975",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/CfycdQP.png"
+    },
+    {
+        "nom": "ZZ",
+        "marque": "Tommykaira",
+        "annee": "1995",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/5FMTwdt.png"
+    },
+    {
+        "nom": "ZZ-II",
+        "marque": "Tommykaira",
+        "annee": "2001",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/s588KUe.png"
+    },
+    {
+        "nom": "Zero",
+        "marque": "Dome",
+        "annee": "1978",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Ck0331G.png"
+    },
+    {
+        "nom": "Zero RL",
+        "marque": "Dome",
+        "annee": "1979",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/MRXLIJd.png"
+    },
+    {
+        "nom": "Jiotto Caspita",
+        "marque": "Dome",
+        "annee": "1989",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/uTFitVQ.png"
+    },
+    {
+        "nom": "S101",
+        "marque": "Dome",
+        "annee": "2001",
+        "pays": "🇯🇵",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/InjEbzX.png"
+    },
+    {
+        "nom": "Knobbly",
+        "marque": "Lister-Jaguar",
+        "annee": "1958",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/56vcX7V.png"
+    },
+    {
+        "nom": "Storm GTM-005",
+        "marque": "Lister",
+        "annee": "2001",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/NH5VuUm.png"
+    },
+    {
+        "nom": "Storm",
+        "marque": "Lister",
+        "annee": "1993",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/VByQIzc.png"
+    },
+    {
+        "nom": "Costin",
+        "marque": "Lister",
+        "annee": "1959",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/vhpfzTU.png"
     }
 ]
