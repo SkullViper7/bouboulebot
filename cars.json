@@ -10708,5 +10708,14 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/6AApWVF.png"
+    },
+    {
+        "nom": "135 M Cabriolet Figoni & Falaschi",
+        "marque": "Delahaye",
+        "annee": "1937",
+        "pays": "🇫🇷",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/ehOHlI7.png"
     }
 ]
