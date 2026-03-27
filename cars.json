@@ -10618,5 +10618,95 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/vhpfzTU.png"
+    },
+    {
+        "nom": "GTR",
+        "marque": "Ultima",
+        "annee": "1999",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/KTD0Jpd.png"
+    },
+    {
+        "nom": "RS",
+        "marque": "Ultima",
+        "annee": "2019",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/MhG1lRd.png"
+    },
+    {
+        "nom": "41047",
+        "marque": "ZIL",
+        "annee": "1985",
+        "pays": "🇷🇺",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/hFD3BQT.png"
+    },
+    {
+        "nom": "4906 Blue Bird",
+        "marque": "ZIL",
+        "annee": "1975",
+        "pays": "🇷🇺",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/LtH7S5c.png"
+    },
+    {
+        "nom": "EP9",
+        "marque": "Nio",
+        "annee": "2016",
+        "pays": "🇨🇳",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/6N4vLpS.png"
+    },
+    {
+        "nom": "Owl",
+        "marque": "Aspark",
+        "annee": "2019",
+        "pays": "🇯🇵",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/DunF08E.png"
+    },
+    {
+        "nom": "Owl SP600",
+        "marque": "Aspark",
+        "annee": "2024",
+        "pays": "🇯🇵",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/xHc3yw2.png"
+    },
+    {
+        "nom": "Interceptor",
+        "marque": "Mad Max",
+        "annee": "1979",
+        "pays": "🎬",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/KBRFZd4.png"
+    },
+    {
+        "nom": "X1",
+        "marque": "Redbull",
+        "annee": "2010",
+        "pays": "🇦🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/9jVprPD.jpeg"
+    },
+    {
+        "nom": "Regalia",
+        "marque": "Final Fantasy",
+        "annee": "2016",
+        "pays": "🎮",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/6AApWVF.png"
     }
 ]
