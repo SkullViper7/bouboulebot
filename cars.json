@@ -3150,7 +3150,7 @@
         "pays": "🇺🇸"
     },
     {
-        "nom": "KH II",
+        "nom": "HK II",
         "marque": "Facel Vega",
         "annee": "1962",
         "pays": "🇫🇷",
@@ -8769,7 +8769,7 @@
         "nom": "Banshee III",
         "marque": "Pontiac",
         "annee": "1974",
-        "pays": "🇫🇷",
+        "pays": "🇺🇸",
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/1kOukdP.png"
@@ -10717,5 +10717,194 @@
         "rareté": "Légendaire 🟡",
         "poids": 2,
         "image": "https://i.imgur.com/ehOHlI7.png"
+    },
+    {
+        "nom": "003",
+        "marque": "SCG",
+        "annee": "2018",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/tHqdQSm.png"
+    },
+    {
+        "nom": "004",
+        "marque": "SCG",
+        "annee": "2020",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/6IHnXhy.png"
+    },
+    {
+        "nom": "007",
+        "marque": "SCG",
+        "annee": "2021",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/GPpeeRq.png"
+    },
+    {
+        "nom": "007 LMH",
+        "marque": "SCG",
+        "annee": "2021",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/3eQS7Cr.png"
+    },
+    {
+        "nom": "Beast",
+        "marque": "Rezvani",
+        "annee": "2015",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/YGkEEDs.png"
+    },
+    {
+        "nom": "L-29",
+        "marque": "Cord",
+        "annee": "1929",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/fp3m35m.png"
+    },
+    {
+        "nom": "352 Speedster",
+        "marque": "Auburn",
+        "annee": "1935",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/8Cb9n4k.png"
+    },
+    {
+        "nom": "12-165",
+        "marque": "Auburn",
+        "annee": "1932",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/GkgNPoF.png"
+    },
+    {
+        "nom": "652",
+        "marque": "Auburn",
+        "annee": "1936",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/mdEF7QG.png"
+    },
+    {
+        "nom": "Interceptor",
+        "marque": "Jensen",
+        "annee": "1974",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/lBxdNHC.png"
+    },
+    {
+        "nom": "Healey",
+        "marque": "Jensen",
+        "annee": "1972",
+        "pays": "🇬🇧",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/LVYlvPe.png"
+    },
+    {
+        "nom": "541",
+        "marque": "Jensen",
+        "annee": "1954",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Wj1onYN.png"
+    },
+    {
+        "nom": "411",
+        "marque": "Bristol",
+        "annee": "1975",
+        "pays": "🇬🇧",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/W7aqlMa.png"
+    },
+    {
+        "nom": "Fighter",
+        "marque": "Bristol",
+        "annee": "2004",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/tvgYbhJ.png"
+    },
+    {
+        "nom": "GK1",
+        "marque": "Gordon-Keeble",
+        "annee": "1965",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/oNjtauX.jpeg"
+    },
+    {
+        "nom": "High Speed 375 S",
+        "marque": "Monteverdi",
+        "annee": "1969",
+        "pays": "🇨🇭",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/eaG7ghA.png"
+    },
+    {
+        "nom": "Hai 450 SS",
+        "marque": "Monteverdi",
+        "annee": "1970",
+        "pays": "🇨🇭",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/GoEFmfj.png"
+    },
+    {
+        "nom": "C6W",
+        "marque": "Covini",
+        "annee": "2008",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Un40jaD.png"
+    },
+    {
+        "nom": "La voiture de Bob",
+        "marque": "Monstres & Cie",
+        "annee": "2002",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Tn8wZyi.png"
+    },
+    {
+        "nom": "B24 Sirio",
+        "marque": "Covini",
+        "annee": "1982",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Z7Z3Kcl.png"
+    },
+    {
+        "nom": "C36 Turbotronic",
+        "marque": "Covini",
+        "annee": "1998",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/0u0Bu4v.png"
     }
 ]
