@@ -448,15 +448,21 @@ async def roll_error(ctx, error):
 #endregion
 
 #region garage
+from typing import Union
+
 class GaragePagination(discord.ui.View):
-    def __init__(self, ctx, pages, total_voitures, target_member, solde):
+    # NOUVEAU : On ajoute l'argument `start_page`
+    def __init__(self, ctx, pages, total_voitures, target_member, solde, start_page=0):
         super().__init__(timeout=120)
         self.ctx = ctx
         self.pages = pages
         self.total_voitures = total_voitures
         self.target_member = target_member
         self.solde = solde 
-        self.current_page = 0
+        
+        # Sécurité : on s'assure que la page demandée n'est pas hors limites (négative ou trop grande)
+        self.current_page = max(0, min(start_page, len(self.pages) - 1)) if self.pages else 0
+        
         self.update_buttons()
 
     def update_buttons(self):
@@ -516,9 +522,21 @@ class GaragePagination(discord.ui.View):
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
+# NOUVEAU : La commande détecte automatiquement un Membre ET/OU un Nombre
 @bot.command()
-async def garage(ctx, membre: discord.Member = None):
-    cible = membre or ctx.author
+async def garage(ctx, cible_ou_page: Union[discord.Member, int] = None, page_demandee: int = None):
+    # Variables par défaut
+    cible = ctx.author
+    page_cible = 1
+    
+    # Analyse de ce qu'a tapé l'utilisateur
+    if isinstance(cible_ou_page, discord.Member):
+        cible = cible_ou_page
+        if page_demandee is not None:
+            page_cible = page_demandee
+    elif isinstance(cible_ou_page, int):
+        page_cible = cible_ou_page
+    
     user_id = str(cible.id)
     
     profil = await collection_inventaires.find_one({"_id": user_id})
@@ -539,7 +557,6 @@ async def garage(ctx, membre: discord.Member = None):
     
     pages_voitures = []
     
-    # On itère directement sur `mes_voitures` et pas sur le Counter pour PRÉSERVER l'ordre de la base de données !
     vus = set()
     for nom_complet in mes_voitures:
         if nom_complet in vus:
@@ -570,7 +587,10 @@ async def garage(ctx, membre: discord.Member = None):
                 "rareté": "Inconnue"
             })
             
-    view = GaragePagination(ctx, pages_voitures, len(mes_voitures), cible, solde)
+    # L'index Python commence à 0 (Page 1 = Index 0)
+    index_depart = page_cible - 1
+            
+    view = GaragePagination(ctx, pages_voitures, len(mes_voitures), cible, solde, start_page=index_depart)
     await ctx.send(embed=view.get_embed(), view=view)
 #endregion
 
