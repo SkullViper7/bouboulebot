@@ -767,11 +767,11 @@
     {
         "nom": "Corvette (C1)",
         "marque": "Chevrolet",
+        "annee": "1958",
+        "pays": "🇺🇸",
         "rareté": "Rare 🔵",
         "poids": 30,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Corvette-je-1958.jpg",
-        "annee": "1958",
-        "pays": "🇺🇸"
+        "image": "https://i.imgur.com/mkI80jZ.png"
     },
     {
         "nom": "X-BOW R",
@@ -1226,11 +1226,11 @@
     {
         "nom": "Impala",
         "marque": "Chevrolet",
+        "annee": "1963",
+        "pays": "🇺🇸",
         "rareté": "Rare 🔵",
         "poids": 30,
-        "image": "https://scontent-cdg4-2.xx.fbcdn.net/v/t1.6435-9/116710665_621486678751212_5827916412000692061_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=iIdgd3p0SyIQ7kNvwGkTQRJ&_nc_oc=Adl8vH537NJ-6ZKyFkGN1Rz627RnVdgNqIo5A0_J4DcvsHtuDAQFNGNRTNhbyXWa1HHV_o1E36YM7m06Rjeyggmi&_nc_zt=23&_nc_ht=scontent-cdg4-2.xx&_nc_gid=ec_kkHbms_6BNy24KPqHlA&oh=00_AftcS-H05aTIyr8kW6hgsjv_4MSoZwbnnpNaqDXCkIu1Aw&oe=69C83DA0",
-        "annee": "1963",
-        "pays": "🇺🇸"
+        "image": "https://i.imgur.com/SBbJJoZ.png"
     },
     {
         "nom": "48",
