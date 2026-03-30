@@ -1285,15 +1285,18 @@ async def toplist(ctx):
         await ctx.send("❌ Aucun joueur n'est enregistré dans la base de données pour le moment !")
         return
 
-    # NOUVEAU : On prépare un dictionnaire très rapide qui associe chaque "Nom de Voiture" à son prix de revente
-    valeurs_voitures = {
-        f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip(): PRIX_REVENTE.get(v['rareté'], 50) 
-        for v in VOITURES
-    }
+    # NOUVEAU : Dictionnaire pour la valeur ET la rareté (l'émoji) de chaque voiture
+    infos_voitures = {}
+    for v in VOITURES:
+        nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
+        infos_voitures[nom_complet] = {
+            "prix": PRIX_REVENTE.get(v['rareté'], 50),
+            "emoji": v['rareté'][-1] # Récupère juste le dernier caractère (l'émoji ⚪, 🔵, etc.)
+        }
 
-    # NOUVEAU : On calcule la valeur totale du garage pour chaque joueur et on l'ajoute à son profil
+    # On calcule la valeur totale du garage pour chaque joueur
     for profil in profils:
-        valeur_totale = sum(valeurs_voitures.get(nom, 50) for nom in profil.get("garage", []))
+        valeur_totale = sum(infos_voitures.get(nom, {}).get("prix", 50) for nom in profil.get("garage", []))
         profil["valeur_garage"] = valeur_totale
 
     # --- Tris des 3 catégories ---
@@ -1306,27 +1309,44 @@ async def toplist(ctx):
     for i, profil in enumerate(top_coins, 1):
         solde = profil.get('coins', 0)
         if solde > 0: 
-            texte_coins += f"**{i}.** <@{profil['_id']}> : {solde} 🪙\n"
+            texte_coins += f"**{i}.** <@{profil['_id']}>: {solde} 🪙\n"
             
     if not texte_coins:
         texte_coins = "Tout le monde est fauché ! 💸"
 
-    # --- Colonne 2 : Nombre de Voitures ---
+    # --- Colonne 2 : Nombre de Voitures + Détail des raretés ---
     texte_garage = ""
     for i, profil in enumerate(top_garage, 1):
-        taille = len(profil.get("garage", []))
+        garage = profil.get("garage", [])
+        taille = len(garage)
         if taille > 0: 
-            texte_garage += f"**{i}.** <@{profil['_id']}> : {taille} 🚗\n"
+            # On compte les raretés
+            comptes = {"🔴": 0, "🟡": 0, "🟣": 0, "🔵": 0, "⚪": 0}
+            for nom in garage:
+                emoji = infos_voitures.get(nom, {}).get("emoji", "⚪")
+                if emoji in comptes:
+                    comptes[emoji] += 1
+            
+            # On crée le petit texte de détail (du plus rare au plus commun)
+            details = []
+            for emj in ["🔴", "🟡", "🟣", "🔵", "⚪"]:
+                if comptes[emj] > 0:
+                    details.append(f"{comptes[emj]}{emj}")
+            
+            details_str = " ".join(details)
+            
+            # On ajoute tout ça sur une seule ligne pour garder l'alignement
+            texte_garage += f"**{i}.** <@{profil['_id']}>: {taille}🚗 *({details_str})*\n"
             
     if not texte_garage:
         texte_garage = "Tous les garages sont vides ! 🚶‍♂️"
 
-    # --- NOUVEAU - Colonne 3 : Valeur du Garage ---
+    # --- Colonne 3 : Valeur Garage ---
     texte_valeur = ""
     for i, profil in enumerate(top_valeur, 1):
         valeur = profil.get('valeur_garage', 0)
         if valeur > 0: 
-            texte_valeur += f"**{i}.** <@{profil['_id']}> : {valeur} 🪙\n"
+            texte_valeur += f"**{i}.** <@{profil['_id']}>: {valeur} 🪙\n"
             
     if not texte_valeur:
         texte_valeur = "Aucun patrimoine ! 📉"
@@ -1338,7 +1358,6 @@ async def toplist(ctx):
         color=discord.Color.gold()
     )
     
-    # L'argument inline=True permet de tout aligner proprement sur la même ligne (sur PC)
     embed.add_field(name="💰 Top Richesse", value=texte_coins, inline=True)
     embed.add_field(name="🚗 Top Collection", value=texte_garage, inline=True)
     embed.add_field(name="💎 Valeur Garage", value=texte_valeur, inline=True)
