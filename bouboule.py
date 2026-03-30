@@ -1305,13 +1305,13 @@ async def toplist(ctx):
         await ctx.send("❌ Aucun joueur n'est enregistré dans la base de données pour le moment !")
         return
 
-    # NOUVEAU : Dictionnaire pour la valeur ET la rareté (l'émoji) de chaque voiture
+    # Dictionnaire pour la valeur ET la rareté (l'émoji) de chaque voiture
     infos_voitures = {}
     for v in VOITURES:
         nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
         infos_voitures[nom_complet] = {
             "prix": PRIX_REVENTE.get(v['rareté'], 50),
-            "emoji": v['rareté'][-1] # Récupère juste le dernier caractère (l'émoji ⚪, 🔵, etc.)
+            "emoji": v['rareté'][-1] 
         }
 
     # On calcule la valeur totale du garage pour chaque joueur
@@ -1329,10 +1329,10 @@ async def toplist(ctx):
     for i, profil in enumerate(top_coins, 1):
         solde = profil.get('coins', 0)
         if solde > 0: 
-            texte_coins += f"**{i}.** <@{profil['_id']}>: {solde} 🪙\n"
+            texte_coins += f"**{i}.** <@{profil['_id']}> : **{solde}** 🪙\n"
             
     if not texte_coins:
-        texte_coins = "Tout le monde est fauché ! 💸"
+        texte_coins = "Tout le monde est fauché ! 💸\n"
 
     # --- Colonne 2 : Nombre de Voitures + Détail des raretés ---
     texte_garage = ""
@@ -1351,36 +1351,36 @@ async def toplist(ctx):
             details = []
             for emj in ["🔴", "🟡", "🟣", "🔵", "⚪"]:
                 if comptes[emj] > 0:
-                    details.append(f"{comptes[emj]}{emj}")
+                    details.append(f"**{comptes[emj]}**{emj}")
             
             details_str = " ".join(details)
             
-            # On ajoute tout ça sur une seule ligne pour garder l'alignement
-            texte_garage += f"**{i}.** <@{profil['_id']}>: {taille}🚗 *({details_str})*\n"
+            texte_garage += f"**{i}.** <@{profil['_id']}> : **{taille}** 🚗 *({details_str})*\n"
             
     if not texte_garage:
-        texte_garage = "Tous les garages sont vides ! 🚶‍♂️"
+        texte_garage = "Tous les garages sont vides ! 🚶‍♂️\n"
 
     # --- Colonne 3 : Valeur Garage ---
     texte_valeur = ""
     for i, profil in enumerate(top_valeur, 1):
         valeur = profil.get('valeur_garage', 0)
         if valeur > 0: 
-            texte_valeur += f"**{i}.** <@{profil['_id']}>: {valeur} 🪙\n"
+            texte_valeur += f"**{i}.** <@{profil['_id']}> : **{valeur}** 💎\n"
             
     if not texte_valeur:
-        texte_valeur = "Aucun patrimoine ! 📉"
+        texte_valeur = "Aucun patrimoine ! 📉\n"
 
     # --- Création de l'affichage ---
     embed = discord.Embed(
         title="🏆 Classement Officiel du Serveur",
-        description="Qui dominera le marché automobile ?",
+        description="Qui dominera le marché automobile ?\n\u200b", # \u200b ajoute un espace vide pour aérer un peu
         color=discord.Color.gold()
     )
     
-    embed.add_field(name="💰 Top Richesse", value=texte_coins, inline=True)
-    embed.add_field(name="🚗 Top Collection", value=texte_garage, inline=True)
-    embed.add_field(name="💎 Valeur Garage", value=texte_valeur, inline=True)
+    # NOUVEAU : inline=False permet à chaque catégorie de prendre toute la largeur !
+    embed.add_field(name="💰 Top Richesse", value=texte_coins, inline=False)
+    embed.add_field(name="🚗 Top Collection", value=texte_garage, inline=False)
+    embed.add_field(name="💎 Valeur Garage", value=texte_valeur, inline=False)
     
     embed.set_thumbnail(url=ctx.guild.icon.url if ctx.guild.icon else None) 
     
