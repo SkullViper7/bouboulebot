@@ -1278,15 +1278,30 @@ async def buyroll(ctx):
 #region leaderboard
 @bot.command(aliases=["top", "lb", "classement", "leaderboard"])
 async def toplist(ctx):
+    # On récupère tous les profils
     profils = await collection_inventaires.find({}).to_list(length=1000)
 
     if not profils:
         await ctx.send("❌ Aucun joueur n'est enregistré dans la base de données pour le moment !")
         return
 
+    # NOUVEAU : On prépare un dictionnaire très rapide qui associe chaque "Nom de Voiture" à son prix de revente
+    valeurs_voitures = {
+        f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip(): PRIX_REVENTE.get(v['rareté'], 50) 
+        for v in VOITURES
+    }
+
+    # NOUVEAU : On calcule la valeur totale du garage pour chaque joueur et on l'ajoute à son profil
+    for profil in profils:
+        valeur_totale = sum(valeurs_voitures.get(nom, 50) for nom in profil.get("garage", []))
+        profil["valeur_garage"] = valeur_totale
+
+    # --- Tris des 3 catégories ---
     top_coins = sorted(profils, key=lambda x: x.get("coins", 0), reverse=True)[:10]
     top_garage = sorted(profils, key=lambda x: len(x.get("garage", [])), reverse=True)[:10]
+    top_valeur = sorted(profils, key=lambda x: x.get("valeur_garage", 0), reverse=True)[:10]
 
+    # --- Colonne 1 : Argent ---
     texte_coins = ""
     for i, profil in enumerate(top_coins, 1):
         solde = profil.get('coins', 0)
@@ -1296,6 +1311,7 @@ async def toplist(ctx):
     if not texte_coins:
         texte_coins = "Tout le monde est fauché ! 💸"
 
+    # --- Colonne 2 : Nombre de Voitures ---
     texte_garage = ""
     for i, profil in enumerate(top_garage, 1):
         taille = len(profil.get("garage", []))
@@ -1305,14 +1321,27 @@ async def toplist(ctx):
     if not texte_garage:
         texte_garage = "Tous les garages sont vides ! 🚶‍♂️"
 
+    # --- NOUVEAU - Colonne 3 : Valeur du Garage ---
+    texte_valeur = ""
+    for i, profil in enumerate(top_valeur, 1):
+        valeur = profil.get('valeur_garage', 0)
+        if valeur > 0: 
+            texte_valeur += f"**{i}.** <@{profil['_id']}> : {valeur} 🪙\n"
+            
+    if not texte_valeur:
+        texte_valeur = "Aucun patrimoine ! 📉"
+
+    # --- Création de l'affichage ---
     embed = discord.Embed(
         title="🏆 Classement Officiel du Serveur",
         description="Qui dominera le marché automobile ?",
         color=discord.Color.gold()
     )
     
+    # L'argument inline=True permet de tout aligner proprement sur la même ligne (sur PC)
     embed.add_field(name="💰 Top Richesse", value=texte_coins, inline=True)
     embed.add_field(name="🚗 Top Collection", value=texte_garage, inline=True)
+    embed.add_field(name="💎 Valeur Garage", value=texte_valeur, inline=True)
     
     embed.set_thumbnail(url=ctx.guild.icon.url if ctx.guild.icon else None) 
     
