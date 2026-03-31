@@ -10924,5 +10924,23 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/56A0D78.png"
+    },
+    {
+        "nom": "Type 57 Aérolithe",
+        "marque": "Bugatti",
+        "annee": "1935",
+        "pays": "🇫🇷",
+        "rareté": "GOAT 🔴",
+        "poids": 1,
+        "image": "Luis Serra Navarro"
+    },
+    {
+        "nom": "919 Hybrid Evo",
+        "marque": "Porsche",
+        "annee": "2018",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/voh22d8.png"
     }
 ]
