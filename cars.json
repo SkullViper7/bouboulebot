@@ -10942,5 +10942,86 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/voh22d8.png"
+    },
+    {
+        "nom": "Twin Mill",
+        "marque": "Hot Wheels",
+        "annee": "2001",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/tCY5wFg.png"
+    },
+    {
+        "nom": "Deora II",
+        "marque": "Hot Wheels",
+        "annee": "2003",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/U0St8t7.png"
+    },
+    {
+        "nom": "Bone Shaker",
+        "marque": "Hot Wheels",
+        "annee": "2011",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Xcou5ng.png"
+    },
+    {
+        "nom": "Bad To The Blade",
+        "marque": "Hot Wheels",
+        "annee": "2012",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/kmJ8ae3.png"
+    },
+    {
+        "nom": "Rip Rod",
+        "marque": "Hot Wheels",
+        "annee": "2012",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/22e6UUe.png"
+    },
+    {
+        "nom": "Star Wars Darth Vader",
+        "marque": "Hot Wheels",
+        "annee": "2012",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/5Cfw3z8.png"
+    },
+    {
+        "nom": "Star Wars X-Wing",
+        "marque": "Hot Wheels",
+        "annee": "2016",
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/BN6lsgQ.png"
+    },
+    {
+        "nom": "2-Jetz",
+        "marque": "Hot Wheels",
+        "annee": "2018",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/AkvUhTp.png"
+    },
+    {
+        "nom": "Nash Metropolitan",
+        "marque": "Hot Wheels",
+        "annee": "1957",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/hLtGZI9.png"
     }
 ]
