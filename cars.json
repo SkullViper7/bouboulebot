@@ -11023,5 +11023,41 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/hLtGZI9.png"
+    },
+    {
+        "nom": "VLV",
+        "marque": "Peugeot",
+        "annee": "1941",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/fhNGdbr.jpeg"
+    },
+    {
+        "nom": "Type A2",
+        "marque": "Breguet",
+        "annee": "1941",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/8vlSsYe.png"
+    },
+    {
+        "nom": "CitiCar",
+        "marque": "Sebring-Vanguard",
+        "annee": "1974",
+        "pays": "🇺🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/9DY9BbK.png"
+    },
+    {
+        "nom": "Fétish",
+        "marque": "Venturi",
+        "annee": "2006",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/tN7Tyfd.png"
     }
 ]
