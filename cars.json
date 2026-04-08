@@ -11176,5 +11176,23 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/USJknPI.png"
+    },
+    {
+        "nom": "Moto Roue",
+        "marque": "Michelin",
+        "annee": "1997",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/kpoLKb0.png"
+    },
+    {
+        "nom": "Kaneda Bike",
+        "marque": "Akira",
+        "annee": "1982",
+        "pays": "🎬",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/eSFIcWV.png"
     }
 ]
