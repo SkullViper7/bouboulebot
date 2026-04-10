@@ -11383,5 +11383,149 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/DsM7jIy.png"
+    },
+    {
+        "nom": "Antas V8 GT",
+        "marque": "Mazzanti",
+        "annee": "2006",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/9JK0zqe.png"
+    },
+    {
+        "nom": "Evantra",
+        "marque": "Mazzanti",
+        "annee": "2013",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/XzCBeG7.png"
+    },
+    {
+        "nom": "Bohema",
+        "marque": "Praga",
+        "annee": "2024",
+        "pays": "🇨🇿",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/i6Ce9qz.jpeg"
+    },
+    {
+        "nom": "R1R",
+        "marque": "Praga",
+        "annee": "2021",
+        "pays": "🇨🇿",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/gF4Js0D.png"
+    },
+    {
+        "nom": "R1",
+        "marque": "Praga",
+        "annee": "2012",
+        "pays": "🇨🇿",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/UiIBTD7"
+    },
+    {
+        "nom": "R",
+        "marque": "Tramontana",
+        "annee": "2009",
+        "pays": "🇪🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/VlIVAjc"
+    },
+    {
+        "nom": "XTR",
+        "marque": "Tramontana",
+        "annee": "2017",
+        "pays": "🇪🇸",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/pHcS9ER"
+    },
+    {
+        "nom": "Renovatio T500",
+        "marque": "Tushek",
+        "annee": "2014",
+        "pays": "🇸🇮 Slovénie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/ATtJtdV"
+    },
+    {
+        "nom": "TS 600",
+        "marque": "Tushek",
+        "annee": "2014",
+        "pays": "🇸🇮 Slovénie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/v7rhu5M"
+    },
+    {
+        "nom": "TS 900 Apex",
+        "marque": "Tushek",
+        "annee": "2022",
+        "pays": "🇸🇮 Slovénie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/a6E0AHS"
+    },
+    {
+        "nom": "TS 900 Racer Pro",
+        "marque": "Tushek",
+        "annee": "2022",
+        "pays": "🇸🇮 Slovénie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/tEvc1e6"
+    },
+    {
+        "nom": "Fulgura",
+        "marque": "Laraki",
+        "annee": "2004",
+        "pays": "🇲🇦 Maroc",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/v4ptmHa"
+    },
+    {
+        "nom": "Borac",
+        "marque": "Laraki",
+        "annee": "2005",
+        "pays": "🇲🇦 Maroc",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/4srPgVy"
+    },
+    {
+        "nom": "Epitome",
+        "marque": "Laraki",
+        "annee": "2013",
+        "pays": "🇲🇦",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/DVqrcx5"
+    },
+    {
+        "nom": "SV-1",
+        "marque": "Bricklin",
+        "annee": "1974",
+        "pays": "🇨🇦",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/cZRdFlJ"
+    },
+    {
+        "nom": "Satsuma",
+        "marque": "My Summer Car",
+        "annee": "2016",
+        "pays": "🎮",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://imgur.com/4H4Qz7H"
     }
 ]
