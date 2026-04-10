@@ -11194,5 +11194,185 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/eSFIcWV.png"
+    },
+    {
+        "nom": "Tiger",
+        "marque": "Sbarro",
+        "annee": "1973",
+        "pays": "🇨🇭",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/pIa0qC7.png"
+    },
+    {
+        "nom": "Stash",
+        "marque": "Sbarro",
+        "annee": "1974",
+        "pays": "🇨🇭",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/55m9vKr.jpeg"
+    },
+    {
+        "nom": "Challenge",
+        "marque": "Sbarro",
+        "annee": "1985",
+        "pays": "🇨🇭",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/TinLL8i.png"
+    },
+    {
+        "nom": "Alcador Cabriolet",
+        "marque": "Sbarro",
+        "annee": "1995",
+        "pays": "🇨🇭",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Rm1WIoe.png"
+    },
+    {
+        "nom": "Alcador GTB",
+        "marque": "Sbarro",
+        "annee": "2009",
+        "pays": "🇨🇭",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Z6IdJ0v.png"
+    },
+    {
+        "nom": "GT1",
+        "marque": "Sbarro",
+        "annee": "1999",
+        "pays": "🇨🇭",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/HEu3WeJ.png"
+    },
+    {
+        "nom": "Turbo S20",
+        "marque": "Sbarro",
+        "annee": "1991",
+        "pays": "🇨🇭",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/82zzdLD.jpeg"
+    },
+    {
+        "nom": "Osmos",
+        "marque": "Sbarro",
+        "annee": "1989",
+        "pays": "🇨🇭",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/dfyERiG.png"
+    },
+    {
+        "nom": "Aero",
+        "marque": "Sbarro",
+        "annee": "2000",
+        "pays": "🇨🇭",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/tB6oII1.png"
+    },
+    {
+        "nom": "Function Car",
+        "marque": "Sbarro",
+        "annee": "1978",
+        "pays": "🇨🇭",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/DEQylWi.png"
+    },
+    {
+        "nom": "Super Twelve",
+        "marque": "Sbarro",
+        "annee": "1982",
+        "pays": "🇨🇭",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/7nCNsvq.png"
+    },
+    {
+        "nom": "Super Eight",
+        "marque": "Sbarro",
+        "annee": "1984",
+        "pays": "🇨🇭",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/YBMy49x.png"
+    },
+    {
+        "nom": "Monster G",
+        "marque": "Sbarro",
+        "annee": "1987",
+        "pays": "🇨🇭",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/nAhum4h.png"
+    },
+    {
+        "nom": "Espera Picasso",
+        "marque": "Sbarro",
+        "annee": "2002",
+        "pays": "🇨🇭",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/yW5hDM7.png"
+    },
+    {
+        "nom": "Eight",
+        "marque": "Sbarro",
+        "annee": "2012",
+        "pays": "🇨🇭",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/WV5LHXn.png"
+    },
+    {
+        "nom": "Grand Prix",
+        "marque": "Sbarro",
+        "annee": "2005",
+        "pays": "🇨🇭",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/MYfy5IZ.png"
+    },
+    {
+        "nom": "Mojave",
+        "marque": "Sbarro",
+        "annee": "2014",
+        "pays": "🇨🇭",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/XZMW7yt.png"
+    },
+    {
+        "nom": "GT C1",
+        "marque": "Sbarro",
+        "annee": "2006",
+        "pays": "🇨🇭",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ss7NeNh.png"
+    },
+    {
+        "nom": "C2 V6",
+        "marque": "Sbarro",
+        "annee": "2005",
+        "pays": "🇨🇭",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/XRzDrO1.png"
+    },
+    {
+        "nom": "P88",
+        "marque": "WM",
+        "annee": "1988",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/QkQT67G.png"
     }
 ]
