@@ -11527,5 +11527,248 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://imgur.com/4H4Qz7H"
+    },
+    {
+        "nom": "W31",
+        "marque": "Mercedes-Benz",
+        "annee": "1934",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/XUY3L1M"
+    },
+    {
+        "nom": "Furtive eGT",
+        "marque": "Exagon",
+        "annee": "2010",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/yiFTxQp"
+    },
+    {
+        "nom": "Fun Buggy",
+        "marque": "Secma",
+        "annee": "2024",
+        "pays": "🇫🇷",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://imgur.com/FPgluGU"
+    },
+    {
+        "nom": "F16 Turbo GT",
+        "marque": "Secma",
+        "annee": "2023",
+        "pays": "🇫🇷",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://imgur.com/tjykh0k"
+    },
+    {
+        "nom": "F16 Turbo",
+        "marque": "Secma",
+        "annee": "2016",
+        "pays": "🇫🇷",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://imgur.com/ZdAnh91"
+    },
+    {
+        "nom": "F16",
+        "marque": "Secma",
+        "annee": "2008",
+        "pays": "🇫🇷",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://imgur.com/OP5SNB0"
+    },
+    {
+        "nom": "Mugello 375F \"Grand Prix\"",
+        "marque": "Devalliet",
+        "annee": "2024",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/9XG8rCM"
+    },
+    {
+        "nom": "T100",
+        "marque": "Berliet",
+        "annee": "1957",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/Y8so31a"
+    },
+    {
+        "nom": "LR539 Supertraction",
+        "marque": "Rosengart",
+        "annee": "1938",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/ntxAQLk"
+    },
+    {
+        "nom": "Pégase G36 Roadster",
+        "marque": "Amilcar",
+        "annee": "1935",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/wRt3Hl4"
+    },
+    {
+        "nom": "Jamais Contente",
+        "marque": "Jenatzy",
+        "annee": "1898",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/kVhQOuU"
+    },
+    {
+        "nom": "Patent Motowagen",
+        "marque": "Mercedes-Benz",
+        "annee": "1885",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/kR0ykVL"
+    },
+    {
+        "nom": "S4-61",
+        "marque": "Salmson",
+        "annee": "1938",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/fJJioAI"
+    },
+    {
+        "nom": "G72 Randonnée",
+        "marque": "Salmson",
+        "annee": "1950",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/Gr7VmD2"
+    },
+    {
+        "nom": "2300 S",
+        "marque": "Salmson",
+        "annee": "1953",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/8hLs8LB"
+    },
+    {
+        "nom": "MJ 35 CV Boulogne Roadster",
+        "marque": "Turcat-Méry",
+        "annee": "1913",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/fyElYA7"
+    },
+    {
+        "nom": "Sport",
+        "marque": "Grégoire",
+        "annee": "1956",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/r64Ouuc"
+    },
+    {
+        "nom": "SOCEMA Turbine",
+        "marque": "Grégoire",
+        "annee": "1952",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/Epb5Nos"
+    },
+    {
+        "nom": "2LT",
+        "marque": "Ballot",
+        "annee": "1923",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/qKVMHAZ"
+    },
+    {
+        "nom": "RH3 Coupé Aerosport",
+        "marque": "Ballot",
+        "annee": "1932",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/sTwDIPl"
+    },
+    {
+        "nom": "Aérodjet",
+        "marque": "René Bonnet",
+        "annee": "1963",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/IZEP95s"
+    },
+    {
+        "nom": "Missile",
+        "marque": "René Bonnet",
+        "annee": "1962",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/AieT76s"
+    },
+    {
+        "nom": "560",
+        "marque": "Monica",
+        "annee": "1973",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/ytTKIXD"
+    },
+    {
+        "nom": "Track",
+        "marque": "Mega",
+        "annee": "1992",
+        "pays": "🇫🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/PNRzt9g"
+    },
+    {
+        "nom": "Monte Carlo",
+        "marque": "Mega",
+        "annee": "1996",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/GjuQsJh"
+    },
+    {
+        "nom": "Glace",
+        "marque": "Mega",
+        "annee": "1992",
+        "pays": "🇫🇷",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://imgur.com/HR2zZys"
+    },
+    {
+        "nom": "SSC",
+        "marque": "Thrust",
+        "annee": "1997",
+        "pays": "🇬🇧",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://imgur.com/gsYMuMa"
     }
 ]
