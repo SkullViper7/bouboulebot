@@ -236,11 +236,11 @@
     {
         "nom": "FXX K",
         "marque": "Ferrari",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://images.caradisiac.com/logos/3/3/4/4/183344/S0-Ferrari-LaFerrai-FXX-K-double-X-fait-son-retour-avec-1050-ch-99351.jpg",
         "annee": "2014",
-        "pays": "🇮🇹"
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://images.caradisiac.com/logos/3/3/4/4/183344/S0-Ferrari-LaFerrai-FXX-K-double-X-fait-son-retour-avec-1050-ch-99351.jpg"
     },
     {
         "nom": "LFA",
@@ -408,10 +408,10 @@
         "nom": "GT",
         "marque": "Ford",
         "annee": "2006",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://cdn.motor1.com/images/mgl/4OvLk/s1/2006-ford-gt-for-sale.jpg",
-        "pays": "🇺🇸"
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://cdn.motor1.com/images/mgl/4OvLk/s1/2006-ford-gt-for-sale.jpg"
     },
     {
         "nom": "4C",
@@ -506,11 +506,11 @@
     {
         "nom": "Viper GTS",
         "marque": "Dodge",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://orbiteservicesdassurances.ca/Orbit/media/Documents/Dodge_viper_gts.png",
         "annee": "1996",
-        "pays": "🇺🇸"
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://orbiteservicesdassurances.ca/Orbit/media/Documents/Dodge_viper_gts.png"
     },
     {
         "nom": "GTR R35",
@@ -524,11 +524,11 @@
     {
         "nom": "Cayman GT4 RS",
         "marque": "Porsche",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://sf1.sportauto.fr/wp-content/uploads/sportauto/2022/05/mf_3580234.jpg",
         "annee": "2019",
-        "pays": "🇩🇪"
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://sf1.sportauto.fr/wp-content/uploads/sportauto/2022/05/mf_3580234.jpg"
     },
     {
         "nom": "GR Supra",
@@ -3135,10 +3135,10 @@
         "nom": "Viper ACR",
         "marque": "Dodge",
         "annee": "2013",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/FX1HoPI.png",
-        "pays": "🇺🇸"
+        "pays": "🇺🇸",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/FX1HoPI.png"
     },
     {
         "nom": "Challenger SRT Hellcat",
@@ -6736,8 +6736,8 @@
         "marque": "Buick",
         "annee": "2025",
         "pays": "🇺🇸",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
+        "rareté": "Rare 🔵",
+        "poids": 30,
         "image": "https://i.imgur.com/mfGJ3uI.png"
     },
     {
@@ -11770,5 +11770,212 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/gsYMuMa.png"
+    },
+    {
+        "nom": "950 Spider",
+        "marque": "Innocenti",
+        "annee": "1960",
+        "pays": "🇮🇹",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/r0J8VF1.png"
+    },
+    {
+        "nom": "Manta",
+        "marque": "Bizzarini",
+        "annee": "1968",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/26pqcWM.png"
+    },
+    {
+        "nom": "Tipo 8A",
+        "marque": "Isotta Fraschini",
+        "annee": "1919",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/H3bikMe.png"
+    },
+    {
+        "nom": "Tipo 8A S Roadster",
+        "marque": "Isotta Fraschini",
+        "annee": "1930",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/WafJJvG.png"
+    },
+    {
+        "nom": "Tipo KM",
+        "marque": "Isotta Fraschini",
+        "annee": "1910",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/gqGNVMS.png"
+    },
+    {
+        "nom": "8C Monterosa",
+        "marque": "Isotta Fraschini",
+        "annee": "1947",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/lAWbkIa.png"
+    },
+    {
+        "nom": "Tipo 61",
+        "marque": "Itala",
+        "annee": "1920",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/lUPSdp6.png"
+    },
+    {
+        "nom": "202 Gran Sport",
+        "marque": "Cisitalia",
+        "annee": "1947",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/EQLtoiq.png"
+    },
+    {
+        "nom": "202 SMM Nuvolari Spider",
+        "marque": "Cisitalia",
+        "annee": "1947",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/WdUX5Yx.png"
+    },
+    {
+        "nom": "K39",
+        "marque": "Kimera",
+        "annee": "2024",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/2jlVQVD.png"
+    },
+    {
+        "nom": "EVO37",
+        "marque": "Kimera",
+        "annee": "2021",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/EUzCMUQ.png"
+    },
+    {
+        "nom": "Type AL Coupé Sport",
+        "marque": "Minerva",
+        "annee": "1934",
+        "pays": "🇧🇪 Belgique",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/cH47fAh.jpeg"
+    },
+    {
+        "nom": "Type AL",
+        "marque": "Minerva",
+        "annee": "1930",
+        "pays": "🇧🇪 Belgique",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/epFIScT.png"
+    },
+    {
+        "nom": "GP",
+        "marque": "Imperia",
+        "annee": "2012",
+        "pays": "🇧🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/xinvdCs.png"
+    },
+    {
+        "nom": "Adex",
+        "marque": "Excelsior",
+        "annee": "1922",
+        "pays": "🇧🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/cUCPV3X.jpeg"
+    },
+    {
+        "nom": "Albert I",
+        "marque": "Excelsior",
+        "annee": "1926",
+        "pays": "🇧🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/r3J3RmQ.png"
+    },
+    {
+        "nom": "1600 GT",
+        "marque": "Apal",
+        "annee": "1961",
+        "pays": "🇧🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/3qxle9D.png"
+    },
+    {
+        "nom": "Horizon GT",
+        "marque": "Apal",
+        "annee": "1968",
+        "pays": "🇧🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/5sOvwXu.png"
+    },
+    {
+        "nom": "Vertigo Prototype",
+        "marque": "Gillet",
+        "annee": "1991",
+        "pays": "🇧🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ZmIITLs.png"
+    },
+    {
+        "nom": "Vertigo .5 Spirit",
+        "marque": "Gillet",
+        "annee": "2010",
+        "pays": "🇧🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/622JS4G.png"
+    },
+    {
+        "nom": "Vertigo Streiff",
+        "marque": "Gillet",
+        "annee": "2004",
+        "pays": "🇧🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Wgzaui0.png"
+    },
+    {
+        "nom": "Vertigo Streiff GT2",
+        "marque": "Gillet",
+        "annee": "2004",
+        "pays": "🇧🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/XJ4jHMp.png"
+    },
+    {
+        "nom": "Spyder MK I",
+        "marque": "Edran",
+        "annee": "1994",
+        "pays": "🇧🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/SiVPgVV.jpeg"
     }
 ]
