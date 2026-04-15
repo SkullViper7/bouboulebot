@@ -4485,10 +4485,10 @@
         "nom": "360 Modena",
         "marque": "Ferrari",
         "annee": "1999",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/kUK7Ye5.png",
-        "pays": "🇮🇹"
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/kUK7Ye5.png"
     },
     {
         "nom": "488 Pista",
@@ -11977,5 +11977,248 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/SiVPgVV.jpeg"
+    },
+    {
+        "nom": "Car",
+        "marque": "Zar",
+        "annee": "1960",
+        "pays": "🇨🇦",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/SNdEzX0.png"
+    },
+    {
+        "nom": "Hornet Kompressor Special",
+        "marque": "Wolseley",
+        "annee": "1936",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/SaA9zBr.png"
+    },
+    {
+        "nom": "Nine Brooksland Speed",
+        "marque": "Riley",
+        "annee": "1932",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ceR0yT8.png"
+    },
+    {
+        "nom": "Kestrel",
+        "marque": "Riley",
+        "annee": "1935",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/diLD5Qf.png"
+    },
+    {
+        "nom": "Car",
+        "marque": "Shamrock",
+        "annee": "1959",
+        "pays": "🇮🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/GTbqhRN.png"
+    },
+    {
+        "nom": "Turbo GT",
+        "marque": "Argyll",
+        "annee": "1976",
+        "pays": "🇬🇧",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ReySyw9.png"
+    },
+    {
+        "nom": "Hansa 1500 Sportcoupé",
+        "marque": "Borgward",
+        "annee": "1954",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ssK19J7.jpeg"
+    },
+    {
+        "nom": "Isabella",
+        "marque": "Borgward",
+        "annee": "1960",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ZyQNbKY.jpeg"
+    },
+    {
+        "nom": "GD750",
+        "marque": "Goliath",
+        "annee": "1949",
+        "pays": "🇩🇪",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/OehPVuN.jpeg"
+    },
+    {
+        "nom": "Spider",
+        "marque": "NSU",
+        "annee": "1964",
+        "pays": "🇩🇪",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/bkd7q0J.png"
+    },
+    {
+        "nom": "Prinz TTS",
+        "marque": "NSU",
+        "annee": "1965",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/kUweizb.png"
+    },
+    {
+        "nom": "853A Spezialcabriolet",
+        "marque": "Horch",
+        "annee": "1937",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/S2pGliJ.png"
+    },
+    {
+        "nom": "853 Cabriolet",
+        "marque": "Horch",
+        "annee": "1938",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/MLNeEj7.png"
+    },
+    {
+        "nom": "W25K",
+        "marque": "Wanderer",
+        "annee": "1938",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ZdNTj0K.png"
+    },
+    {
+        "nom": "1700 GT Cabriolet",
+        "marque": "Glas",
+        "annee": "1966",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/5SikyVl.png"
+    },
+    {
+        "nom": "3000 V8",
+        "marque": "Glas",
+        "annee": "1967",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/eZQxSjU.png"
+    },
+    {
+        "nom": "Zeppelin DS8 Stromlinie Spohn",
+        "marque": "Maybach",
+        "annee": "1932",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/0dXo7ln.png"
+    },
+    {
+        "nom": "SW38 Spohn Sport Zweisitzer",
+        "marque": "Maybach",
+        "annee": "1939",
+        "pays": "🇩🇪",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/4j08EaQ.png"
+    },
+    {
+        "nom": "CD",
+        "marque": "Bitter",
+        "annee": "1973",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/gBdbvES.png"
+    },
+    {
+        "nom": "KR 175",
+        "marque": "Messerschmitt",
+        "annee": "1953",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ppvzQC0.png"
+    },
+    {
+        "nom": "KR Super 200",
+        "marque": "Messerschmitt",
+        "annee": "1955",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/5nVD47C.png"
+    },
+    {
+        "nom": "TG 500 Tiger",
+        "marque": "Messerschmitt",
+        "annee": "1958",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/eaFPwF4.png"
+    },
+    {
+        "nom": "Kabine",
+        "marque": "Heinkel",
+        "annee": "1956",
+        "pays": "🇩🇪",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/ypf0ObL.png"
+    },
+    {
+        "nom": "770",
+        "marque": "Amphicar",
+        "annee": "1961",
+        "pays": "🇩🇪",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/cz8yL63.png"
+    },
+    {
+        "nom": "Concept One",
+        "marque": "Rimac",
+        "annee": "2011",
+        "pays": "🇭🇷",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/4phUTKc.png"
+    },
+    {
+        "nom": "CR3",
+        "marque": "Kwađi",
+        "annee": "1992",
+        "pays": "🇭🇷",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/OooIANt.png"
+    },
+    {
+        "nom": "Kosmopolit",
+        "marque": "Zlatko",
+        "annee": "1994",
+        "pays": "🇭🇷",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/MmzyU2N.png"
     }
 ]
