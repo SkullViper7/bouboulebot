@@ -850,7 +850,7 @@ async def search(ctx, *, recherche: str):
 
     elif recherche_lower in NOMS_PAYS_RECHERCHE or any(recherche_lower == p for p in NOMS_PAYS_RECHERCHE.values()):
         drapeau_cible = NOMS_PAYS_RECHERCHE.get(recherche_lower, recherche_lower)
-        resultats = [v for v in VOITURES if v.get("pays", "🏁") == drapeau_cible]
+        resultats = [v for v in VOITURES if drapeau_cible in v.get("pays", "🏁")]
         titre_recherche = f"🌍 Modèles du pays : {drapeau_cible}"
         couleur_embed = discord.Color.green()
 
