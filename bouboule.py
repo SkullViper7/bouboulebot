@@ -85,92 +85,6 @@ COULEURS_RARETE = {
     "GOAT 🔴": discord.Color.red()
 }
 
-#region gifhy
-async def get_giphy_gif(tag_term):
-    """Cherche un GIF UNIQUE et ALÉATOIRE sur Giphy via l'endpoint random"""
-    url = "https://api.giphy.com/v1/gifs/random"
-    params = {
-        "api_key": GIPHY_TOKEN,
-        "tag": tag_term, 
-        "limit": 100,    
-        "rating": "r"    
-    }
-    
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url, params=params) as response:
-            if response.status == 200:
-                data = await response.json()
-                if data['data']:
-                    return data['data']['images']['original']['url']
-            return None
-#endregion
-
-#region shit
-@bot.command()
-async def shit(ctx, membre: discord.Member):
-    gif_url = await get_giphy_gif("poop")
-    if gif_url:
-        await ctx.send(f"Bouboule a chié sur {membre.mention} !")
-        await ctx.send(gif_url) 
-    else:
-        await ctx.send("Pas de chiasse pour cette fois...")
-#endregion
-
-#region crack
-@bot.command()
-async def crack(ctx, *, jeu: str):
-    """Cherche un jeu sur Online-fix et FreeTP"""
-    await ctx.send(f"🔍 Je cherche **{jeu}** sur les réseaux russes... (ça peut prendre 2-3 sec)")
-
-    query = urllib.parse.quote(jeu) 
-    
-    url_onlinefix = f"https://online-fix.me/index.php?do=search&subaction=search&story={query}"
-    url_freetp = f"https://freetp.org/index.php?do=search&subaction=search&story={query}"
-
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0'
-    }
-
-    found_links = []
-
-    async with aiohttp.ClientSession(headers=headers) as session:
-        try:
-            async with session.get(url_onlinefix) as response:
-                if response.status == 200:
-                    html = await response.text()
-                    soup = BeautifulSoup(html, 'html.parser')
-                    results = soup.select(".article-content h2 a") 
-                    
-                    for link in results[:3]: 
-                        found_links.append(f"🏴‍☠️ [Online-Fix] {link.text} -> {link['href']}")
-        except Exception as e:
-            print(f"Erreur Online-fix: {e}")
-
-        try:
-            async with session.get(url_freetp) as response:
-                if response.status == 200:
-                    html = await response.text()
-                    soup = BeautifulSoup(html, 'html.parser')
-                    results = soup.select(".entry-title a") 
-                    
-                    for link in results[:3]:
-                        found_links.append(f"🎮 [FreeTP] {link.text} -> {link['href']}")
-        except Exception as e:
-            print(f"Erreur FreeTP: {e}")
-
-    embed = discord.Embed(title=f"Résultats pour : {jeu}", color=discord.Color.dark_red())
-    
-    if found_links:
-        description = "\n\n".join(found_links)
-        embed.description = description
-    else:
-        embed.description = "Je n'ai pas réussi à extraire les liens précis (protection anti-bot ?)."
-
-    embed.add_field(name="Liens de recherche manuelle", value=f"[Voir sur Online-Fix]({url_onlinefix})\n[Voir sur FreeTP]({url_freetp})", inline=False)
-    
-    await ctx.send(embed=embed)
-#endregion
-
 #region time
 def get_reset_timestamps():
     try:
@@ -1000,6 +914,78 @@ async def catalogue(ctx):
     await ctx.send(embed=view.get_embed(), view=view)
 #endregion
 
+#region profil
+@bot.command(aliases=["profile", "stats", "statistiques", "me"])
+async def profil(ctx, membre: discord.Member = None):
+    cible = membre or ctx.author
+    user_id = str(cible.id)
+    
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    
+    if not profil:
+        await ctx.send(f"❌ **{cible.display_name}** n'a pas encore de profil. Fais un `!roll` pour commencer l'aventure !")
+        return
+        
+    # 1. Récupération de l'argent
+    solde = profil.get("coins", 0)
+    
+    # 2. Préparation du dictionnaire pour calculer la valeur et les raretés rapidement
+    infos_voitures = {}
+    for v in VOITURES:
+        nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
+        infos_voitures[nom_complet] = {
+            "prix": PRIX_REVENTE.get(v['rareté'], 50),
+            "emoji": v['rareté'][-1] # Récupère juste l'émoji
+        }
+        
+    # 3. Analyse du garage
+    garage = profil.get("garage", [])
+    taille_garage = len(garage)
+    valeur_totale = 0
+    comptes = {"🔴": 0, "🟡": 0, "🟣": 0, "🔵": 0, "⚪": 0}
+    
+    for nom in garage:
+        info = infos_voitures.get(nom, {})
+        valeur_totale += info.get("prix", 50)
+        
+        emoji = info.get("emoji", "⚪")
+        if emoji in comptes:
+            comptes[emoji] += 1
+            
+    # Formatage de la ligne des raretés
+    details = []
+    for emj in ["🔴", "🟡", "🟣", "🔵", "⚪"]:
+        if comptes[emj] > 0:
+            details.append(f"**{comptes[emj]}**{emj}")
+            
+    details_str = " ".join(details) if details else "Aucune voiture"
+    
+    # 4. Analyse des succès
+    succes = profil.get("succes_marques", [])
+    if succes:
+        texte_succes = "\n".join([f"🏆 Collectionneur **{marque}**" for marque in succes])
+    else:
+        texte_succes = "Aucun succès pour le moment. 😢"
+        
+    # 5. Création de la carte de profil
+    embed = discord.Embed(
+        title=f"👤 Profil de {cible.display_name}",
+        color=cible.color if cible.color != discord.Color.default() else discord.Color.blue()
+    )
+    
+    if cible.avatar:
+        embed.set_thumbnail(url=cible.avatar.url)
+        
+    # Ajout des champs (inline=True permet de les mettre côte à côte)
+    embed.add_field(name="💰 Portefeuille", value=f"**{solde}** 🪙", inline=True)
+    embed.add_field(name="💎 Valeur du Garage", value=f"**{valeur_totale}** 🪙", inline=True)
+    
+    embed.add_field(name="🚗 Collection", value=f"**{taille_garage}** véhicules\n*{details_str}*", inline=False)
+    embed.add_field(name="🎖️ Succès Débloqués", value=texte_succes, inline=False)
+    
+    await ctx.send(embed=embed)
+#endregion
+
 #region commandes
 @bot.command(aliases=["commandes", "menu", "aide"])
 async def cmd(ctx):
@@ -1080,15 +1066,9 @@ async def cmd(ctx):
         value="Ajoute des voitures à ta liste de souhaits pour doubler tes chances de les obtenir !", 
         inline=False
     )
-
     embed.add_field(
-        name="💩 `!shit @pseudo`", 
-        value="Bouboule lâche une caisse sur la personne mentionnée.", 
-        inline=False
-    )
-    embed.add_field(
-        name="🏴‍☠️ `!crack [nom du jeu]`", 
-        value="Cherche un jeu cracké sur les réseaux russes.", 
+        name="👤 `!profil [@pseudo]`", 
+        value="Affiche la carte de joueur (Stats, richesse et succès débloqués).", 
         inline=False
     )
     
