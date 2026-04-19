@@ -85,6 +85,11 @@ COULEURS_RARETE = {
     "GOAT 🔴": discord.Color.red()
 }
 
+# --- LOGOS DES MARQUES ---
+LOGOS = {
+    "Ferrari": "<:ferrari:1495511803227148468>",
+}
+
 #region time
 def get_reset_timestamps():
     try:
@@ -308,9 +313,10 @@ async def roll(ctx):
     proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
+    logo = LOGOS.get(voiture_gagnee['marque'], "🏢") # Met l'émoji 🏢 par défaut s'il n'a pas le logo
     lignes = [
         voiture_gagnee['nom'],
-        f"**{voiture_gagnee['marque']}**"
+        f"{logo} **{voiture_gagnee['marque']}**"
     ]
     if voiture_gagnee.get('annee'):
         lignes.append(str(voiture_gagnee['annee']))
@@ -388,9 +394,10 @@ class GaragePagination(discord.ui.View):
         rarete = voiture['rareté']
         couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.blue())
         
+        logo = LOGOS.get(voiture['marque'], "🏢")
         lignes = [
             voiture['nom'],
-            f"**{voiture['marque']}**"
+            f"{logo} **{voiture['marque']}**"
         ]
         if voiture.get('annee'):
             lignes.append(str(voiture['annee']))
@@ -902,7 +909,8 @@ async def catalogue(ctx):
         nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
         possede = " ✅" if nom_complet in mon_garage else ""
         
-        lignes_catalogue.append(f"**{v['marque']}** {v['nom']} {v.get('annee', '')} - *{v['rareté']}*{possede}")
+        logo = LOGOS.get(v['marque'], "🏢")
+        lignes_catalogue.append(f"{logo} **{v['marque']}** {v['nom']} {v.get('annee', '')} - *{v['rareté']}*{possede}")
 
     lignes_par_page = 15
     pages = []
