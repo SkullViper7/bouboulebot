@@ -789,7 +789,8 @@ async def search(ctx, *, recherche: str):
             possede = " ✅" if nom_complet in mon_garage else ""
             
             logo = LOGOS.get(v['marque'], "🏢")
-            lignes.append(f"{logo} **{v['marque']}** {v['nom']} {v.get('annee', '')} - *{v['rareté']}*{possede}")
+            
+            lignes.append(f"• {logo} **{v['marque']}** {v['nom']} {v.get('annee', '')} ({v['rareté']}) {v.get('pays', '🏁')}{possede}")
 
         lignes_par_page = 15
         pages = []
@@ -821,9 +822,11 @@ async def search(ctx, *, recherche: str):
         
         titre_possede = " ✅" if nom_complet in mon_garage else ""
 
+        logo = LOGOS.get(modele_trouve['marque'], "🏢")
+        
         lignes = [
             modele_trouve['nom'],
-            f"**{modele_trouve['marque']}**"
+            f"{logo} **{modele_trouve['marque']}**"
         ]
         if modele_trouve.get('annee'):
             lignes.append(str(modele_trouve['annee']))
