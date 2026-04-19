@@ -227,11 +227,11 @@
     {
         "nom": "LaFerrari",
         "marque": "Ferrari",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://www.guide-autosport.com/wp-content/uploads/2016/07/ferrari-laferrari-cabriolet-3.jpg",
         "annee": "2013",
-        "pays": "🇮🇹 Italie"
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.guide-autosport.com/wp-content/uploads/2016/07/ferrari-laferrari-cabriolet-3.jpg"
     },
     {
         "nom": "FXX K",
@@ -3289,8 +3289,8 @@
         "marque": "Gumpert",
         "annee": "2013",
         "pays": "🇩🇪 Allemagne",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://i.imgur.com/XZ3Acy8.png"
     },
     {
@@ -11071,7 +11071,7 @@
     },
     {
         "nom": "Monster Chopper",
-        "marque": "Grind Hard Pumbing Co",
+        "marque": "Grind Hard Plumbing Co",
         "annee": "2024",
         "pays": "🇺🇸 États-Unis",
         "rareté": "Mythique 🟣",
@@ -11080,7 +11080,7 @@
     },
     {
         "nom": "Monster Trike",
-        "marque": "Grind Hard Pumbing Co",
+        "marque": "Grind Hard Plumbing Co",
         "annee": "2025",
         "pays": "🇺🇸 États-Unis",
         "rareté": "Mythique 🟣",
@@ -11089,7 +11089,7 @@
     },
     {
         "nom": "Barbie Jeep",
-        "marque": "Grind Hard Pumbing Co",
+        "marque": "Grind Hard Plumbing Co",
         "annee": "2018",
         "pays": "🇺🇸 États-Unis",
         "rareté": "Rare 🔵",
@@ -11098,7 +11098,7 @@
     },
     {
         "nom": "2JZ Lawnmower",
-        "marque": "Grind Hard Pumbing Co",
+        "marque": "Grind Hard Plumbing Co",
         "annee": "2019",
         "pays": "🇺🇸 États-Unis",
         "rareté": "Rare 🔵",
@@ -11107,7 +11107,7 @@
     },
     {
         "nom": "V12 Jaguar Off-Roader",
-        "marque": "Grind Hard Pumbing Co",
+        "marque": "Grind Hard Plumbing Co",
         "annee": "2021",
         "pays": "🇺🇸 États-Unis",
         "rareté": "Rare 🔵",

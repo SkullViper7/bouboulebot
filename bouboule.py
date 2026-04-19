@@ -19,6 +19,7 @@ try:
     from zoneinfo import ZoneInfo
 except ImportError:
     pass
+from logos import LOGOS
 
 #region Init
 # 1. Chargement des secrets
@@ -86,9 +87,6 @@ COULEURS_RARETE = {
 }
 
 # --- LOGOS DES MARQUES ---
-LOGOS = {
-    "Ferrari": "<:ferrari:1495511803227148468>",
-}
 
 #region time
 def get_reset_timestamps():
@@ -313,7 +311,7 @@ async def roll(ctx):
     proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
-    logo = LOGOS.get(voiture_gagnee['marque'], "🏢") # Met l'émoji 🏢 par défaut s'il n'a pas le logo
+    logo = LOGOS.get(voiture_gagnee['marque'], "")
     lignes = [
         voiture_gagnee['nom'],
         f"{logo} **{voiture_gagnee['marque']}**"
@@ -394,7 +392,7 @@ class GaragePagination(discord.ui.View):
         rarete = voiture['rareté']
         couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.blue())
         
-        logo = LOGOS.get(voiture['marque'], "🏢")
+        logo = LOGOS.get(voiture['marque'], "")
         lignes = [
             voiture['nom'],
             f"{logo} **{voiture['marque']}**"
@@ -777,7 +775,7 @@ async def search(ctx, *, recherche: str):
 
     elif any(v["marque"].lower() == recherche_lower for v in VOITURES):
         resultats = [v for v in VOITURES if v["marque"].lower() == recherche_lower]
-        titre_recherche = f"🏢 Modèles de la marque : {resultats[0]['marque']}"
+        titre_recherche = f"Modèles de la marque : {resultats[0]['marque']}"
         couleur_embed = discord.Color.orange()
 
     if resultats:
@@ -788,7 +786,7 @@ async def search(ctx, *, recherche: str):
             nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
             possede = " ✅" if nom_complet in mon_garage else ""
             
-            logo = LOGOS.get(v['marque'], "🏢")
+            logo = LOGOS.get(v['marque'], "")
             
             lignes.append(f"• {logo} **{v['marque']}** {v['nom']} {v.get('annee', '')} ({v['rareté']}) {v.get('pays', '🏁')}{possede}")
 
@@ -822,7 +820,7 @@ async def search(ctx, *, recherche: str):
         
         titre_possede = " ✅" if nom_complet in mon_garage else ""
 
-        logo = LOGOS.get(modele_trouve['marque'], "🏢")
+        logo = LOGOS.get(modele_trouve['marque'], "")
         
         lignes = [
             modele_trouve['nom'],
@@ -913,7 +911,7 @@ async def catalogue(ctx):
         nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
         possede = " ✅" if nom_complet in mon_garage else ""
         
-        logo = LOGOS.get(v['marque'], "🏢")
+        logo = LOGOS.get(v['marque'], "")
         lignes_catalogue.append(f"{logo} **{v['marque']}** {v['nom']} {v.get('annee', '')} - *{v['rareté']}*{possede}")
 
     lignes_par_page = 15
@@ -1240,9 +1238,10 @@ async def buyroll(ctx):
     proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
+    logo = LOGOS.get(voiture_gagnee['marque'], "")
     lignes = [
         voiture_gagnee['nom'],
-        f"**{voiture_gagnee['marque']}**"
+        f"{logo} **{voiture_gagnee['marque']}**"
     ]
     if voiture_gagnee.get('annee'):
         lignes.append(str(voiture_gagnee['annee']))
