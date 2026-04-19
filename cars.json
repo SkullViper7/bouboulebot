@@ -12220,5 +12220,32 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/MmzyU2N.png"
+    },
+    {
+        "nom": "Beta Montecarlo",
+        "marque": "Lancia",
+        "annee": "1975",
+        "pays": "🇮🇹",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/HwH7ojO.jpeg"
+    },
+    {
+        "nom": "Beta Montecarlo Groupe 5",
+        "marque": "Lancia",
+        "annee": "1979",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ER2JUqY.png"
+    },
+    {
+        "nom": "Silver Fox",
+        "marque": "Osi",
+        "annee": "1967",
+        "pays": "🇮🇹",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/v1t2qmg.png"
     }
 ]
