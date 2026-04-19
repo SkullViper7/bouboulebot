@@ -12481,5 +12481,122 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/E8GFuaK.png"
+    },
+    {
+        "nom": "GT4586",
+        "marque": "Gumout",
+        "annee": "2016",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/0tSNYo1.png"
+    },
+    {
+        "nom": "3241 Post Bus",
+        "marque": "Scania-Vabis",
+        "annee": "1923",
+        "pays": "🇸🇪 Suède",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ryj1MUA.png"
+    },
+    {
+        "nom": "Indigo 3000",
+        "marque": "Jösse Car",
+        "annee": "1996",
+        "pays": "🇸🇪 Suède",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/XAnkmab.png"
+    },
+    {
+        "nom": "Fulda S7",
+        "marque": "Fram-King",
+        "annee": "1957",
+        "pays": "🇸🇪 Suède",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/XBsCJEM.png"
+    },
+    {
+        "nom": "T6 Roadster",
+        "marque": "Caresto",
+        "annee": "2005",
+        "pays": "🇸🇪 Suède",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/K9WVBpF.png"
+    },
+    {
+        "nom": "V8 Speedster",
+        "marque": "Caresto",
+        "annee": "2006",
+        "pays": "🇸🇪 Suède",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Iqv0jOF.png"
+    },
+    {
+        "nom": "Hot Rod Jakob",
+        "marque": "Caresto",
+        "annee": "2008",
+        "pays": "🇸🇪 Suède",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/mVQhDk6.png"
+    },
+    {
+        "nom": "Sportsrod",
+        "marque": "Caresto",
+        "annee": "2012",
+        "pays": "🇸🇪 Suède",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/rFIXBEz.png"
+    },
+    {
+        "nom": "K2 Supersports Car",
+        "marque": "Caresto",
+        "annee": "2015",
+        "pays": "🇸🇪 Suède",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/fRR1GTv.png"
+    },
+    {
+        "nom": "Arkham Knight Batmobile",
+        "marque": "Caresto",
+        "annee": "2016",
+        "pays": "🇸🇪 Suède",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/uxd8zv5.png"
+    },
+    {
+        "nom": "1MW",
+        "marque": "Toroidion",
+        "annee": "2015",
+        "pays": "🇫🇮 Finlande",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/2aEqV9B.png"
+    },
+    {
+        "nom": "2000",
+        "marque": "RaceAbout",
+        "annee": "2000",
+        "pays": "🇫🇮 Finlande",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/JRzdjk3.png"
+    },
+    {
+        "nom": "ERA",
+        "marque": "RaceAbout",
+        "annee": "2009",
+        "pays": "🇫🇮 Finlande",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/ysiQu93.png"
     }
 ]
