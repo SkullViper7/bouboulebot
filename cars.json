@@ -12301,5 +12301,185 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/bnhLDvv.png"
+    },
+    {
+        "nom": "124 Sport",
+        "marque": "SEAT",
+        "annee": "1970",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/Bc1Inj5.png"
+    },
+    {
+        "nom": "Formula",
+        "marque": "SEAT",
+        "annee": "1999",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/RnLfpOr.png"
+    },
+    {
+        "nom": "Tango",
+        "marque": "SEAT",
+        "annee": "2001",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/1u8Rkel.png"
+    },
+    {
+        "nom": "Minimo",
+        "marque": "SEAT",
+        "annee": "2019",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/2icgaST.png"
+    },
+    {
+        "nom": "Cupra GT",
+        "marque": "SEAT",
+        "annee": "2003",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/M8RpQnu.png"
+    },
+    {
+        "nom": "DarkRebel",
+        "marque": "SEAT",
+        "annee": "2023",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/HlOtsgh.png"
+    },
+    {
+        "nom": "Carmen",
+        "marque": "Hispano-Suiza",
+        "annee": "2019",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/W7bLn76.jpeg"
+    },
+    {
+        "nom": "Marguari HS1 GTC",
+        "marque": "Hispano-Suiza",
+        "annee": "2019",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/rFvDEXu.png"
+    },
+    {
+        "nom": "Z-102 Cupula",
+        "marque": "Pegaso",
+        "annee": "1952",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/OyOgtSt.png"
+    },
+    {
+        "nom": "Z-102",
+        "marque": "Pegaso",
+        "annee": "1953",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/gIoAbhM.jpeg"
+    },
+    {
+        "nom": "Z-102 Thrill",
+        "marque": "Pegaso",
+        "annee": "1953",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/kXiBOVn.png"
+    },
+    {
+        "nom": "Z-102 Saoutchik",
+        "marque": "Pegaso",
+        "annee": "1954",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/gtlKRBs.png"
+    },
+    {
+        "nom": "Z-103",
+        "marque": "Pegaso",
+        "annee": "1955",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/VjPuXAW.png"
+    },
+    {
+        "nom": "200 A Zapatilla",
+        "marque": "Biscuter",
+        "annee": "1953",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/31VJUXr.png"
+    },
+    {
+        "nom": "Pegasin 200F",
+        "marque": "Biscuter",
+        "annee": "1958",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/7pxQQR8.png"
+    },
+    {
+        "nom": "250",
+        "marque": "PTV",
+        "annee": "1956",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/XlumOjs.png"
+    },
+    {
+        "nom": "Albaycin T2",
+        "marque": "Hurtan",
+        "annee": "1992",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/4KZoPcF.png"
+    },
+    {
+        "nom": "Author",
+        "marque": "Hurtan",
+        "annee": "2004",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/PPCaCOP.png"
+    },
+    {
+        "nom": "S1 X-Oly",
+        "marque": "Comarth",
+        "annee": "2000",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/01SYaav.png"
+    },
+    {
+        "nom": "Xtamy Roadster",
+        "marque": "Comarth",
+        "annee": "2004",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/E8GFuaK.png"
     }
 ]
