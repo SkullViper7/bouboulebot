@@ -924,6 +924,36 @@ async def catalogue(ctx):
     await ctx.send(embed=view.get_embed(), view=view)
 #endregion
 
+#region favori
+@bot.command(aliases=["favori", "favorite", "marque"])
+async def fav(ctx, *, marque: str):
+    user_id = str(ctx.author.id)
+    marque_lower = marque.lower().strip()
+
+    # On vérifie si la marque existe bien dans notre catalogue
+    marque_trouvee = None
+    for v in VOITURES:
+        if v["marque"].lower() == marque_lower:
+            marque_trouvee = v["marque"] # On récupère le nom avec la bonne majuscule
+            break
+
+    if not marque_trouvee:
+        await ctx.send(f"❌ Je ne connais aucune marque nommée **{marque}** dans le catalogue.")
+        return
+
+    # On enregistre la marque dans le profil du joueur
+    await collection_inventaires.update_one(
+        {"_id": user_id},
+        {"$set": {"favorite_brand": marque_trouvee}},
+        upsert=True
+    )
+
+    logo = LOGOS.get(marque_trouvee, "")
+    affichage_logo = f"{logo} " if logo else ""
+    
+    await ctx.send(f"⭐ C'est noté ! Ta marque favorite est maintenant {affichage_logo}**{marque_trouvee}**.")
+#endregion
+
 #region profil
 @bot.command(aliases=["profile", "stats", "statistiques", "me"])
 async def profil(ctx, membre: discord.Member = None):
@@ -936,8 +966,9 @@ async def profil(ctx, membre: discord.Member = None):
         await ctx.send(f"❌ **{cible.display_name}** n'a pas encore de profil. Fais un `!roll` pour commencer l'aventure !")
         return
         
-    # 1. Récupération de l'argent
+    # 1. Récupération de l'argent et de la marque favorite
     solde = profil.get("coins", 0)
+    favorite_brand = profil.get("favorite_brand")
     
     # 2. Préparation du dictionnaire pour calculer la valeur et les raretés rapidement
     infos_voitures = {}
@@ -945,7 +976,7 @@ async def profil(ctx, membre: discord.Member = None):
         nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
         infos_voitures[nom_complet] = {
             "prix": PRIX_REVENTE.get(v['rareté'], 50),
-            "emoji": v['rareté'][-1] # Récupère juste l'émoji
+            "emoji": v['rareté'][-1] 
         }
         
     # 3. Analyse du garage
@@ -962,7 +993,6 @@ async def profil(ctx, membre: discord.Member = None):
         if emoji in comptes:
             comptes[emoji] += 1
             
-    # Formatage de la ligne des raretés
     details = []
     for emj in ["🔴", "🟡", "🟣", "🔵", "⚪"]:
         if comptes[emj] > 0:
@@ -976,8 +1006,16 @@ async def profil(ctx, membre: discord.Member = None):
         texte_succes = "\n".join([f"🏆 Collectionneur **{marque}**" for marque in succes])
     else:
         texte_succes = "Aucun succès pour le moment. 😢"
+
+    # 5. Formatage de la Marque Favorite
+    if favorite_brand:
+        logo_fav = LOGOS.get(favorite_brand, "")
+        affichage_logo_fav = f"{logo_fav} " if logo_fav else ""
+        texte_favori = f"{affichage_logo_fav}**{favorite_brand}**"
+    else:
+        texte_favori = "*Aucune marque définie (`!fav`)*"
         
-    # 5. Création de la carte de profil
+    # 6. Création de la carte de profil
     embed = discord.Embed(
         title=f"👤 Profil de {cible.display_name}",
         color=cible.color if cible.color != discord.Color.default() else discord.Color.blue()
@@ -986,10 +1024,11 @@ async def profil(ctx, membre: discord.Member = None):
     if cible.avatar:
         embed.set_thumbnail(url=cible.avatar.url)
         
-    # Ajout des champs (inline=True permet de les mettre côte à côte)
+    # Ajout des champs
     embed.add_field(name="💰 Portefeuille", value=f"**{solde}** 🪙", inline=True)
     embed.add_field(name="💎 Valeur du Garage", value=f"**{valeur_totale}** 🪙", inline=True)
     
+    embed.add_field(name="⭐ Marque Favorite", value=texte_favori, inline=False)
     embed.add_field(name="🚗 Collection", value=f"**{taille_garage}** véhicules\n*{details_str}*", inline=False)
     embed.add_field(name="🎖️ Succès Débloqués", value=texte_succes, inline=False)
     
@@ -1079,6 +1118,11 @@ async def cmd(ctx):
     embed.add_field(
         name="👤 `!profil [@pseudo]`", 
         value="Affiche la carte de joueur (Stats, richesse et succès débloqués).", 
+        inline=False
+    )
+    embed.add_field(
+        name="⭐ `!fav [marque]`", 
+        value="Affiche la marque de tes rêves sur ta carte de profil.", 
         inline=False
     )
     
