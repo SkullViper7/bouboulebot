@@ -109,7 +109,7 @@ LOGOS = {
     "Hyundai": "<:hyundai:1495722231429599304>",
     "Imperia": "<:imperia:1495722478490619944>",
     "Infiniti": "<:infiniti:1495722677380452493>",
-    "Innocenti": "<:innocenti:1495723012253679626>",
+    "Innocenti": "<:innocenti:1495788956636156044>",
     "Intermeccanica": "<:intermeccanica:1495723275269967964>",
     "Iso": "<:iso:1495723548566753321>",
     "Isotta Fraschini": "<:isotta:1495723842520223855>",
