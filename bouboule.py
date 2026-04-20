@@ -970,13 +970,14 @@ async def profil(ctx, membre: discord.Member = None):
     solde = profil.get("coins", 0)
     favorite_brand = profil.get("favorite_brand")
     
-    # 2. Préparation du dictionnaire pour calculer la valeur et les raretés rapidement
+    # 2. Préparation du dictionnaire pour calculer la valeur, les raretés et les marques
     infos_voitures = {}
     for v in VOITURES:
         nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
         infos_voitures[nom_complet] = {
             "prix": PRIX_REVENTE.get(v['rareté'], 50),
-            "emoji": v['rareté'][-1] 
+            "emoji": v['rareté'][-1],
+            "marque": v['marque'] # On stocke la marque pour le calcul du favori
         }
         
     # 3. Analyse du garage
@@ -984,15 +985,22 @@ async def profil(ctx, membre: discord.Member = None):
     taille_garage = len(garage)
     valeur_totale = 0
     comptes = {"🔴": 0, "🟡": 0, "🟣": 0, "🔵": 0, "⚪": 0}
+    compte_marque_fav = 0
     
     for nom in garage:
         info = infos_voitures.get(nom, {})
         valeur_totale += info.get("prix", 50)
         
+        # On compte les raretés
         emoji = info.get("emoji", "⚪")
         if emoji in comptes:
             comptes[emoji] += 1
             
+        # NOUVEAU : On compte si c'est la marque favorite
+        if favorite_brand and info.get("marque") == favorite_brand:
+            compte_marque_fav += 1
+            
+    # Formatage de la ligne des raretés
     details = []
     for emj in ["🔴", "🟡", "🟣", "🔵", "⚪"]:
         if comptes[emj] > 0:
@@ -1007,11 +1015,12 @@ async def profil(ctx, membre: discord.Member = None):
     else:
         texte_succes = "Aucun succès pour le moment. 😢"
 
-    # 5. Formatage de la Marque Favorite
+    # 5. Formatage de la Marque Favorite avec le COMPTEUR
     if favorite_brand:
         logo_fav = LOGOS.get(favorite_brand, "")
         affichage_logo_fav = f"{logo_fav} " if logo_fav else ""
-        texte_favori = f"{affichage_logo_fav}**{favorite_brand}**"
+        # On affiche le nombre de modèles possédés à côté
+        texte_favori = f"{affichage_logo_fav}**{favorite_brand}** ({compte_marque_fav} possédés)"
     else:
         texte_favori = "*Aucune marque définie (`!fav`)*"
         
