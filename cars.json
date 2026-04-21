@@ -12598,5 +12598,176 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/ysiQu93.png"
+    },
+    {
+        "nom": "Sport Coupé",
+        "marque": "Troll",
+        "annee": "1956",
+        "pays": "🇳🇴 Norvège",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/8zozSBj.png"
+    },
+    {
+        "nom": "Giganten",
+        "marque": "Mustad",
+        "annee": "1917",
+        "pays": "🇳🇴 Norvège",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ZvKoU9T.png"
+    },
+    {
+        "nom": "Autoslæde",
+        "marque": "Bjering",
+        "annee": "1920",
+        "pays": "🇳🇴 Norvège",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/ugjU42U.png"
+    },
+    {
+        "nom": "Raufoss",
+        "marque": "Bjering",
+        "annee": "1923",
+        "pays": "🇳🇴 Norvège",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/uFytc6u.png"
+    },
+    {
+        "nom": "LP1200 Strada",
+        "marque": "Zyrus",
+        "annee": "2021",
+        "pays": "🇳🇴 Norvège",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/elvcUlh.png"
+    },
+    {
+        "nom": "ADS R Sasha",
+        "marque": "Austro-Daimler",
+        "annee": "1922",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/WpSC0GQ.png"
+    },
+    {
+        "nom": "Bergmeister",
+        "marque": "Austro-Daimler",
+        "annee": "1935",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/gzx9KCv.png"
+    },
+    {
+        "nom": "Bergmeister ADR 630 Shooting Grand",
+        "marque": "Austro-Daimler",
+        "annee": "2019",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/wLLLS0D.png"
+    },
+    {
+        "nom": "100",
+        "marque": "Steyr",
+        "annee": "1934",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/MegyBWC.jpeg"
+    },
+    {
+        "nom": "120",
+        "marque": "Steyr",
+        "annee": "1935",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Sk18ijo.png"
+    },
+    {
+        "nom": "50",
+        "marque": "Steyr",
+        "annee": "1936",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/H8adyIj.png"
+    },
+    {
+        "nom": "1400",
+        "marque": "Steyr-Fiat",
+        "annee": "1950",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/N6hWHcI.png"
+    },
+    {
+        "nom": "MILA Plus",
+        "marque": "Magna Steyr",
+        "annee": "2015",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/jv19fXv.png"
+    },
+    {
+        "nom": "Vayanne",
+        "marque": "DEUS",
+        "annee": "2022",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/6QnWczW.png"
+    },
+    {
+        "nom": "Red",
+        "marque": "Milan",
+        "annee": "2018",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/nXZboRn.png"
+    },
+    {
+        "nom": "1300 Super",
+        "marque": "Denzel",
+        "annee": "1953",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/8qLyVWM.png"
+    },
+    {
+        "nom": "1300 Serien Super",
+        "marque": "Denzel",
+        "annee": "1954",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/49aGKQF.png"
+    },
+    {
+        "nom": "AS 160",
+        "marque": "Ledl",
+        "annee": "1985",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/SFw6fVE.png"
+    },
+    {
+        "nom": "Strato",
+        "marque": "Custoca",
+        "annee": "1970",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/YstiSro.png"
     }
 ]
