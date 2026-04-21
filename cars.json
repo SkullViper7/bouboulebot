@@ -2739,10 +2739,10 @@
         "nom": "A424",
         "marque": "Alpine",
         "annee": "2023",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/n5rUKHg.png",
-        "pays": "🇫🇷 France"
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/n5rUKHg.png"
     },
     {
         "nom": "Intensa Emozione Evo",
@@ -9319,8 +9319,8 @@
         "marque": "Bentley",
         "annee": "2023",
         "pays": "🇬🇧 Royaume-Uni",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://i.imgur.com/sBGEgEc.png"
     },
     {
