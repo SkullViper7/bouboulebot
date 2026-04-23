@@ -314,7 +314,7 @@ async def roll(ctx):
     logo = LOGOS.get(voiture_gagnee['marque'], "")
     lignes = [
         voiture_gagnee['nom'],
-        f"{logo}**{voiture_gagnee['marque']}**"
+        f"{logo} **{voiture_gagnee['marque']}**"
     ]
     if voiture_gagnee.get('annee'):
         lignes.append(str(voiture_gagnee['annee']))
@@ -395,7 +395,7 @@ class GaragePagination(discord.ui.View):
         logo = LOGOS.get(voiture['marque'], "")
         lignes = [
             voiture['nom'],
-            f"{logo}**{voiture['marque']}**"
+            f"{logo} **{voiture['marque']}**"
         ]
         if voiture.get('annee'):
             lignes.append(str(voiture['annee']))
@@ -788,7 +788,7 @@ async def search(ctx, *, recherche: str):
             
             logo = LOGOS.get(v['marque'], "")
             
-            lignes.append(f"• {logo}**{v['marque']}** {v['nom']} {v.get('annee', '')} ({v['rareté']}) {v.get('pays', '🏁')}{possede}")
+            lignes.append(f"• {logo} **{v['marque']}** {v['nom']} {v.get('annee', '')} ({v['rareté']}) {v.get('pays', '🏁')}{possede}")
 
         lignes_par_page = 15
         pages = []
@@ -912,7 +912,7 @@ async def catalogue(ctx):
         possede = " ✅" if nom_complet in mon_garage else ""
         
         logo = LOGOS.get(v['marque'], "")
-        lignes_catalogue.append(f"{logo}**{v['marque']}** {v['nom']} {v.get('annee', '')} - *{v['rareté']}*{possede}")
+        lignes_catalogue.append(f"{logo} **{v['marque']}** {v['nom']} {v.get('annee', '')} - *{v['rareté']}*{possede}")
 
     lignes_par_page = 15
     pages = []
@@ -951,7 +951,7 @@ async def fav(ctx, *, marque: str):
     logo = LOGOS.get(marque_trouvee, "")
     affichage_logo = f"{logo}" if logo else ""
     
-    await ctx.send(f"⭐ C'est noté ! Ta marque favorite est maintenant {affichage_logo}**{marque_trouvee}**.")
+    await ctx.send(f"⭐ C'est noté ! Ta marque favorite est maintenant {affichage_logo} **{marque_trouvee}**.")
 #endregion
 
 #region profil
@@ -1020,7 +1020,7 @@ async def profil(ctx, membre: discord.Member = None):
         logo_fav = LOGOS.get(favorite_brand, "")
         affichage_logo_fav = f"{logo_fav}" if logo_fav else ""
         # On affiche le nombre de modèles possédés à côté
-        texte_favori = f"{affichage_logo_fav}**{favorite_brand}** ({compte_marque_fav} possédés)"
+        texte_favori = f"{affichage_logo_fav} **{favorite_brand}** ({compte_marque_fav} possédés)"
     else:
         texte_favori = "*Aucune marque définie (`!fav`)*"
         
@@ -1294,7 +1294,7 @@ async def buyroll(ctx):
     logo = LOGOS.get(voiture_gagnee['marque'], "")
     lignes = [
         voiture_gagnee['nom'],
-        f"{logo}**{voiture_gagnee['marque']}**"
+        f"{logo} **{voiture_gagnee['marque']}**"
     ]
     if voiture_gagnee.get('annee'):
         lignes.append(str(voiture_gagnee['annee']))
