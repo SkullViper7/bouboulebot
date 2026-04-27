@@ -12769,5 +12769,302 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/YstiSro.png"
+    },
+    {
+        "nom": "Erator GTE",
+        "marque": "Isdera",
+        "annee": "1969",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/gzz36Uq.png"
+    },
+    {
+        "nom": "Spyder",
+        "marque": "Isdera",
+        "annee": "1982",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/dOnPX6f.png"
+    },
+    {
+        "nom": "Imperator 108i",
+        "marque": "Isdera",
+        "annee": "1984",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/pblKgLA.png"
+    },
+    {
+        "nom": "Commandatore 112i",
+        "marque": "Isdera",
+        "annee": "1993",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/D0Bg9NG.png"
+    },
+    {
+        "nom": "Autobahnkurier AK116i",
+        "marque": "Isdera",
+        "annee": "2006",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ayjNFSB.jpeg"
+    },
+    {
+        "nom": "Commendatore GT",
+        "marque": "Isdera",
+        "annee": "2018",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/GlOL17V.png"
+    },
+    {
+        "nom": "J4",
+        "marque": "Kellison",
+        "annee": "1958",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Bztd5PE.png"
+    },
+    {
+        "nom": "J5 GT Astra Roadster",
+        "marque": "Kellison",
+        "annee": "1960",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/p1JlDXi.png"
+    },
+    {
+        "nom": "J6 Panther",
+        "marque": "Kellison",
+        "annee": "1962",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Zwdygyf.png"
+    },
+    {
+        "nom": "962CR",
+        "marque": "Schuppan",
+        "annee": "1992",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/PKgQ3uk.png"
+    },
+    {
+        "nom": "01 Zagato",
+        "marque": "Capricorn",
+        "annee": "2026",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/zRq63hU.png"
+    },
+    {
+        "nom": "Cheetah",
+        "marque": "Bill Thomas",
+        "annee": "1964",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Rw7fyfa.png"
+    },
+    {
+        "nom": "27",
+        "marque": "Nilu",
+        "annee": "2026",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/o3Uxuum.png"
+    },
+    {
+        "nom": "Type 15S",
+        "marque": "Gordini",
+        "annee": "1949",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/kfIIW6N.png"
+    },
+    {
+        "nom": "Type 20S",
+        "marque": "Gordini",
+        "annee": "1952",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/iIsXxIp.png"
+    },
+    {
+        "nom": "Krafla",
+        "marque": "Giamaro",
+        "annee": "2026",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/LHPflFX.png"
+    },
+    {
+        "nom": "D10",
+        "marque": "Donkervoort",
+        "annee": "1988",
+        "pays": "🇳🇱 Pays-Bas",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/oc0ruQR.png"
+    },
+    {
+        "nom": "D8 GTO-JD70",
+        "marque": "Donkervoort",
+        "annee": "2020",
+        "pays": "🇳🇱 Pays-Bas",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/PM0AMfV.png"
+    },
+    {
+        "nom": "F22",
+        "marque": "Donkervoort",
+        "annee": "2023",
+        "pays": "🇳🇱 Pays-Bas",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/NTmXF94.jpeg"
+    },
+    {
+        "nom": "P24 RS",
+        "marque": "Donkervoort",
+        "annee": "2026",
+        "pays": "🇳🇱 Pays-Bas",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/WZe6sOw.png"
+    },
+    {
+        "nom": "908 RC",
+        "marque": "Peugeot",
+        "annee": "2006",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/fXAcEmG.jpeg"
+    },
+    {
+        "nom": "Type 51 Dubos Coupé",
+        "marque": "Bugatti",
+        "annee": "1931",
+        "pays": "🇫🇷 France",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/TQGsqhn.png"
+    },
+    {
+        "nom": "Huayra Codelunga",
+        "marque": "Pagani",
+        "annee": "2022",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/bPSi1VA.png"
+    },
+    {
+        "nom": "Novia",
+        "marque": "Jimenez",
+        "annee": "1995",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/e98POpn.png"
+    },
+    {
+        "nom": "RR01",
+        "marque": "Rhino",
+        "annee": "2023",
+        "pays": "🇱🇹 Lituanie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/fHZ31Tw.png"
+    },
+    {
+        "nom": "HF11",
+        "marque": "Oilstainlab",
+        "annee": "2025",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/lfnf422.png"
+    },
+    {
+        "nom": "Half 11 Proto",
+        "marque": "Oilstainlab",
+        "annee": "2024",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/KbNNr4a.png"
+    },
+    {
+        "nom": "Type D",
+        "marque": "Auto Union",
+        "annee": "1938",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/skQZoDQ.png"
+    },
+    {
+        "nom": "Destino",
+        "marque": "VLF",
+        "annee": "2013",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/94OBw8B.png"
+    },
+    {
+        "nom": "Force 1",
+        "marque": "VLF",
+        "annee": "2016",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/kYI8Exq.jpeg"
+    },
+    {
+        "nom": "Nevera R",
+        "marque": "Rimac",
+        "annee": "2024",
+        "pays": "🇭🇷 Croatie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/d6dZg0s.png"
+    },
+    {
+        "nom": "Testa d'oro",
+        "marque": "Ferrari",
+        "annee": "1989",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/s8cbYiV.png"
+    },
+    {
+        "nom": "Pigeon",
+        "marque": "Ibishu",
+        "annee": "2013",
+        "pays": "🎮 Jeu Vidéo",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/ljNXeGT.png"
     }
 ]
