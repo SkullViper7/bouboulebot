@@ -480,8 +480,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/y1mad06.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V6 PRV 2.85 L",
+        "puissance": "130 ch"
     },
     {
         "nom": "Mangusta",
@@ -1163,7 +1163,7 @@
         "annee": "2012",
         "pays": "🇯🇵 Japon",
         "moteur": "L3 0.66L",
-        "puissance": "inconnu"
+        "puissance": "50 ch"
     },
     {
         "nom": "Civic",
@@ -1448,8 +1448,8 @@
         "image": "https://cdn.motor1.com/images/mgl/eoBpg8/s1/bugatti-brouillard.jpg",
         "annee": "2025",
         "pays": "🇫🇷 France",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "W16",
+        "puissance": "1600 ch"
     },
     {
         "nom": "Type 32 Tank",
@@ -2240,8 +2240,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/nrLxHu8.png",
         "pays": "🇯🇵 Japon",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "R2 13B-REW 1.3L (Bi-Rotor)",
+        "puissance": "280 ch"
     },
     {
         "nom": "Charger R/T Dom",
@@ -2251,8 +2251,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/CUmU24V.png",
         "pays": "🇺🇸 États-Unis",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Chrysler 426 HEMI 7.0L (Supercharged)",
+        "puissance": "900 ch"
     },
     {
         "nom": "Skyline GTR R34 Brian",
@@ -2262,8 +2262,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/89lxsYb.png",
         "pays": "🇯🇵 Japon",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 RB26DETT 2.6L",
+        "puissance": "500 ch"
     },
     {
         "nom": "Supra Mk4 Brian",
@@ -2273,8 +2273,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/AjS9zOz.png",
         "pays": "🇯🇵 Japon",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 2JZ-GTE 3.0L",
+        "puissance": "544 ch"
     },
     {
         "nom": "Monte Carlo Sean",
@@ -2284,8 +2284,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/dakXdRU.png",
         "pays": "🇺🇸 États-Unis",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Bill Mitchell Hardcore 572ci 9.4L",
+        "puissance": "700 ch"
     },
     {
         "nom": "Eclipse Brian",
@@ -2295,8 +2295,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/NDnLET9.png",
         "pays": "🇯🇵 Japon",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 420A 2.0L",
+        "puissance": "210 ch"
     },
     {
         "nom": "Eclipse Spyder GTS Roman",
@@ -2328,8 +2328,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/DGIaKSH.png",
         "pays": "🇯🇵 Japon",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V6 VQ35DE 3.5L (Twin-Turbo)",
+        "puissance": "430 ch"
     },
     {
         "nom": "Flip Car",
@@ -2339,8 +2339,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/cFzIq7i.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 LS3 6.2L",
+        "puissance": "500 ch"
     },
     {
         "nom": "F-150 Brian",
@@ -2372,8 +2372,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/sQCvk9O.png",
         "pays": "🇯🇵 Japon",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 F20C 2.0L",
+        "puissance": "240 ch"
     },
     {
         "nom": "S2000 Johnny Tran",
@@ -2383,8 +2383,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/bF2rlyo.png",
         "pays": "🇯🇵 Japon",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 F20C 2.0L",
+        "puissance": "350 ch"
     },
     {
         "nom": "Mustang Fastback Sean",
@@ -2394,8 +2394,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/5eaMfrz.png",
         "pays": "🇺🇸 États-Unis",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 RB26DETT 2.6L",
+        "puissance": "330 ch"
     },
     {
         "nom": "Charger R/T Offroad Dom",
@@ -2405,8 +2405,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/e7aAqf7.png",
         "pays": "🇺🇸 États-Unis",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 LS3 6.2L (Crate Engine)",
+        "puissance": "500 ch"
     },
     {
         "nom": "Grand National",
@@ -2427,8 +2427,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/kITnCsz.png",
         "pays": "🇯🇵 Japon",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 RB26DETT 2.6L",
+        "puissance": "330 ch"
     },
     {
         "nom": "Touran Hulk Twinkie",
@@ -2438,8 +2438,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/qINlnSP.png",
         "pays": "🇩🇪 Allemagne",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 2.0L FSI",
+        "puissance": "150 ch"
     },
     {
         "nom": "Lancer EVO IX Sean",
@@ -2449,8 +2449,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/HZBF2dx.png",
         "pays": "🇯🇵 Japon",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 4G63T 2.0L",
+        "puissance": "280 ch"
     },
     {
         "nom": "Charger R/T Ice Dom",
@@ -2460,8 +2460,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/EIodmug.png",
         "pays": "🇺🇸 États-Unis",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 LS3 6.2L",
+        "puissance": "525 ch"
     },
     {
         "nom": "Charger Daytona Dom",
@@ -2471,8 +2471,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/ctTUMXi.png",
         "pays": "🇺🇸 États-Unis",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 LS3 6.2L (Crate Engine)",
+        "puissance": "430 ch"
     },
     {
         "nom": "F-150 Hoonitruck Ken Block",
@@ -2515,8 +2515,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/jjxtFaS.png",
         "pays": "🇯🇵 Japon",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 Boxer EJ 2.3L",
+        "puissance": "862 ch"
     },
     {
         "nom": "406 Taxi 2",
@@ -2526,8 +2526,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/ZKiBwUf.png",
         "pays": "🇫🇷 France",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V6 ES9 3.0L",
+        "puissance": "210 ch"
     },
     {
         "nom": "Mystery Machine",
@@ -2537,8 +2537,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/OsjCwC9.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Small Block 283ci 4.6L",
+        "puissance": "195 ch"
     },
     {
         "nom": "Batmobile The Dark Knight",
@@ -2548,8 +2548,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/m1TjIrl.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 LS1 5.7L",
+        "puissance": "400 ch"
     },
     {
         "nom": "Bounder",
@@ -2560,7 +2560,7 @@
         "poids": 8,
         "image": "https://i.imgur.com/TodKPPn.png",
         "moteur": "V8 7.4L",
-        "puissance": "inconnu"
+        "puissance": "230 ch"
     },
     {
         "nom": "Trans Am K2000",
@@ -2570,8 +2570,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/yaSbY9d.png",
         "pays": "🇺🇸 États-Unis",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 LG4 5.0L",
+        "puissance": "145 ch"
     },
     {
         "nom": "Octane",
@@ -2625,8 +2625,8 @@
         "poids": 2,
         "image": "https://i.imgur.com/GD0fdXN.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 5.9L",
+        "puissance": "750 ch"
     },
     {
         "nom": "The King",
@@ -2636,8 +2636,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/qk4DtkZ.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Chrysler 426 HEMI 7.0L",
+        "puissance": "600 ch"
     },
     {
         "nom": "Chick Hicks",
@@ -2647,8 +2647,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/hGA1Rkp.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 5.9L",
+        "puissance": "750 ch"
     },
     {
         "nom": "Mack",
@@ -2658,8 +2658,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/ubfg99e.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 Diesel Mack E9 16.4L",
+        "puissance": "500 ch"
     },
     {
         "nom": "Flo",
@@ -2669,8 +2669,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/kianYpE.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 OHV 5.4L",
+        "puissance": "250 ch"
     },
     {
         "nom": "Ramone",
@@ -2680,8 +2680,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/zFHSXI3.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Turbo Thrust 5.7L",
+        "puissance": "250 ch"
     },
     {
         "nom": "Guido",
@@ -2691,8 +2691,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/DR4a7DP.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Monocylindre 0.3L",
+        "puissance": "13 ch"
     },
     {
         "nom": "Luigi",
@@ -2702,8 +2702,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/B9fGUuI.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L2 0.5L",
+        "puissance": "18 ch"
     },
     {
         "nom": "Hudson Hornet",
@@ -2713,8 +2713,8 @@
         "poids": 2,
         "image": "https://i.imgur.com/ekkP1Xq.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 Twin H-Power 5.0L",
+        "puissance": "210 ch"
     },
     {
         "nom": "Martin",
@@ -2724,8 +2724,8 @@
         "poids": 2,
         "image": "https://i.imgur.com/rVQ2WRW.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 Blue Diamond 4.4L",
+        "puissance": "100 ch"
     },
     {
         "nom": "Raoul Caroule",
@@ -2735,8 +2735,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/0RVvR0k.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 Turbo 2.0L",
+        "puissance": "300 ch"
     },
     {
         "nom": "Sheriff",
@@ -2746,8 +2746,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/97jGgkv.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Flathead 4.2L",
+        "puissance": "110 ch"
     },
     {
         "nom": "Boost",
@@ -2757,8 +2757,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/Ub9Nmpp.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 Turbo 2.0L",
+        "puissance": "320 ch"
     },
     {
         "nom": "Wingo",
@@ -2768,8 +2768,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/LhoDFeg.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 Turbo 2.0L",
+        "puissance": "310 ch"
     },
     {
         "nom": "Snot Rod",
@@ -2779,8 +2779,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/ZRiAy7J.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Supercharged 7.2L",
+        "puissance": "550 ch"
     },
     {
         "nom": "DJ",
@@ -2790,8 +2790,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/1CE1Ppc.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.5L",
+        "puissance": "160 ch"
     },
     {
         "nom": "Buggy",
@@ -2801,8 +2801,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/bQEpcBC.png",
         "pays": "🎮 Jeu Vidéo",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 OHV 5.7L",
+        "puissance": "350 ch"
     },
     {
         "nom": "Muscle Car",
@@ -2812,8 +2812,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/yMnKzvD.png",
         "pays": "🎮 Jeu Vidéo",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Big Block 7.0L",
+        "puissance": "425 ch"
     },
     {
         "nom": "Paramoteur Hydravion",
@@ -2823,8 +2823,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/ntsshFJ.png",
         "pays": "🎮 Jeu Vidéo",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Turbine",
+        "puissance": "1 200 ch"
     },
     {
         "nom": "X80 Proto",
@@ -2834,8 +2834,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/Iitf8A5.png",
         "pays": "🎮 Jeu Vidéo",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V12 Hybride 6.0L",
+        "puissance": "800 ch"
     },
     {
         "nom": "Clio Williams",
@@ -3098,8 +3098,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/WEqFZZM.png",
         "pays": "🎮 Jeu Vidéo",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 5.0L",
+        "puissance": "300 ch"
     },
     {
         "nom": "Vroom Vroom Drive Truck",
@@ -3153,8 +3153,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/p7c9P9q.png",
         "pays": "🇯🇵 Japon",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 LS3 Turbo 6.2L",
+        "puissance": "850 ch"
     },
     {
         "nom": "Supra Jeremy Merires",
@@ -3164,8 +3164,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/nEZaFWW.png",
         "pays": "🇯🇵 Japon",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "2JZ-GTE Turbo 3.0L",
+        "puissance": "700 ch"
     },
     {
         "nom": "NP02 Switch Racing",
@@ -3186,8 +3186,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/0V9hhQa.png",
         "pays": "🇬🇧 Royaume-Uni",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V12 Twin-Supercharged 6.8L",
+        "puissance": "1 050 ch"
     },
     {
         "nom": "Vantage GT12",
@@ -3208,8 +3208,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/w5kvEKm.png",
         "pays": "🇺🇸 États-Unis",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 BMW S62 5.0L",
+        "puissance": "500 ch"
     },
     {
         "nom": "DMC 12 Alexandre Claudin",
@@ -3219,8 +3219,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/jBOhAn8.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 LS3 6.2L",
+        "puissance": "500 ch"
     },
     {
         "nom": "MR2",
@@ -3263,8 +3263,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/52yYpsE.jpeg",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Diesel Turbo 7.2L",
+        "puissance": "300 ch"
     },
     {
         "nom": "Marcel",
@@ -3274,8 +3274,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/JLlowGk.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 Turbo Diesel 14.6L",
+        "puissance": "550 ch"
     },
     {
         "nom": "33 Stradale",
@@ -3505,8 +3505,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/wuoyODE.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Turbine",
+        "puissance": "10 000 lbs"
     },
     {
         "nom": "Z8",
@@ -3593,8 +3593,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/nmjU3b4.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Turbo Hybride 2.4L",
+        "puissance": "750 ch"
     },
     {
         "nom": "Finn McMissile",
@@ -3604,8 +3604,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/eZASHUv.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 4.0L",
+        "puissance": "290 ch"
     },
     {
         "nom": "Holley Shiftwell",
@@ -3615,8 +3615,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/sja8Nbw.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V12 6.0L",
+        "puissance": "450 ch"
     },
     {
         "nom": "Professeur Zundapp",
@@ -3626,8 +3626,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/fB8I3bz.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Monocylindre 2-temps 0.25L",
+        "puissance": "14 ch"
     },
     {
         "nom": "Darrel Cartrip",
@@ -3637,8 +3637,8 @@
         "poids": 100,
         "image": "https://i.imgur.com/yP7LozD.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 OHV 5.7L",
+        "puissance": "600 ch"
     },
     {
         "nom": "Mia & Tia",
@@ -3648,8 +3648,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/u0LjMRK.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 DOHC 1.6L",
+        "puissance": "115 ch"
     },
     {
         "nom": "Super Seven 2000",
@@ -3780,8 +3780,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/6j2tthh.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L18 1.8L",
+        "puissance": "190 ch"
     },
     {
         "nom": "Vallelunga",
@@ -3868,8 +3868,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/jYVPs4X.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 8.2L",
+        "puissance": "600 ch"
     },
     {
         "nom": "250 GTO",
@@ -4099,8 +4099,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/BVJ23nD.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 LS7 7.0L",
+        "puissance": "300 ch"
     },
     {
         "nom": "QX70",
@@ -4176,8 +4176,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/StBkQNB.png",
         "pays": "🇬🇧 Royaume-Uni",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V12 SOHC 5.4L",
+        "puissance": "600 ch"
     },
     {
         "nom": "Grand Cherokee Trackhawk",
@@ -4297,8 +4297,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/hfuvlpp.png",
         "pays": "🇬🇧 Royaume-Uni",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Rover 4.6L",
+        "puissance": "300 ch"
     },
     {
         "nom": "RC F GT3",
@@ -4330,8 +4330,8 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/bweJpxG.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Ford Modular 4.6L",
+        "puissance": "239 ch"
     },
     {
         "nom": "SS-100-X",
@@ -4341,8 +4341,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/5hvAN5i.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Ford MEL 7.0L",
+        "puissance": "350 ch"
     },
     {
         "nom": "B1",
@@ -4671,8 +4671,8 @@
         "poids": 8,
         "image": "https://i.imgur.com/Zj4oQrR.png",
         "pays": "🇺🇸 États-Unis",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Chevrolet Big Block 9.4L",
+        "puissance": "700 ch"
     },
     {
         "nom": "959",
