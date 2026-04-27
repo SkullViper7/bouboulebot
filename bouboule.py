@@ -86,8 +86,16 @@ COULEURS_RARETE = {
     "GOAT 🔴": discord.Color.red()
 }
 
-# --- LOGOS DES MARQUES ---
-
+@bot.command(aliases=["debug"])
+async def debugcar(ctx):
+    # On prend la toute première voiture de la liste chargée en mémoire par le bot
+    voiture_test = VOITURES[0]
+    
+    # On l'affiche telle quelle (en format texte brut)
+    affichage = "\n".join([f"{cle}: {valeur}" for cle, valeur in voiture_test.items()])
+    
+    await ctx.send(f"**Voici exactement ce que je vois dans ma mémoire pour la 1ère voiture :**\n```yaml\n{affichage}\n```")
+    
 #region time
 def get_reset_timestamps():
     try:
