@@ -85,16 +85,6 @@ COULEURS_RARETE = {
     "Légendaire 🟡": discord.Color.gold(),
     "GOAT 🔴": discord.Color.red()
 }
-
-@bot.command(aliases=["debug"])
-async def debugcar(ctx):
-    # On prend la toute première voiture de la liste chargée en mémoire par le bot
-    voiture_test = VOITURES[0]
-    
-    # On l'affiche telle quelle (en format texte brut)
-    affichage = "\n".join([f"{cle}: {valeur}" for cle, valeur in voiture_test.items()])
-    
-    await ctx.send(f"**Voici exactement ce que je vois dans ma mémoire pour la 1ère voiture :**\n```yaml\n{affichage}\n```")
     
 #region time
 def get_reset_timestamps():
@@ -379,6 +369,7 @@ async def roll_error(ctx, error):
 
 #region garage
 from typing import Union
+import collections
 
 class GaragePagination(discord.ui.View):
     # NOUVEAU : On ajoute l'argument `start_page`
@@ -487,7 +478,6 @@ async def garage(ctx, cible_ou_page: Union[discord.Member, int] = None, page_dem
         return
     
     mes_voitures = profil["garage"]
-    import collections
     inventaire_compte = collections.Counter(mes_voitures)
     
     pages_voitures = []
@@ -509,7 +499,10 @@ async def garage(ctx, cible_ou_page: Union[discord.Member, int] = None, page_dem
                 "pays": voiture_info.get("pays", "🏁"),
                 "quantite": quantite, 
                 "image": voiture_info["image"],
-                "rareté": voiture_info["rareté"]
+                "rareté": voiture_info["rareté"],
+                # --- LA CORRECTION EST ICI ---
+                "moteur": voiture_info.get("moteur", "Inconnu"),
+                "puissance": voiture_info.get("puissance", "Inconnue")
             })
         else:
             pages_voitures.append({
@@ -519,7 +512,10 @@ async def garage(ctx, cible_ou_page: Union[discord.Member, int] = None, page_dem
                 "pays": "🏴‍☠️",
                 "quantite": quantite,
                 "image": None,
-                "rareté": "Inconnue"
+                "rareté": "Inconnue",
+                # --- ET ICI ---
+                "moteur": "Inconnu",
+                "puissance": "Inconnue"
             })
             
     # L'index Python commence à 0 (Page 1 = Index 0)
