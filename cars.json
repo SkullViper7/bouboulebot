@@ -4011,8 +4011,8 @@
         "poids": 100,
         "image": "https://i.imgur.com/nIiQ817.png",
         "pays": "🎮 Jeu Vidéo",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "EV",
+        "puissance": "120 ch"
     },
     {
         "nom": "Apollo Enraged",
@@ -8224,7 +8224,7 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/N1uMNOD.png",
-        "moteur": "inconnu",
+        "moteur": "EV",
         "puissance": "inconnu"
     },
     {
@@ -11084,8 +11084,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/N50OOXV.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Turbine à aspiration inversée",
+        "puissance": "180 ch"
     },
     {
         "nom": "Mante Pelleteuse",
@@ -11095,8 +11095,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/GYwhqvw.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Turbo Diesel",
+        "puissance": "250 ch"
     },
     {
         "nom": "Minecart",
@@ -13307,7 +13307,7 @@
         "poids": 30,
         "image": "https://i.imgur.com/Tn8wZyi.png",
         "moteur": "V6 7.0L",
-        "puissance": "inconnu"
+        "puissance": "Beaucoup"
     },
     {
         "nom": "B24 Sirio",
