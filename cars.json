@@ -2581,8 +2581,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/YR7Ekpl.png",
         "pays": "🎮 Jeu Vidéo",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Turbine à gaz",
+        "puissance": "1 100 ch"
     },
     {
         "nom": "Fennec",
@@ -2592,8 +2592,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/DaaOnbF.png",
         "pays": "🎮 Jeu Vidéo",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Turbine à gaz",
+        "puissance": "1 250 ch"
     },
     {
         "nom": "Scarab",
@@ -2603,8 +2603,8 @@
         "poids": 100,
         "image": "https://i.imgur.com/11lLRVT.png",
         "pays": "🎮 Jeu Vidéo",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Turbine à gaz",
+        "puissance": "1 200 ch"
     },
     {
         "nom": "Miller-Meteor Ghostbusters",
@@ -2966,8 +2966,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/qVQnyeg.png",
         "pays": "🎬 Cinéma / TV",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Réacteur à flux d'énergie lumineuse",
+        "puissance": "1 800 ch"
     },
     {
         "nom": "P50",
@@ -3109,8 +3109,8 @@
         "poids": 30,
         "image": "https://i.imgur.com/wTvQ89z.png",
         "pays": "🎮 Jeu Vidéo",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 Turbodiesel 16.4L",
+        "puissance": "800 ch"
     },
     {
         "nom": "Leclerc",
@@ -11601,8 +11601,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/ANTCgVk.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 6.2L",
+        "puissance": "430 ch"
     },
     {
         "nom": "El Camino",
@@ -11634,8 +11634,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/3AX8lce.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 5.4L",
+        "puissance": "180 ch"
     },
     {
         "nom": "New Yorker St Regis",
@@ -11722,8 +11722,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/49KBjv2.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V6 3.0L Biturbo Hybride",
+        "puissance": "880 ch"
     },
     {
         "nom": "599 XX EVO",
@@ -11821,8 +11821,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/uOtnS7f.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V6 3.0L Biturbo Hybride",
+        "puissance": "830 ch"
     },
     {
         "nom": "550 Maranello",
@@ -11854,8 +11854,8 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/cdVOvVx.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 5.0L",
+        "puissance": "220 ch"
     },
     {
         "nom": "NSX-R GT",
@@ -11898,8 +11898,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/djwRBun.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V12 6.5L hybride",
+        "puissance": "990 ch"
     },
     {
         "nom": "Countach LPI 800-4",
@@ -12415,8 +12415,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/TBUj5kB.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 3.0L Turbo",
+        "puissance": "435 ch"
     },
     {
         "nom": "50",
@@ -12448,8 +12448,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/Q8ZhUuC.gif",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Flat 6 3.6L",
+        "puissance": "320 ch"
     },
     {
         "nom": "Twingo",
@@ -12503,8 +12503,8 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/RyDmN8M.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 7.5L",
+        "puissance": "390 ch"
     },
     {
         "nom": "Jetfire",
@@ -12525,8 +12525,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/mxAzFYU.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 4.7L",
+        "puissance": "400 ch"
     },
     {
         "nom": "Golden Hawk",
@@ -12580,8 +12580,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/TLwMqyH.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L3 657cc Turbo",
+        "puissance": "64 ch"
     },
     {
         "nom": "AZ-1",
@@ -12668,8 +12668,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/n7vOlVy.jpeg",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 2.2L",
+        "puissance": "125 ch"
     },
     {
         "nom": "3000ME",
@@ -12910,8 +12910,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/MRXLIJd.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 3.0L",
+        "puissance": "480 ch"
     },
     {
         "nom": "Jiotto Caspita",
@@ -12932,8 +12932,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/InjEbzX.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V10 4.0L",
+        "puissance": "615 ch"
     },
     {
         "nom": "Knobbly",
@@ -12943,8 +12943,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/56vcX7V.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 3.8L",
+        "puissance": "330 ch"
     },
     {
         "nom": "Storm GTM-005",
@@ -12954,8 +12954,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/NH5VuUm.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V12 7.0L",
+        "puissance": "600 ch"
     },
     {
         "nom": "Storm",
@@ -12976,8 +12976,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/vhpfzTU.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 2.3L",
+        "puissance": "165 ch"
     },
     {
         "nom": "GTR",
@@ -13053,8 +13053,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/xHc3yw2.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "EV",
+        "puissance": "1 953 ch"
     },
     {
         "nom": "Interceptor",
@@ -13064,8 +13064,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/KBRFZd4.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 5.8L Compresseur",
+        "puissance": "600 ch"
     },
     {
         "nom": "X1",
@@ -13086,8 +13086,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/6AApWVF.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V12 7.2L",
+        "puissance": "540 ch"
     },
     {
         "nom": "135 M Cabriolet Figoni & Falaschi",
@@ -13196,8 +13196,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/mdEF7QG.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 3.4L",
+        "puissance": "85 ch"
     },
     {
         "nom": "Interceptor",
@@ -13240,8 +13240,8 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/W7aqlMa.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 6.6L",
+        "puissance": "330 ch"
     },
     {
         "nom": "Fighter",
@@ -13306,7 +13306,7 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/Tn8wZyi.png",
-        "moteur": "inconnu",
+        "moteur": "V6 7.0L",
         "puissance": "inconnu"
     },
     {
@@ -13317,8 +13317,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/Z7Z3Kcl.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L5 2.5L Turbo Diesel",
+        "puissance": "130 ch"
     },
     {
         "nom": "C36 Turbotronic",
@@ -13328,8 +13328,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/0u0Bu4v.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 3.6L Turbo Diesel",
+        "puissance": "313 ch"
     },
     {
         "nom": "Orbitron",
@@ -13339,8 +13339,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/HYPjJMY.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 5.4L",
+        "puissance": "300 ch"
     },
     {
         "nom": "904",
@@ -13383,8 +13383,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/tCY5wFg.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Double V8 8.2L",
+        "puissance": "1 400 ch"
     },
     {
         "nom": "Deora II",
@@ -13394,8 +13394,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/U0St8t7.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 6.6L Supercharged",
+        "puissance": "400 ch"
     },
     {
         "nom": "Bone Shaker",
@@ -13405,8 +13405,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/Xcou5ng.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 5.7L",
+        "puissance": "402 ch"
     },
     {
         "nom": "Bad To The Blade",
@@ -13416,8 +13416,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/kmJ8ae3.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.3L Turbo",
+        "puissance": "175 ch"
     },
     {
         "nom": "Rip Rod",
@@ -13427,8 +13427,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/22e6UUe.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L3 1.0L Turbo EcoBoost",
+        "puissance": "200 ch"
     },
     {
         "nom": "Star Wars Darth Vader",
@@ -13438,8 +13438,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/5Cfw3z8.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 6.2L LS3",
+        "puissance": "526 ch"
     },
     {
         "nom": "Star Wars X-Wing",
@@ -13449,8 +13449,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/BN6lsgQ.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "175 ch"
     },
     {
         "nom": "2-Jetz",
@@ -13460,8 +13460,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/AkvUhTp.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 3.0L Turbo",
+        "puissance": "627 ch"
     },
     {
         "nom": "Nash Metropolitan",
@@ -13471,8 +13471,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/hLtGZI9.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.5L",
+        "puissance": "55 ch"
     },
     {
         "nom": "VLV",
@@ -13493,8 +13493,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/8vlSsYe.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "EV",
+        "puissance": "2,5 ch"
     },
     {
         "nom": "CitiCar",
@@ -13537,8 +13537,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/WTZtO1p.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 6.2L",
+        "puissance": "426 ch"
     },
     {
         "nom": "Monster Trike",
@@ -13548,8 +13548,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/7cLnotG.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 2.5L",
+        "puissance": "192 ch"
     },
     {
         "nom": "Barbie Jeep",
@@ -13559,8 +13559,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/3VQykVt.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L2 0.45L",
+        "puissance": "100 ch"
     },
     {
         "nom": "2JZ Lawnmower",
@@ -13570,8 +13570,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/8OvUEmq.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 3.0L Turbo",
+        "puissance": "500 ch"
     },
     {
         "nom": "V12 Jaguar Off-Roader",
@@ -13581,8 +13581,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/rsupaiA.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V12 5.3L",
+        "puissance": "290 ch"
     },
     {
         "nom": "TSMEU 6",
@@ -13592,8 +13592,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/R5qCUYJ.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Réacteur à combustion interne",
+        "puissance": "450 ch"
     },
     {
         "nom": "74-Z Speeder Bike",
@@ -13603,8 +13603,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/e8rD5BC.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Cellule d'énergie à fusion",
+        "puissance": "280 ch"
     },
     {
         "nom": "BARC Speeder",
@@ -13614,8 +13614,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/YGuzvNn.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Réacteur à répulseur haute performance",
+        "puissance": "380 ch"
     },
     {
         "nom": "X-34 Landspeeder",
@@ -13625,8 +13625,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/1ZKPu9t.jpeg",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Trois turbines à répulseurs",
+        "puissance": "220 ch"
     },
     {
         "nom": "Airspeeder XJ-6",
@@ -13636,8 +13636,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/kgc0Qus.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Double turbine à répulseurs haute performance",
+        "puissance": "480 ch"
     },
     {
         "nom": "Sandcrawler",
@@ -13647,8 +13647,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/exfY7Op.jpeg",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Huit turbines nucléaires à vapeur",
+        "puissance": "18 000 ch"
     },
     {
         "nom": "Mustang Mach 1 Coupé John Wick",
@@ -13669,8 +13669,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/kpoLKb0.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V2 0.8L",
+        "puissance": "57 ch"
     },
     {
         "nom": "Kaneda Bike",
@@ -13680,8 +13680,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/eSFIcWV.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "Générateur à supraconduction à froid",
+        "puissance": "113 ch"
     },
     {
         "nom": "Tiger",
@@ -13691,8 +13691,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/pIa0qC7.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 6.3L",
+        "puissance": "300 ch"
     },
     {
         "nom": "Stash",
@@ -13702,8 +13702,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/55m9vKr.jpeg",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 6.9L",
+        "puissance": "286 ch"
     },
     {
         "nom": "Challenge",
@@ -13724,8 +13724,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/Rm1WIoe.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V12 6.0L",
+        "puissance": "400 ch"
     },
     {
         "nom": "Alcador GTB",
@@ -13735,8 +13735,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/Z6IdJ0v.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 3.6L",
+        "puissance": "400 ch"
     },
     {
         "nom": "GT1",
@@ -13746,8 +13746,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/HEu3WeJ.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 7.4L",
+        "puissance": "450 ch"
     },
     {
         "nom": "Turbo S20",
@@ -13757,8 +13757,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/82zzdLD.jpeg",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 4.2L Biturbo",
+        "puissance": "500 ch"
     },
     {
         "nom": "Osmos",
@@ -13768,8 +13768,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/dfyERiG.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V12 5.3L",
+        "puissance": "300 ch"
     },
     {
         "nom": "Aero",
@@ -13779,8 +13779,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/tB6oII1.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 2.5L",
+        "puissance": "192 ch"
     },
     {
         "nom": "Function Car",
@@ -13790,8 +13790,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/DEQylWi.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 6.9L",
+        "puissance": "286 ch"
     },
     {
         "nom": "Super Twelve",
@@ -13823,8 +13823,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/nAhum4h.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 6.4L",
+        "puissance": "350 ch"
     },
     {
         "nom": "Espera Picasso",
@@ -13856,8 +13856,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/MYfy5IZ.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V12 5.0L",
+        "puissance": "300 ch"
     },
     {
         "nom": "Mojave",
@@ -13867,8 +13867,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/XZMW7yt.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 4.0L",
+        "puissance": "294 ch"
     },
     {
         "nom": "GT C1",
@@ -13878,8 +13878,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/ss7NeNh.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 2.0L",
+        "puissance": "167 ch"
     },
     {
         "nom": "C2 V6",
@@ -14087,8 +14087,8 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://imgur.com/4H4Qz7H",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.0L",
+        "puissance": "44 ch"
     },
     {
         "nom": "W31",
@@ -14164,8 +14164,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/9XG8rCM.jpeg",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.6L Turbo",
+        "puissance": "225 ch"
     },
     {
         "nom": "T100",
@@ -14263,8 +14263,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/fyElYA7.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 6.1L",
+        "puissance": "100 ch"
     },
     {
         "nom": "Sport",
@@ -14274,8 +14274,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/r64Ouuc.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "F4 2.2L Compresseur",
+        "puissance": "125 ch"
     },
     {
         "nom": "SOCEMA Turbine",
@@ -14296,8 +14296,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/qKVMHAZ.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 2.0L",
+        "puissance": "40 ch"
     },
     {
         "nom": "RH3 Coupé Aerosport",
@@ -14307,8 +14307,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/sTwDIPl.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L8 3.0L",
+        "puissance": "105 ch"
     },
     {
         "nom": "Aérodjet",
@@ -14329,8 +14329,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/AieT76s.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 0.8L",
+        "puissance": "55 ch"
     },
     {
         "nom": "560",
@@ -14373,8 +14373,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/HR2zZys.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V6 3.5L",
+        "puissance": "350 ch"
     },
     {
         "nom": "SSC",
@@ -14461,8 +14461,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/lUPSdp6.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 2.0L",
+        "puissance": "60 ch"
     },
     {
         "nom": "202 Gran Sport",
@@ -14494,8 +14494,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/2jlVQVD.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 2.1L Twincharged",
+        "puissance": "600 ch"
     },
     {
         "nom": "EVO37",
@@ -14549,8 +14549,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/cUCPV3X.jpeg",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 5.3L",
+        "puissance": "110 ch"
     },
     {
         "nom": "Albert I",
@@ -14560,8 +14560,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/r3J3RmQ.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 5.3L",
+        "puissance": "132 ch"
     },
     {
         "nom": "1600 GT",
@@ -14571,8 +14571,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/3qxle9D.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "F4 1.6L",
+        "puissance": "90 ch"
     },
     {
         "nom": "Horizon GT",
@@ -14582,8 +14582,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/5sOvwXu.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.6L",
+        "puissance": "95 ch"
     },
     {
         "nom": "Vertigo Prototype",
@@ -14593,8 +14593,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/ZmIITLs.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "220 ch"
     },
     {
         "nom": "Vertigo .5 Spirit",
@@ -14626,8 +14626,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/XJ4jHMp.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V6 3.0L",
+        "puissance": "360 ch"
     },
     {
         "nom": "Spyder MK I",
@@ -14637,8 +14637,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/SiVPgVV.jpeg",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 2.0L",
+        "puissance": "150 ch"
     },
     {
         "nom": "Car",
@@ -14648,8 +14648,8 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/SNdEzX0.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 0.6L",
+        "puissance": "28 ch"
     },
     {
         "nom": "Hornet Kompressor Special",
@@ -14659,8 +14659,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/SaA9zBr.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 1.6L Compresseur",
+        "puissance": "90 ch"
     },
     {
         "nom": "Nine Brooksland Speed",
@@ -14670,8 +14670,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/ceR0yT8.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.1L",
+        "puissance": "50 ch"
     },
     {
         "nom": "Kestrel",
@@ -14681,8 +14681,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/diLD5Qf.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.5L",
+        "puissance": "55 ch"
     },
     {
         "nom": "Car",
@@ -14703,8 +14703,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/ReySyw9.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V6 2.7L Turbo",
+        "puissance": "210 ch"
     },
     {
         "nom": "Hansa 1500 Sportcoupé",
@@ -14714,8 +14714,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/ssK19J7.jpeg",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.5L",
+        "puissance": "80 ch"
     },
     {
         "nom": "Isabella",
@@ -14923,8 +14923,8 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/OooIANt.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V6 2.9L",
+        "puissance": "150 ch"
     },
     {
         "nom": "Kosmopolit",
@@ -14934,8 +14934,8 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/MmzyU2N.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.4L",
+        "puissance": "80 ch"
     },
     {
         "nom": "Beta Montecarlo",
@@ -14967,8 +14967,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/v1t2qmg.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.0L",
+        "puissance": "80 ch"
     },
     {
         "nom": "Grand Sport",
@@ -14978,8 +14978,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/ESaCuVR.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 3.6L",
+        "puissance": "90 ch"
     },
     {
         "nom": "1500",
@@ -14989,8 +14989,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/3sn9Ndy.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.5L",
+        "puissance": "90 ch"
     },
     {
         "nom": "550",
@@ -15011,8 +15011,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/NbBqQFP.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 2.3L Turbo",
+        "puissance": "350 ch"
     },
     {
         "nom": "Furia",
@@ -15077,7 +15077,7 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/2icgaST.png",
-        "moteur": "inconnu",
+        "moteur": "EV",
         "puissance": "inconnu"
     },
     {
@@ -15099,8 +15099,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/HlOtsgh.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "EV",
+        "puissance": "450 ch"
     },
     {
         "nom": "Carmen",
@@ -15132,8 +15132,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/OyOgtSt.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 2.8L",
+        "puissance": "250 ch"
     },
     {
         "nom": "Z-102",
@@ -15220,8 +15220,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/4KZoPcF.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 2.0L",
+        "puissance": "140 ch"
     },
     {
         "nom": "Author",
@@ -15242,8 +15242,8 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/01SYaav.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.6L",
+        "puissance": "105 ch"
     },
     {
         "nom": "Xtamy Roadster",
@@ -15275,8 +15275,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/ryj1MUA.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 4.3L",
+        "puissance": "60 ch"
     },
     {
         "nom": "Indigo 3000",
@@ -15341,8 +15341,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/rFIXBEz.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 4.4L",
+        "puissance": "345 ch"
     },
     {
         "nom": "K2 Supersports Car",
@@ -15352,8 +15352,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/fRR1GTv.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 6.2L",
+        "puissance": "480 ch"
     },
     {
         "nom": "Arkham Knight Batmobile",
@@ -15385,8 +15385,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/JRzdjk3.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "272 ch"
     },
     {
         "nom": "ERA",
@@ -15396,8 +15396,8 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/ysiQu93.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "EV",
+        "puissance": "536 ch"
     },
     {
         "nom": "Sport Coupé",
@@ -15429,8 +15429,8 @@
         "rareté": "Commun ⚪",
         "poids": 100,
         "image": "https://i.imgur.com/ugjU42U.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V4 2.0L",
+        "puissance": "20 ch"
     },
     {
         "nom": "Raufoss",
@@ -15440,8 +15440,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/uFytc6u.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V4 2.0L",
+        "puissance": "20 ch"
     },
     {
         "nom": "LP1200 Strada",
@@ -15594,8 +15594,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/SFw6fVE.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.6L",
+        "puissance": "110 ch"
     },
     {
         "nom": "Strato",
@@ -15605,8 +15605,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/YstiSro.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "F4 1.8L",
+        "puissance": "90 ch"
     },
     {
         "nom": "Erator GTE",
@@ -15682,8 +15682,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/Bztd5PE.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 7.0L",
+        "puissance": "435 ch"
     },
     {
         "nom": "J5 GT Astra Roadster",
@@ -15693,8 +15693,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/p1JlDXi.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 7.0L",
+        "puissance": "450 ch"
     },
     {
         "nom": "J6 Panther",
@@ -15704,8 +15704,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/Zwdygyf.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 7.0L",
+        "puissance": "450 ch"
     },
     {
         "nom": "962CR",
@@ -15726,8 +15726,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/zRq63hU.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 5.2L Supercharged",
+        "puissance": "900 ch"
     },
     {
         "nom": "Cheetah",
@@ -15737,8 +15737,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/Rw7fyfa.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V8 7.0L",
+        "puissance": "600 ch"
     },
     {
         "nom": "27",
@@ -15759,8 +15759,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/kfIIW6N.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 1.5L",
+        "puissance": "195 ch"
     },
     {
         "nom": "Type 20S",
@@ -15770,8 +15770,8 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/iIsXxIp.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L6 2.0L",
+        "puissance": "180 ch"
     },
     {
         "nom": "Krafla",
@@ -15792,8 +15792,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/oc0ruQR.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "220 ch"
     },
     {
         "nom": "D8 GTO-JD70",
@@ -15825,8 +15825,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/WZe6sOw.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V6 3.5L Twin-Turbo",
+        "puissance": "600 ch"
     },
     {
         "nom": "908 RC",
@@ -15880,8 +15880,8 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/fHZ31Tw.png",
-        "moteur": "inconnu",
-        "puissance": "inconnu"
+        "moteur": "V10 5.2L",
+        "puissance": "600 ch"
     },
     {
         "nom": "HF11",
