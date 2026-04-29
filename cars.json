@@ -16057,7 +16057,7 @@
         "poids": 8,
         "image": "https://i.imgur.com/4hlNVz9.png",
         "moteur": "V10 9.0L",
-        "puissance": "800hp"
+        "puissance": "800 ch"
     },
     {
         "nom": "Mustang FIA Fastback",
@@ -16068,7 +16068,7 @@
         "poids": 8,
         "image": "https://i.imgur.com/0kAHHyv.png",
         "moteur": "V8 6.0L",
-        "puissance": "500 hp"
+        "puissance": "500 ch"
     },
     {
         "nom": "Galaxie 500",
@@ -16079,7 +16079,7 @@
         "poids": 8,
         "image": "https://i.imgur.com/9GLoISX.png",
         "moteur": "V8 8.6L",
-        "puissance": "700 hp"
+        "puissance": "700 ch"
     },
     {
         "nom": "GT40",
@@ -16090,7 +16090,7 @@
         "poids": 8,
         "image": "https://i.imgur.com/niFcd0Z.png",
         "moteur": "V8 5.2L",
-        "puissance": "580 hp"
+        "puissance": "580 ch"
     },
     {
         "nom": "OG Mustang",
@@ -16101,6 +16101,281 @@
         "poids": 8,
         "image": "https://i.imgur.com/DRc8XMr.png",
         "moteur": "V8 7.0L",
-        "puissance": "625 hp"
+        "puissance": "625 ch"
+    },
+    {
+        "nom": "T-1",
+        "marque": "CWS",
+        "annee": "1927",
+        "pays": "🇵🇱 Pologne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/37CFQfR.jpeg",
+        "moteur": "L4 3.0L",
+        "puissance": "45 ch"
+    },
+    {
+        "nom": "Syrena Sport",
+        "marque": "FSO",
+        "annee": "1960",
+        "pays": "🇵🇱 Pologne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/3LY6kv1.png",
+        "moteur": "B2 0.7L",
+        "puissance": "35 ch"
+    },
+    {
+        "nom": "Polonez 2500 Stratos",
+        "marque": "FSO",
+        "annee": "1978",
+        "pays": "🇵🇱 Pologne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/idLrNBt.png",
+        "moteur": "V6 2.5L",
+        "puissance": "190 ch"
+    },
+    {
+        "nom": "MR-300",
+        "marque": "Mikrus",
+        "annee": "1957",
+        "pays": "🇵🇱 Pologne",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/zqW7vA2.png",
+        "moteur": "L2 0.3L",
+        "puissance": "14 ch"
+    },
+    {
+        "nom": "Hussarya 33",
+        "marque": "Arrinera",
+        "annee": "2014",
+        "pays": "🇵🇱 Pologne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/HjB6TPB.png",
+        "moteur": "V8 6.2L",
+        "puissance": "650 ch"
+    },
+    {
+        "nom": "Hussarya GT",
+        "marque": "Arrinera",
+        "annee": "2016",
+        "pays": "🇵🇱 Pologne",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/znFYOi2.png",
+        "moteur": "V8 6.2L",
+        "puissance": "650 ch"
+    },
+    {
+        "nom": "6 Litre Roadster",
+        "marque": "Leopard",
+        "annee": "2005",
+        "pays": "🇵🇱 Pologne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/xvJyMgp.png",
+        "moteur": "V8 6.0L",
+        "puissance": "405 ch"
+    },
+    {
+        "nom": "Sabra Sport",
+        "marque": "Sussita",
+        "annee": "1961",
+        "pays": "🇮🇱 Israel",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/W26sQzw.png",
+        "moteur": "L4 1.7L",
+        "puissance": "91 ch"
+    },
+    {
+        "nom": "MXT",
+        "marque": "Mastretta",
+        "annee": "2011",
+        "pays": "🇲🇽 Mexique",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/UE7Xsub.png",
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "250 ch"
+    },
+    {
+        "nom": "MXT-R",
+        "marque": "Mastretta",
+        "annee": "2013",
+        "pays": "🇲🇽 Mexique",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/W4kFzGs.png",
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "285 ch"
+    },
+    {
+        "nom": "05",
+        "marque": "Vuhl",
+        "annee": "2013",
+        "pays": "🇲🇽 Mexique",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/TwWWE8R.png",
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "285 ch"
+    },
+    {
+        "nom": "05RR",
+        "marque": "Vuhl",
+        "annee": "2019",
+        "pays": "🇲🇽 Mexique",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/3kChOZ7.png",
+        "moteur": "L4 2.3L Turbo",
+        "puissance": "400 ch"
+    },
+    {
+        "nom": "Exotic Car",
+        "marque": "Inferno",
+        "annee": "2016",
+        "pays": "🇲🇽 Mexique",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/v4hQ36y.png",
+        "moteur": "V8 3.8L Biturbo",
+        "puissance": "1400 ch"
+    },
+    {
+        "nom": "Series II",
+        "marque": "Solana",
+        "annee": "1998",
+        "pays": "🇲🇽 Mexique",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/fhqBnzW.png",
+        "moteur": "L4 1.8L",
+        "puissance": "130 ch"
+    },
+    {
+        "nom": "GT",
+        "marque": "Puma",
+        "annee": "1967",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/PfsCwIl.png",
+        "moteur": "L4 1.5L",
+        "puissance": "60 ch"
+    },
+    {
+        "nom": "GTB S2",
+        "marque": "Puma",
+        "annee": "1979",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/IXPvb2c.png",
+        "moteur": "L6 4.1L",
+        "puissance": "171 ch"
+    },
+    {
+        "nom": "P-018",
+        "marque": "Puma",
+        "annee": "1981",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/eyTFvB3.png",
+        "moteur": "L4 1.7L",
+        "puissance": "88 ch"
+    },
+    {
+        "nom": "Luminari",
+        "marque": "Puma",
+        "annee": "2017",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/IdjUg16.png",
+        "moteur": "L4 2.4L",
+        "puissance": "180 ch"
+    },
+    {
+        "nom": "SM4.1 Turbo",
+        "marque": "Santa Matilde",
+        "annee": "1984",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/5xJhXCp.png",
+        "moteur": "L6 4.1L Turbo",
+        "puissance": "250 ch"
+    },
+    {
+        "nom": "MTS",
+        "marque": "Miura",
+        "annee": "1982",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/1jTQznr.png",
+        "moteur": "L4 1.6L",
+        "puissance": "80 ch"
+    },
+    {
+        "nom": "X8",
+        "marque": "Miura",
+        "annee": "1987",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/CFtIaxQ.png",
+        "moteur": "L4 2.0L",
+        "puissance": "110 ch"
+    },
+    {
+        "nom": "H1",
+        "marque": "Lobini",
+        "annee": "2007",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/LOdlNVi.png",
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "225 ch"
+    },
+    {
+        "nom": "Turbo",
+        "marque": "Hofstetter",
+        "annee": "1986",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/VICvNxL.png",
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "210 ch"
+    },
+    {
+        "nom": "Itaipu",
+        "marque": "Gurgel",
+        "annee": "1975",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/0kaWaCd.png",
+        "moteur": "EV",
+        "puissance": "14 ch"
+    },
+    {
+        "nom": "4200 GT SS Uirapuru",
+        "marque": "Brasinca",
+        "annee": "1966",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/fPPwtf6.png",
+        "moteur": "L6 4.3L",
+        "puissance": "180 ch"
     }
 ]
