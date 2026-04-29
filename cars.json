@@ -15970,5 +15970,71 @@
         "image": "https://i.imgur.com/ljNXeGT.png",
         "moteur": "L3 0.6L",
         "puissance": "27 ch"
+    },
+    {
+        "nom": "Alfa Ferrari",
+        "marque": "Andy Burton",
+        "annee": "1986",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/28QzoK2.png",
+        "moteur": "V8 2.9L Biturbo",
+        "puissance": "600 ch"
+    },
+    {
+        "nom": "33 Hot Rod",
+        "marque": "Factory Five",
+        "annee": "2008",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/xg3tphV.png",
+        "moteur": "V8 5.0L",
+        "puissance": "525 ch"
+    },
+    {
+        "nom": "GTM",
+        "marque": "Factory Five",
+        "annee": "2005",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ULozYy7.png",
+        "moteur": "V8 7.0L LS7",
+        "puissance": "650 ch"
+    },
+    {
+        "nom": "818",
+        "marque": "Factory Five",
+        "annee": "2012",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/DKShnZE.png",
+        "moteur": "B4 2.5L Turbo",
+        "puissance": "450 ch"
+    },
+    {
+        "nom": "F9R",
+        "marque": "Factory Five",
+        "annee": "2024",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/9D8mqhx.png",
+        "moteur": "V12 9.5L",
+        "puissance": "750 ch"
+    },
+    {
+        "nom": "406 Silhouette",
+        "marque": "Peugeot",
+        "annee": "2002",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/36BPrzs.png",
+        "moteur": "V6 3.0L",
+        "puissance": "300 ch"
     }
 ]
