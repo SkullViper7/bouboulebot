@@ -16047,5 +16047,60 @@
         "image": "https://i.imgur.com/bxdrcC2.png",
         "moteur": "F4 1.7L",
         "puissance": "65 ch"
+    },
+    {
+        "nom": "Plymouth GT-1",
+        "marque": "Ruffian",
+        "annee": "2025",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/4hlNVz9.png",
+        "moteur": "V10 9.0L",
+        "puissance": "800hp"
+    },
+    {
+        "nom": "Mustang FIA Fastback",
+        "marque": "Ruffian",
+        "annee": "2024",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/0kAHHyv.png",
+        "moteur": "V8 6.0L",
+        "puissance": "500 hp"
+    },
+    {
+        "nom": "Galaxie 500",
+        "marque": "Ruffian",
+        "annee": "2024",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/9GLoISX.png",
+        "moteur": "V8 8.6L",
+        "puissance": "700 hp"
+    },
+    {
+        "nom": "GT40",
+        "marque": "Ruffian",
+        "annee": "2023",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/niFcd0Z.png",
+        "moteur": "V8 5.2L",
+        "puissance": "580 hp"
+    },
+    {
+        "nom": "OG Mustang",
+        "marque": "Ruffian",
+        "annee": "2019",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/DRc8XMr.png",
+        "moteur": "V8 7.0L",
+        "puissance": "625 hp"
     }
 ]
