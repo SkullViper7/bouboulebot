@@ -16036,5 +16036,16 @@
         "image": "https://i.imgur.com/36BPrzs.png",
         "moteur": "V6 3.0L",
         "puissance": "300 ch"
+    },
+    {
+        "nom": "SP",
+        "marque": "Volkswagen",
+        "annee": "1972",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/bxdrcC2.png",
+        "moteur": "F4 1.7L",
+        "puissance": "65 ch"
     }
 ]
