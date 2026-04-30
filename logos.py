@@ -291,5 +291,7 @@ LOGOS = {
     "Lobini": "<:lobini:1499092975387410492>",
     "Hofstetter": "<:hofstetter:1499093689316806828>",
     "Gurgel": "<:gurgel:1499094526801875034>",
-    "Brasinca": "<:brasinca:1499095221156188341>"
+    "Brasinca": "<:brasinca:1499095221156188341>",
+    "TWR": "<:twr:1499343257598033980>",
+    "Bob l'éponge": "<:bob:1499343573684850770>"
 }

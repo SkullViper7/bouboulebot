@@ -16399,5 +16399,27 @@
         "image": "https://i.imgur.com/GKIIzsB.png",
         "moteur": "L6 8.0L",
         "puissance": "225 ch"
+    },
+    {
+        "nom": "Patty Wagon",
+        "marque": "Bob l'éponge",
+        "annee": "2004",
+        "pays": "🎬 Cinéma / TV",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/N8iI7GP.png",
+        "moteur": "V8 à friture",
+        "puissance": "120 ch"
+    },
+    {
+        "nom": "Supercat",
+        "marque": "TWR",
+        "annee": "2024",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Y2duQYK.png",
+        "moteur": "V12 5.6L Compresseur",
+        "puissance": "669 ch"
     }
 ]
