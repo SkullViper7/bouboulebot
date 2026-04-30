@@ -3,6 +3,7 @@ from discord.ext import commands
 import aiohttp
 import random
 import os
+import re
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 import urllib.parse
@@ -233,6 +234,28 @@ async def sortyear(ctx):
     await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont classés **par ordre chronologique**. Fais `!garage` pour admirer l'évolution automobile !")
 #endregion
 
+#region grade
+def calculer_classe_forza(puissance_str):
+    if not puissance_str or puissance_str.lower() in ["inconnu", "inconnue"]:
+        return LOGOS.get("Classe Inconnue", "❓ Non classé")
+    
+    # On extrait uniquement les chiffres
+    nombres = re.findall(r'\d+', puissance_str.replace(' ', ''))
+    if not nombres:
+        return LOGOS.get("Classe Inconnue", "❓ Non classé")
+        
+    ch = int(nombres[0])
+    
+    # Le barème qui va chercher tes émojis personnalisés
+    if ch < 150: return LOGOS.get("Classe D", "🟩 **Classe D**")
+    elif ch < 250: return LOGOS.get("Classe C", "🟦 **Classe C**")
+    elif ch < 400: return LOGOS.get("Classe B", "🟪 **Classe B**")
+    elif ch < 550: return LOGOS.get("Classe A", "🟧 **Classe A**")
+    elif ch < 700: return LOGOS.get("Classe S1", "🟥 **Classe S1**")
+    elif ch < 900: return LOGOS.get("Classe S2", "💎 **Classe S2**")
+    else: return LOGOS.get("Classe X", "👑 **Classe X**")
+#endregion
+
 #region roll
 @bot.command()
 async def roll(ctx):
@@ -309,6 +332,7 @@ async def roll(ctx):
     proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
+    classe_forza = calculer_classe_forza(voiture_gagnee.get('puissance', ''))
     logo = LOGOS.get(voiture_gagnee['marque'], "")
     lignes = [
         voiture_gagnee['nom'],
@@ -324,6 +348,7 @@ async def roll(ctx):
     lignes.append("**⚙️ Spécifications**")
     lignes.append(f"Moteur : {voiture_gagnee.get('moteur', 'Inconnu')}")
     lignes.append(f"Puissance : {voiture_gagnee.get('puissance', 'Inconnue')}")
+    lignes.append(f"Performance : {classe_forza}")
     lignes.append("")
     lignes.append("**Propriétaires :**")
     lignes.append(texte_proprietaires)
@@ -395,6 +420,7 @@ class GaragePagination(discord.ui.View):
         rarete = voiture['rareté']
         couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.blue())
         
+        classe_forza = calculer_classe_forza(voiture.get('puissance', ''))
         logo = LOGOS.get(voiture['marque'], "")
         lignes = [
             voiture['nom'],
@@ -410,6 +436,7 @@ class GaragePagination(discord.ui.View):
         lignes.append("**⚙️ Spécifications**")
         lignes.append(f"Moteur : {voiture.get('moteur', 'Inconnu')}")
         lignes.append(f"Puissance : {voiture.get('puissance', 'Inconnue')}")
+        lignes.append(f"Performance : {classe_forza}")
         lignes.append("")
         lignes.append(f"💳 *Solde : {self.solde} 🪙*")
         
@@ -832,6 +859,7 @@ async def search(ctx, *, recherche: str):
         
         titre_possede = " ✅" if nom_complet in mon_garage else ""
 
+        classe_forza = calculer_classe_forza(modele_trouve.get('puissance', ''))
         logo = LOGOS.get(modele_trouve['marque'], "")
         
         lignes = [
@@ -848,6 +876,7 @@ async def search(ctx, *, recherche: str):
         lignes.append("**⚙️ Spécifications**")
         lignes.append(f"Moteur : {modele_trouve.get('moteur', 'Inconnu')}")
         lignes.append(f"Puissance : {modele_trouve.get('puissance', 'Inconnue')}")
+        lignes.append(f"Performance : {classe_forza}")
         lignes.append("")
         lignes.append("**Propriétaires :**")
         lignes.append(texte_proprietaires)
@@ -1307,6 +1336,7 @@ async def buyroll(ctx):
     proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
+    classe_forza = calculer_classe_forza(voiture_gagnee.get('puissance', ''))
     logo = LOGOS.get(voiture_gagnee['marque'], "")
     lignes = [
         voiture_gagnee['nom'],
@@ -1322,6 +1352,7 @@ async def buyroll(ctx):
     lignes.append("**⚙️ Spécifications**")
     lignes.append(f"Moteur : {voiture_gagnee.get('moteur', 'Inconnu')}")
     lignes.append(f"Puissance : {voiture_gagnee.get('puissance', 'Inconnue')}")
+    lignes.append(f"Performance : {classe_forza}")
     lignes.append("")
     lignes.append("**Propriétaires :**")
     lignes.append(texte_proprietaires)
