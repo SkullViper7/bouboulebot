@@ -16377,5 +16377,16 @@
         "image": "https://i.imgur.com/fPPwtf6.png",
         "moteur": "L6 4.3L",
         "puissance": "180 ch"
+    },
+    {
+        "nom": "770",
+        "marque": "Mercedes-Benz",
+        "annee": "1938",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/hhYg8g2.png",
+        "moteur": "L8 7.7 Compresseur",
+        "puissance": "230 ch"
     }
 ]
