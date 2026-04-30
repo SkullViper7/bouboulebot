@@ -16388,5 +16388,16 @@
         "image": "https://i.imgur.com/hhYg8g2.png",
         "moteur": "L8 7.7 Compresseur",
         "puissance": "230 ch"
+    },
+    {
+        "nom": "8 Litre Boat tail",
+        "marque": "Bentley",
+        "annee": "1931",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/GKIIzsB.png",
+        "moteur": "L6 8.0L",
+        "puissance": "225 ch"
     }
 ]
