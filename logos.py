@@ -255,7 +255,7 @@ LOGOS = {
     "Zenvo": "<:zenvo:1495816102620561590>",
     "ZIL": "<:zil:1495816419743371314>",
     "Zyrus": "<:zyrus:1496204959677419592>",
-    "Austro-Daimler": "Austro-Daimler",
+    "Austro-Daimler": "<:ad:1496207188346011719>",
     "Steyr": "<:steyr:1496209374388027543>",
     "Steyr-Fiat": "<:steyr:1496209374388027543>",
     "Magna Steyr": "<:steyr:1496209374388027543>",
