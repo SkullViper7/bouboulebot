@@ -1063,7 +1063,7 @@ async def profil(ctx, membre: discord.Member = None):
     garage = profil.get("garage", [])
     taille_garage = len(garage)
     valeur_totale = 0
-    comptes = {"🔴": 0, "🟡": 0, "🟣": 0, "🔵": 0, "⚪": 0}
+    comptes = {" 🔴": 0, " 🟡": 0, " 🟣": 0, " 🔵": 0, " ⚪": 0}
     compte_marque_fav = 0
     
     for nom in garage:
@@ -1470,7 +1470,7 @@ async def toplist(ctx):
         taille = len(garage)
         if taille > 0: 
             # On compte les raretés
-            comptes = {"🔴": 0, "🟡": 0, "🟣": 0, "🔵": 0, "⚪": 0}
+            comptes = {" 🔴": 0, " 🟡": 0, " 🟣": 0, " 🔵": 0, " ⚪": 0}
             for nom in garage:
                 emoji = infos_voitures.get(nom, {}).get("emoji", "⚪")
                 if emoji in comptes:
