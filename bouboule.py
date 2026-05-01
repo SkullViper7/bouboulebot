@@ -152,7 +152,6 @@ async def verifier_succes_marque(ctx, user_id, marque):
 #endregion
 
 #region sort
-# NOUVEAU : Fonction universelle pour trier le garage selon les préférences
 def appliquer_tri_garage(garage, preference):
     if not preference:
         return garage
@@ -184,15 +183,41 @@ def appliquer_tri_garage(garage, preference):
         def get_power(nom_voiture):
             puissance_str = voiture_map.get(nom_voiture, {}).get("puissance", "")
             if not puissance_str or puissance_str.lower() in ["inconnu", "inconnue"]:
-                return -1 # On met les inconnus à la fin
+                return -1 
             nombres = re.findall(r'\d+', puissance_str.replace(' ', ''))
             if not nombres:
                 return -1
             return int(nombres[0])
             
-        # Le signe "-" devant get_power permet de faire un tri décroissant
         garage.sort(key=lambda x: (
             -get_power(x),
+            voiture_map.get(x, {}).get("marque", ""),
+            voiture_map.get(x, {}).get("nom", "")
+        ))
+    elif preference == "class":
+        def get_ratio(nom_voiture):
+            voiture = voiture_map.get(nom_voiture, {})
+            puissance_str = voiture.get('puissance', '')
+            masse_str = str(voiture.get('masse_kg', ''))
+            
+            puissance = None
+            if puissance_str and puissance_str.lower() not in ["inconnu", "inconnue"]:
+                nombres_p = re.findall(r'\d+', puissance_str.replace(' ', ''))
+                if nombres_p: puissance = int(nombres_p[0])
+                    
+            masse = None
+            if masse_str and masse_str.lower() not in ["inconnu", "inconnue"]:
+                nombres_m = re.findall(r'\d+', masse_str.replace(' ', ''))
+                if nombres_m: masse = int(nombres_m[0])
+                    
+            if not puissance or not masse or puissance == 0:
+                return 999.0 # On met un ratio énorme pour que les "Inconnus" finissent tout en bas
+                
+            return masse / puissance
+
+        # Tri croissant (du plus petit ratio kg/ch au plus grand)
+        garage.sort(key=lambda x: (
+            get_ratio(x),
             voiture_map.get(x, {}).get("marque", ""),
             voiture_map.get(x, {}).get("nom", "")
         ))
@@ -266,6 +291,23 @@ async def sortpower(ctx):
         {"$set": {"garage": garage, "sort_preference": "power"}}
     )
     await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont classés **par ordre de puissance (du plus au moins puissant)**. Fais `!garage` pour admirer tes monstres !")
+
+@bot.command(aliases=["sortc", "trierclasse", "trier_classe", "sortratio"])
+async def sortclass(ctx):
+    user_id = str(ctx.author.id)
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    
+    if not profil or not profil.get("garage"):
+        await ctx.send(f"❌ Ton garage est vide, {ctx.author.mention} ! Rien à trier.")
+        return
+        
+    garage = appliquer_tri_garage(profil["garage"], "class")
+    
+    await collection_inventaires.update_one(
+        {"_id": user_id}, 
+        {"$set": {"garage": garage, "sort_preference": "class"}}
+    )
+    await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont classés **par classe de performance (du meilleur ratio Poids/Puissance au pire)**. Fais `!garage` pour admirer l'élite de ta collection !")
 #endregion
 
 #region grade
@@ -1802,6 +1844,9 @@ async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
         vainqueur_id, perdant_id = target_id, user_id
 
     # 7. Transfert de la cagnotte
+    cagnotte_totale = montant * 2
+
+    # L'argent n'étant pas retiré des comptes au départ, on fait un simple transfert net
     await collection_inventaires.update_one({"_id": vainqueur_id}, {"$inc": {"coins": montant}})
     await collection_inventaires.update_one({"_id": perdant_id}, {"$inc": {"coins": -montant}})
 
@@ -1810,10 +1855,10 @@ async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
     
     embed_fin = discord.Embed(
         title="🏆 ARRIVÉE ! 🏆", 
-        description=f"{piste_a}\n\n{piste_b}\n\n🎉 **{gagnant.mention} remporte la course et encaisse {montant} 🪙 !**", 
+        description=f"{piste_a}\n\n{piste_b}\n\n🎉 **{gagnant.mention} remporte la course et rafle la cagnotte de {cagnotte_totale} 🪙 !**", 
         color=discord.Color.green()
     )
-    embed_fin.set_footer(text=f"Le pauvre {perdant.display_name} rentre chez lui en bus...")
+    embed_fin.set_footer(text=f"Le pauvre {perdant.display_name} rentre chez lui en bus avec -{montant} 🪙...")
     
     await course_msg.edit(embed=embed_fin)
 
