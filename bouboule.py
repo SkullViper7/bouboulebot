@@ -1286,7 +1286,7 @@ async def cmd(ctx):
         inline=False
     )
     embed.add_field(
-        name="🏁 `!race @pseudo \"Ma Voiture\" [montant]`", 
+        name="🏁 `!race @pseudo [montant]` \"Ma Voiture\"", 
         value="Provoque un joueur en duel sur une course ! Le vainqueur rafle la mise. *(Alias: !course, !duel)*", 
         inline=False
     )
