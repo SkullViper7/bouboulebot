@@ -389,6 +389,7 @@ async def roll(ctx):
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
     classe_forza = calculer_classe_forza(voiture_gagnee)
+    masse = voiture_gagnee.get('masse_kg', 'Inconnu')
     logo = LOGOS.get(voiture_gagnee['marque'], "")
     lignes = [
         voiture_gagnee['nom'],
@@ -404,7 +405,7 @@ async def roll(ctx):
     lignes.append("**⚙️ Spécifications**")
     lignes.append(f"Moteur : {voiture_gagnee.get('moteur', 'Inconnu')}")
     lignes.append(f"Puissance : {voiture_gagnee.get('puissance', 'Inconnue')}")
-    lignes.append(f"Poids : {voiture_gagnee.get('masse_kg', 'Inconnue')}")
+    lignes.append(f"Poids : {masse} kg" if masse != "Inconnu" else "Poids : Inconnu")
     lignes.append(classe_forza)
     lignes.append("")
     lignes.append("**Propriétaires :**")
@@ -478,6 +479,7 @@ class GaragePagination(discord.ui.View):
         couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.blue())
         
         classe_forza = calculer_classe_forza(voiture)
+        masse = voiture.get('masse_kg', 'Inconnu')
         logo = LOGOS.get(voiture['marque'], "")
         lignes = [
             voiture['nom'],
@@ -493,7 +495,7 @@ class GaragePagination(discord.ui.View):
         lignes.append("**⚙️ Spécifications**")
         lignes.append(f"Moteur : {voiture.get('moteur', 'Inconnu')}")
         lignes.append(f"Puissance : {voiture.get('puissance', 'Inconnue')}")
-        lignes.append(f"Poids : {voiture.get('masse_kg', 'Inconnue')}")
+        lignes.append(f"Poids : {masse} kg" if masse != "Inconnu" else "Poids : Inconnu")
         lignes.append(classe_forza)
         lignes.append("")
         lignes.append(f"💳 *Solde : {self.solde} 🪙*")
@@ -587,7 +589,8 @@ async def garage(ctx, cible_ou_page: Union[discord.Member, int] = None, page_dem
                 "rareté": voiture_info["rareté"],
                 # --- LA CORRECTION EST ICI ---
                 "moteur": voiture_info.get("moteur", "Inconnu"),
-                "puissance": voiture_info.get("puissance", "Inconnue")
+                "puissance": voiture_info.get("puissance", "Inconnue"),
+                "masse_kg": voiture_info.get("masse_kg", "Inconnu")
             })
         else:
             pages_voitures.append({
@@ -600,7 +603,8 @@ async def garage(ctx, cible_ou_page: Union[discord.Member, int] = None, page_dem
                 "rareté": "Inconnue",
                 # --- ET ICI ---
                 "moteur": "Inconnu",
-                "puissance": "Inconnue"
+                "puissance": "Inconnue",
+                "masse_kg": "Inconnu"
             })
             
     # L'index Python commence à 0 (Page 1 = Index 0)
@@ -918,6 +922,7 @@ async def search(ctx, *, recherche: str):
         titre_possede = " ✅" if nom_complet in mon_garage else ""
 
         classe_forza = calculer_classe_forza(modele_trouve)
+        masse = modele_trouve.get('masse_kg', 'Inconnu')
         logo = LOGOS.get(modele_trouve['marque'], "")
         
         lignes = [
@@ -934,7 +939,7 @@ async def search(ctx, *, recherche: str):
         lignes.append("**⚙️ Spécifications**")
         lignes.append(f"Moteur : {modele_trouve.get('moteur', 'Inconnu')}")
         lignes.append(f"Puissance : {modele_trouve.get('puissance', 'Inconnue')}")
-        lignes.append(f"Poids : {modele_trouve.get('masse_kg', 'Inconnue')}")
+        lignes.append(f"Poids : {masse} kg" if masse != "Inconnu" else "Poids : Inconnu")
         lignes.append(classe_forza)
         lignes.append("")
         lignes.append("**Propriétaires :**")
@@ -1396,6 +1401,7 @@ async def buyroll(ctx):
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
     classe_forza = calculer_classe_forza(voiture_gagnee.get('puissance', ''))
+    masse = voiture_gagnee.get('masse_kg', 'Inconnu')
     logo = LOGOS.get(voiture_gagnee['marque'], "")
     lignes = [
         voiture_gagnee['nom'],
@@ -1411,7 +1417,7 @@ async def buyroll(ctx):
     lignes.append("**⚙️ Spécifications**")
     lignes.append(f"Moteur : {voiture_gagnee.get('moteur', 'Inconnu')}")
     lignes.append(f"Puissance : {voiture_gagnee.get('puissance', 'Inconnue')}")
-    lignes.append(f"Poids : {voiture_gagnee.get('masse_kg', 'Inconnue')}")
+    lignes.append(f"Poids : {masse} kg" if masse != "Inconnu" else "Poids : Inconnu")
     lignes.append(classe_forza)
     lignes.append("")
     lignes.append("**Propriétaires :**")
