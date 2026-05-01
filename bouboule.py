@@ -1766,8 +1766,8 @@ async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
         route_restante = "➖" * (LONGUEUR_PISTE - pos_int)
         route_parcourue = "➖" * pos_int
         
-        return f"**{pseudo}** ({voiture})\n🏁{route_parcourue}{emoji_voiture}{route_restante}🟩"
-
+        return f"**{pseudo}** ({voiture})\n🏁{route_restante}{emoji_voiture}{route_parcourue}🟩"
+    
     course_msg = await ctx.send("🚦 *Les moteurs vrombissent...*")
     await asyncio.sleep(2)
     
