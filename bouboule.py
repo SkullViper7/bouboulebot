@@ -1215,7 +1215,7 @@ async def cmd(ctx):
         inline=False
     )
     embed.add_field(
-        name="🗂️ `!sortrarity` / `!sortbrand` / `!sortyear` /'!sortpower' /'!sortclass'", 
+        name="🗂️ `!sortrarity` / `!sortbrand` / `!sortyear` /`!sortpower` /`!sortclass`", 
         value="Trie ton garage par ordre de rareté, par marque, par puissance, par rapport poids/puissance ou chronologiquement par année de sortie.", 
         inline=False
     )
