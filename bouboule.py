@@ -1243,7 +1243,11 @@ async def cmd(ctx):
         value="Affiche la marque de tes rêves sur ta carte de profil.", 
         inline=False
     )
-    
+    embed.add_field(
+        name="🏁 `!race @pseudo \"Ma Voiture\" [montant]`", 
+        value="Provoque un joueur en duel sur une course ! Le vainqueur rafle la mise. *(Alias: !course, !duel)*", 
+        inline=False
+    )
     embed.set_footer(text="Développé avec amour (et un peu de cambouis) ⚙️")
     embed.set_thumbnail(url=bot.user.avatar.url if bot.user.avatar else None)
 
@@ -1637,6 +1641,176 @@ async def wishlist(ctx, membre: discord.Member = None):
         color=discord.Color.gold()
     )
     await ctx.send(embed=embed)
+#endregion
+
+#region race
+def obtenir_ratio(nom_complet):
+    # Cherche la voiture dans le catalogue global
+    voiture = next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom_complet), None)
+    if not voiture:
+        return 10.0 # Ratio par défaut si introuvable (voiture très moyenne)
+        
+    puissance_str = voiture.get('puissance', '')
+    masse_str = str(voiture.get('masse_kg', ''))
+    
+    puissance = None
+    if puissance_str and puissance_str.lower() not in ["inconnu", "inconnue"]:
+        nombres_p = re.findall(r'\d+', puissance_str.replace(' ', ''))
+        if nombres_p: puissance = int(nombres_p[0])
+            
+    masse = None
+    if masse_str and masse_str.lower() not in ["inconnu", "inconnue"]:
+        nombres_m = re.findall(r'\d+', masse_str.replace(' ', ''))
+        if nombres_m: masse = int(nombres_m[0])
+            
+    if not puissance or not masse or puissance == 0:
+        return 10.0 # Ratio moyen par défaut
+        
+    return masse / puissance
+
+@bot.command(aliases=["course", "duel"])
+async def race(ctx, membre: discord.Member, ma_voiture: str, montant: int):
+    # 1. Vérifications de base
+    if ctx.author == membre:
+        return await ctx.send("❌ Tu ne peux pas faire la course contre toi-même !")
+    if montant <= 0:
+        return await ctx.send("❌ La mise doit être supérieure à 0 🪙.")
+
+    user_id = str(ctx.author.id)
+    target_id = str(membre.id)
+
+    profil_user = await collection_inventaires.find_one({"_id": user_id})
+    profil_target = await collection_inventaires.find_one({"_id": target_id})
+
+    # Vérification des soldes et du garage
+    solde_user = profil_user.get("coins", 0) if profil_user else 0
+    solde_target = profil_target.get("coins", 0) if profil_target else 0
+
+    if solde_user < montant:
+        return await ctx.send(f"❌ Tu n'as pas assez d'argent ! Il te manque **{montant - solde_user} 🪙**.")
+    if solde_target < montant:
+        return await ctx.send(f"❌ {membre.display_name} n'a pas assez d'argent pour couvrir cette mise (Solde: {solde_target} 🪙).")
+    
+    garage_user = profil_user.get("garage", []) if profil_user else []
+    if ma_voiture not in garage_user:
+        return await ctx.send(f"❌ Tu ne possèdes pas la voiture **{ma_voiture}** dans ton garage !")
+
+    # 2. Invitation
+    msg_invite = await ctx.send(
+        f"🏁 **DÉFI STREET RACING !** 🏁\n"
+        f"{membre.mention}, {ctx.author.mention} te provoque en duel pour **{montant} 🪙** avec sa **{ma_voiture}** !\n"
+        f"*Accepte avec ✅ ou fuis lâchement avec ❌.*"
+    )
+    await msg_invite.add_reaction("✅")
+    await msg_invite.add_reaction("❌")
+
+    def check_reaction(reaction, user):
+        return user == membre and str(reaction.emoji) in ["✅", "❌"] and reaction.message.id == msg_invite.id
+
+    try:
+        reaction, user = await bot.wait_for('reaction_add', timeout=45.0, check=check_reaction)
+        if str(reaction.emoji) == "❌":
+            return await ctx.send(f"💨 {membre.display_name} a refusé la course.")
+    except asyncio.TimeoutError:
+        return await ctx.send(f"⏳ Le temps est écoulé, {membre.display_name} n'a pas répondu à l'invitation.")
+
+    # 3. Le Défenseur choisit sa voiture
+    await ctx.send(f"🔥 Défi accepté ! {membre.mention}, tu as **30 secondes** pour écrire le nom **exact** du modèle que tu veux engager :")
+
+    def check_message(m):
+        return m.author == membre and m.channel == ctx.channel
+
+    try:
+        msg_reponse = await bot.wait_for('message', timeout=30.0, check=check_message)
+        sa_voiture = msg_reponse.content.strip()
+    except asyncio.TimeoutError:
+        return await ctx.send(f"⏳ Trop lent pour choisir la voiture... La course est annulée !")
+
+    garage_target = profil_target.get("garage", []) if profil_target else []
+    
+    # Vérification sensible à la casse
+    voiture_exacte = next((v for v in garage_target if v.lower() == sa_voiture.lower()), None)
+    if not voiture_exacte:
+        return await ctx.send(f"❌ Désolé {membre.mention}, mais je n'ai pas trouvé **{sa_voiture}** dans ton garage. Course annulée !")
+    sa_voiture = voiture_exacte
+
+    # 4. Calcul des performances (Poids / Puissance)
+    ratio_a = obtenir_ratio(ma_voiture)
+    ratio_b = obtenir_ratio(sa_voiture)
+
+    # Plus le ratio est bas, plus la base de vitesse est élevée. (Limité entre 1 et 12)
+    vitesse_base_a = max(1.0, min(12.0, 15.0 - ratio_a))
+    vitesse_base_b = max(1.0, min(12.0, 15.0 - ratio_b))
+
+    # 5. Lancement visuel de la course
+    LONGUEUR_PISTE = 25
+    pos_a = 0.0
+    pos_b = 0.0
+
+    def generer_piste(pos, pseudo, voiture, emoji_voiture):
+        pos_int = int(pos)
+        if pos_int > LONGUEUR_PISTE: pos_int = LONGUEUR_PISTE
+        route_avant = "➖" * pos_int
+        route_apres = "➖" * (LONGUEUR_PISTE - pos_int)
+        return f"**{pseudo}** ({voiture})\n🏁{route_apres}{emoji_voiture}{route_avant}🟩"
+
+    course_msg = await ctx.send("🚦 *Les moteurs vrombissent...*")
+    await asyncio.sleep(2)
+    
+    # Boucle de course
+    tour = 0
+    while pos_a < LONGUEUR_PISTE and pos_b < LONGUEUR_PISTE and tour < 15:
+        # Avancée = Vitesse de base + Facteur chance RNG
+        pos_a += (vitesse_base_a / 2.5) + random.uniform(0.5, 3.5)
+        pos_b += (vitesse_base_b / 2.5) + random.uniform(0.5, 3.5)
+
+        # Affichage
+        piste_a = generer_piste(pos_a, ctx.author.display_name, ma_voiture, "🏎️")
+        piste_b = generer_piste(pos_b, membre.display_name, sa_voiture, "🚙")
+        
+        embed = discord.Embed(title="🚨 COURSE EN COURS 🚨", description=f"{piste_a}\n\n{piste_b}", color=discord.Color.orange())
+        await course_msg.edit(content=None, embed=embed)
+        
+        tour += 1
+        await asyncio.sleep(1.5) # Temps de pause entre chaque frame de la course
+
+    # 6. Détermination du vainqueur
+    gagnant = None
+    perdant = None
+    vainqueur_id = None
+    perdant_id = None
+
+    if pos_a >= LONGUEUR_PISTE and pos_b >= LONGUEUR_PISTE:
+        # Égalité très rare, on départage à la virgule près
+        if pos_a >= pos_b:
+            gagnant, perdant = ctx.author, membre
+            vainqueur_id, perdant_id = user_id, target_id
+        else:
+            gagnant, perdant = membre, ctx.author
+            vainqueur_id, perdant_id = target_id, user_id
+    elif pos_a >= LONGUEUR_PISTE:
+        gagnant, perdant = ctx.author, membre
+        vainqueur_id, perdant_id = user_id, target_id
+    else:
+        gagnant, perdant = membre, ctx.author
+        vainqueur_id, perdant_id = target_id, user_id
+
+    # 7. Transfert de la cagnotte
+    await collection_inventaires.update_one({"_id": vainqueur_id}, {"$inc": {"coins": montant}})
+    await collection_inventaires.update_one({"_id": perdant_id}, {"$inc": {"coins": -montant}})
+
+    # Piste finale
+    piste_a = generer_piste(pos_a, ctx.author.display_name, ma_voiture, "🏎️")
+    piste_b = generer_piste(pos_b, membre.display_name, sa_voiture, "🚙")
+    
+    embed_fin = discord.Embed(
+        title="🏆 ARRIVÉE ! 🏆", 
+        description=f"{piste_a}\n\n{piste_b}\n\n🎉 **{gagnant.mention} remporte la course et encaisse {montant} 🪙 !**", 
+        color=discord.Color.green()
+    )
+    embed_fin.set_footer(text=f"Le pauvre {perdant.display_name} rentre chez lui en bus...")
+    
+    await course_msg.edit(embed=embed_fin)
 #endregion
 
 # 4. Lancement

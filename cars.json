@@ -3771,10 +3771,10 @@
         "nom": "Speed 6 Blue Train",
         "marque": "Bentley",
         "annee": "1930",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/sGQjYgc.png",
         "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/sGQjYgc.png",
         "moteur": "L6 6.5L",
         "puissance": "180 ch",
         "masse_kg": "2000"
