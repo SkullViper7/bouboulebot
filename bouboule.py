@@ -1754,27 +1754,29 @@ async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
     vitesse_base_a = max(1.0, min(12.0, 15.0 - ratio_a))
     vitesse_base_b = max(1.0, min(12.0, 15.0 - ratio_b))
 
-    # 5. Lancement visuel de la course
-    LONGUEUR_PISTE = 40 # On allonge la piste de 25 à 40 !
+# 5. Lancement visuel de la course
+    LONGUEUR_PISTE = 20 # Réduit à 20 pour que ça rentre parfaitement sur une seule ligne !
     pos_a = 0.0
     pos_b = 0.0
 
     def generer_piste(pos, pseudo, voiture, emoji_voiture):
         pos_int = int(pos)
         if pos_int > LONGUEUR_PISTE: pos_int = LONGUEUR_PISTE
-        route_avant = "➖" * pos_int
-        route_apres = "➖" * (LONGUEUR_PISTE - pos_int)
-        return f"**{pseudo}** ({voiture})\n🏁{route_apres}{emoji_voiture}{route_avant}🟩"
+        
+        # Le sens de la course : Départ (gauche) -> Voiture -> Ligne d'arrivée (droite)
+        route_parcourue = "➖" * pos_int
+        route_restante = "➖" * (LONGUEUR_PISTE - pos_int)
+        
+        return f"**{pseudo}** ({voiture})\n🏁{route_parcourue}{emoji_voiture}{route_restante}🏁"
 
     course_msg = await ctx.send("🚦 *Les moteurs vrombissent...*")
     await asyncio.sleep(2)
     
     tour = 0
-    # On autorise jusqu'à 30 tours de boucle max
     while pos_a < LONGUEUR_PISTE and pos_b < LONGUEUR_PISTE and tour < 30:
-        # On divise fortement l'avancée par tour pour augmenter le nombre d'étapes
-        pos_a += (vitesse_base_a / 4.0) + random.uniform(0.2, 1.5)
-        pos_b += (vitesse_base_b / 4.0) + random.uniform(0.2, 1.5)
+        # Vitesse d'avancée ralentie pour compenser la piste plus courte
+        pos_a += (vitesse_base_a / 4.0) + random.uniform(0.1, 0.8)
+        pos_b += (vitesse_base_b / 4.0) + random.uniform(0.1, 0.8)
 
         piste_a = generer_piste(pos_a, ctx.author.display_name, ma_voiture_exacte, "🏎️")
         piste_b = generer_piste(pos_b, membre.display_name, sa_voiture_exacte, "🚙")
@@ -1783,10 +1785,8 @@ async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
         await course_msg.edit(content=None, embed=embed)
         
         tour += 1
-        # On réduit un tout petit peu la pause à 1.2s (le minimum syndical pour que Discord ne bloque pas le bot)
-        await asyncio.sleep(1.2) 
+        await asyncio.sleep(1.2)
 
-    
     # 6. Détermination du vainqueur
     if pos_a >= LONGUEUR_PISTE and pos_b >= LONGUEUR_PISTE:
         if pos_a >= pos_b:
