@@ -269,25 +269,47 @@ async def sortpower(ctx):
 #endregion
 
 #region grade
-def calculer_classe_forza(puissance_str):
-    if not puissance_str or puissance_str.lower() in ["inconnu", "inconnue"]:
-        return LOGOS.get("Classe Inconnue", "❓ Non classé")
+def calculer_classe_forza(voiture):
+    puissance_str = voiture.get('puissance', '')
+    masse_str = str(voiture.get('masse_kg', ''))
     
-    # On extrait uniquement les chiffres
-    nombres = re.findall(r'\d+', puissance_str.replace(' ', ''))
-    if not nombres:
+    # 1. Extraction de la puissance (en ch)
+    puissance = None
+    if puissance_str and puissance_str.lower() not in ["inconnu", "inconnue"]:
+        nombres_p = re.findall(r'\d+', puissance_str.replace(' ', ''))
+        if nombres_p:
+            puissance = int(nombres_p[0])
+            
+    # 2. Extraction de la masse (en kg)
+    masse = None
+    if masse_str and masse_str.lower() not in ["inconnu", "inconnue"]:
+        nombres_m = re.findall(r'\d+', masse_str.replace(' ', ''))
+        if nombres_m:
+            masse = int(nombres_m[0])
+            
+    # Si l'une des deux données manque, on ne peut pas calculer le ratio
+    if not puissance or not masse or puissance == 0:
         return LOGOS.get("Classe Inconnue", "❓ Non classé")
         
-    ch = int(nombres[0])
+    # 3. Calcul du Rapport Poids/Puissance (kg/ch)
+    # Plus le ratio est bas, meilleure est l'accélération
+    ratio = masse / puissance
     
-    # Le barème qui va chercher tes émojis personnalisés
-    if ch < 150: return LOGOS.get("Classe D", "🟩 **Classe D**")
-    elif ch < 250: return LOGOS.get("Classe C", "🟦 **Classe C**")
-    elif ch < 400: return LOGOS.get("Classe B", "🟪 **Classe B**")
-    elif ch < 550: return LOGOS.get("Classe A", "🟧 **Classe A**")
-    elif ch < 700: return LOGOS.get("Classe S1", "🟥 **Classe S1**")
-    elif ch < 900: return LOGOS.get("Classe S2", "💎 **Classe S2**")
-    else: return LOGOS.get("Classe X", "👑 **Classe X**")
+    # 4. Barème inversé (basé sur le kg/ch)
+    if ratio >= 10.0: 
+        return LOGOS.get("Classe D", "🟩 **Classe D**")
+    elif ratio >= 7.0: 
+        return LOGOS.get("Classe C", "🟦 **Classe C**")
+    elif ratio >= 4.5: 
+        return LOGOS.get("Classe B", "🟪 **Classe B**")
+    elif ratio >= 3.0: 
+        return LOGOS.get("Classe A", "🟧 **Classe A**")
+    elif ratio >= 2.0: 
+        return LOGOS.get("Classe S1", "🟥 **Classe S1**")
+    elif ratio >= 1.2: 
+        return LOGOS.get("Classe S2", "💎 **Classe S2**")
+    else: 
+        return LOGOS.get("Classe X", "👑 **Classe X**")
 #endregion
 
 #region roll
@@ -366,7 +388,7 @@ async def roll(ctx):
     proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
-    classe_forza = calculer_classe_forza(voiture_gagnee.get('puissance', ''))
+    classe_forza = calculer_classe_forza(voiture_gagnee)
     logo = LOGOS.get(voiture_gagnee['marque'], "")
     lignes = [
         voiture_gagnee['nom'],
@@ -454,7 +476,7 @@ class GaragePagination(discord.ui.View):
         rarete = voiture['rareté']
         couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.blue())
         
-        classe_forza = calculer_classe_forza(voiture.get('puissance', ''))
+        classe_forza = calculer_classe_forza(voiture)
         logo = LOGOS.get(voiture['marque'], "")
         lignes = [
             voiture['nom'],
@@ -893,7 +915,7 @@ async def search(ctx, *, recherche: str):
         
         titre_possede = " ✅" if nom_complet in mon_garage else ""
 
-        classe_forza = calculer_classe_forza(modele_trouve.get('puissance', ''))
+        classe_forza = calculer_classe_forza(modele_trouve)
         logo = LOGOS.get(modele_trouve['marque'], "")
         
         lignes = [
@@ -1370,7 +1392,7 @@ async def buyroll(ctx):
     proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
-    classe_forza = calculer_classe_forza(voiture_gagnee.get('puissance', ''))
+    classe_forza = calculer_classe_forza(voiture_gagnee)
     logo = LOGOS.get(voiture_gagnee['marque'], "")
     lignes = [
         voiture_gagnee['nom'],
