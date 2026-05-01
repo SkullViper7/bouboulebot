@@ -180,6 +180,23 @@ def appliquer_tri_garage(garage, preference):
             voiture_map.get(x, {}).get("marque", ""),
             voiture_map.get(x, {}).get("nom", "")
         ))
+    elif preference == "power":
+        def get_power(nom_voiture):
+            puissance_str = voiture_map.get(nom_voiture, {}).get("puissance", "")
+            if not puissance_str or puissance_str.lower() in ["inconnu", "inconnue"]:
+                return -1 # On met les inconnus à la fin
+            nombres = re.findall(r'\d+', puissance_str.replace(' ', ''))
+            if not nombres:
+                return -1
+            return int(nombres[0])
+            
+        # Le signe "-" devant get_power permet de faire un tri décroissant
+        garage.sort(key=lambda x: (
+            -get_power(x),
+            voiture_map.get(x, {}).get("marque", ""),
+            voiture_map.get(x, {}).get("nom", "")
+        ))
+        
     return garage
 
 @bot.command(aliases=["sortr", "trierrarte", "trier_rarete"])
@@ -232,6 +249,23 @@ async def sortyear(ctx):
         {"$set": {"garage": garage, "sort_preference": "year"}}
     )
     await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont classés **par ordre chronologique**. Fais `!garage` pour admirer l'évolution automobile !")
+
+@bot.command(aliases=["sortp", "trierpuissance", "trier_puissance"])
+async def sortpower(ctx):
+    user_id = str(ctx.author.id)
+    profil = await collection_inventaires.find_one({"_id": user_id})
+    
+    if not profil or not profil.get("garage"):
+        await ctx.send(f"❌ Ton garage est vide, {ctx.author.mention} ! Rien à trier.")
+        return
+        
+    garage = appliquer_tri_garage(profil["garage"], "power")
+    
+    await collection_inventaires.update_one(
+        {"_id": user_id}, 
+        {"$set": {"garage": garage, "sort_preference": "power"}}
+    )
+    await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont classés **par ordre de puissance (du plus au moins puissant)**. Fais `!garage` pour admirer tes monstres !")
 #endregion
 
 #region grade
@@ -1109,8 +1143,8 @@ async def cmd(ctx):
         inline=False
     )
     embed.add_field(
-        name="🗂️ `!sortrarity` / `!sortbrand` / `!sortyear`", 
-        value="Trie ton garage par ordre de rareté, par marque, ou chronologiquement par année de sortie.", 
+        name="🗂️ `!sortrarity` / `!sortbrand` / `!sortyear` /'!sortpower", 
+        value="Trie ton garage par ordre de rareté, par marque, par puissance, ou chronologiquement par année de sortie.", 
         inline=False
     )
     embed.add_field(
