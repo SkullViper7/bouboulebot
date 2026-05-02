@@ -1446,7 +1446,7 @@ async def buyroll(ctx):
     proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
 
-    classe_forza = calculer_classe_forza(voiture_gagnee.get('puissance', ''))
+    classe_forza = calculer_classe_forza(voiture_gagnee)
     masse = voiture_gagnee.get('masse_kg', 'Inconnu')
     logo = LOGOS.get(voiture_gagnee['marque'], "")
     lignes = [
