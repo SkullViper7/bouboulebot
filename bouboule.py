@@ -394,6 +394,7 @@ async def roll(ctx):
 
     voiture_gagnee = random.choices(voitures_disponibles, weights=poids_disponibles, k=1)[0]
     nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']} {voiture_gagnee.get('annee', '')}".strip()
+    print(f"[LOG 🎰] {ctx.author.name} a obtenu : {nom_complet_gagnee}")
 
     rarete = voiture_gagnee['rareté']
     prix_base = PRIX_REVENTE.get(rarete, 50)
@@ -1419,6 +1420,7 @@ async def buyroll(ctx):
 
     voiture_gagnee = random.choices(voitures_disponibles, weights=poids_disponibles, k=1)[0]
     nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']} {voiture_gagnee.get('annee', '')}".strip()
+    print(f"[LOG 🎰] {ctx.author.name} a obtenu : {nom_complet_gagnee}")
     rarete = voiture_gagnee['rareté']
 
     # NOUVEAU : Application du tri automatique sur le nouveau garage
