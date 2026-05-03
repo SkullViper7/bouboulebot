@@ -17914,5 +17914,89 @@
         "moteur": "V12 5.6L Compresseur",
         "puissance": "669 ch",
         "masse_kg": "1605"
+    },
+    {
+        "nom": "Le Mans GTR",
+        "marque": "Gordon Murray",
+        "annee": "2026",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/lLQRazW.png",
+        "moteur": "V12 3.9L",
+        "puissance": "650 ch",
+        "masse_kg": "956"
+    },
+    {
+        "nom": "F300",
+        "marque": "Mercedes-Benz",
+        "annee": "1997",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/WktaqOF.jpeg",
+        "moteur": "L4 1.6L",
+        "puissance": "102 ch",
+        "masse_kg": "800"
+    },
+    {
+        "nom": "Humvee 6x6 \"Hellcat\"",
+        "marque": "Danton Arts Kustoms",
+        "annee": "2023",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/9bTIuu9.png",
+        "moteur": "V8 6.2L Compresseur",
+        "puissance": "717 ch",
+        "masse_kg": "881"
+    },
+    {
+        "nom": "Le Mans Coupe",
+        "marque": "MacMinn",
+        "annee": "1958",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/cIDvuzE.png",
+        "moteur": "V8 4.6L",
+        "puissance": "290 ch",
+        "masse_kg": "900"
+    },
+    {
+        "nom": "Beast",
+        "marque": "John Dodd",
+        "annee": "1970",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/UyGkXgy.png",
+        "moteur": "V12 27L",
+        "puissance": "950 ch",
+        "masse_kg": "2250"
+    },
+    {
+        "nom": "Design 1",
+        "marque": "Jannarelly",
+        "annee": "2016",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/5MLrTSk.png",
+        "moteur": "V6 3.5L",
+        "puissance": "325 ch",
+        "masse_kg": "810"
+    },
+    {
+        "nom": "Design 1 Roadster",
+        "marque": "Jannarelly",
+        "annee": "2016",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/cAXILhY.png",
+        "moteur": "V6 3.5L",
+        "puissance": "325 ch",
+        "masse_kg": "810"
     }
 ]
