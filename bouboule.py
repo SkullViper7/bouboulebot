@@ -1120,6 +1120,8 @@ async def profil(ctx, membre: discord.Member = None):
         
     # 1. Récupération de l'argent et de la marque favorite
     solde = profil.get("coins", 0)
+    elo = profil.get("elo", 1000)
+    rank_full_display = get_elo_rank(elo)
     favorite_brand = profil.get("favorite_brand")
     
     # 2. Préparation du dictionnaire pour calculer la valeur, les raretés et les marques
@@ -1188,6 +1190,8 @@ async def profil(ctx, membre: discord.Member = None):
     # Ajout des champs
     embed.add_field(name="💰 Portefeuille", value=f"**{solde}** 🪙", inline=True)
     embed.add_field(name="💎 Valeur du Garage", value=f"**{valeur_totale}** 🪙", inline=True)
+    embed.add_field(name="🏎️ Rang Compétitif", value=rank_full_display, inline=False)
+    embed.add_field(name="📊 Score ELO", value=f"**{elo}** points", inline=True)
     
     embed.add_field(name="⭐ Marque Favorite", value=texte_favori, inline=False)
     embed.add_field(name="🚗 Collection", value=f"**{taille_garage}** véhicules\n*{details_str}*", inline=False)
@@ -1291,7 +1295,11 @@ async def cmd(ctx):
         value="Provoque un joueur en duel sur une course ! Le vainqueur rafle la mise. *(Alias: !course, !duel)*", 
         inline=False
     )
-    embed.set_footer(text="Développé avec amour (et un peu de cambouis) ⚙️")
+    embed.add_field(
+        name="📊 `!ranks`", 
+        value="Affiche la liste des rangs compétitifs et les points Elo requis pour les atteindre.", 
+        inline=False
+    )
     embed.set_thumbnail(url=bot.user.avatar.url if bot.user.avatar else None)
 
     await ctx.send(embed=embed)
@@ -1532,6 +1540,7 @@ async def toplist(ctx):
     top_coins = sorted(profils, key=lambda x: x.get("coins", 0), reverse=True)[:10]
     top_garage = sorted(profils, key=lambda x: len(x.get("garage", [])), reverse=True)[:10]
     top_valeur = sorted(profils, key=lambda x: x.get("valeur_garage", 0), reverse=True)[:10]
+    top_elo = sorted(profils, key=lambda x: x.get("elo", 1000), reverse=True)[:10]
 
     # --- Colonne 1 : Argent ---
     texte_coins = ""
@@ -1579,6 +1588,18 @@ async def toplist(ctx):
     if not texte_valeur:
         texte_valeur = "Aucun patrimoine ! 📉\n"
 
+    texte_elo = ""
+    for i, profil in enumerate(top_elo, 1):
+        elo = profil.get('elo', 1000)
+        # On extrait juste le logo pour le top (en appelant get_elo_rank et en prenant le début)
+        logo_rank = get_elo_rank(elo).split("**")[0].strip()
+        
+        if elo > 1000:
+            texte_elo += f"**{i}.** {logo_rank} <@{profil['_id']}> : **{elo}**\n"
+            
+    if not texte_elo:
+        texte_elo = "Personne n'a encore fait ses preuves sur l'asphalte ! 🛣️\n"
+
     # --- Création de l'affichage ---
     embed = discord.Embed(
         title="🏆 Classement Officiel du Serveur",
@@ -1588,6 +1609,7 @@ async def toplist(ctx):
     
     # NOUVEAU : inline=False permet à chaque catégorie de prendre toute la largeur !
     embed.add_field(name="💰 Top Richesse", value=texte_coins, inline=False)
+    embed.add_field(name="🏁 Top Pilotes (Elo)", value=texte_elo, inline=False)
     embed.add_field(name="🚗 Top Collection", value=texte_garage, inline=False)
     embed.add_field(name="💎 Valeur Garage", value=texte_valeur, inline=False)
     
@@ -1687,6 +1709,38 @@ async def wishlist(ctx, membre: discord.Member = None):
     await ctx.send(embed=embed)
 #endregion
 
+#region ranks
+@bot.command(aliases=["ranklist", "elos", "grades"])
+async def ranks(ctx):
+    # Récupération des logos depuis ton fichier custom (ou emojis de secours)
+    logo_bronze = LOGOS.get("Bronze", "🟫")
+    logo_argent = LOGOS.get("Argent", "⬜")
+    logo_or = LOGOS.get("Or", "🟨")
+    logo_platine = LOGOS.get("Platine", "🟦")
+    logo_diamant = LOGOS.get("Diamant", "💎")
+    logo_ruby = LOGOS.get("Ruby", "🔴")
+
+    # Formatage de la liste (du plus haut au plus bas)
+    description = (
+        f"{logo_ruby} **Ruby** : 1900 Elo et +\n\n"
+        f"{logo_diamant} **Diamant** : 1700 - 1899 Elo\n\n"
+        f"{logo_platine} **Platine** : 1500 - 1699 Elo\n\n"
+        f"{logo_or} **Or** : 1300 - 1499 Elo\n\n"
+        f"{logo_argent} **Argent** : 1100 - 1299 Elo\n\n"
+        f"{logo_bronze} **Bronze** : 0 - 1099 Elo *(Score de départ : 1000)*"
+    )
+
+    embed = discord.Embed(
+        title="🏁 Rangs Compétitifs (Street Racing)",
+        description="Voici les différents paliers d'Elo à franchir pour dominer le serveur :\n\n" + description,
+        color=discord.Color.red()
+    )
+    
+    embed.set_footer(text="Gagne des courses en duel (!race) pour monter en grade !")
+    
+    await ctx.send(embed=embed)
+#endregion
+
 #region race
 def obtenir_ratio(nom_complet):
     voiture = next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom_complet), None)
@@ -1711,9 +1765,32 @@ def obtenir_ratio(nom_complet):
         
     return masse / puissance
 
+def get_elo_rank(elo):
+    if elo < 1100:
+        rank_name = "Bronze"
+        emoji_alt = "🟫"
+    elif elo < 1300:
+        rank_name = "Argent"
+        emoji_alt = "⬜"
+    elif elo < 1500:
+        rank_name = "Or"
+        emoji_alt = "🟨"
+    elif elo < 1700:
+        rank_name = "Platine"
+        emoji_alt = "🟦"
+    elif elo < 1900:
+        rank_name = "Diamant"
+        emoji_alt = "💎"
+    else:
+        rank_name = "Ruby"
+        emoji_alt = "🔴"
+
+    # On récupère le logo custom, sinon on utilise l'émoji par défaut
+    logo = LOGOS.get(rank_name, emoji_alt)
+    return f"{logo} **{rank_name}**"
+
 @bot.command(aliases=["course", "duel"])
 async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
-    # 1. Vérifications de base
     if ctx.author == membre:
         return await ctx.send("❌ Tu ne peux pas faire la course contre toi-même !")
     if montant <= 0:
@@ -1735,7 +1812,6 @@ async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
     
     garage_user = profil_user.get("garage", []) if profil_user else []
     
-    # RECHERCHE INTELLIGENTE POUR L'ATTAQUANT
     recherche_a = ma_voiture.lower().strip()
     voitures_trouvees_a = [v for v in garage_user if recherche_a in v.lower()]
     
@@ -1747,7 +1823,6 @@ async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
         
     ma_voiture_exacte = voitures_trouvees_a[0]
 
-    # 2. Invitation
     msg_invite = await ctx.send(
         f"🏁 **DÉFI STREET RACING !** 🏁\n"
         f"{membre.mention}, {ctx.author.mention} te provoque en duel pour **{montant} 🪙** avec sa **{ma_voiture_exacte}** !\n"
@@ -1766,7 +1841,6 @@ async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
     except asyncio.TimeoutError:
         return await ctx.send(f"⏳ Le temps est écoulé, {membre.display_name} n'a pas répondu à l'invitation.")
 
-    # 3. Le Défenseur choisit sa voiture
     await ctx.send(f"🔥 Défi accepté ! {membre.mention}, tu as **45 secondes** pour écrire le nom du modèle que tu veux engager :")
 
     def check_message(m):
@@ -1780,7 +1854,6 @@ async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
 
     garage_target = profil_target.get("garage", []) if profil_target else []
     
-    # RECHERCHE INTELLIGENTE POUR LE DÉFENSEUR
     voitures_trouvees_b = [v for v in garage_target if sa_recherche in v.lower()]
     
     if not voitures_trouvees_b:
@@ -1791,15 +1864,13 @@ async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
         
     sa_voiture_exacte = voitures_trouvees_b[0]
 
-    # 4. Calcul des performances (Poids / Puissance)
     ratio_a = obtenir_ratio(ma_voiture_exacte)
     ratio_b = obtenir_ratio(sa_voiture_exacte)
 
     vitesse_base_a = max(1.0, min(12.0, 15.0 - ratio_a))
     vitesse_base_b = max(1.0, min(12.0, 15.0 - ratio_b))
 
-# 5. Lancement visuel de la course
-    LONGUEUR_PISTE = 20 # Réduit à 20 pour que ça rentre parfaitement sur une seule ligne !
+    LONGUEUR_PISTE = 20
     pos_a = 0.0
     pos_b = 0.0
 
@@ -1811,13 +1882,12 @@ async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
         route_parcourue = "➖" * pos_int
         
         return f"**{pseudo}** ({voiture})\n🏁{route_restante}{emoji_voiture}{route_parcourue}🟩"
-    
+
     course_msg = await ctx.send("🚦 *Les moteurs vrombissent...*")
     await asyncio.sleep(2)
     
     tour = 0
     while pos_a < LONGUEUR_PISTE and pos_b < LONGUEUR_PISTE and tour < 30:
-        # Vitesse d'avancée ralentie pour compenser la piste plus courte
         pos_a += (vitesse_base_a / 4.0) + random.uniform(0.1, 0.8)
         pos_b += (vitesse_base_b / 4.0) + random.uniform(0.1, 0.8)
 
@@ -1845,19 +1915,57 @@ async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
         gagnant, perdant = membre, ctx.author
         vainqueur_id, perdant_id = target_id, user_id
 
-    # 7. Transfert de la cagnotte
+    # 7. Transfert de la cagnotte et calcul ELO
     cagnotte_totale = montant * 2
 
-    # L'argent n'étant pas retiré des comptes au départ, on fait un simple transfert net
-    await collection_inventaires.update_one({"_id": vainqueur_id}, {"$inc": {"coins": montant}})
-    await collection_inventaires.update_one({"_id": perdant_id}, {"$inc": {"coins": -montant}})
+    # Récupération des Elos (1000 par défaut)
+    elo_user = profil_user.get("elo", 1000) if profil_user else 1000
+    elo_target = profil_target.get("elo", 1000) if profil_target else 1000
+
+    # Formule mathématique d'Elo
+    K = 32
+    esp_user = 1 / (1 + 10 ** ((elo_target - elo_user) / 400))
+    esp_target = 1 / (1 + 10 ** ((elo_user - elo_target) / 400))
+
+    if vainqueur_id == user_id:
+        nouveau_elo_user = int(elo_user + K * (1 - esp_user))
+        nouveau_elo_target = int(elo_target + K * (0 - esp_target))
+    else:
+        nouveau_elo_user = int(elo_user + K * (0 - esp_user))
+        nouveau_elo_target = int(elo_target + K * (1 - esp_target))
+
+    diff_user = nouveau_elo_user - elo_user
+    diff_target = nouveau_elo_target - elo_target
+
+    signe_user = "+" if diff_user >= 0 else ""
+    signe_target = "+" if diff_target >= 0 else ""
+
+    # Sauvegarde BDD
+    await collection_inventaires.update_one(
+        {"_id": user_id}, 
+        {"$inc": {"coins": montant if vainqueur_id == user_id else -montant}, "$set": {"elo": nouveau_elo_user}}
+    )
+    await collection_inventaires.update_one(
+        {"_id": target_id}, 
+        {"$inc": {"coins": montant if vainqueur_id == target_id else -montant}, "$set": {"elo": nouveau_elo_target}}
+    )
+
+    # Récupération des noms de Rangs pour l'affichage final
+    rank_display_user = get_elo_rank(nouveau_elo_user)
+    rank_display_target = get_elo_rank(nouveau_elo_target)
 
     piste_a = generer_piste(pos_a, ctx.author.display_name, ma_voiture_exacte, "🏎️")
     piste_b = generer_piste(pos_b, membre.display_name, sa_voiture_exacte, "🚙")
     
     embed_fin = discord.Embed(
         title="🏆 ARRIVÉE ! 🏆", 
-        description=f"{piste_a}\n\n{piste_b}\n\n🎉 **{gagnant.mention} remporte la course et rafle la cagnotte de {cagnotte_totale} 🪙 !**", 
+        description=(
+            f"{piste_a}\n"
+            f"📈 {rank_display_user} : **{nouveau_elo_user}** Elo ({signe_user}{diff_user})\n\n"
+            f"{piste_b}\n"
+            f"📉 {rank_display_target} : **{nouveau_elo_target}** Elo ({signe_target}{diff_target})\n\n"
+            f"🎉 **{gagnant.mention} remporte la course et rafle {cagnotte_totale} 🪙 !**"
+        ), 
         color=discord.Color.green()
     )
     embed_fin.set_footer(text=f"Le pauvre {perdant.display_name} rentre chez lui en bus avec -{montant} 🪙...")
