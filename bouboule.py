@@ -1922,17 +1922,23 @@ async def race(ctx, membre: discord.Member, montant: int, *, ma_voiture: str):
     elo_user = profil_user.get("elo", 1000) if profil_user else 1000
     elo_target = profil_target.get("elo", 1000) if profil_target else 1000
 
-    # Formule mathématique d'Elo
-    K = 32
+    # NOUVEAU : Formule d'Elo Asymétrique (On gagne plus qu'on ne perd)
+    K_WIN = 45   # Modificateur de victoire (plus élevé)
+    K_LOSS = 15  # Modificateur de défaite (plus faible)
+
     esp_user = 1 / (1 + 10 ** ((elo_target - elo_user) / 400))
     esp_target = 1 / (1 + 10 ** ((elo_user - elo_target) / 400))
 
     if vainqueur_id == user_id:
-        nouveau_elo_user = int(elo_user + K * (1 - esp_user))
-        nouveau_elo_target = int(elo_target + K * (0 - esp_target))
+        nouveau_elo_user = int(elo_user + K_WIN * (1 - esp_user))
+        nouveau_elo_target = int(elo_target + K_LOSS * (0 - esp_target))
     else:
-        nouveau_elo_user = int(elo_user + K * (0 - esp_user))
-        nouveau_elo_target = int(elo_target + K * (1 - esp_target))
+        nouveau_elo_user = int(elo_user + K_LOSS * (0 - esp_user))
+        nouveau_elo_target = int(elo_target + K_WIN * (1 - esp_target))
+
+    # Sécurité : On empêche l'Elo de descendre en dessous de 0
+    nouveau_elo_user = max(0, nouveau_elo_user)
+    nouveau_elo_target = max(0, nouveau_elo_target)
 
     diff_user = nouveau_elo_user - elo_user
     diff_target = nouveau_elo_target - elo_target
