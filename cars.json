@@ -3699,10 +3699,10 @@
         "nom": "DBR9",
         "marque": "Aston Martin",
         "annee": "2006",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/U8aATYc.png",
         "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/U8aATYc.png",
         "moteur": "V12 6.0L",
         "puissance": "600 ch",
         "masse_kg": "1100"
