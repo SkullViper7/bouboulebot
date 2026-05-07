@@ -734,11 +734,11 @@
     {
         "nom": "Fairlady Z 432",
         "marque": "Nissan",
-        "rareté": "Commun ⚪",
-        "poids": 100,
-        "image": "https://bringatrailer.com/wp-content/uploads/2023/12/1971_datsun_fairlady-z-432_mark_brinker_1971_datsun_z432-1-08946.jpg",
         "annee": "1969",
         "pays": "🇯🇵 Japon",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/1FUrNNj.png",
         "moteur": "L6 2.0L",
         "puissance": "160 ch",
         "masse_kg": "1040"
@@ -1118,11 +1118,11 @@
     {
         "nom": "Fairlady Z 300ZX",
         "marque": "Nissan",
-        "rareté": "Commun ⚪",
-        "poids": 100,
-        "image": "https://preview.redd.it/nqj3oppo2k351.jpg?auto=webp&s=beead77c298457795cdc3f92d1d4b32c2dee5d8c",
         "annee": "1989",
         "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://preview.redd.it/nqj3oppo2k351.jpg?auto=webp&s=beead77c298457795cdc3f92d1d4b32c2dee5d8c",
         "moteur": "V6 3.0L Bi-Turbo",
         "puissance": "280 ch",
         "masse_kg": "1520"
@@ -1694,11 +1694,11 @@
     {
         "nom": "ZX Rally Raid",
         "marque": "Citroën",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://images.caradisiac.com/logos/8/2/2/1/288221/S0-qui-veut-l-ancienne-zx-rallye-raid-d-ari-vatanen-215181.jpg",
         "annee": "1991",
         "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/l0nZuDo.png",
         "moteur": "L4 2.5L Turbo",
         "puissance": "300 ch",
         "masse_kg": "1450"
