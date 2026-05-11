@@ -182,11 +182,11 @@
     {
         "nom": "919 Hybrid",
         "marque": "Porsche",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://www.flat6mag.com/wp-content/uploads/2021/03/fooytrfcb.jpg",
         "annee": "2016",
         "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/o9d6NpP.png",
         "moteur": "V4 2.0L Turbo Hybride",
         "puissance": "900 ch",
         "masse_kg": "875"
@@ -17421,7 +17421,7 @@
         "image": "https://i.imgur.com/ljNXeGT.png",
         "moteur": "L3 0.6L",
         "puissance": "27 ch",
-        "masse_kg": "Inco530nnu"
+        "masse_kg": "530"
     },
     {
         "nom": "Alfa Ferrari",
