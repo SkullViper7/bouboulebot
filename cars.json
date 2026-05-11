@@ -554,11 +554,11 @@
     {
         "nom": "4C",
         "marque": "Alfa Romeo",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://www.automotivpress.fr/wp-content/uploads/2014/03/AR_4C_Spider_01.jpg",
         "annee": "2013",
         "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://www.automotivpress.fr/wp-content/uploads/2014/03/AR_4C_Spider_01.jpg",
         "moteur": "L4 1.7L Turbo",
         "puissance": "240 ch",
         "masse_kg": "895"
