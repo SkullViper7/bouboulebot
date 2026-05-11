@@ -4755,10 +4755,10 @@
         "nom": "3500 GT",
         "marque": "Maserati",
         "annee": "1957",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/klZswDa.png",
         "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/klZswDa.png",
         "moteur": "L6 3.5L",
         "puissance": "220 ch",
         "masse_kg": "1420"

@@ -14,6 +14,7 @@ import asyncio
 import math
 import time
 from flask import Flask
+from phrases import PHRASES_RACE, PHRASES_VICTOIRE, PHRASES_INTRO
 from threading import Thread
 from datetime import datetime, timedelta
 try:
@@ -1992,6 +1993,10 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
     LONGUEUR_PISTE = 20
     pos_a = 0.0
     pos_b = 0.0
+    
+    # NOUVEAU : On pioche l'intro au hasard
+    phrase_intro = random.choice(PHRASES_INTRO)
+    dernier_commentaire = phrase_intro
 
     def generer_piste(pos, pseudo, voiture, emoji_voiture):
         pos_int = int(pos)
@@ -2000,7 +2005,7 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
         route_parcourue = "➖" * pos_int
         return f"**{pseudo}** ({voiture})\n🏁{route_restante}{emoji_voiture}{route_parcourue}🟩"
 
-    course_msg = await ctx.send("🚦 *Les moteurs vrombissent...*")
+    course_msg = await ctx.send(phrase_intro)
     await asyncio.sleep(2)
     
     tour = 0
@@ -2008,10 +2013,19 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
         pos_a += (vitesse_base_a / 4.0) + random.uniform(0.1, 0.8)
         pos_b += (vitesse_base_b / 4.0) + random.uniform(0.1, 0.8)
 
+        # Générer un nouveau commentaire tous les 3 tours
+        if tour > 0 and tour % 3 == 0:
+            commentateur = random.choice([ctx.author.display_name, membre.display_name])
+            dernier_commentaire = f"🎙️ *{random.choice(PHRASES_RACE).format(pseudo=commentateur)}*"
+
         piste_a = generer_piste(pos_a, ctx.author.display_name, ma_voiture_exacte, "🏎️")
         piste_b = generer_piste(pos_b, membre.display_name, sa_voiture_exacte, "🚙")
         
-        embed = discord.Embed(title=f"🚨 COURSE EN COURS (Classe {classe_voulue}) 🚨", description=f"{piste_a}\n\n{piste_b}", color=discord.Color.orange())
+        embed = discord.Embed(
+            title=f"🚨 COURSE EN COURS (Classe {classe_voulue}) 🚨", 
+            description=f"{piste_a}\n\n{piste_b}\n\n{dernier_commentaire}", 
+            color=discord.Color.orange()
+        )
         await course_msg.edit(content=None, embed=embed)
         
         tour += 1
@@ -2074,6 +2088,8 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
     piste_a = generer_piste(pos_a, ctx.author.display_name, ma_voiture_exacte, "🏎️")
     piste_b = generer_piste(pos_b, membre.display_name, sa_voiture_exacte, "🚙")
     
+    phrase_finale = random.choice(PHRASES_VICTOIRE).format(gagnant=gagnant.display_name)
+
     embed_fin = discord.Embed(
         title="🏆 ARRIVÉE ! 🏆", 
         description=(
@@ -2081,11 +2097,12 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
             f"📈 {rank_display_user} : **{nouveau_elo_user}** Elo ({signe_user}{diff_user})\n\n"
             f"{piste_b}\n"
             f"📉 {rank_display_target} : **{nouveau_elo_target}** Elo ({signe_target}{diff_target})\n\n"
-            f"🎉 **{gagnant.mention} remporte la course et rafle {cagnotte_totale} 🪙 !**"
+            f"{phrase_finale}\n"
+            f"💰 **{gagnant.mention} rafle la cagnotte de {cagnotte_totale} 🪙 !**"
         ), 
         color=discord.Color.green()
     )
-    embed_fin.set_footer(text=f"Le pauvre {perdant.display_name} rentre chez lui en bus avec -{montant} 🪙...")
+    embed_fin.set_footer(text=f"Le pauvre {perdant.display_name} rentre chez lui avec -{montant} 🪙...")
     
     await course_msg.edit(embed=embed_fin)
 
