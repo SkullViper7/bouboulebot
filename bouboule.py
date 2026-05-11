@@ -1813,9 +1813,48 @@ def get_elo_rank(elo):
         rank_name = "Ruby"
         emoji_alt = "🔴"
 
-    # On récupère le logo custom, sinon on utilise l'émoji par défaut
     logo = LOGOS.get(rank_name, emoji_alt)
     return f"{logo} **{rank_name}**"
+
+# NOUVEAU : Système de pagination pour la sélection de voitures
+class RaceSelectionPagination(discord.ui.View):
+    def __init__(self, ctx, user, pages, titre):
+        super().__init__(timeout=120)
+        self.ctx = ctx
+        self.user = user # L'utilisateur autorisé à cliquer (attaquant ou défenseur)
+        self.pages = pages
+        self.titre = titre
+        self.current_page = 0
+        self.update_buttons()
+
+    def update_buttons(self):
+        self.bouton_prec.disabled = len(self.pages) <= 1
+        self.bouton_suiv.disabled = len(self.pages) <= 1
+
+    def get_embed(self):
+        embed = discord.Embed(
+            title=self.titre,
+            description=self.pages[self.current_page],
+            color=discord.Color.orange()
+        )
+        embed.set_footer(text=f"Page {self.current_page + 1}/{len(self.pages)} | Tape le numéro de ton choix dans le chat !")
+        return embed
+
+    @discord.ui.button(label="◀️", style=discord.ButtonStyle.secondary, custom_id="race_prec")
+    async def bouton_prec(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user != self.user:
+            return await interaction.response.send_message("Ce n'est pas à ton tour de choisir !", ephemeral=True)
+        self.current_page = (self.current_page - 1) % len(self.pages)
+        self.update_buttons()
+        await interaction.response.edit_message(embed=self.get_embed(), view=self)
+
+    @discord.ui.button(label="▶️", style=discord.ButtonStyle.secondary, custom_id="race_suiv")
+    async def bouton_suiv(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user != self.user:
+            return await interaction.response.send_message("Ce n'est pas à ton tour de choisir !", ephemeral=True)
+        self.current_page = (self.current_page + 1) % len(self.pages)
+        self.update_buttons()
+        await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
 @bot.command(aliases=["course", "duel"])
 async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
@@ -1861,21 +1900,27 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
     if not voitures_b:
         return await ctx.send(f"❌ Duel impossible : {membre.display_name} ne possède aucune voiture de **Classe {classe_voulue}**.")
 
-    # 3. Choix de l'Attaquant
-    avertissement_a = "\n*(Seules tes 30 premières voitures s'affichent)*" if len(voitures_a) > 30 else ""
-    voitures_a_display = voitures_a[:30]
-
-    liste_a = "\n".join([f"**{i+1}.** {v}" for i, v in enumerate(voitures_a_display)])
-    msg_select_a = await ctx.send(f"🏁 **Duel en Classe {classe_voulue}**\n{ctx.author.mention}, choisis ta voiture en tapant son numéro :\n\n{liste_a}{avertissement_a}")
+    # 3. Choix de l'Attaquant (Avec Pagination)
+    lignes_a = [f"**{i+1}.** {v}" for i, v in enumerate(voitures_a)]
+    pages_a = ["\n".join(lignes_a[i:i + 15]) for i in range(0, len(lignes_a), 15)]
+    titre_a = f"🏁 Duel en Classe {classe_voulue} - Choix de {ctx.author.display_name}"
+    
+    view_a = RaceSelectionPagination(ctx, ctx.author, pages_a, titre_a)
+    msg_select_a = await ctx.send(
+        content=f"{ctx.author.mention}, choisis ta voiture en tapant son numéro dans le chat :",
+        embed=view_a.get_embed(), 
+        view=view_a
+    )
 
     def check_msg_a(m): return m.author == ctx.author and m.channel == ctx.channel and m.content.isdigit()
 
     try:
-        msg_resp_a = await bot.wait_for('message', timeout=30.0, check=check_msg_a)
+        # Temps augmenté à 60s
+        msg_resp_a = await bot.wait_for('message', timeout=60.0, check=check_msg_a)
         choix_idx_a = int(msg_resp_a.content) - 1
-        if not (0 <= choix_idx_a < len(voitures_a_display)): 
+        if not (0 <= choix_idx_a < len(voitures_a)): 
             return await ctx.send("❌ Numéro invalide. Course annulée.")
-        ma_voiture_exacte = voitures_a_display[choix_idx_a]
+        ma_voiture_exacte = voitures_a[choix_idx_a]
         
         # Nettoyage
         try:
@@ -1908,21 +1953,27 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
     except asyncio.TimeoutError:
         return await ctx.send(f"⏳ Le temps est écoulé, {membre.display_name} n'a pas répondu à l'invitation.")
 
-    # 5. Choix du Défenseur
-    avertissement_b = "\n*(Seules tes 30 premières voitures s'affichent)*" if len(voitures_b) > 30 else ""
-    voitures_b_display = voitures_b[:30]
-
-    liste_b = "\n".join([f"**{i+1}.** {v}" for i, v in enumerate(voitures_b_display)])
-    msg_select_b = await ctx.send(f"🔥 Défi accepté ! {membre.mention}, choisis ta voiture de **Classe {classe_voulue}** (tape le numéro) :\n\n{liste_b}{avertissement_b}")
+    # 5. Choix du Défenseur (Avec Pagination)
+    lignes_b = [f"**{i+1}.** {v}" for i, v in enumerate(voitures_b)]
+    pages_b = ["\n".join(lignes_b[i:i + 15]) for i in range(0, len(lignes_b), 15)]
+    titre_b = f"🔥 Défi accepté ! Choix de {membre.display_name}"
+    
+    view_b = RaceSelectionPagination(ctx, membre, pages_b, titre_b)
+    msg_select_b = await ctx.send(
+        content=f"{membre.mention}, choisis ta voiture de **Classe {classe_voulue}** en tapant son numéro :",
+        embed=view_b.get_embed(), 
+        view=view_b
+    )
 
     def check_msg_b(m): return m.author == membre and m.channel == ctx.channel and m.content.isdigit()
 
     try:
-        msg_resp_b = await bot.wait_for('message', timeout=30.0, check=check_msg_b)
+        # Temps augmenté à 60s
+        msg_resp_b = await bot.wait_for('message', timeout=60.0, check=check_msg_b)
         choix_idx_b = int(msg_resp_b.content) - 1
-        if not (0 <= choix_idx_b < len(voitures_b_display)): 
+        if not (0 <= choix_idx_b < len(voitures_b)): 
             return await ctx.send("❌ Numéro invalide. Duel annulé.")
-        sa_voiture_exacte = voitures_b_display[choix_idx_b]
+        sa_voiture_exacte = voitures_b[choix_idx_b]
         
         try:
             await msg_select_b.delete()
