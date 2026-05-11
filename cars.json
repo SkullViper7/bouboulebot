@@ -17998,5 +17998,41 @@
         "moteur": "V6 3.5L",
         "puissance": "325 ch",
         "masse_kg": "810"
+    },
+    {
+        "nom": "Lucca",
+        "marque": "Auto Union",
+        "annee": "1935",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/phazGfl.png",
+        "moteur": "V16 5.0L Compresseur",
+        "puissance": "375 ch",
+        "masse_kg": "960"
+    },
+    {
+        "nom": "Jay Ohrberg F40 Limousine",
+        "marque": "Ferrari",
+        "annee": "1987",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/rw1caYN.png",
+        "moteur": "V6 2.8L",
+        "puissance": "140 ch",
+        "masse_kg": "Inconnue"
+    },
+    {
+        "nom": "Jay Ohrberg Eldorado Limousine",
+        "marque": "Cadillac",
+        "annee": "1986",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/NyrGFi6.png",
+        "moteur": "V8 8.2L",
+        "puissance": "210 ch",
+        "masse_kg": "Inconnue"
     }
 ]
