@@ -890,11 +890,11 @@
     {
         "nom": "Giulia Sprint GT Veloce",
         "marque": "Alfa Romeo",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://carjager-dev.mo.cloudinary.net/images/production/CJVCL2611251631NYL-exteriors-TrLFxJEGjT6UZ0yF20x7b-giulia?tx=w_640",
         "annee": "1967",
         "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://carjager-dev.mo.cloudinary.net/images/production/CJVCL2611251631NYL-exteriors-TrLFxJEGjT6UZ0yF20x7b-giulia?tx=w_640",
         "moteur": "L4 1.6L",
         "puissance": "109 ch",
         "masse_kg": "950"
