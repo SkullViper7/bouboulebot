@@ -4791,10 +4791,10 @@
         "nom": "GranTurismo",
         "marque": "Maserati",
         "annee": "2007",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/8xw4zVa.png",
         "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/8xw4zVa.png",
         "moteur": "V8 4.7L",
         "puissance": "460 ch",
         "masse_kg": "1880"
