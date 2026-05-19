@@ -18370,5 +18370,29 @@
         "moteur": "EV",
         "puissance": "1548 ch",
         "masse_kg": "2360"
+    },
+    {
+        "nom": "Lotec C1000",
+        "marque": "Lotec",
+        "annee": "1995",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/F9aor7v.png",
+        "moteur": "V8 5.6L Twin-Turbo",
+        "puissance": "1000 ch",
+        "masse_kg": "1080"
+    },
+    {
+        "nom": "Sirius",
+        "marque": "Lotec",
+        "annee": "2001",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/zVOLRL2.png",
+        "moteur": "V12 6.0L Twin-Turbo",
+        "puissance": "1200 ch",
+        "masse_kg": "1280"
     }
 ]
