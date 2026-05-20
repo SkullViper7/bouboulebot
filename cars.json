@@ -18394,5 +18394,65 @@
         "moteur": "V12 6.0L Twin-Turbo",
         "puissance": "1200 ch",
         "masse_kg": "1280"
+    },
+    {
+        "nom": "Azzurro ZC-10",
+        "marque": "DeSimone",
+        "annee": "2026",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/SHHvLZb.png",
+        "moteur": "V10 5.0L",
+        "puissance": "507 ch",
+        "masse_kg": "1000"
+    },
+    {
+        "nom": "964 RWB",
+        "marque": "Porsche",
+        "annee": "1989",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/58cR0xR.png",
+        "moteur": "F6 3.6L",
+        "puissance": "250 ch",
+        "masse_kg": "1150"
+    },
+    {
+        "nom": "Bodo",
+        "marque": "Brabus",
+        "annee": "2026",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/181Xvt1.png",
+        "moteur": "V12 5.2L Bi-Turbo",
+        "puissance": "1000",
+        "masse_kg": "1910"
+    },
+    {
+        "nom": "Goggomobil TS300",
+        "marque": "Glas",
+        "annee": "1957",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/Pva5h7t.jpeg",
+        "moteur": "L2 293cc",
+        "puissance": "15 ch",
+        "masse_kg": "420"
+    },
+    {
+        "nom": "Goggomobil Dart",
+        "marque": "Glas",
+        "annee": "1959",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/i3Nrudu.png",
+        "moteur": "L2 392cc",
+        "puissance": "18.5 ch",
+        "masse_kg": "345"
     }
 ]
