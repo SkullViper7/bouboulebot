@@ -18454,5 +18454,17 @@
         "moteur": "L2 392cc",
         "puissance": "18.5 ch",
         "masse_kg": "345"
+    },
+    {
+        "nom": "F.K.P. Hommage",
+        "marque": "Bugatti",
+        "annee": "2026",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ZARpvMC.png",
+        "moteur": "W16 8.0L Quad-Turbo",
+        "puissance": "1600 ch",
+        "masse_kg": "1950"
     }
 ]
