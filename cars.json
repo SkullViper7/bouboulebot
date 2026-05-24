@@ -18466,5 +18466,29 @@
         "moteur": "W16 8.0L Quad-Turbo",
         "puissance": "1600 ch",
         "masse_kg": "1950"
+    },
+    {
+        "nom": "Futurliner",
+        "marque": "GMC",
+        "annee": "1940",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/BRJ44LP.png",
+        "moteur": "L4 4.7L",
+        "puissance": "160 ch",
+        "masse_kg": "15000"
+    },
+    {
+        "nom": "Ferrari F6",
+        "marque": "Gas Monkey",
+        "annee": "2026",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/pZMK9ua.png",
+        "moteur": "V8 7.0L Compresseur",
+        "puissance": "1200 ch",
+        "masse_kg": "1900"
     }
 ]
