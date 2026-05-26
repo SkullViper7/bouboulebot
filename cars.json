@@ -18490,5 +18490,65 @@
         "moteur": "V8 7.0L Compresseur",
         "puissance": "1200 ch",
         "masse_kg": "1900"
+    },
+    {
+        "nom": "Urania 750 Sport",
+        "marque": "Taraschi",
+        "annee": "1947",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Q5B5J8i.png",
+        "moteur": "L2 0.75L",
+        "puissance": "40 ch",
+        "masse_kg": "400"
+    },
+    {
+        "nom": "Giaur 750 Record",
+        "marque": "Taraschi",
+        "annee": "1954",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/o4ePqCs.png",
+        "moteur": "L4 0.75L Compresseur",
+        "puissance": "115 ch",
+        "masse_kg": "450"
+    },
+    {
+        "nom": "Berardo",
+        "marque": "Taraschi",
+        "annee": "2020",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/mSPIx8x.png",
+        "moteur": "L3 1.5L Turbo Hybride",
+        "puissance": "420 ch",
+        "masse_kg": "1500"
+    },
+    {
+        "nom": "Corvette CX VGT",
+        "marque": "Chevrolet",
+        "annee": "2025",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ifJtPTg.png",
+        "moteur": "EV",
+        "puissance": "1000",
+        "masse_kg": "1250"
+    },
+    {
+        "nom": "Corvette CX R Vision Gran Turismo",
+        "marque": "Chevrolet",
+        "annee": "2025",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Yrzd2qo.png",
+        "moteur": "V8 Twin Turbo Hybride",
+        "puissance": "2067",
+        "masse_kg": "1250"
     }
 ]
