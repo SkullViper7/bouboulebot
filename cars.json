@@ -18550,5 +18550,53 @@
         "moteur": "V8 Twin Turbo Hybride",
         "puissance": "2067",
         "masse_kg": "1250"
+    },
+    {
+        "nom": "A8GCS Berlinetta",
+        "marque": "Touring Superleggera",
+        "annee": "2008",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/aXTJlF6.png",
+        "moteur": "V8 4.2L",
+        "puissance": "400 ch",
+        "masse_kg": "1200"
+    },
+    {
+        "nom": "Arese RH95",
+        "marque": "Touring Superleggera",
+        "annee": "2021",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/bDhbBBV.png",
+        "moteur": "V8 3.9L Twin-Turbo",
+        "puissance": "720 ch",
+        "masse_kg": "1450"
+    },
+    {
+        "nom": "Veloce12",
+        "marque": "Touring Superleggera",
+        "annee": "2024",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/rjVSX2F.png",
+        "moteur": "V12 5.5L",
+        "puissance": "503 ch",
+        "masse_kg": "1480"
+    },
+    {
+        "nom": "Aero 3",
+        "marque": "Touring Superleggera",
+        "annee": "2020",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/dN265uj.png",
+        "moteur": "V12 6.3L",
+        "puissance": "740 ch",
+        "masse_kg": "1645"
     }
 ]
