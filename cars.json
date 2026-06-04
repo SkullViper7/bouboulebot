@@ -18598,5 +18598,17 @@
         "moteur": "V12 6.3L",
         "puissance": "740 ch",
         "masse_kg": "1645"
+    },
+    {
+        "nom": "CD SP66",
+        "marque": "Peugeot",
+        "annee": "1966",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/NYc0AuS.jpeg",
+        "moteur": "L4 1.1L",
+        "puissance": "108 ch",
+        "masse_kg": "565"
     }
 ]
