@@ -1442,11 +1442,11 @@
     {
         "nom": "850CSI",
         "marque": "BMW",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://images.caradisiac.com/logos/9/9/0/5/279905/S7-bmw-serie-8-e31-1989-1999-folie-des-grandeurs-a-munich-des-18-000-eur-205501.jpg",
         "annee": "1995",
         "pays": "🇩🇪 Allemagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/nrDx3AL.png",
         "moteur": "V12 5.6L",
         "puissance": "380 ch",
         "masse_kg": "1865"
@@ -3483,10 +3483,10 @@
         "nom": "Vantage GT12",
         "marque": "Aston Martin",
         "annee": "2015",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/WnwJGEp.png",
         "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/WnwJGEp.png",
         "moteur": "V12 5.9L",
         "puissance": "600 ch",
         "masse_kg": "1565"
