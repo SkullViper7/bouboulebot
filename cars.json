@@ -18730,5 +18730,17 @@
         "moteur": "V8 5.7L",
         "puissance": "400 ch",
         "masse_kg": "1090"
+    },
+    {
+        "nom": "407 Silhouette",
+        "marque": "Peugeot",
+        "annee": "2004",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/LjSCdMZ.png",
+        "moteur": "V6 3.0L",
+        "puissance": "320 ch",
+        "masse_kg": "950"
     }
 ]
