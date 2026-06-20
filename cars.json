@@ -2186,11 +2186,11 @@
     {
         "nom": "905",
         "marque": "Peugeot",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
-        "image": "https://www.lemans.org/media/cache/api_news_large/assets/fileuploads/57/4e/574eddde8c33d.jpeg",
         "annee": "1990",
         "pays": "🇫🇷 France",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://www.lemans.org/media/cache/api_news_large/assets/fileuploads/57/4e/574eddde8c33d.jpeg",
         "moteur": "V10 3.5L",
         "puissance": "670 ch",
         "masse_kg": "750"
@@ -18741,6 +18741,18 @@
         "image": "https://i.imgur.com/LjSCdMZ.png",
         "moteur": "V6 3.0L",
         "puissance": "320 ch",
+        "masse_kg": "950"
+    },
+    {
+        "nom": "JS P3X",
+        "marque": "Ligier",
+        "annee": "2025",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/SX55w3p.png",
+        "moteur": "V8 6.2L",
+        "puissance": "625 ch",
         "masse_kg": "950"
     }
 ]
