@@ -2090,11 +2090,11 @@
     {
         "nom": "GTR R33",
         "marque": "Nissan",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://ecar18.fr/wp-content/uploads/2024/05/Nissan-Skyline-R33.jpeg",
         "annee": "1993",
         "pays": "🇯🇵 Japon",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://ecar18.fr/wp-content/uploads/2024/05/Nissan-Skyline-R33.jpeg",
         "moteur": "L6 2.6L Bi-Turbo",
         "puissance": "280 ch",
         "masse_kg": "1530"
