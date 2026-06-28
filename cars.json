@@ -18850,5 +18850,17 @@
         "moteur": "V6 3.0L Bi-Turbo Hydrogène",
         "puissance": "570 ch",
         "masse_kg": "1000"
+    },
+    {
+        "nom": "Rally Fighter",
+        "marque": "Local Motors",
+        "annee": "2010",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/a5u7mgo.png",
+        "moteur": "V8 6.2L",
+        "puissance": "430 ch",
+        "masse_kg": "1720"
     }
 ]
