@@ -322,5 +322,6 @@ LOGOS = {
     "Taraschi": "<:taraschi:1508911785447657492>",
     "Marcos": "<:marcos:1516148258551103639>",
     "Gotham Garage": "<:gotham:1520816747941331054>",
-    "Local Motors": "<:lm:1520818231315533998>"
+    "Local Motors": "<:lm:1520818231315533998>",
+    "Encor": "<:encor:1524767135576883400>"
 }

@@ -18994,5 +18994,89 @@
         "moteur": "V6 2.8L Bi-Turbo",
         "puissance": "850 ch",
         "masse_kg": "890"
+    },
+    {
+        "nom": "Polo",
+        "marque": "Volkswagen",
+        "annee": "2001",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/dal0dQN.jpeg",
+        "moteur": "L4 1.6L",
+        "puissance": "105 ch",
+        "masse_kg": "1090"
+    },
+    {
+        "nom": "5300 Aperta Lusso",
+        "marque": "Bizzarini",
+        "annee": "2026",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Klswm1m.png",
+        "moteur": "V8 5.3L",
+        "puissance": "400 ch",
+        "masse_kg": "1250"
+    },
+    {
+        "nom": "RB17",
+        "marque": "Redbull",
+        "annee": "2025",
+        "pays": "🇦🇹 Autriche",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/WDb36jj.png",
+        "moteur": "V10 4.5L Hybride",
+        "puissance": "1200 ch",
+        "masse_kg": "900"
+    },
+    {
+        "nom": "Type 101C X",
+        "marque": "Bugatti",
+        "annee": "1965",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/pswn1Vl.jpeg",
+        "moteur": "L8 3.3L Compresseur",
+        "puissance": "190 ch",
+        "masse_kg": "1700"
+    },
+    {
+        "nom": "AREX",
+        "marque": "ASVE",
+        "annee": "1991",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/WzbEt3W.png",
+        "moteur": "V8 5.7L Twin-Turbo",
+        "puissance": "650 ch",
+        "masse_kg": "1180"
+    },
+    {
+        "nom": "A110 DKR",
+        "marque": "Alpine",
+        "annee": "2022",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/esExi2m.png",
+        "moteur": "L4 1.8L Turbo",
+        "puissance": "300 ch",
+        "masse_kg": "1100"
+    },
+    {
+        "nom": "Series 1",
+        "marque": "Encor",
+        "annee": "2025",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/NWlE5Td.png",
+        "moteur": "V8 3.5L Bi-Turbo",
+        "puissance": "400 ch",
+        "masse_kg": "1200"
     }
 ]
