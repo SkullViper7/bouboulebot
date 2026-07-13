@@ -19138,5 +19138,89 @@
         "moteur": "V8 6.75L",
         "puissance": "220 ch",
         "masse_kg": "2300"
+    },
+    {
+        "nom": "Z",
+        "marque": "Denza",
+        "annee": "2026",
+        "pays": "🇨🇳 Chine",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/FJGrI9q.png",
+        "moteur": "EV",
+        "puissance": "1604 ch",
+        "masse_kg": "2250"
+    },
+    {
+        "nom": "CX Tissier Bagagère",
+        "marque": "Citroën",
+        "annee": "1977",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/CYHEbt2.png",
+        "moteur": "L4 2.4L",
+        "puissance": "130 ch",
+        "masse_kg": "1920"
+    },
+    {
+        "nom": "CX Tissier Ambulance",
+        "marque": "Citroën",
+        "annee": "1978",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/UXe7YsR.png",
+        "moteur": "L 2.5L",
+        "puissance": "75 ch",
+        "masse_kg": "2100"
+    },
+    {
+        "nom": "CX Tissier Plateau",
+        "marque": "Citroën",
+        "annee": "1979",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/WSwVJd3.png",
+        "moteur": "L4 2.4L",
+        "puissance": "120 ch",
+        "masse_kg": "1850"
+    },
+    {
+        "nom": "Miura Liberty Walk",
+        "marque": "Lamborghini",
+        "annee": "2018",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/JXxQ3R1.png",
+        "moteur": "L4 3.2L",
+        "puissance": "350 ch",
+        "masse_kg": "1050"
+    },
+    {
+        "nom": "Stratos The Duck",
+        "marque": "Lancia",
+        "annee": "1973",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/aIs665S.png",
+        "moteur": "V6 2.4L",
+        "puissance": "275 ch",
+        "masse_kg": "850"
+    },
+    {
+        "nom": "EB112",
+        "marque": "Bugatti",
+        "annee": "1993",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/a65JiqQ.png",
+        "moteur": "V12 6.0L",
+        "puissance": "460 ch",
+        "masse_kg": "1800"
     }
 ]
