@@ -410,13 +410,13 @@
     {
         "nom": "NSX",
         "marque": "Honda",
+        "annee": "1990",
+        "pays": "🇯🇵 Japon",
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://external-preview.redd.it/aKbTda2IDpLMEHTR7OWhKw8cz-O0dUCTM-LBuRfcCys.jpg?width=640&crop=smart&auto=webp&s=dec8fadba592564a56be9980e1e461a6a705b377",
-        "annee": "1990",
-        "pays": "🇯🇵 Japon",
-        "moteur": "V6 3.5L Bi-Turbo Hybride",
-        "puissance": "581 ch",
+        "moteur": "V6 3.0L",
+        "puissance": "274 ch",
         "masse_kg": "1370"
     },
     {
@@ -19222,5 +19222,41 @@
         "moteur": "V12 6.0L",
         "puissance": "460 ch",
         "masse_kg": "1800"
+    },
+    {
+        "nom": "DS 20 Break",
+        "marque": "Citroën",
+        "annee": "1968",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/QT69rzi.png",
+        "moteur": "L4 2.0L",
+        "puissance": "99 ch",
+        "masse_kg": "1380"
+    },
+    {
+        "nom": "DB2/4 Mk2 Special Roadster",
+        "marque": "Aston Martin",
+        "annee": "1953",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/6EbLxAh.jpeg",
+        "moteur": "L6 2.9L",
+        "puissance": "140 ch",
+        "masse_kg": "1100"
+    },
+    {
+        "nom": "1900 CSS",
+        "marque": "Alfa Romeo",
+        "annee": "1954",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/hRQWqQF.png",
+        "moteur": "L4 2.0L",
+        "puissance": "115 ch",
+        "masse_kg": "1000"
     }
 ]
