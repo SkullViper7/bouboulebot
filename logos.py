@@ -324,5 +324,7 @@ LOGOS = {
     "Gotham Garage": "<:gotham:1520816747941331054>",
     "Local Motors": "<:lm:1520818231315533998>",
     "Encor": "<:encor:1524767135576883400>",
-    "Denza": "<:denza:1526321448191525045>"
+    "Denza": "<:denza:1526321448191525045>",
+    "Panther": "<:panther:1527730585437606150>",
+    "David Brown Automotive": "<:dba:1527732955655442656>"
 }

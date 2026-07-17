@@ -19258,5 +19258,113 @@
         "moteur": "L4 2.0L",
         "puissance": "115 ch",
         "masse_kg": "1000"
+    },
+    {
+        "nom": "J.72",
+        "marque": "Panther",
+        "annee": "1972",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/z2R9I34.png",
+        "moteur": "V12 5.3L",
+        "puissance": "242 ch",
+        "masse_kg": "2200"
+    },
+    {
+        "nom": "De Ville",
+        "marque": "Panther",
+        "annee": "1974",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Hk8A312.png",
+        "moteur": "V12 5.3L",
+        "puissance": "242 ch",
+        "masse_kg": "2200"
+    },
+    {
+        "nom": "6",
+        "marque": "Panther",
+        "annee": "1975",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/nExT02H.png",
+        "moteur": "V8 8.2L Twin-Turbo",
+        "puissance": "600 ch",
+        "masse_kg": "1300"
+    },
+    {
+        "nom": "Lima",
+        "marque": "Panther",
+        "annee": "1976",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/F6ynAZd.png",
+        "moteur": "L4 2.3L",
+        "puissance": "108 ch",
+        "masse_kg": "870"
+    },
+    {
+        "nom": "Solo",
+        "marque": "Panther",
+        "annee": "1989",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/0mqhBZQ.png",
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "204 ch",
+        "masse_kg": "1340"
+    },
+    {
+        "nom": "C28 Aérosport",
+        "marque": "Voisin",
+        "annee": "1935",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/StSxed5.jpeg",
+        "moteur": "L6 3.3L",
+        "puissance": "102 ch",
+        "masse_kg": "1550"
+    },
+    {
+        "nom": "Type 101",
+        "marque": "Bugatti",
+        "annee": "1951",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/aXlE8lY.png",
+        "moteur": "L8 3.3L Compresseur",
+        "puissance": "188 ch",
+        "masse_kg": "1750"
+    },
+    {
+        "nom": "Speedback GT",
+        "marque": "David Brown Automotive",
+        "annee": "2014",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/sf5W7aW.png",
+        "moteur": "V8 5.0L Compresseur",
+        "puissance": "510 ch",
+        "masse_kg": "1800"
+    },
+    {
+        "nom": "XJ13R",
+        "marque": "Jaguar",
+        "annee": "1966",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/IAgsau4.png",
+        "moteur": "V12 5.0L",
+        "puissance": "504 ch",
+        "masse_kg": "998"
     }
 ]
