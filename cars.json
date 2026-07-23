@@ -19426,5 +19426,53 @@
         "moteur": "V8 6.6L",
         "puissance": "400 ch",
         "masse_kg": "1450"
+    },
+    {
+        "nom": "Type 52",
+        "marque": "Auto Union",
+        "annee": "1934",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Y5XgcW8.png",
+        "moteur": "V16 4.4L Compresseur",
+        "puissance": "200 ch",
+        "masse_kg": "1300"
+    },
+    {
+        "nom": "Huayra 70 Derecho",
+        "marque": "Pagani",
+        "annee": "2026",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/SzabxFj.png",
+        "moteur": "V12 6.0L Biturbo",
+        "puissance": "864 ch",
+        "masse_kg": "1280"
+    },
+    {
+        "nom": "Viper SnakeHead",
+        "marque": "Dodge",
+        "annee": "2024",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/3qYcERE.png",
+        "moteur": "V10 7.0L Twin-Turbo",
+        "puissance": "1600 ch",
+        "masse_kg": "1250"
+    },
+    {
+        "nom": "Euphoria",
+        "marque": "Totem",
+        "annee": "2024",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/lR3Q7d6.png",
+        "moteur": "V6 2.8L Biturbo",
+        "puissance": "750 ch",
+        "masse_kg": "1100"
     }
 ]

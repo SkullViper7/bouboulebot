@@ -327,5 +327,6 @@ LOGOS = {
     "Denza": "<:denza:1526321448191525045>",
     "Panther": "<:panther:1527730585437606150>",
     "David Brown Automotive": "<:dba:1527732955655442656>",
-    "Top Gear": "<:topgear:1529199447781675149>"
+    "Top Gear": "<:topgear:1529199447781675149>",
+    "Totem": "<:totem:1529826579507712101>"
 }
