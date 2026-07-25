@@ -19474,5 +19474,65 @@
         "moteur": "V6 2.8L Biturbo",
         "puissance": "750 ch",
         "masse_kg": "1100"
+    },
+    {
+        "nom": "Rina",
+        "marque": "Mignatta",
+        "annee": "2025",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/1a2jYc9.png",
+        "moteur": "V8 5.0L",
+        "puissance": "500 ch",
+        "masse_kg": "1000"
+    },
+    {
+        "nom": "GTZ",
+        "marque": "Porsche",
+        "annee": "2013",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/oIBgKkb.png",
+        "moteur": "V10 5.7L",
+        "puissance": "612 ch",
+        "masse_kg": "1380"
+    },
+    {
+        "nom": "303 Farey Sport Auto",
+        "marque": "Peugeot",
+        "annee": "1990",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/z35JSGG.png",
+        "moteur": "L4 2.0L",
+        "puissance": "250 ch",
+        "masse_kg": "850"
+    },
+    {
+        "nom": "Vivant",
+        "marque": "Pontiac",
+        "annee": "1965",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/iBm4OGr.png",
+        "moteur": "V8 3.5L",
+        "puissance": "155 ch",
+        "masse_kg": "900"
+    },
+    {
+        "nom": "Aurora",
+        "marque": "Zenvo",
+        "annee": "2025",
+        "pays": "🇩🇰 Danemark",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/nnEYUzN.png",
+        "moteur": "V12 6.6L Quad Turbo Hybride",
+        "puissance": "1850 ch",
+        "masse_kg": "1450"
     }
 ]
