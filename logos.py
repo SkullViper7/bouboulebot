@@ -329,5 +329,6 @@ LOGOS = {
     "David Brown Automotive": "<:dba:1527732955655442656>",
     "Top Gear": "<:topgear:1529199447781675149>",
     "Totem": "<:totem:1529826579507712101>",
-    "Mignatta": "<:mignatta:1530647704860889208>"
+    "Mignatta": "<:mignatta:1530647704860889208>",
+    "Briggs & Stratton": "<:bs:1531021489133060249>"
 }
