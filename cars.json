@@ -50,11 +50,11 @@
     {
         "nom": "917K",
         "marque": "Porsche",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
-        "image": "https://www.renaissance-models.com/ter/media/com_hikashop/upload/tk24-208_porsche_917k_gulf_lm70_1.jpg",
         "annee": "1970",
         "pays": "🇩🇪 Allemagne",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://www.renaissance-models.com/ter/media/com_hikashop/upload/tk24-208_porsche_917k_gulf_lm70_1.jpg",
         "moteur": "Flat-12 4.5L",
         "puissance": "580 ch",
         "masse_kg": "800"
@@ -15234,7 +15234,7 @@
         "pays": "🇨🇿 Tchéquie",
         "rareté": "Mythique 🟣",
         "poids": 8,
-        "image": "https://imgur.com/UiIBTD7",
+        "image": "https://i.imgur.com/kmhsMc1.png",
         "moteur": "L4 2.0L Turbo",
         "puissance": "210 ch",
         "masse_kg": "1000"
@@ -15952,8 +15952,8 @@
         "marque": "Gillet",
         "annee": "2004",
         "pays": "🇧🇪 Belgique",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://i.imgur.com/XJ4jHMp.png",
         "moteur": "V6 3.0L",
         "puissance": "360 ch",
@@ -19738,5 +19738,53 @@
         "moteur": "R4",
         "puissance": "1400 ch",
         "masse_kg": "750"
+    },
+    {
+        "nom": "Storm Z-250",
+        "marque": "Dodge",
+        "annee": "1953",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/2aAkI8Z.png",
+        "moteur": "V8 5.2L",
+        "puissance": "260 ch",
+        "masse_kg": "1020"
+    },
+    {
+        "nom": "917 Can-Am",
+        "marque": "Porsche",
+        "annee": "1973",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/PyfsnJE.png",
+        "moteur": "F12 5.4L Twin-Turbo",
+        "puissance": "1500 ch",
+        "masse_kg": "850"
+    },
+    {
+        "nom": "917 Pink Pig",
+        "marque": "Porsche",
+        "annee": "1971",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/74288wJ.png",
+        "moteur": "F12 4.9L",
+        "puissance": "600 ch",
+        "masse_kg": "915"
+    },
+    {
+        "nom": "917 Longtail",
+        "marque": "Porsche",
+        "annee": "1971",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/81IBiHn.jpeg",
+        "moteur": "F12 5.0L",
+        "puissance": "630 ch",
+        "masse_kg": "840"
     }
 ]
