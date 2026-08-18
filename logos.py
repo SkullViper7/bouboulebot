@@ -330,5 +330,8 @@ LOGOS = {
     "Top Gear": "<:topgear:1529199447781675149>",
     "Totem": "<:totem:1529826579507712101>",
     "Mignatta": "<:mignatta:1530647704860889208>",
-    "Briggs & Stratton": "<:bs:1531021489133060249>"
+    "Briggs & Stratton": "<:bs:1531021489133060249>",
+    "Eccentrica": "<:eccentrica:1539373235886366800>",
+    "Marsien": "<:gemballa:1539373562706792498>",
+    "Thornley Kelham": "<:tk:1539373886188032070>"
 }
