@@ -333,5 +333,7 @@ LOGOS = {
     "Briggs & Stratton": "<:bs:1531021489133060249>",
     "Eccentrica": "<:eccentrica:1539373235886366800>",
     "Marsien": "<:gemballa:1539373562706792498>",
-    "Thornley Kelham": "<:tk:1539373886188032070>"
+    "Thornley Kelham": "<:tk:1539373886188032070>",
+    "Piaggio": "<:piaggio:1542082069252018257>",
+    "Lanzante": "<:lanzante:1542083697992532019>"
 }

@@ -1212,7 +1212,7 @@ async def profil(ctx, membre: discord.Member = None):
     # 4. Analyse des succès
     succes = profil.get("succes_marques", [])
     if succes:
-        texte_succes = "\n".join([f"🏆 Collectionneur **{marque}**" for marque in succes])
+        texte_succes = " ".join([LOGOS.get(marque, f"*{marque}*") for marque in succes])
     else:
         texte_succes = "Aucun succès pour le moment. 😢"
 
