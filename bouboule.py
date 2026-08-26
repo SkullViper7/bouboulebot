@@ -1211,24 +1211,15 @@ async def profil(ctx, membre: discord.Member = None):
     
     # 4. Analyse des succès
     succes = profil.get("succes_marques", [])
+    
+    # On calcule le nombre total de marques uniques existantes dans le jeu
+    marques_totales = len(set(v["marque"] for v in VOITURES))
+    
     if succes:
-        texte_succes = ""
-        total_succes = len(succes)
-        
-        for i, marque in enumerate(succes):
-            logo = LOGOS.get(marque, f"*{marque}*")
-            succes_restants = total_succes - i
-            texte_cache = f" **+{succes_restants}**"
-            
-            # On vérifie si le logo actuel + le texte caché éventuel dépasse la limite de 1024 caractères
-            if len(texte_succes) + len(logo) + len(texte_cache) > 1024:
-                texte_succes = texte_succes.strip() + texte_cache
-                break
-                
-            texte_succes += logo + " "
+        texte_succes = f"**{len(succes)}/{marques_totales}** marques"
     else:
-        texte_succes = "Aucun succès pour le moment. 😢"
-        
+        texte_succes = f"0/{marques_totales} marque"
+
     # 5. Formatage de la Marque Favorite avec le COMPTEUR
     if favorite_brand:
         logo_fav = LOGOS.get(favorite_brand, "")
