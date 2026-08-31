@@ -12832,8 +12832,8 @@
         "marque": "Ferrari",
         "annee": "2018",
         "pays": "🇮🇹 Italie",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://i.imgur.com/su7nBVR.png",
         "moteur": "V8 3.9L Bi-Turbo",
         "puissance": "600 ch",
@@ -20098,5 +20098,29 @@
         "moteur": "V8 5.4L Compresseur",
         "puissance": "650 ch",
         "masse_kg": "1551"
+    },
+    {
+        "nom": "Trail Runner",
+        "marque": "Nissan",
+        "annee": "1997",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/4uprXML.png",
+        "moteur": "L4 2.0L",
+        "puissance": "185 ch",
+        "masse_kg": "1280"
+    },
+    {
+        "nom": "Beetle RSI",
+        "marque": "Volkswagen",
+        "annee": "2001",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/LcBYtGj.jpeg",
+        "moteur": "VR6 3.2L",
+        "puissance": "225 ch",
+        "masse_kg": "1515"
     }
 ]
