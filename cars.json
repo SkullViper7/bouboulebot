@@ -20182,5 +20182,17 @@
         "moteur": "EV",
         "puissance": "N/A",
         "masse_kg": "500"
+    },
+    {
+        "nom": "Etoile Filante",
+        "marque": "Renault",
+        "annee": "1956",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/poqK1R4.png",
+        "moteur": "Turbine",
+        "puissance": "270 ch",
+        "masse_kg": "950"
     }
 ]
