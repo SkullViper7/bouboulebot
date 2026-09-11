@@ -335,5 +335,9 @@ LOGOS = {
     "Marsien": "<:gemballa:1539373562706792498>",
     "Thornley Kelham": "<:tk:1539373886188032070>",
     "Piaggio": "<:piaggio:1542082069252018257>",
-    "Lanzante": "<:lanzante:1542083697992532019>"
+    "Lanzante": "<:lanzante:1542083697992532019>",
+    "Abarth": "<:abarth:1547930113818234953>",
+    "Bovensiepen": "<:bovensiepen:1547932466025594910>",
+    "Genesis": "<genesis:1547934993089695799>",
+    "Kindig": "<kindig:1547935672579391551>"
 }
