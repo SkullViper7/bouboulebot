@@ -746,14 +746,14 @@
     {
         "nom": "Delta S4",
         "marque": "Lancia",
-        "rareté": "Légendaire 🟡",
-        "poids": 2,
-        "image": "https://www.auto-forever.com/wp-content/uploads/2023/02/Sport_Delta_S4_Group-B_1986_1.jpg",
         "annee": "1986",
         "pays": "🇮🇹 Italie",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/ILiWws2.png",
         "moteur": "L4 1.8L Compresseur + Turbo",
-        "puissance": "250 ch",
-        "masse_kg": "1200"
+        "puissance": "600 ch",
+        "masse_kg": "890"
     },
     {
         "nom": "S2000",
