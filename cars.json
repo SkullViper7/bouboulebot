@@ -1934,14 +1934,14 @@
     {
         "nom": "037",
         "marque": "Lancia",
-        "rareté": "Légendaire 🟡",
-        "poids": 2,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/LanciaRally037.jpg",
         "annee": "1981",
         "pays": "🇮🇹 Italie",
-        "moteur": "L4 2.0L Compresseur",
-        "puissance": "205 ch",
-        "masse_kg": "1170"
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/kuCGc2m.png",
+        "moteur": "L4 2.1L Compresseur",
+        "puissance": "350 ch",
+        "masse_kg": "980"
     },
     {
         "nom": "LC 500",
