@@ -326,11 +326,11 @@
     {
         "nom": "Countach LP400 S",
         "marque": "Lamborghini",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
-        "image": "https://www.gotothegrid.com/storage/ads/SDeYB1HB1KgPGmuFenu2Yy8AECdTaYBNf4hrVQZm-800.webp",
         "annee": "1978",
         "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/luY7m7G.png",
         "moteur": "V12 3.9L",
         "puissance": "353 ch",
         "masse_kg": "1200"
@@ -5655,10 +5655,10 @@
         "nom": "M3 E92",
         "marque": "BMW",
         "annee": "2007",
+        "pays": "🇩🇪 Allemagne",
         "rareté": "Rare 🔵",
         "poids": 30,
-        "image": "https://i.imgur.com/dzUXhf1.png",
-        "pays": "🇩🇪 Allemagne",
+        "image": "https://i.imgur.com/dR2Q0OA.png",
         "moteur": "V8 4.0L",
         "puissance": "420 ch",
         "masse_kg": "1655"
@@ -14692,8 +14692,8 @@
         "marque": "Peugeot",
         "annee": "1941",
         "pays": "🇫🇷 France",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Commun ⚪",
+        "poids": 100,
         "image": "https://i.imgur.com/fhNGdbr.jpeg",
         "moteur": "Électrique",
         "puissance": "3 ch",
@@ -20313,6 +20313,54 @@
         "image": "https://i.imgur.com/pDKjvz2.png",
         "moteur": "V12 9.2L",
         "puissance": "650 ch",
+        "masse_kg": "N/A"
+    },
+    {
+        "nom": "Alisea",
+        "marque": "Pagani",
+        "annee": "2024",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/s1dwfUZ.png",
+        "moteur": "V12 6.0L",
+        "puissance": "N/A",
+        "masse_kg": "N/A"
+    },
+    {
+        "nom": "Laguna Roadster CC Concept",
+        "marque": "Renault",
+        "annee": "1990",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/oNnfQlI.png",
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "210 ch",
+        "masse_kg": "900"
+    },
+    {
+        "nom": "Magma GT",
+        "marque": "Genesis",
+        "annee": "2025",
+        "pays": "🇰🇷 Corée du Sud",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ymdX6u6.png",
+        "moteur": "V6 Biturbo Hybride",
+        "puissance": "N/A",
+        "masse_kg": "N/A"
+    },
+    {
+        "nom": "X Gran Berlinetta Magma Concept",
+        "marque": "Genesis",
+        "annee": "2023",
+        "pays": "🇰🇷 Corée du Sud",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/OIe0heY.png",
+        "moteur": "V6 3.3L Twin-Turbo Hybride",
+        "puissance": "1071 ch",
         "masse_kg": "N/A"
     }
 ]
