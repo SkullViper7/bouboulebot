@@ -1252,106 +1252,64 @@ async def profil(ctx, membre: discord.Member = None):
 #endregion
 
 #region commandes
-@bot.command(aliases=["commandes", "menu", "aide"])
+@bot.command(aliases=["commandes", "menu", "aide", "help"])
 async def cmd(ctx):
     embed = discord.Embed(
         title="🛠️ Liste des commandes de Bouboule",
-        description="Voici tout ce que je peux faire pour l'instant :",
+        description="Voici tout ce que je peux faire pour t'aider à bâtir le garage ultime :",
         color=discord.Color.blurple()
     )
     
     embed.add_field(
-        name="🎰 `!roll`", 
-        value="Tire une voiture au hasard toutes les 12h.", 
+        name="🎰 Tirages & Souhaits", 
+        value=(
+            "**`!roll`** : Tire une voiture au hasard toutes les 12h (*`!timer` pour voir le délai*).\n"
+            "**`!buyroll`** : Achète un tirage supplémentaire immédiat pour 5000 🪙.\n"
+            "**`!wish [modèle]`** : Ajoute une voiture à ta liste de souhaits (x2 chances de drop).\n"
+            "**`!unwish [modèle]`** : Retire une voiture de la liste.\n"
+            "**`!wishlist`** : Affiche tes souhaits en cours."
+        ),
         inline=False
     )
+    
     embed.add_field(
-        name="🚗 `!garage [@pseudo]`", 
-        value="Affiche ton garage et ton solde. Tu peux mentionner quelqu'un !", 
+        name="💰 Économie & Échanges", 
+        value=(
+            "**`!daily`** : Récupère ton salaire de 500 🪙 toutes les 24h (*`!dtimer` pour le délai*).\n"
+            "**`!solde [@pseudo]`** : Affiche l'argent en banque.\n"
+            "**`!sell [voiture]`** : Vends un de tes modèles au concessionnaire.\n"
+            "**`!trade @pseudo \"Ta Voiture\" \"Sa Voiture\"`** : Propose un échange équitable ou avec compensation (⚠️ *Guillemets obligatoires*)."
+        ),
         inline=False
     )
+    
     embed.add_field(
-        name="🗂️ `!sortrarity` / `!sortbrand` / `!sortyear` /`!sortpower` /`!sortclass`", 
-        value="Trie ton garage par ordre de rareté, par marque, par puissance, par rapport poids/puissance ou chronologiquement par année de sortie.", 
+        name="🚗 Gestion du Garage", 
+        value=(
+            "**`!garage [@pseudo] [page]`** : Affiche ta collection ou celle d'un ami.\n"
+            "**`!sortrarity` / `!sortbrand` / `!sortyear` / `!sortpower` / `!sortclass`** : Trie ton garage selon tes préférences.\n"
+            "**`!search [mot-clé]`** : Cherche un modèle précis, une marque, un pays ou une rareté.\n"
+            "**`!catalogue`** : Affiche le catalogue officiel de toutes les voitures disponibles.\n"
+            "**`!fav [marque]`** : Mets en avant ta marque de cœur sur ton profil."
+        ),
         inline=False
     )
+    
     embed.add_field(
-        name="⏳ `!timer`", 
-        value="Affiche le temps restant avant ton prochain `!roll` gratuit.", 
-        inline=False
-    )
-    embed.add_field(
-        name="🛒 `!sell [Ma voiture]`", 
-        value="Vends ta voiture au concessionnaire contre des 🪙. *(Alias: !vendre)*", 
-        inline=False
-    )
-    embed.add_field(
-        name="🤝 `!trade @pseudo \"Ma Voiture\" \"Sa Voiture\"`", 
-        value="Propose un échange. *N'oublie pas les guillemets !*", 
-        inline=False
-    )
-    embed.add_field(
-        name="🔍 `!voiture [modèle ou marque]`", 
-        value="Cherche une voiture pour voir à quoi elle ressemble. *(Alias: !search)*", 
-        inline=False
-    )
-    embed.add_field(
-        name="📖 `!catalogue`", 
-        value="Affiche la liste complète des voitures disponibles. *(Alias: !liste)*", 
+        name="🏁 Compétition & Profil", 
+        value=(
+            "**`!profil [@pseudo]`** : Affiche la carte de joueur (Stats, Richesse, Score Elo, Succès).\n"
+            "**`!top`** : Affiche les classements du serveur (Richesse, Pilotes, Collection, Valeur).\n"
+            "**`!race @pseudo [mise] [Classe]`** : Provoque un joueur en duel sur une classe (D, C, B, A, S1, S2, X).\n"
+            "**`!ranks`** : Liste les grades compétitifs et les points Elo requis pour monter en ligue."
+        ),
         inline=False
     )
 
-    embed.add_field(
-        name="💸 `!daily`", 
-        value="Récupère ton salaire de 500 🪙 toutes les 24h.", 
-        inline=False
-    )
-    embed.add_field(
-        name="⏱️ `!dailytimer`", 
-        value="Affiche le temps restant avant ton prochain salaire. *(Alias: !dtimer)*", 
-        inline=False
-    )
-    embed.add_field(
-        name="💳 `!solde [@pseudo]`", 
-        value="Regarde combien d'argent tu as en banque. *(Alias: !argent)*", 
-        inline=False
-    )
-    embed.add_field(
-        name="🎟️ `!buyroll`", 
-        value="Achète un tirage supplémentaire immédiat pour 5000 🪙.", 
-        inline=False
-    )
-    embed.add_field(
-        name="🏆 `!top`", 
-        value="Affiche le classement des joueurs les plus riches et des plus gros garages.", 
-        inline=False
-    )
-    embed.add_field(
-        name="🌟 `!wish [voiture]` / `!wishlist`", 
-        value="Ajoute des voitures à ta liste de souhaits pour doubler tes chances de les obtenir !", 
-        inline=False
-    )
-    embed.add_field(
-        name="👤 `!profil [@pseudo]`", 
-        value="Affiche la carte de joueur (Stats, richesse et succès débloqués).", 
-        inline=False
-    )
-    embed.add_field(
-        name="⭐ `!fav [marque]`", 
-        value="Affiche la marque de tes rêves sur ta carte de profil.", 
-        inline=False
-    )
-    embed.add_field(
-        name="🏁 `!race @pseudo [montant] [Classe]`", 
-        value="Provoque un joueur en duel sur une classe précise (D, C, B, A, S1, S2, X) ! *(Alias: !course, !duel)*", 
-        inline=False
-    )
-    embed.add_field(
-        name="📊 `!ranks`", 
-        value="Affiche la liste des rangs compétitifs et les points Elo requis pour les atteindre.", 
-        inline=False
-    )
-    embed.set_thumbnail(url=bot.user.avatar.url if bot.user.avatar else None)
+    if bot.user.avatar:
+        embed.set_thumbnail(url=bot.user.avatar.url)
+        
+    embed.set_footer(text="Astuce : Utilise les commandes sans crochet ni guillemets (sauf pour trade) !")
 
     await ctx.send(embed=embed)
 #endregion
