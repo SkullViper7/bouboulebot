@@ -1524,11 +1524,14 @@ async def buyroll(ctx):
 #region leaderboard
 @bot.command(aliases=["top", "lb", "classement", "leaderboard"])
 async def toplist(ctx):
-    # On récupère tous les profils
-    profils = await collection_inventaires.find({}).to_list(length=1000)
+    # 1. On récupère la liste des IDs (en texte) de tous les membres actuels du serveur
+    membres_serveur_ids = [str(membre.id) for membre in ctx.guild.members]
+
+    # 2. On demande à MongoDB de ne chercher QUE les profils dont l'_id est dans cette liste
+    profils = await collection_inventaires.find({"_id": {"$in": membres_serveur_ids}}).to_list(length=1000)
 
     if not profils:
-        await ctx.send("❌ Aucun joueur n'est enregistré dans la base de données pour le moment !")
+        await ctx.send("❌ Aucun joueur de ce serveur n'est enregistré dans la base de données pour le moment !")
         return
 
     # Dictionnaire pour la valeur ET la rareté (l'émoji) de chaque voiture
@@ -1611,12 +1614,11 @@ async def toplist(ctx):
 
     # --- Création de l'affichage ---
     embed = discord.Embed(
-        title="🏆 Classement Officiel du Serveur",
-        description="Qui dominera le marché automobile ?\n\u200b", # \u200b ajoute un espace vide pour aérer un peu
+        title=f"🏆 Classement Officiel - {ctx.guild.name}", # NOUVEAU : Affiche le nom du serveur
+        description="Qui dominera le marché automobile ici ?\n\u200b", 
         color=discord.Color.gold()
     )
     
-    # NOUVEAU : inline=False permet à chaque catégorie de prendre toute la largeur !
     embed.add_field(name="💰 Top Richesse", value=texte_coins, inline=False)
     embed.add_field(name="🏁 Top Pilotes (Elo)", value=texte_elo, inline=False)
     embed.add_field(name="🚗 Top Collection", value=texte_garage, inline=False)
