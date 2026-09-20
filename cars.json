@@ -20362,5 +20362,17 @@
         "moteur": "V6 3.3L Twin-Turbo Hybride",
         "puissance": "1071 ch",
         "masse_kg": "N/A"
+    },
+    {
+        "nom": "Cosmo Sport 110S",
+        "marque": "Mazda",
+        "annee": "1967",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/y6zd2fk.png",
+        "moteur": "Bi-Rotor 0.98L",
+        "puissance": "110 ch",
+        "masse_kg": "940"
     }
 ]
