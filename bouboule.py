@@ -104,8 +104,9 @@ def get_reset_timestamps():
         
     now = datetime.now(tz)
     
-    heure_dernier_reset = (now.hour // 4) * 4
-    heure_prochain_reset = heure_dernier_reset + 4
+    # Remplacement des 4 par des 2
+    heure_dernier_reset = (now.hour // 2) * 2
+    heure_prochain_reset = heure_dernier_reset + 2
     
     last_reset = now.replace(hour=heure_dernier_reset, minute=0, second=0, microsecond=0)
     
