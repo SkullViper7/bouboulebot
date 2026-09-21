@@ -462,7 +462,11 @@ async def roll(ctx):
         upsert=True
     )
 
-    curseur = collection_inventaires.find({"garage": nom_complet_gagnee})
+    membres_serveur_ids = [str(m.id) for m in ctx.guild.members]
+    curseur = collection_inventaires.find({
+        "garage": nom_complet_gagnee,
+        "_id": {"$in": membres_serveur_ids}
+    })
     docs = await curseur.to_list(length=100)
     proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
@@ -998,7 +1002,11 @@ async def search(ctx, *, recherche: str):
     if modele_trouve:
         nom_complet = f"{modele_trouve['marque']} {modele_trouve['nom']} {modele_trouve.get('annee', '')}".strip()
         
-        curseur = collection_inventaires.find({"garage": nom_complet})
+        membres_serveur_ids = [str(m.id) for m in ctx.guild.members]
+        curseur = collection_inventaires.find({
+            "garage": nom_complet,
+            "_id": {"$in": membres_serveur_ids}
+        })
         docs = await curseur.to_list(length=100)
         
         proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
@@ -1458,7 +1466,11 @@ async def buyroll(ctx):
         update_query
     )
 
-    curseur = collection_inventaires.find({"garage": nom_complet_gagnee})
+    membres_serveur_ids = [str(m.id) for m in ctx.guild.members]
+    curseur = collection_inventaires.find({
+        "garage": nom_complet_gagnee,
+        "_id": {"$in": membres_serveur_ids}
+    })
     docs = await curseur.to_list(length=100)
     proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
     texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
