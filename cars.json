@@ -2040,13 +2040,13 @@
         "masse_kg": "1335"
     },
     {
-        "nom": "RX FC",
+        "nom": "RX 7 FC",
         "marque": "Mazda",
+        "annee": "1986",
+        "pays": "🇯🇵 Japon",
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://hips.hearstapps.com/mtg-prod/65b76b924570b90008d127bd/263978552.jpg?w=768&width=768&q=75&format=webp",
-        "annee": "1986",
-        "pays": "🇯🇵 Japon",
         "moteur": "Bi-rotor 1.3L Turbo",
         "puissance": "200 ch",
         "masse_kg": "1220"
@@ -4695,10 +4695,10 @@
         "nom": "RC F",
         "marque": "Lexus",
         "annee": "2016",
-        "rareté": "Commun ⚪",
-        "poids": 100,
-        "image": "https://i.imgur.com/JlJQHQT.png",
         "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/JlJQHQT.png",
         "moteur": "V8 5.0L",
         "puissance": "477 ch",
         "masse_kg": "1795"
