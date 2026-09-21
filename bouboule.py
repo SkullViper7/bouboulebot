@@ -615,18 +615,9 @@ class GaragePagination(discord.ui.View):
 
 # NOUVEAU : La commande détecte automatiquement un Membre ET/OU un Nombre
 @bot.hybrid_command(name="garage", description="Affiche ton garage ou celui d'un autre joueur.")
-async def garage(ctx, cible_ou_page: Union[discord.Member, int] = None, page_demandee: int = None):
-    # Variables par défaut
-    cible = ctx.author
-    page_cible = 1
-    
-    # Analyse de ce qu'a tapé l'utilisateur
-    if isinstance(cible_ou_page, discord.Member):
-        cible = cible_ou_page
-        if page_demandee is not None:
-            page_cible = page_demandee
-    elif isinstance(cible_ou_page, int):
-        page_cible = cible_ou_page
+async def garage(ctx, membre: discord.Member = None, page: int = 1):
+    cible = membre or ctx.author
+    page_cible = max(1, page) # Sécurité pour éviter les pages 0 ou négatives
     
     user_id = str(cible.id)
     
