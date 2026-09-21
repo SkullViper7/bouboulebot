@@ -67,6 +67,14 @@ async def on_ready():
     print(f"✅ CONNECTÉ AVEC SUCCÈS !")
     print(f"🤖 Nom du bot : {bot.user.name}")
     print(f"🆔 ID du bot  : {bot.user.id}")
+    
+    # Synchronisation des commandes slash
+    try:
+        synced = await bot.tree.sync()
+        print(f"🔄 Commandes Slash synchronisées : {len(synced)}")
+    except Exception as e:
+        print(f"❌ Erreur de synchro slash : {e}")
+        
     print("="*30)
 
 # --- ÉCONOMIE ---
@@ -223,7 +231,7 @@ def appliquer_tri_garage(garage, preference):
         
     return garage
 
-@bot.command(aliases=["sortr", "trierrarte", "trier_rarete"])
+@bot.hybrid_command(name="sortrarity", description="Trie ton garage par ordre de rareté.", aliases=["sortr", "trierrarte", "trier_rarete"])
 async def sortrarity(ctx):
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id})
@@ -240,7 +248,7 @@ async def sortrarity(ctx):
     )
     await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont classés **par rareté** (du plus rare au plus commun). Fais `!garage` pour admirer.")
 
-@bot.command(aliases=["sortb", "triermarque", "trier_marque"])
+@bot.hybrid_command(name="sortbrand", description="Trie ton garage par ordre alphabétique des marques.", aliases=["sortb", "triermarque", "trier_marque"])
 async def sortbrand(ctx):
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id})
@@ -257,7 +265,7 @@ async def sortbrand(ctx):
     )
     await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont classés **par ordre alphabétique des marques**. Fais `!garage` pour admirer.")
 
-@bot.command(aliases=["sorty", "trierannee", "trier_annee"])
+@bot.hybrid_command(name="sortyear", description="Trie ton garage par ordre chronologique.", aliases=["sorty", "trierannee", "trier_annee"])
 async def sortyear(ctx):
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id})
@@ -274,7 +282,7 @@ async def sortyear(ctx):
     )
     await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont classés **par ordre chronologique**. Fais `!garage` pour admirer l'évolution automobile !")
 
-@bot.command(aliases=["sortp", "trierpuissance", "trier_puissance"])
+@bot.hybrid_command(name="sortpower", description="Trie ton garage par ordre de puissance.", aliases=["sortp", "trierpuissance", "trier_puissance"])
 async def sortpower(ctx):
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id})
@@ -291,7 +299,7 @@ async def sortpower(ctx):
     )
     await ctx.send(f"✨ Garage trié avec succès {ctx.author.mention} ! Tes véhicules sont classés **par ordre de puissance (du plus au moins puissant)**. Fais `!garage` pour admirer tes monstres !")
 
-@bot.command(aliases=["sortc", "trierclasse", "trier_classe", "sortratio"])
+@bot.hybrid_command(name="sortclass", description="Trie ton garage par classe de performance (ratio Poids/Puissance).", aliases=["sortc", "trierclasse", "trier_classe", "sortratio"])
 async def sortclass(ctx):
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id})
@@ -382,7 +390,7 @@ def calculer_classe_forza(voiture):
 #endregion
 
 #region roll
-@bot.command()
+@bot.hybrid_command(name="roll", description="Tire une voiture au hasard toutes les 2h.")
 async def roll(ctx):
     user_id = str(ctx.author.id)
     
@@ -606,7 +614,7 @@ class GaragePagination(discord.ui.View):
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
 # NOUVEAU : La commande détecte automatiquement un Membre ET/OU un Nombre
-@bot.command()
+@bot.hybrid_command(name="garage", description="Affiche ton garage ou celui d'un autre joueur.")
 async def garage(ctx, cible_ou_page: Union[discord.Member, int] = None, page_demandee: int = None):
     # Variables par défaut
     cible = ctx.author
@@ -685,7 +693,7 @@ async def garage(ctx, cible_ou_page: Union[discord.Member, int] = None, page_dem
 #endregion
 
 #region trade
-@bot.command()
+@bot.hybrid_command(name="trade", description="Propose un échange de voiture à un autre joueur.")
 async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
     if ctx.author == membre:
         await ctx.send("Tu ne peux pas faire un échange avec toi-même !")
@@ -789,7 +797,7 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
 #endregion
 
 #region sell
-@bot.command(aliases=["jeter", "poubelle", "vendre"])
+@bot.hybrid_command(name="sell", description="Vends une de tes voitures au concessionnaire.", aliases=["jeter", "poubelle", "vendre"])
 async def sell(ctx, *, recherche: str):
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id})
@@ -896,7 +904,7 @@ class SearchPagination(discord.ui.View):
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
-@bot.command()
+@bot.hybrid_command(name="search", description="Cherche un modèle précis, une marque, un pays ou une rareté.")
 async def search(ctx, *, recherche: str):
     recherche_lower = recherche.lower().strip()
     
@@ -1091,7 +1099,7 @@ class CataloguePagination(discord.ui.View):
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
-@bot.command(aliases=["catalog", "liste", "voitures"])
+@bot.hybrid_command(name="catalogue", description="Affiche la liste complète des voitures disponibles.", aliases=["catalog", "liste", "voitures"])
 async def catalogue(ctx):
     if not VOITURES:
         await ctx.send("Le catalogue est vide pour le moment !")
@@ -1122,7 +1130,7 @@ async def catalogue(ctx):
 #endregion
 
 #region favori
-@bot.command(aliases=["favori", "favorite", "marque"])
+@bot.hybrid_command(name="fav", description="Définit ta marque favorite pour ton profil.", aliases=["favori", "favorite", "marque"])
 async def fav(ctx, *, marque: str):
     user_id = str(ctx.author.id)
     marque_lower = marque.lower().strip()
@@ -1152,7 +1160,7 @@ async def fav(ctx, *, marque: str):
 #endregion
 
 #region profil
-@bot.command(aliases=["profile", "stats", "statistiques", "me"])
+@bot.hybrid_command(name="profil", description="Affiche la carte de joueur et les statistiques.", aliases=["profile", "stats", "statistiques", "me"])
 async def profil(ctx, membre: discord.Member = None):
     cible = membre or ctx.author
     user_id = str(cible.id)
@@ -1250,7 +1258,7 @@ async def profil(ctx, membre: discord.Member = None):
 #endregion
 
 #region commandes
-@bot.command(aliases=["commandes", "menu", "aide", "help"])
+@bot.hybrid_command(name="cmd", description="Affiche la liste de toutes les commandes du bot.", aliases=["commandes", "menu", "aide", "help"])
 async def cmd(ctx):
     embed = discord.Embed(
         title="🛠️ Liste des commandes de Bouboule",
@@ -1313,7 +1321,7 @@ async def cmd(ctx):
 #endregion
 
 #region timer
-@bot.command(aliases=["cd", "cooldown", "temps"])
+@bot.hybrid_command(name="timer", description="Affiche le temps restant avant ton prochain !roll gratuit.", aliases=["cd", "cooldown", "temps"])
 async def timer(ctx):
     user_id = str(ctx.author.id)
     
@@ -1335,7 +1343,7 @@ async def timer(ctx):
 #endregion
 
 #region dailytimer
-@bot.command(aliases=["dtimer", "dailycd", "tempsdaily"])
+@bot.hybrid_command(name="dailytimer", description="Affiche le temps restant avant ton prochain salaire.", aliases=["dtimer", "dailycd", "tempsdaily"])
 async def dailytimer(ctx):
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id})
@@ -1359,7 +1367,7 @@ async def dailytimer(ctx):
 #endregion
 
 #region argent
-@bot.command(aliases=["bal", "balance", "argent", "money"])
+@bot.hybrid_command(name="solde", description="Affiche l'argent en banque d'un joueur.", aliases=["bal", "balance", "argent", "money"])
 async def solde(ctx, membre: discord.Member = None):
     cible = membre or ctx.author
     profil = await collection_inventaires.find_one({"_id": str(cible.id)})
@@ -1367,7 +1375,7 @@ async def solde(ctx, membre: discord.Member = None):
     coins = profil.get("coins", 0) if profil else 0
     await ctx.send(f"💳 Le solde de **{cible.display_name}** est de **{coins} 🪙**.")
 
-@bot.command()
+@bot.hybrid_command(name="daily", description="Récupère ton salaire de 500 pièces toutes les 24h.")
 async def daily(ctx):
     user_id = str(ctx.author.id)
     maintenant = time.time()
@@ -1401,7 +1409,7 @@ async def daily(ctx):
 #endregion
 
 #region buyroll
-@bot.command()
+@bot.hybrid_command(name="buyroll", description="Achète un tirage supplémentaire immédiat pour 5000 pièces.")
 async def buyroll(ctx):
     user_id = str(ctx.author.id)
     prix_roll = 5000 
@@ -1520,7 +1528,7 @@ async def buyroll(ctx):
 #endregion
 
 #region leaderboard
-@bot.command(aliases=["top", "lb", "classement", "leaderboard"])
+@bot.hybrid_command(name="toplist", description="Affiche le classement officiel du serveur.", aliases=["top", "lb", "classement", "leaderboard"])
 async def toplist(ctx):
     # 1. On récupère la liste des IDs (en texte) de tous les membres actuels du serveur
     membres_serveur_ids = [str(membre.id) for membre in ctx.guild.members]
@@ -1628,7 +1636,7 @@ async def toplist(ctx):
 #endregion
 
 #region wishlist
-@bot.command()
+@bot.hybrid_command(name="wish", description="Ajoute une voiture à ta liste de souhaits.")
 async def wish(ctx, *, recherche: str):
     user_id = str(ctx.author.id)
     recherche_lower = recherche.lower().strip()
@@ -1665,7 +1673,7 @@ async def wish(ctx, *, recherche: str):
     
     await ctx.send(f"🌟 **{nom_complet}** a été ajoutée à ta wishlist ! (Ses chances d'apparition sont multipliées par 2).")
 
-@bot.command()
+@bot.hybrid_command(name="unwish", description="Retire une voiture de ta liste de souhaits.")
 async def unwish(ctx, *, recherche: str):
     user_id = str(ctx.author.id)
     recherche_lower = recherche.lower().strip()
@@ -1690,7 +1698,7 @@ async def unwish(ctx, *, recherche: str):
     
     await ctx.send(f"🗑️ **{voiture_a_retirer}** a été retirée de ta wishlist.")
 
-@bot.command(aliases=["wl", "wishlists"])
+@bot.hybrid_command(name="wishlist", description="Affiche ta liste de souhaits en cours.", aliases=["wl", "wishlists"])
 async def wishlist(ctx, membre: discord.Member = None):
     cible = membre or ctx.author
     user_id = str(cible.id)
@@ -1719,7 +1727,7 @@ async def wishlist(ctx, membre: discord.Member = None):
 #endregion
 
 #region ranks
-@bot.command(aliases=["ranklist", "elos", "grades"])
+@bot.hybrid_command(name="ranks", description="Affiche la liste des rangs compétitifs et les points Elo requis.", aliases=["ranklist", "elos", "grades"])
 async def ranks(ctx):
     # Récupération des logos depuis ton fichier custom (ou emojis de secours)
     logo_bronze = LOGOS.get("Bronze", "🟫")
@@ -1837,7 +1845,7 @@ class RaceSelectionPagination(discord.ui.View):
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
-@bot.command(aliases=["course", "duel"])
+@bot.hybrid_command(name="race", description="Provoque un joueur en duel sur une classe précise.", aliases=["course", "duel"])
 async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
     classe_voulue = classe_voulue.upper().strip()
     valid_classes = ["D", "C", "B", "A", "S1", "S2", "X"]
