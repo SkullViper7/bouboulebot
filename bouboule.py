@@ -1632,7 +1632,7 @@ async def daily(ctx):
             temps_restant = int(cooldown_daily - temps_ecoule)
             heures = temps_restant // 3600
             minutes = (temps_restant % 3600) // 60
-            await ctx.send(f"⏳ Reviens demain {ctx.author.mention} ! Ton prochain salaire sera disponible dans **{heures}h et {minutes}m**.")
+            await ctx.send(f"⏳ Reviens plus tard {ctx.author.mention} ! Ton prochain salaire sera disponible dans **{heures}h et {minutes}m**.")
             return
 
     await collection_inventaires.update_one(
