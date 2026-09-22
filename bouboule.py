@@ -797,178 +797,240 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
 #endregion
 
 #region tradeup
+class TradeUpSelectionView(discord.ui.View):
+    def __init__(self, ctx, eligible_cars, rarete_base, rarete_gagne, profil, garage):
+        super().__init__(timeout=180)
+        self.ctx = ctx
+        self.user = ctx.author
+        self.eligible_cars = eligible_cars
+        self.rarete_base = rarete_base
+        self.rarete_gagne = rarete_gagne
+        self.profil = profil
+        self.garage = garage
+        
+        self.selected_indices = set()
+        self.current_page = 0
+        self.items_per_page = 5
+        self.total_pages = max(1, math.ceil(len(eligible_cars) / self.items_per_page))
+        self.number_emojis = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
+        
+        self.update_view_state()
+
+    def update_view_state(self):
+        # Navigation
+        self.btn_prev.disabled = (self.current_page == 0)
+        self.btn_next.disabled = (self.current_page >= self.total_pages - 1)
+        
+        # Validation
+        self.btn_confirm.disabled = (len(self.selected_indices) != 5)
+        
+        # Mise à jour des boutons 1 à 5
+        boutons_nombres = [self.btn_1, self.btn_2, self.btn_3, self.btn_4, self.btn_5]
+        for i, btn in enumerate(boutons_nombres):
+            abs_index = self.current_page * self.items_per_page + i
+            if abs_index >= len(self.eligible_cars):
+                btn.disabled = True
+                btn.style = discord.ButtonStyle.secondary
+            else:
+                btn.disabled = False
+                if abs_index in self.selected_indices:
+                    btn.style = discord.ButtonStyle.success # Devient vert si sélectionné
+                else:
+                    btn.style = discord.ButtonStyle.secondary # Reste gris sinon
+
+    def get_embed(self):
+        start = self.current_page * self.items_per_page
+        end = start + self.items_per_page
+        page_items = self.eligible_cars[start:end]
+        
+        lignes = []
+        for i, voiture in enumerate(page_items):
+            abs_index = start + i
+            check = " ✅" if abs_index in self.selected_indices else ""
+            lignes.append(f"{self.number_emojis[i]} **{voiture}**{check}")
+            
+        embed = discord.Embed(
+            title=f"⚠️ TRADE-UP {self.rarete_base} ➔ {self.rarete_gagne}",
+            description=f"Sélectionne **5 voitures** à sacrifier.\n\n" + "\n".join(lignes),
+            color=discord.Color.orange()
+        )
+        embed.set_footer(text=f"Page {self.current_page + 1}/{self.total_pages} | Sélectionnées : {len(self.selected_indices)}/5")
+        return embed
+
+    async def toggle_item(self, interaction: discord.Interaction, idx_offset: int):
+        if interaction.user != self.user:
+            return await interaction.response.send_message("Ce n'est pas ton menu !", ephemeral=True)
+            
+        abs_index = self.current_page * self.items_per_page + idx_offset
+        if abs_index >= len(self.eligible_cars):
+            return await interaction.response.defer()
+            
+        if abs_index in self.selected_indices:
+            self.selected_indices.remove(abs_index)
+        else:
+            if len(self.selected_indices) >= 5:
+                return await interaction.response.send_message("❌ Tu as déjà sélectionné tes 5 voitures ! Désélectionnes-en une pour changer.", ephemeral=True)
+            self.selected_indices.add(abs_index)
+            
+        self.update_view_state()
+        await interaction.response.edit_message(embed=self.get_embed(), view=self)
+
+    # --- BOUTONS NUMÉROS ---
+    @discord.ui.button(label="1️⃣", style=discord.ButtonStyle.secondary, row=0)
+    async def btn_1(self, interaction, button): await self.toggle_item(interaction, 0)
+    @discord.ui.button(label="2️⃣", style=discord.ButtonStyle.secondary, row=0)
+    async def btn_2(self, interaction, button): await self.toggle_item(interaction, 1)
+    @discord.ui.button(label="3️⃣", style=discord.ButtonStyle.secondary, row=0)
+    async def btn_3(self, interaction, button): await self.toggle_item(interaction, 2)
+    @discord.ui.button(label="4️⃣", style=discord.ButtonStyle.secondary, row=0)
+    async def btn_4(self, interaction, button): await self.toggle_item(interaction, 3)
+    @discord.ui.button(label="5️⃣", style=discord.ButtonStyle.secondary, row=0)
+    async def btn_5(self, interaction, button): await self.toggle_item(interaction, 4)
+
+    # --- BOUTONS DE NAVIGATION ET VALIDATION ---
+    @discord.ui.button(label="◀️", style=discord.ButtonStyle.primary, row=1)
+    async def btn_prev(self, interaction, button):
+        if interaction.user != self.user: return
+        self.current_page -= 1
+        self.update_view_state()
+        await interaction.response.edit_message(embed=self.get_embed(), view=self)
+
+    @discord.ui.button(label="▶️", style=discord.ButtonStyle.primary, row=1)
+    async def btn_next(self, interaction, button):
+        if interaction.user != self.user: return
+        self.current_page += 1
+        self.update_view_state()
+        await interaction.response.edit_message(embed=self.get_embed(), view=self)
+
+    @discord.ui.button(label="✅ CONFIRMER", style=discord.ButtonStyle.success, row=1, disabled=True)
+    async def btn_confirm(self, interaction, button):
+        if interaction.user != self.user: return
+        await self.execute_tradeup(interaction)
+
+    async def execute_tradeup(self, interaction: discord.Interaction):
+        # Désactiver l'interface pendant le chargement
+        for child in self.children: child.disabled = True
+        await interaction.response.edit_message(view=self)
+
+        noms_exacts = [self.eligible_cars[i] for i in self.selected_indices]
+        nouveau_garage = list(self.garage)
+        
+        # Retrait des voitures
+        for v in noms_exacts:
+            if v in nouveau_garage:
+                nouveau_garage.remove(v)
+
+        wishlist_joueur = self.profil.get("wishlist", [])
+        voitures_possibles = [v for v in VOITURES if v['rareté'] == self.rarete_gagne]
+        
+        voitures_disponibles = []
+        poids_disponibles = []
+
+        for v in voitures_possibles:
+            nom_c = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
+            if nom_c not in nouveau_garage:
+                voitures_disponibles.append(v)
+                if nom_c in wishlist_joueur: poids_disponibles.append(v.get("poids", 10) * 2)
+                else: poids_disponibles.append(v.get("poids", 10))
+
+        if not voitures_disponibles:
+            voitures_disponibles = voitures_possibles
+            poids_disponibles = [v.get("poids", 10) for v in voitures_possibles]
+
+        voiture_gagnee = random.choices(voitures_disponibles, weights=poids_disponibles, k=1)[0]
+        nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']} {voiture_gagnee.get('annee', '')}".strip()
+        
+        nouveau_garage.append(nom_complet_gagnee)
+        pref = self.profil.get("sort_preference")
+        if pref: nouveau_garage = appliquer_tri_garage(nouveau_garage, pref)
+
+        update_query = {"$set": {"garage": nouveau_garage}}
+        if nom_complet_gagnee in wishlist_joueur: update_query["$pull"] = {"wishlist": nom_complet_gagnee}
+
+        user_id = str(self.user.id)
+        await collection_inventaires.update_one({"_id": user_id}, update_query)
+
+        # Affichage du résultat
+        membres_serveur_ids = [str(m.id) for m in self.ctx.guild.members]
+        curseur = collection_inventaires.find({
+            "garage": nom_complet_gagnee,
+            "_id": {"$in": membres_serveur_ids}
+        })
+        docs = await curseur.to_list(length=100)
+        proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
+        texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
+
+        classe_forza = calculer_classe_forza(voiture_gagnee)
+        masse = voiture_gagnee.get('masse_kg', 'Inconnu')
+        logo = LOGOS.get(voiture_gagnee['marque'], "")
+        
+        lignes = [
+            voiture_gagnee['nom'],
+            f"{logo} **{voiture_gagnee['marque']}**"
+        ]
+        if voiture_gagnee.get('annee'): lignes.append(str(voiture_gagnee['annee']))
+        lignes.append(voiture_gagnee.get('pays', '🏁'))
+        lignes.append("")
+        lignes.append("**Nouvelle Rareté**")
+        lignes.append(self.rarete_gagne)
+        lignes.append("")
+        lignes.append("**⚙️ Spécifications**")
+        lignes.append(f"Moteur : {voiture_gagnee.get('moteur', 'Inconnu')}")
+        lignes.append(f"Puissance : {voiture_gagnee.get('puissance', 'Inconnue')}")
+        lignes.append(f"Poids : {masse} kg" if masse != "Inconnu" else "Poids : Inconnu")
+        lignes.append(classe_forza)
+        lignes.append("")
+        lignes.append("**Propriétaires :**")
+        lignes.append(texte_proprietaires)
+
+        couleur_dynamique = COULEURS_RARETE.get(self.rarete_gagne, discord.Color.purple())
+        
+        embed = discord.Embed(
+            title=f"✨ FUSION RÉUSSIE : {nom_complet_gagnee}", 
+            description="\n".join(lignes),
+            color=couleur_dynamique
+        )
+        img_url = voiture_gagnee.get('image', '')
+        if img_url and img_url.startswith(('http://', 'https://')): embed.set_image(url=img_url)
+
+        voeu_exauce = "\n🌟 **VŒU EXAUCÉ !** Cette voiture a été retirée de ta wishlist." if nom_complet_gagnee in wishlist_joueur else ""
+
+        await interaction.followup.send(content=f"🎉 {self.user.mention} **L'amélioration a fonctionné !**{voeu_exauce}", embed=embed)
+        await verifier_succes_marque(self.ctx, user_id, voiture_gagnee['marque'])
+
+
 @bot.hybrid_command(name="tradeup", description="Sacrifie 5 voitures de même rareté (Commun ou Rare) contre une de rang supérieur.")
-async def tradeup(ctx, v1: str, v2: str, v3: str, v4: str, v5: str):
+async def tradeup(ctx, rarete: str):
+    rarete_lower = rarete.lower().strip()
+    map_rarete = {
+        "commun": ("Commun ⚪", "Rare 🔵"),
+        "commune": ("Commun ⚪", "Rare 🔵"),
+        "blanc": ("Commun ⚪", "Rare 🔵"),
+        "rare": ("Rare 🔵", "Mythique 🟣"),
+        "bleu": ("Rare 🔵", "Mythique 🟣")
+    }
+
+    if rarete_lower not in map_rarete:
+        await ctx.send(f"❌ {ctx.author.mention}, tu ne peux utiliser le trade-up que pour les raretés **Communes** ou **Rares**.\nExemple : `/tradeup commun`")
+        return
+
+    rarete_base, rarete_gagne = map_rarete[rarete_lower]
+
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id})
     garage = profil.get("garage", []) if profil else []
 
-    voitures_saisies = [v1.strip(), v2.strip(), v3.strip(), v4.strip(), v5.strip()]
-    noms_exacts = []
+    voiture_map = {f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip(): v['rareté'] for v in VOITURES}
     
-    # On fait une copie du garage pour éviter de sélectionner deux fois la même voiture physique
-    garage_temp = list(garage) 
+    # On filtre les voitures de la bonne rareté et on les trie par ordre alphabétique pour s'y retrouver
+    voitures_eligibles = sorted([v for v in garage if voiture_map.get(v) == rarete_base])
 
-    # 1. Vérification avec recherche souple (mot-clé)
-    for v_saisie in voitures_saisies:
-        trouve = False
-        for v_garage in garage_temp:
-            if v_saisie.lower() in v_garage.lower():
-                noms_exacts.append(v_garage)
-                garage_temp.remove(v_garage) # Retiré de la liste tempo pour gérer les doublons
-                trouve = True
-                break
-        if not trouve:
-            await ctx.send(f"❌ Opération annulée : Je ne trouve pas la voiture **{v_saisie}** dans ton garage (ou tu n'as pas assez d'exemplaires).")
-            return
-
-    # 2. Vérifier la rareté des 5 voitures trouvées
-    raretes = []
-    for nom in noms_exacts:
-        v_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom), None)
-        if not v_info:
-            await ctx.send(f"❌ Erreur : La voiture **{nom}** n'existe plus dans le catalogue.")
-            return
-        raretes.append(v_info['rareté'])
-
-    rarete_base = raretes[0]
-    if not all(r == rarete_base for r in raretes):
-        await ctx.send("❌ Les 5 voitures sélectionnées doivent être exactement de la **même rareté** !")
+    if len(voitures_eligibles) < 5:
+        await ctx.send(f"❌ {ctx.author.mention}, il te faut au moins **5 voitures {rarete_base}** pour faire ce trade-up. Tu n'en as que {len(voitures_eligibles)}.")
         return
 
-    map_rarete = {
-        "Commun ⚪": "Rare 🔵",
-        "Rare 🔵": "Mythique 🟣"
-    }
-
-    if rarete_base not in map_rarete:
-        await ctx.send(f"❌ Tu ne peux utiliser le trade-up que sur des voitures **Communes ⚪** ou **Rares 🔵**.")
-        return
-
-    rarete_gagne = map_rarete[rarete_base]
-
-    # 3. Confirmation avant destruction
-    liste_texte = "\n".join([f"• {v}" for v in noms_exacts])
-    
-    msg = await ctx.send(
-        f"⚠️ **TRADE-UP {rarete_base} ➔ {rarete_gagne}** ⚠️\n"
-        f"{ctx.author.mention}, tu es sur le point de fusionner ces 5 voitures :\n\n"
-        f"{liste_texte}\n\n"
-        f"*Es-tu sûr de vouloir les détruire pour obtenir une voiture **{rarete_gagne}** aléatoire ?*\n"
-        f"Réagis avec ✅ pour confirmer ou ❌ pour annuler."
-    )
-    await msg.add_reaction("✅")
-    await msg.add_reaction("❌")
-
-    def check(reaction, user):
-        return user == ctx.author and str(reaction.emoji) in ["✅", "❌"] and reaction.message.id == msg.id
-
-    try:
-        reaction, user = await bot.wait_for('reaction_add', timeout=45.0, check=check)
-        
-        if str(reaction.emoji) == "✅":
-            nouveau_garage = list(garage)
-            for v in noms_exacts:
-                if v in nouveau_garage:
-                    nouveau_garage.remove(v)
-
-            wishlist_joueur = profil.get("wishlist", [])
-            voitures_possibles = [v for v in VOITURES if v['rareté'] == rarete_gagne]
-            
-            voitures_disponibles = []
-            poids_disponibles = []
-
-            for v in voitures_possibles:
-                nom_c = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
-                if nom_c not in nouveau_garage:
-                    voitures_disponibles.append(v)
-                    if nom_c in wishlist_joueur:
-                        poids_disponibles.append(v.get("poids", 10) * 2)
-                    else:
-                        poids_disponibles.append(v.get("poids", 10))
-
-            if not voitures_disponibles:
-                voitures_disponibles = voitures_possibles
-                poids_disponibles = [v.get("poids", 10) for v in voitures_possibles]
-
-            voiture_gagnee = random.choices(voitures_disponibles, weights=poids_disponibles, k=1)[0]
-            nom_complet_gagnee = f"{voiture_gagnee['marque']} {voiture_gagnee['nom']} {voiture_gagnee.get('annee', '')}".strip()
-            
-            nouveau_garage.append(nom_complet_gagnee)
-            
-            pref = profil.get("sort_preference")
-            if pref: nouveau_garage = appliquer_tri_garage(nouveau_garage, pref)
-
-            update_query = {"$set": {"garage": nouveau_garage}}
-            if nom_complet_gagnee in wishlist_joueur:
-                update_query["$pull"] = {"wishlist": nom_complet_gagnee}
-
-            await collection_inventaires.update_one({"_id": user_id}, update_query)
-
-            membres_serveur_ids = [str(m.id) for m in ctx.guild.members]
-            curseur = collection_inventaires.find({
-                "garage": nom_complet_gagnee,
-                "_id": {"$in": membres_serveur_ids}
-            })
-            docs = await curseur.to_list(length=100)
-            proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
-            texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else f"<@{user_id}>"
-
-            classe_forza = calculer_classe_forza(voiture_gagnee)
-            masse = voiture_gagnee.get('masse_kg', 'Inconnu')
-            logo = LOGOS.get(voiture_gagnee['marque'], "")
-            
-            lignes = [
-                voiture_gagnee['nom'],
-                f"{logo} **{voiture_gagnee['marque']}**"
-            ]
-            if voiture_gagnee.get('annee'):
-                lignes.append(str(voiture_gagnee['annee']))
-            lignes.append(voiture_gagnee.get('pays', '🏁'))
-            lignes.append("")
-            lignes.append("**Nouvelle Rareté**")
-            lignes.append(rarete_gagne)
-            lignes.append("")
-            lignes.append("**⚙️ Spécifications**")
-            lignes.append(f"Moteur : {voiture_gagnee.get('moteur', 'Inconnu')}")
-            lignes.append(f"Puissance : {voiture_gagnee.get('puissance', 'Inconnue')}")
-            lignes.append(f"Poids : {masse} kg" if masse != "Inconnu" else "Poids : Inconnu")
-            lignes.append(classe_forza)
-            lignes.append("")
-            lignes.append("**Propriétaires :**")
-            lignes.append(texte_proprietaires)
-
-            couleur_dynamique = COULEURS_RARETE.get(rarete_gagne, discord.Color.purple())
-            
-            embed = discord.Embed(
-                title=f"✨ FUSION RÉUSSIE : {nom_complet_gagnee}", 
-                description="\n".join(lignes),
-                color=couleur_dynamique
-            )
-            
-            img_url = voiture_gagnee.get('image', '')
-            if img_url and img_url.startswith(('http://', 'https://')):
-                embed.set_image(url=img_url)
-
-            voeu_exauce = ""
-            if nom_complet_gagnee in wishlist_joueur:
-                voeu_exauce = "\n🌟 **VŒU EXAUCÉ !** Cette voiture a été retirée de ta wishlist."
-
-            try: await msg.delete()
-            except: pass
-
-            await ctx.send(content=f"🎉 {ctx.author.mention} **L'amélioration a fonctionné !**{voeu_exauce}", embed=embed)
-            await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
-
-        else:
-            await ctx.send(f"❌ Opération annulée, {ctx.author.mention}. Tes voitures sont intactes.")
-            try: await msg.delete()
-            except: pass
-
-    except asyncio.TimeoutError:
-        await ctx.send(f"⏳ Temps écoulé, {ctx.author.mention}. Le trade-up est annulé.")
-        try: await msg.delete()
-        except: pass
+    view = TradeUpSelectionView(ctx, voitures_eligibles, rarete_base, rarete_gagne, profil, garage)
+    await ctx.send(embed=view.get_embed(), view=view)
 #endregion
 
 #region sell
@@ -1464,7 +1526,7 @@ async def cmd(ctx):
             "**`!solde [@pseudo]`** : Affiche l'argent en banque.\n"
             "**`!sell [voiture]`** : Vends un de tes modèles au concessionnaire.\n"
             "**`!trade @pseudo \"Ta Voiture\" \"Sa Voiture\"`** : Propose un échange équitable ou avec compensation (⚠️ *Guillemets obligatoires*)."
-            "**`/tradeup \"v1\" \"v2\"...`** : Sacrifie 5 voitures de même rareté (Commun ou Rare) pour obtenir un véhicule du rang supérieur."
+            "**`/tradeup [rareté]`** : Sacrifie 5 voitures de cette rareté pour en obtenir une de rang supérieur."
         ),
         inline=False
     )
