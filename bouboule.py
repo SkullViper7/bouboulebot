@@ -701,18 +701,25 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
     profil_user = await collection_inventaires.find_one({"_id": user_id})
     profil_target = await collection_inventaires.find_one({"_id": target_id})
 
-    if not profil_user or ma_voiture not in profil_user.get("garage", []):
+    garage_user = profil_user.get("garage", []) if profil_user else []
+    garage_target = profil_target.get("garage", []) if profil_target else []
+
+    # --- NOUVEAU : Recherche souple ---
+    ma_voiture_exacte = next((v for v in garage_user if ma_voiture.lower() in v.lower()), None)
+    sa_voiture_exacte = next((v for v in garage_target if sa_voiture.lower() in v.lower()), None)
+
+    if not ma_voiture_exacte:
         await ctx.send(f"❌ Tu ne possèdes pas la voiture **{ma_voiture}** !")
         return
-    if not profil_target or sa_voiture not in profil_target.get("garage", []):
+    if not sa_voiture_exacte:
         await ctx.send(f"❌ {membre.display_name} ne possède pas la voiture **{sa_voiture}** !")
         return
 
     def trouver_info(nom_complet_recherche):
         return next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom_complet_recherche), None)
 
-    info_ma = trouver_info(ma_voiture)
-    info_sa = trouver_info(sa_voiture)
+    info_ma = trouver_info(ma_voiture_exacte)
+    info_sa = trouver_info(sa_voiture_exacte)
 
     if not info_ma or not info_sa:
         await ctx.send("❌ Erreur : Impossible de retrouver les informations de ces voitures dans le catalogue.")
@@ -742,7 +749,7 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
         payeur_id = user_id
         msg_compensation = f"\n⚠️ **Compensation financière :** {ctx.author.display_name} devra payer la différence de **{diff} 🪙** à {membre.display_name}."
 
-    msg = await ctx.send(f"Hey {membre.mention} ! {ctx.author.mention} te propose d'échanger sa **{ma_voiture}** contre ta **{sa_voiture}**.{msg_compensation}\n\n*Réagis avec ✅ pour accepter ou ❌ pour refuser.*")
+    msg = await ctx.send(f"Hey {membre.mention} ! {ctx.author.mention} te propose d'échanger sa **{ma_voiture_exacte}** contre ta **{sa_voiture_exacte}**.{msg_compensation}\n\n*Réagis avec ✅ pour accepter ou ❌ pour refuser.*")
     await msg.add_reaction("✅")
     await msg.add_reaction("❌")
 
@@ -753,13 +760,10 @@ async def trade(ctx, membre: discord.Member, ma_voiture: str, sa_voiture: str):
         reaction, user = await bot.wait_for('reaction_add', timeout=60.0, check=check)
         
         if str(reaction.emoji) == "✅":
-            garage_user = profil_user["garage"]
-            garage_target = profil_target["garage"]
-
-            garage_user.remove(ma_voiture)
-            garage_target.remove(sa_voiture)
-            garage_user.append(sa_voiture)
-            garage_target.append(ma_voiture)
+            garage_user.remove(ma_voiture_exacte)
+            garage_target.remove(sa_voiture_exacte)
+            garage_user.append(sa_voiture_exacte)
+            garage_target.append(ma_voiture_exacte)
 
             # NOUVEAU : On re-trie les garages des deux joueurs après l'échange
             pref_user = profil_user.get("sort_preference")
@@ -800,27 +804,25 @@ async def tradeup(ctx, v1: str, v2: str, v3: str, v4: str, v5: str):
     garage = profil.get("garage", []) if profil else []
 
     voitures_saisies = [v1.strip(), v2.strip(), v3.strip(), v4.strip(), v5.strip()]
-
-    # 1. Vérifier qu'il n'y a pas de saisie en double (insensible à la casse)
-    if len(set([v.lower() for v in voitures_saisies])) != 5:
-        await ctx.send("❌ Tu dois sélectionner 5 voitures **différentes** pour faire un trade-up !")
-        return
-
     noms_exacts = []
     
-    # 2. Vérifier que le joueur possède bien ces 5 voitures (tolérance majuscules/minuscules)
+    # On fait une copie du garage pour éviter de sélectionner deux fois la même voiture physique
+    garage_temp = list(garage) 
+
+    # 1. Vérification avec recherche souple (mot-clé)
     for v_saisie in voitures_saisies:
         trouve = False
-        for v_garage in garage:
-            if v_saisie.lower() == v_garage.lower():
+        for v_garage in garage_temp:
+            if v_saisie.lower() in v_garage.lower():
                 noms_exacts.append(v_garage)
+                garage_temp.remove(v_garage) # Retiré de la liste tempo pour gérer les doublons
                 trouve = True
                 break
         if not trouve:
-            await ctx.send(f"❌ Opération annulée : Tu ne possèdes pas la voiture **{v_saisie}** dans ton garage.")
+            await ctx.send(f"❌ Opération annulée : Je ne trouve pas la voiture **{v_saisie}** dans ton garage (ou tu n'as pas assez d'exemplaires).")
             return
 
-    # 3. Vérifier la rareté des 5 voitures
+    # 2. Vérifier la rareté des 5 voitures trouvées
     raretes = []
     for nom in noms_exacts:
         v_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom), None)
@@ -845,7 +847,7 @@ async def tradeup(ctx, v1: str, v2: str, v3: str, v4: str, v5: str):
 
     rarete_gagne = map_rarete[rarete_base]
 
-    # 4. Confirmation avant destruction
+    # 3. Confirmation avant destruction
     liste_texte = "\n".join([f"• {v}" for v in noms_exacts])
     
     msg = await ctx.send(
@@ -865,13 +867,11 @@ async def tradeup(ctx, v1: str, v2: str, v3: str, v4: str, v5: str):
         reaction, user = await bot.wait_for('reaction_add', timeout=45.0, check=check)
         
         if str(reaction.emoji) == "✅":
-            # On retire les 5 voitures du garage
             nouveau_garage = list(garage)
             for v in noms_exacts:
                 if v in nouveau_garage:
                     nouveau_garage.remove(v)
 
-            # --- Tirage de la nouvelle voiture de rang supérieur ---
             wishlist_joueur = profil.get("wishlist", [])
             voitures_possibles = [v for v in VOITURES if v['rareté'] == rarete_gagne]
             
@@ -880,7 +880,6 @@ async def tradeup(ctx, v1: str, v2: str, v3: str, v4: str, v5: str):
 
             for v in voitures_possibles:
                 nom_c = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
-                # On évite de donner un doublon si possible
                 if nom_c not in nouveau_garage:
                     voitures_disponibles.append(v)
                     if nom_c in wishlist_joueur:
@@ -888,7 +887,6 @@ async def tradeup(ctx, v1: str, v2: str, v3: str, v4: str, v5: str):
                     else:
                         poids_disponibles.append(v.get("poids", 10))
 
-            # Si le joueur possède DÉJÀ toutes les voitures de la rareté supérieure
             if not voitures_disponibles:
                 voitures_disponibles = voitures_possibles
                 poids_disponibles = [v.get("poids", 10) for v in voitures_possibles]
@@ -898,18 +896,15 @@ async def tradeup(ctx, v1: str, v2: str, v3: str, v4: str, v5: str):
             
             nouveau_garage.append(nom_complet_gagnee)
             
-            # Application du tri si paramétré
             pref = profil.get("sort_preference")
             if pref: nouveau_garage = appliquer_tri_garage(nouveau_garage, pref)
 
-            # Mise à jour BDD
             update_query = {"$set": {"garage": nouveau_garage}}
             if nom_complet_gagnee in wishlist_joueur:
                 update_query["$pull"] = {"wishlist": nom_complet_gagnee}
 
             await collection_inventaires.update_one({"_id": user_id}, update_query)
 
-            # --- Création de l'affichage (Restreint au serveur actuel) ---
             membres_serveur_ids = [str(m.id) for m in ctx.guild.members]
             curseur = collection_inventaires.find({
                 "garage": nom_complet_gagnee,
