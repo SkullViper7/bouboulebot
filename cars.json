@@ -20530,5 +20530,17 @@
         "moteur": "F6 4.0L",
         "puissance": "500 ch",
         "masse_kg": "1420"
+    },
+    {
+        "nom": "Formentor VZ5",
+        "marque": "Cupra",
+        "annee": "2021",
+        "pays": "🇪🇸 Espagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/x85qH3m.png",
+        "moteur": "L5 2.5L Turbo",
+        "puissance": "390 ch",
+        "masse_kg": "1608"
     }
 ]

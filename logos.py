@@ -339,5 +339,6 @@ LOGOS = {
     "Abarth": "<:abarth:1547929441827815504>",
     "Bovensiepen": "<:bovensiepen:1547932440570634291>",
     "Genesis": "<:genesis:1547934960168476712>",
-    "Kindig": "<:kindig:1547935648525058118>"
+    "Kindig": "<:kindig:1547935648525058118>",
+    "Cupra": "<:cupra:1551930803850707075>"
 }
