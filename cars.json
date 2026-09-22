@@ -914,14 +914,14 @@
     {
         "nom": "R8 V10 Plus",
         "marque": "Audi",
-        "annee": "2016",
+        "annee": "2012",
         "pays": "🇩🇪 Allemagne",
         "rareté": "Mythique 🟣",
         "poids": 8,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/Audi_R8_-_Flickr_-_Alexandre_Pr%C3%A9vot_%28164%29.jpg",
+        "image": "https://i.imgur.com/jzf4NF8.png",
         "moteur": "V10 5.2L",
-        "puissance": "610 ch",
-        "masse_kg": "1555"
+        "puissance": "550 ch",
+        "masse_kg": "1570"
     },
     {
         "nom": "M3 E30",
@@ -20199,7 +20199,7 @@
         "nom": "750 GT Zagato",
         "marque": "Abarth",
         "annee": "1956",
-        "pays": "🇬🇧 Royaume-Uni",
+        "pays": "🇮🇹 Italie",
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/hoWPWGp.png",
@@ -20374,5 +20374,125 @@
         "moteur": "Bi-Rotor 0.98L",
         "puissance": "110 ch",
         "masse_kg": "940"
+    },
+    {
+        "nom": "695 SS",
+        "marque": "Abarth",
+        "annee": "1964",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/jQfHWyP.png",
+        "moteur": "L2 689cc",
+        "puissance": "38 ch",
+        "masse_kg": "470"
+    },
+    {
+        "nom": "2000 SP",
+        "marque": "Abarth",
+        "annee": "1968",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/QjKiKlC.png",
+        "moteur": "L4 2.0L",
+        "puissance": "250 ch",
+        "masse_kg": "530"
+    },
+    {
+        "nom": "695 Biposto",
+        "marque": "Abarth",
+        "annee": "2014",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/OCjkzEi.png",
+        "moteur": "L4 1.4L Turbo",
+        "puissance": "140 ch",
+        "masse_kg": "980"
+    },
+    {
+        "nom": "205A Coupé Vignale",
+        "marque": "Abarth",
+        "annee": "1950",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/uv5fqOU.png",
+        "moteur": "L4 1.1L",
+        "puissance": "65 ch",
+        "masse_kg": "800"
+    },
+    {
+        "nom": "Monoposto da Record « La Principessa »",
+        "marque": "Abarth",
+        "annee": "1960",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/inHeGU3.png",
+        "moteur": "L4 1.0L",
+        "puissance": "108 ch",
+        "masse_kg": "500"
+    },
+    {
+        "nom": "2000 GT",
+        "marque": "Abarth-Simca",
+        "annee": "1962",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/lgCjv0B.jpeg",
+        "moteur": "L4 2.0L",
+        "puissance": "202 ch",
+        "masse_kg": "660"
+    },
+    {
+        "nom": "OT 2000 « Periscopio »",
+        "marque": "Abarth",
+        "annee": "1966",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/7GkEpIs.png",
+        "moteur": "L4 2.0L",
+        "puissance": "185 ch",
+        "masse_kg": "710"
+    },
+    {
+        "nom": "Montreal V8 Groupe 4",
+        "marque": "Alfa Romeo",
+        "annee": "1972",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/TwPyiyH.png",
+        "moteur": "V8 3.0L",
+        "puissance": "370 ch",
+        "masse_kg": "900"
+    },
+    {
+        "nom": "Giulia SWB Zagato",
+        "marque": "Alfa Romeo",
+        "annee": "2022",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/tB0FDFK.png",
+        "moteur": "V6 2.9L Twin-Turbo",
+        "puissance": "540 ch",
+        "masse_kg": "N/A"
+    },
+    {
+        "nom": "R8 V10 Performance",
+        "marque": "Audi",
+        "annee": "2015",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/P0XdfHF.png",
+        "moteur": "V10 5.2L",
+        "puissance": "620 ch",
+        "masse_kg": "1590"
     }
 ]
