@@ -2051,43 +2051,87 @@ def get_elo_rank(elo):
     logo = LOGOS.get(rank_name, emoji_alt)
     return f"{logo} **{rank_name}**"
 
-# NOUVEAU : Système de pagination pour la sélection de voitures
-class RaceSelectionPagination(discord.ui.View):
-    def __init__(self, ctx, user, pages, titre):
-        super().__init__(timeout=120)
+# NOUVEAU : Système de sélection avec boutons interactifs (1 à 5)
+class RaceSelectionView(discord.ui.View):
+    def __init__(self, ctx, user, eligible_cars, titre):
+        super().__init__(timeout=60) # 60 secondes pour choisir
         self.ctx = ctx
-        self.user = user # L'utilisateur autorisé à cliquer (attaquant ou défenseur)
-        self.pages = pages
+        self.user = user 
+        self.eligible_cars = eligible_cars
         self.titre = titre
         self.current_page = 0
+        self.items_per_page = 5
+        self.total_pages = max(1, math.ceil(len(eligible_cars) / self.items_per_page))
+        self.number_emojis = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
+        self.selected_car = None
         self.update_buttons()
 
     def update_buttons(self):
-        self.bouton_prec.disabled = len(self.pages) <= 1
-        self.bouton_suiv.disabled = len(self.pages) <= 1
+        self.btn_prev.disabled = (self.current_page == 0)
+        self.btn_next.disabled = (self.current_page >= self.total_pages - 1)
+        
+        boutons_nombres = [self.btn_1, self.btn_2, self.btn_3, self.btn_4, self.btn_5]
+        for i, btn in enumerate(boutons_nombres):
+            abs_index = self.current_page * self.items_per_page + i
+            if abs_index >= len(self.eligible_cars):
+                btn.disabled = True
+                btn.style = discord.ButtonStyle.secondary
+            else:
+                btn.disabled = False
+                btn.style = discord.ButtonStyle.primary
 
     def get_embed(self):
+        start = self.current_page * self.items_per_page
+        end = start + self.items_per_page
+        page_items = self.eligible_cars[start:end]
+        
+        lignes = []
+        for i, voiture in enumerate(page_items):
+            lignes.append(f"{self.number_emojis[i]} **{voiture}**")
+            
         embed = discord.Embed(
             title=self.titre,
-            description=self.pages[self.current_page],
+            description="Clique sur le numéro de la voiture que tu souhaites piloter :\n\n" + "\n".join(lignes),
             color=discord.Color.orange()
         )
-        embed.set_footer(text=f"Page {self.current_page + 1}/{len(self.pages)} | Tape le numéro de ton choix dans le chat !")
+        embed.set_footer(text=f"Page {self.current_page + 1}/{self.total_pages}")
         return embed
 
-    @discord.ui.button(label="◀️", style=discord.ButtonStyle.secondary, custom_id="race_prec")
-    async def bouton_prec(self, interaction: discord.Interaction, button: discord.ui.Button):
+    async def select_item(self, interaction: discord.Interaction, idx_offset: int):
         if interaction.user != self.user:
             return await interaction.response.send_message("Ce n'est pas à ton tour de choisir !", ephemeral=True)
-        self.current_page = (self.current_page - 1) % len(self.pages)
+            
+        abs_index = self.current_page * self.items_per_page + idx_offset
+        if abs_index < len(self.eligible_cars):
+            self.selected_car = self.eligible_cars[abs_index]
+            # On désactive tout une fois le choix fait
+            for child in self.children:
+                child.disabled = True
+            await interaction.response.edit_message(view=self)
+            self.stop() # Arrête l'attente de la vue
+
+    @discord.ui.button(label="1️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_1(self, interaction, button): await self.select_item(interaction, 0)
+    @discord.ui.button(label="2️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_2(self, interaction, button): await self.select_item(interaction, 1)
+    @discord.ui.button(label="3️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_3(self, interaction, button): await self.select_item(interaction, 2)
+    @discord.ui.button(label="4️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_4(self, interaction, button): await self.select_item(interaction, 3)
+    @discord.ui.button(label="5️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_5(self, interaction, button): await self.select_item(interaction, 4)
+
+    @discord.ui.button(label="◀️", style=discord.ButtonStyle.secondary, row=1)
+    async def btn_prev(self, interaction, button):
+        if interaction.user != self.user: return await interaction.response.send_message("Tu n'as pas l'autorisation.", ephemeral=True)
+        self.current_page -= 1
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
-    @discord.ui.button(label="▶️", style=discord.ButtonStyle.secondary, custom_id="race_suiv")
-    async def bouton_suiv(self, interaction: discord.Interaction, button: discord.ui.Button):
-        if interaction.user != self.user:
-            return await interaction.response.send_message("Ce n'est pas à ton tour de choisir !", ephemeral=True)
-        self.current_page = (self.current_page + 1) % len(self.pages)
+    @discord.ui.button(label="▶️", style=discord.ButtonStyle.secondary, row=1)
+    async def btn_next(self, interaction, button):
+        if interaction.user != self.user: return await interaction.response.send_message("Tu n'as pas l'autorisation.", ephemeral=True)
+        self.current_page += 1
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
@@ -2135,35 +2179,23 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
     if not voitures_b:
         return await ctx.send(f"❌ Duel impossible : {membre.display_name} ne possède aucune voiture de **Classe {classe_voulue}**.")
 
-    # 3. Choix de l'Attaquant (Avec Pagination)
-    lignes_a = [f"**{i+1}.** {v}" for i, v in enumerate(voitures_a)]
-    pages_a = ["\n".join(lignes_a[i:i + 15]) for i in range(0, len(lignes_a), 15)]
+    # 3. Choix de l'Attaquant
     titre_a = f"🏁 Duel en Classe {classe_voulue} - Choix de {ctx.author.display_name}"
-    
-    view_a = RaceSelectionPagination(ctx, ctx.author, pages_a, titre_a)
+    view_a = RaceSelectionView(ctx, ctx.author, voitures_a, titre_a)
     msg_select_a = await ctx.send(
-        content=f"{ctx.author.mention}, choisis ta voiture en tapant son numéro dans le chat :",
+        content=f"{ctx.author.mention}, choisis ta monture pour ce duel :",
         embed=view_a.get_embed(), 
         view=view_a
     )
 
-    def check_msg_a(m): return m.author == ctx.author and m.channel == ctx.channel and m.content.isdigit()
-
-    try:
-        # Temps augmenté à 60s
-        msg_resp_a = await bot.wait_for('message', timeout=60.0, check=check_msg_a)
-        choix_idx_a = int(msg_resp_a.content) - 1
-        if not (0 <= choix_idx_a < len(voitures_a)): 
-            return await ctx.send("❌ Numéro invalide. Course annulée.")
-        ma_voiture_exacte = voitures_a[choix_idx_a]
+    await view_a.wait() # Attend que l'utilisateur clique sur un numéro ou que les 60s s'écoulent
+    
+    if not view_a.selected_car:
+        return await ctx.send(f"⏳ Temps écoulé, {ctx.author.display_name}. La course est annulée.")
         
-        # Nettoyage
-        try:
-            await msg_select_a.delete()
-            await msg_resp_a.delete()
-        except: pass
-    except asyncio.TimeoutError:
-        return await ctx.send("⏳ Temps écoulé pour choisir. Course annulée.")
+    ma_voiture_exacte = view_a.selected_car
+    try: await msg_select_a.delete()
+    except: pass
 
     # 4. Invitation au Défenseur
     msg_invite = await ctx.send(
@@ -2188,34 +2220,23 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
     except asyncio.TimeoutError:
         return await ctx.send(f"⏳ Le temps est écoulé, {membre.display_name} n'a pas répondu à l'invitation.")
 
-    # 5. Choix du Défenseur (Avec Pagination)
-    lignes_b = [f"**{i+1}.** {v}" for i, v in enumerate(voitures_b)]
-    pages_b = ["\n".join(lignes_b[i:i + 15]) for i in range(0, len(lignes_b), 15)]
+    # 5. Choix du Défenseur
     titre_b = f"🔥 Défi accepté ! Choix de {membre.display_name}"
-    
-    view_b = RaceSelectionPagination(ctx, membre, pages_b, titre_b)
+    view_b = RaceSelectionView(ctx, membre, voitures_b, titre_b)
     msg_select_b = await ctx.send(
-        content=f"{membre.mention}, choisis ta voiture de **Classe {classe_voulue}** en tapant son numéro :",
+        content=f"{membre.mention}, choisis avec quoi tu vas l'affronter :",
         embed=view_b.get_embed(), 
         view=view_b
     )
 
-    def check_msg_b(m): return m.author == membre and m.channel == ctx.channel and m.content.isdigit()
-
-    try:
-        # Temps augmenté à 60s
-        msg_resp_b = await bot.wait_for('message', timeout=60.0, check=check_msg_b)
-        choix_idx_b = int(msg_resp_b.content) - 1
-        if not (0 <= choix_idx_b < len(voitures_b)): 
-            return await ctx.send("❌ Numéro invalide. Duel annulé.")
-        sa_voiture_exacte = voitures_b[choix_idx_b]
+    await view_b.wait()
+    
+    if not view_b.selected_car:
+        return await ctx.send(f"⏳ Trop lent pour choisir la voiture... La course est annulée !")
         
-        try:
-            await msg_select_b.delete()
-            await msg_resp_b.delete()
-        except: pass
-    except asyncio.TimeoutError:
-        return await ctx.send("⏳ Trop lent pour choisir la voiture... La course est annulée !")
+    sa_voiture_exacte = view_b.selected_car
+    try: await msg_select_b.delete()
+    except: pass
 
     # 6. Lancement de la Course
     ratio_a = obtenir_ratio(ma_voiture_exacte)
@@ -2228,7 +2249,6 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
     pos_a = 0.0
     pos_b = 0.0
     
-    # NOUVEAU : On pioche l'intro au hasard
     phrase_intro = random.choice(PHRASES_INTRO)
     dernier_commentaire = phrase_intro
 
@@ -2247,7 +2267,6 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
         pos_a += (vitesse_base_a / 4.0) + random.uniform(0.1, 0.8)
         pos_b += (vitesse_base_b / 4.0) + random.uniform(0.1, 0.8)
 
-        # Générer un nouveau commentaire tous les 3 tours
         if tour > 0 and tour % 3 == 0:
             commentateur = random.choice([ctx.author.display_name, membre.display_name])
             dernier_commentaire = f"🎙️ *{random.choice(PHRASES_RACE).format(pseudo=commentateur)}*"
@@ -2343,7 +2362,7 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
 @race.error
 async def race_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument) or isinstance(error, commands.BadArgument):
-        await ctx.send(f"❌ **Erreur de syntaxe.**\nUtilise la commande dans cet ordre :\n`!race @pseudo <montant> <Classe>`\n\n*Exemple :* `!race @Bouboule 500 S1`")
+        await ctx.send(f"❌ **Erreur de syntaxe.**\nUtilise la commande dans cet ordre :\n`/race @pseudo <montant> <Classe>`")
 #endregion
 
 # 4. Lancement
