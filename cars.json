@@ -1818,7 +1818,7 @@
         "pays": "🇯🇵 Japon",
         "rareté": "Commun ⚪",
         "poids": 100,
-        "image": "https://www.auto-data.net/images/f114/Infiniti-G35-Sport-Coupe.jpg",
+        "image": "https://i.imgur.com/PzqC49U.jpeg",
         "moteur": "V6 3.5L",
         "puissance": "280 ch",
         "masse_kg": "1580"
@@ -20542,5 +20542,29 @@
         "moteur": "L5 2.5L Turbo",
         "puissance": "390 ch",
         "masse_kg": "1608"
+    },
+    {
+        "nom": "G37",
+        "marque": "Infiniti",
+        "annee": "2007",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/kitKJGk.png",
+        "moteur": "V6 3.7L",
+        "puissance": "320 ch",
+        "masse_kg": "1670"
+    },
+    {
+        "nom": "Q50 Eau Rouge",
+        "marque": "Infiniti",
+        "annee": "2014",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/uCpKjT0.png",
+        "moteur": "V6 3.8L Twin-Turbo",
+        "puissance": "568 ch",
+        "masse_kg": "1825"
     }
 ]
