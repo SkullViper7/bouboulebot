@@ -20494,5 +20494,41 @@
         "moteur": "V10 5.2L",
         "puissance": "620 ch",
         "masse_kg": "1590"
+    },
+    {
+        "nom": "911 (996) GT3 RS",
+        "marque": "Porsche",
+        "annee": "2003",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/OTZjL3h.png",
+        "moteur": "F6 3.6L",
+        "puissance": "381 ch",
+        "masse_kg": "1360"
+    },
+    {
+        "nom": "911 (997.1) GT3 RS",
+        "marque": "Porsche",
+        "annee": "2006",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Ri0jOPq.png",
+        "moteur": "F6 3.6L",
+        "puissance": "415 ch",
+        "masse_kg": "1375"
+    },
+    {
+        "nom": "911 (991.1) GT RS",
+        "marque": "Porsche",
+        "annee": "2015",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/hIOvdeQ.png",
+        "moteur": "F6 4.0L",
+        "puissance": "500 ch",
+        "masse_kg": "1420"
     }
 ]
