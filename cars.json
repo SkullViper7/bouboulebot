@@ -20710,5 +20710,41 @@
         "moteur": "L4 2.0L",
         "puissance": "160 ch",
         "masse_kg": "1015"
+    },
+    {
+        "nom": "1200 S Coupé",
+        "marque": "Simca",
+        "annee": "1967",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/efY8gtM.png",
+        "moteur": "L4 1.2L",
+        "puissance": "80 ch",
+        "masse_kg": "890"
+    },
+    {
+        "nom": "Initiale Concept",
+        "marque": "Renault",
+        "annee": "1995",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Edo2DQo.png",
+        "moteur": "V10 3.5L",
+        "puissance": "392 ch",
+        "masse_kg": "1600"
+    },
+    {
+        "nom": "306 S16 Dimma",
+        "marque": "Peugeot",
+        "annee": "1994",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Oh4kKHH.png",
+        "moteur": "L4 2.0L",
+        "puissance": "155 ch",
+        "masse_kg": "1200"
     }
 ]
