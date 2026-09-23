@@ -579,10 +579,10 @@
         "nom": "Aventador LP 700-4",
         "marque": "Lamborghini",
         "annee": "2011",
+        "pays": "🇮🇹 Italie",
         "rareté": "Mythique 🟣",
         "poids": 8,
-        "image": "https://johnscottiluxuryprestige.com/wp-content/uploads/2016/02/35-1643904002369.jpg",
-        "pays": "🇮🇹 Italie",
+        "image": "https://i.imgur.com/mu09IWT.png",
         "moteur": "V12 6.5L",
         "puissance": "700 ch",
         "masse_kg": "1575"
@@ -758,11 +758,11 @@
     {
         "nom": "S2000",
         "marque": "Honda",
-        "rareté": "Commun ⚪",
-        "poids": 100,
-        "image": "https://images.caradisiac.com/logos/0/2/9/3/260293/S7-honda-s2000-1999-2009-un-moteur-de-legende-des-16-000-eur-183095.jpg",
         "annee": "1999",
         "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://images.caradisiac.com/logos/0/2/9/3/260293/S7-honda-s2000-1999-2009-un-moteur-de-legende-des-16-000-eur-183095.jpg",
         "moteur": "L4 2.0L VTEC",
         "puissance": "240 ch",
         "masse_kg": "1250"
@@ -1080,7 +1080,7 @@
         "masse_kg": "875"
     },
     {
-        "nom": "Silvia (S14)",
+        "nom": "Silvia S14",
         "marque": "Nissan",
         "annee": "1996",
         "pays": "🇯🇵 Japon",
@@ -2040,7 +2040,7 @@
         "masse_kg": "1335"
     },
     {
-        "nom": "RX 7 FC",
+        "nom": "RX-7 FC",
         "marque": "Mazda",
         "annee": "1986",
         "pays": "🇯🇵 Japon",
@@ -2424,13 +2424,13 @@
         "masse_kg": "350"
     },
     {
-        "nom": "RX7 Veilside Han",
+        "nom": "RX-7 Veilside Han",
         "marque": "Mazda",
         "annee": "1997",
+        "pays": "🇯🇵 Japon",
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/nrLxHu8.png",
-        "pays": "🇯🇵 Japon",
         "moteur": "R2 13B-REW 1.3L (Bi-Rotor)",
         "puissance": "280 ch",
         "masse_kg": "1300"
@@ -4788,7 +4788,7 @@
         "masse_kg": "1880"
     },
     {
-        "nom": "MX-5 Miata",
+        "nom": "MX-5 NA",
         "marque": "Mazda",
         "annee": "1989",
         "pays": "🇯🇵 Japon",
@@ -12640,8 +12640,8 @@
         "marque": "Chevrolet",
         "annee": "2014",
         "pays": "🇺🇸 États-Unis",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://i.imgur.com/ANTCgVk.png",
         "moteur": "V8 6.2L",
         "puissance": "430 ch",
@@ -15258,7 +15258,7 @@
         "pays": "🇸🇮 Slovénie",
         "rareté": "Mythique 🟣",
         "poids": 8,
-        "image": "https://imgur.com/ATtJtdV",
+        "image": "https://i.imgur.com/3csrQT9.png",
         "moteur": "V8 4.2L",
         "puissance": "450 ch",
         "masse_kg": "1100"
@@ -20566,5 +20566,149 @@
         "moteur": "V6 3.8L Twin-Turbo",
         "puissance": "568 ch",
         "masse_kg": "1825"
+    },
+    {
+        "nom": "Evora GTE LM",
+        "marque": "Lotus",
+        "annee": "2011",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/xauWeDg.png",
+        "moteur": "V8 4.0L",
+        "puissance": "470 ch",
+        "masse_kg": "1245"
+    },
+    {
+        "nom": "Evora Enduro GT",
+        "marque": "Lotus",
+        "annee": "2010",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/j1Sd7v2.png",
+        "moteur": "V6 4.0L",
+        "puissance": "400 ch",
+        "masse_kg": "1200"
+    },
+    {
+        "nom": "Evora GTE",
+        "marque": "Lotus",
+        "annee": "2011",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/FUXKNAC.png",
+        "moteur": "V6 3.5L",
+        "puissance": "444 ch",
+        "masse_kg": "1277"
+    },
+    {
+        "nom": "200 SX",
+        "marque": "Nissan",
+        "annee": "1989",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/EjkNTay.png",
+        "moteur": "L4 1.8L Tubro",
+        "puissance": "169 ch",
+        "masse_kg": "1220"
+    },
+    {
+        "nom": "Silvia S13",
+        "marque": "Nissan",
+        "annee": "1988",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/hBnzGoK.jpeg",
+        "moteur": "L4 1.8L",
+        "puissance": "135 ch",
+        "masse_kg": "1110"
+    },
+    {
+        "nom": "Probe",
+        "marque": "Ford",
+        "annee": "1989",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/CvkgFSS.png",
+        "moteur": "L4 2.2L Turbo",
+        "puissance": "145 ch",
+        "masse_kg": "1300"
+    },
+    {
+        "nom": "Puma Rally1",
+        "marque": "Ford",
+        "annee": "2022",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/LIgLHRT.png",
+        "moteur": "L4 1.6L Turbo",
+        "puissance": "500 ch",
+        "masse_kg": "1260"
+    },
+    {
+        "nom": "UR Quattro",
+        "marque": "Audi",
+        "annee": "1980",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ozHUd8B.jpeg",
+        "moteur": "L5 2.1L Turbo",
+        "puissance": "200 ch",
+        "masse_kg": "1290"
+    },
+    {
+        "nom": "A110 Pikes Peak",
+        "marque": "Alpine",
+        "annee": "2023",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/e58raPV.png",
+        "moteur": "L4 1.8L Turbo",
+        "puissance": "500 ch",
+        "masse_kg": "950"
+    },
+    {
+        "nom": "MX-5 NB",
+        "marque": "Mazda",
+        "annee": "1998",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/qdXGjb0.png",
+        "moteur": "L4 1.6L",
+        "puissance": "110 ch",
+        "masse_kg": "1000"
+    },
+    {
+        "nom": "Mazdaspeed MX-5",
+        "marque": "Mazda",
+        "annee": "2004",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/EaXuE3T.png",
+        "moteur": "L4 1.8L Turbo",
+        "puissance": "178 ch",
+        "masse_kg": "1110"
+    },
+    {
+        "nom": "MX-5 ND",
+        "marque": "Mazda",
+        "annee": "2015",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/eFDnfMP.png",
+        "moteur": "L4 2.0L",
+        "puissance": "160 ch",
+        "masse_kg": "1015"
     }
 ]
