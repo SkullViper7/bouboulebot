@@ -854,11 +854,11 @@
     {
         "nom": "Sprinter Trueno AE86",
         "marque": "Toyota",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
-        "image": "https://static.jdmexport.com/wp-content/uploads/sites/9/2022/12/08095258/toyota-ae86.jpg",
         "annee": "1983",
         "pays": "🇯🇵 Japon",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/aoydNk8.png",
         "moteur": "L4 1.6L",
         "puissance": "130 ch",
         "masse_kg": "970"
