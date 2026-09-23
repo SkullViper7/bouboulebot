@@ -20746,5 +20746,17 @@
         "moteur": "L4 2.0L",
         "puissance": "155 ch",
         "masse_kg": "1200"
+    },
+    {
+        "nom": "MR2 Turbo",
+        "marque": "Toyota",
+        "annee": "1989",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/XfT5rIX.png",
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "225 ch",
+        "masse_kg": "1260"
     }
 ]
