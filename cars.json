@@ -3519,10 +3519,10 @@
         "nom": "MR2",
         "marque": "Toyota",
         "annee": "1989",
-        "rareté": "Commun ⚪",
-        "poids": 100,
-        "image": "https://i.imgur.com/oeufM2G.png",
         "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/oeufM2G.png",
         "moteur": "L4 2.0L Turbo",
         "puissance": "225 ch",
         "masse_kg": "1250"
