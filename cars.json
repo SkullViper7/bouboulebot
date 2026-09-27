@@ -1238,11 +1238,11 @@
     {
         "nom": "500 F",
         "marque": "Fiat",
-        "rareté": "Commun ⚪",
-        "poids": 100,
-        "image": "https://d1zlgejnyf0gxt.cloudfront.net/production/car_pictures/large/fiat-500-f-furiani-f048b2b159c89417c34b93a3e217bc54.jpg",
         "annee": "1968",
         "pays": "🇮🇹 Italie",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/VmPnQSo.png",
         "moteur": "L2 0.5L",
         "puissance": "18 ch",
         "masse_kg": "500"
@@ -4911,10 +4911,10 @@
         "nom": "AMG GTR",
         "marque": "Mercedes-Benz",
         "annee": "2014",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/XVHbsvG.png",
         "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/XVHbsvG.png",
         "moteur": "V8 4.0L Bi-Turbo",
         "puissance": "585 ch",
         "masse_kg": "1630"
@@ -20770,5 +20770,65 @@
         "moteur": "V8 6.2L Compresseur",
         "puissance": "650 ch",
         "masse_kg": "1600"
+    },
+    {
+        "nom": "V333",
+        "marque": "Mathis",
+        "annee": "1940",
+        "pays": "🇫🇷 France",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/8mvwWJn.png",
+        "moteur": "F2 700cc",
+        "puissance": "15 ch",
+        "masse_kg": "380"
+    },
+    {
+        "nom": "Radford Type 62-2",
+        "marque": "Lotus",
+        "annee": "2021",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/s6e7d13.png",
+        "moteur": "V6 3.5L Compresseur",
+        "puissance": "430 ch",
+        "masse_kg": "1000"
+    },
+    {
+        "nom": "Radford Type 62-2 John Player Special",
+        "marque": "Lotus",
+        "annee": "2022",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/T0uvUA2.png",
+        "moteur": "V6 3.5L Compresseur",
+        "puissance": "600 ch",
+        "masse_kg": "1000"
+    },
+    {
+        "nom": "Radford Type 62-2 Pikes Peak Edition",
+        "marque": "Lotus",
+        "annee": "2023",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/9fvbiEl.jpeg",
+        "moteur": "V6 3.5L Compresseur",
+        "puissance": "710 ch",
+        "masse_kg": "861"
+    },
+    {
+        "nom": "Hammer",
+        "marque": "Mercedes-Benz",
+        "annee": "1987",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/u6SAHK2.png",
+        "moteur": "V8 6.0L",
+        "puissance": "385 ch",
+        "masse_kg": "1700"
     }
 ]
