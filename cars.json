@@ -2234,11 +2234,11 @@
     {
         "nom": "Silver Cloud III",
         "marque": "Rolls-Royce",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://lh3.googleusercontent.com/Wop-YQqvX49FyR06oEmjd1BD4RIIYU43ZVsfp8Ko1uZZIipmNqZPkIuicwYZQox1wsM1DP74TG2vUhyEzu2-pzXFTB_Kql9giPlD=s0",
         "annee": "1963",
         "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://lh3.googleusercontent.com/Wop-YQqvX49FyR06oEmjd1BD4RIIYU43ZVsfp8Ko1uZZIipmNqZPkIuicwYZQox1wsM1DP74TG2vUhyEzu2-pzXFTB_Kql9giPlD=s0",
         "moteur": "V8 6.2L",
         "puissance": "220 ch",
         "masse_kg": "2110"
