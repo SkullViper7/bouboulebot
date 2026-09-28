@@ -1106,44 +1106,146 @@ async def sell(ctx, *, recherche: str):
 #endregion
 
 #region search
-class SearchPagination(discord.ui.View):
-    def __init__(self, ctx, pages, titre, couleur):
+class SearchResultView(discord.ui.View):
+    def __init__(self, ctx, user, eligible_cars, titre, couleur, profil):
         super().__init__(timeout=120)
         self.ctx = ctx
-        self.pages = pages
+        self.user = user
+        self.eligible_cars = eligible_cars
         self.titre = titre
         self.couleur = couleur
+        self.profil = profil
         self.current_page = 0
+        self.items_per_page = 5
+        self.total_pages = max(1, math.ceil(len(eligible_cars) / self.items_per_page))
+        self.number_emojis = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
         self.update_buttons()
 
     def update_buttons(self):
-        self.bouton_prec.disabled = len(self.pages) <= 1
-        self.bouton_suiv.disabled = len(self.pages) <= 1
+        self.btn_prev.disabled = (self.current_page == 0)
+        self.btn_next.disabled = (self.current_page >= self.total_pages - 1)
+        
+        boutons_nombres = [self.btn_1, self.btn_2, self.btn_3, self.btn_4, self.btn_5]
+        for i, btn in enumerate(boutons_nombres):
+            abs_index = self.current_page * self.items_per_page + i
+            if abs_index >= len(self.eligible_cars):
+                btn.disabled = True
+                btn.style = discord.ButtonStyle.secondary
+            else:
+                btn.disabled = False
+                btn.style = discord.ButtonStyle.primary
 
     def get_embed(self):
+        start = self.current_page * self.items_per_page
+        end = start + self.items_per_page
+        page_items = self.eligible_cars[start:end]
+        
+        mon_garage = self.profil.get("garage", []) if self.profil else []
+        
+        lignes = []
+        for i, voiture in enumerate(page_items):
+            nom_complet = f"{voiture['marque']} {voiture['nom']} {voiture.get('annee', '')}".strip()
+            possede = " ✅" if nom_complet in mon_garage else ""
+            logo = LOGOS.get(voiture['marque'], "")
+            
+            lignes.append(f"{self.number_emojis[i]} {logo} **{voiture['marque']}** {voiture['nom']} {voiture.get('annee', '')} ({voiture['rareté']}){possede}")
+            
         embed = discord.Embed(
-            title=self.titre, 
-            description=self.pages[self.current_page], 
+            title=self.titre,
+            description="Clique sur le numéro pour afficher les détails du modèle :\n\n" + "\n".join(lignes),
             color=self.couleur
         )
-        embed.set_footer(text=f"Page {self.current_page + 1}/{len(self.pages)}")
+        embed.set_footer(text=f"Page {self.current_page + 1}/{self.total_pages} | Total : {len(self.eligible_cars)} modèles")
         return embed
 
-    @discord.ui.button(label="◀️", style=discord.ButtonStyle.secondary, custom_id="search_prec")
-    async def bouton_prec(self, interaction: discord.Interaction, button: discord.ui.Button):
-        if interaction.user != self.ctx.author:
-            return await interaction.response.send_message("Tu n'es pas l'auteur de cette recherche !", ephemeral=True)
+    async def display_car(self, interaction: discord.Interaction, idx_offset: int):
+        if interaction.user != self.user:
+            return await interaction.response.send_message("Ce n'est pas ta recherche !", ephemeral=True)
             
-        self.current_page = (self.current_page - 1) % len(self.pages)
+        abs_index = self.current_page * self.items_per_page + idx_offset
+        if abs_index >= len(self.eligible_cars):
+            return await interaction.response.defer()
+            
+        voiture_choisie = self.eligible_cars[abs_index]
+        nom_complet = f"{voiture_choisie['marque']} {voiture_choisie['nom']} {voiture_choisie.get('annee', '')}".strip()
+        
+        # --- Construction de la carte de la voiture ---
+        membres_serveur_ids = [str(m.id) for m in self.ctx.guild.members]
+        curseur = collection_inventaires.find({
+            "garage": nom_complet,
+            "_id": {"$in": membres_serveur_ids}
+        })
+        docs = await curseur.to_list(length=100)
+        
+        proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
+        texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else "Personne ne possède ce bijou... 😢"
+
+        rarete = voiture_choisie['rareté']
+        couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.green())
+        
+        mon_garage = self.profil.get("garage", []) if self.profil else []
+        titre_possede = " ✅" if nom_complet in mon_garage else ""
+
+        classe_forza = calculer_classe_forza(voiture_choisie)
+        masse = voiture_choisie.get('masse_kg', 'Inconnu')
+        logo = LOGOS.get(voiture_choisie['marque'], "")
+        
+        lignes = [
+            voiture_choisie['nom'],
+            f"{logo}**{voiture_choisie['marque']}**"
+        ]
+        if voiture_choisie.get('annee'):
+            lignes.append(str(voiture_choisie['annee']))
+        lignes.append(voiture_choisie.get('pays', '🏁'))
+        lignes.append("")
+        lignes.append("**Rareté**")
+        lignes.append(rarete)
+        lignes.append("")
+        lignes.append("**⚙️ Spécifications**")
+        lignes.append(f"Moteur : {voiture_choisie.get('moteur', 'Inconnu')}")
+        lignes.append(f"Puissance : {voiture_choisie.get('puissance', 'Inconnue')}")
+        lignes.append(f"Poids : {masse} kg" if masse != "Inconnu" else "Poids : Inconnu")
+        lignes.append(classe_forza)
+        lignes.append("")
+        lignes.append("**Propriétaires :**")
+        lignes.append(texte_proprietaires)
+
+        embed_voiture = discord.Embed(
+            title=f"🔍 {nom_complet}{titre_possede}", 
+            description="\n".join(lignes),
+            color=couleur_dynamique
+        )
+    
+        img_url = voiture_choisie.get('image', '')
+        if img_url and img_url.startswith(('http://', 'https://')):
+            embed_voiture.set_image(url=img_url)
+        else:
+            embed_voiture.add_field(name="⚠️ Image indisponible", value="Le lien de cette image doit être corrigé dans le catalogue.", inline=False)
+
+        await interaction.response.send_message(embed=embed_voiture)
+
+    @discord.ui.button(label="1️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_1(self, interaction, button): await self.display_car(interaction, 0)
+    @discord.ui.button(label="2️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_2(self, interaction, button): await self.display_car(interaction, 1)
+    @discord.ui.button(label="3️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_3(self, interaction, button): await self.display_car(interaction, 2)
+    @discord.ui.button(label="4️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_4(self, interaction, button): await self.display_car(interaction, 3)
+    @discord.ui.button(label="5️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_5(self, interaction, button): await self.display_car(interaction, 4)
+
+    @discord.ui.button(label="◀️", style=discord.ButtonStyle.secondary, row=1)
+    async def btn_prev(self, interaction, button):
+        if interaction.user != self.user: return await interaction.response.send_message("Tu n'as pas l'autorisation.", ephemeral=True)
+        self.current_page -= 1
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
-    @discord.ui.button(label="▶️", style=discord.ButtonStyle.secondary, custom_id="search_suiv")
-    async def bouton_suiv(self, interaction: discord.Interaction, button: discord.ui.Button):
-        if interaction.user != self.ctx.author:
-            return await interaction.response.send_message("Tu n'es pas l'auteur de cette recherche !", ephemeral=True)
-            
-        self.current_page = (self.current_page + 1) % len(self.pages)
+    @discord.ui.button(label="▶️", style=discord.ButtonStyle.secondary, row=1)
+    async def btn_next(self, interaction, button):
+        if interaction.user != self.user: return await interaction.response.send_message("Tu n'as pas l'autorisation.", ephemeral=True)
+        self.current_page += 1
         self.update_buttons()
         await interaction.response.edit_message(embed=self.get_embed(), view=self)
 
@@ -1153,7 +1255,6 @@ async def search(ctx, *, recherche: str):
     
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id})
-    mon_garage = profil.get("garage", []) if profil else []
 
     MOTS_RARETES = {
         "commun": "Commun ⚪", "commune": "Commun ⚪", "blanc": "Commun ⚪",
@@ -1191,7 +1292,6 @@ async def search(ctx, *, recherche: str):
         "finlande": "🇫🇮", "fi": "🇫🇮",
         "norvege": "🇳🇴", "norvège": "🇳🇴", "no": "🇳🇴",
         
-        # Spécial
         "cinema": "🎬", "film": "🎬", "serie": "🎬",
         "jeu": "🎮", "jeux": "🎮", "jeux video": "🎮", "jeu video": "🎮",
         "pirate": "🏴‍☠️", "inconnu": "🏴‍☠️"
@@ -1218,36 +1318,22 @@ async def search(ctx, *, recherche: str):
         titre_recherche = f"Modèles de la marque : {resultats[0]['marque']}"
         couleur_embed = discord.Color.orange()
 
-    if resultats:
-        resultats_tries = sorted(resultats, key=lambda x: (x.get('marque',''), x.get('nom','')))
-        
-        lignes = []
-        for v in resultats_tries:
-            nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip()
-            possede = " ✅" if nom_complet in mon_garage else ""
-            
-            logo = LOGOS.get(v['marque'], "")
-            
-            lignes.append(f"• {logo} **{v['marque']}** {v['nom']} {v.get('annee', '')} ({v['rareté']}) {v.get('pays', '🏁')}{possede}")
+    else:
+        # Recherche souple (comme demandée) : on cherche le texte tapé n'importe où dans "Marque Modèle Année"
+        resultats = [v for v in VOITURES if recherche_lower in f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()]
+        titre_recherche = f"🔍 Résultats pour : {recherche}"
+        couleur_embed = discord.Color.teal()
 
-        lignes_par_page = 15
-        pages = []
-        for i in range(0, len(lignes), lignes_par_page):
-            pages.append("\n".join(lignes[i:i + lignes_par_page]))
-        
-        if len(pages) == 1:
-            embed = discord.Embed(title=titre_recherche, description=pages[0], color=couleur_embed)
-            embed.set_footer(text=f"Total : {len(resultats)} modèles")
-            await ctx.send(embed=embed)
-        else:
-            view = SearchPagination(ctx, pages, titre_recherche, couleur_embed)
-            await ctx.send(embed=view.get_embed(), view=view)
+    if not resultats:
+        await ctx.send(f"❌ Je n'ai trouvé aucun pays, rareté, marque ni modèle correspondant à **{recherche}**.")
         return
+        
+    resultats_tries = sorted(resultats, key=lambda x: (x.get('marque',''), x.get('nom','')))
 
-    modele_trouve = next((v for v in VOITURES if recherche_lower in f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()), None)
-
-    if modele_trouve:
-        nom_complet = f"{modele_trouve['marque']} {modele_trouve['nom']} {modele_trouve.get('annee', '')}".strip()
+    # Si la recherche ne retourne qu'un seul véhicule, on l'affiche directement (pas besoin de liste)
+    if len(resultats_tries) == 1:
+        voiture_choisie = resultats_tries[0]
+        nom_complet = f"{voiture_choisie['marque']} {voiture_choisie['nom']} {voiture_choisie.get('annee', '')}".strip()
         
         membres_serveur_ids = [str(m.id) for m in ctx.guild.members]
         curseur = collection_inventaires.find({
@@ -1259,51 +1345,54 @@ async def search(ctx, *, recherche: str):
         proprietaires_mentions = [f"<@{doc['_id']}>" for doc in docs]
         texte_proprietaires = ", ".join(proprietaires_mentions) if proprietaires_mentions else "Personne ne possède ce bijou... 😢"
 
-        rarete = modele_trouve['rareté']
+        rarete = voiture_choisie['rareté']
         couleur_dynamique = COULEURS_RARETE.get(rarete, discord.Color.green())
         
+        mon_garage = profil.get("garage", []) if profil else []
         titre_possede = " ✅" if nom_complet in mon_garage else ""
 
-        classe_forza = calculer_classe_forza(modele_trouve)
-        masse = modele_trouve.get('masse_kg', 'Inconnu')
-        logo = LOGOS.get(modele_trouve['marque'], "")
+        classe_forza = calculer_classe_forza(voiture_choisie)
+        masse = voiture_choisie.get('masse_kg', 'Inconnu')
+        logo = LOGOS.get(voiture_choisie['marque'], "")
         
         lignes = [
-            modele_trouve['nom'],
-            f"{logo}**{modele_trouve['marque']}**"
+            voiture_choisie['nom'],
+            f"{logo}**{voiture_choisie['marque']}**"
         ]
-        if modele_trouve.get('annee'):
-            lignes.append(str(modele_trouve['annee']))
-        lignes.append(modele_trouve.get('pays', '🏁'))
+        if voiture_choisie.get('annee'):
+            lignes.append(str(voiture_choisie['annee']))
+        lignes.append(voiture_choisie.get('pays', '🏁'))
         lignes.append("")
         lignes.append("**Rareté**")
         lignes.append(rarete)
         lignes.append("")
         lignes.append("**⚙️ Spécifications**")
-        lignes.append(f"Moteur : {modele_trouve.get('moteur', 'Inconnu')}")
-        lignes.append(f"Puissance : {modele_trouve.get('puissance', 'Inconnue')}")
+        lignes.append(f"Moteur : {voiture_choisie.get('moteur', 'Inconnu')}")
+        lignes.append(f"Puissance : {voiture_choisie.get('puissance', 'Inconnue')}")
         lignes.append(f"Poids : {masse} kg" if masse != "Inconnu" else "Poids : Inconnu")
         lignes.append(classe_forza)
         lignes.append("")
         lignes.append("**Propriétaires :**")
         lignes.append(texte_proprietaires)
 
-        embed = discord.Embed(
+        embed_voiture = discord.Embed(
             title=f"🔍 {nom_complet}{titre_possede}", 
             description="\n".join(lignes),
             color=couleur_dynamique
         )
     
-        img_url = modele_trouve.get('image', '')
+        img_url = voiture_choisie.get('image', '')
         if img_url and img_url.startswith(('http://', 'https://')):
-            embed.set_image(url=img_url)
+            embed_voiture.set_image(url=img_url)
         else:
-            embed.add_field(name="⚠️ Image indisponible", value="Le lien de cette image doit être corrigé dans le catalogue.", inline=False)
+            embed_voiture.add_field(name="⚠️ Image indisponible", value="Le lien de cette image doit être corrigé dans le catalogue.", inline=False)
 
-        await ctx.send(embed=embed)
+        await ctx.send(embed=embed_voiture)
         return
 
-    await ctx.send(f"❌ Je n'ai trouvé aucun pays, rareté, marque ni modèle correspondant à **{recherche}**.")
+    # S'il y a plusieurs résultats, on affiche l'interface interactive
+    view = SearchResultView(ctx, ctx.author, resultats_tries, titre_recherche, couleur_embed, profil)
+    await ctx.send(embed=view.get_embed(), view=view)
 #endregion
 
 #region catalogue
