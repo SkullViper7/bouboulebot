@@ -151,11 +151,16 @@ async def verifier_succes_marque(ctx, user_id, marque):
             }
         )
         
+        # NOUVEAU : Récupération et affichage du nouveau solde
+        ancien_solde = profil.get("coins", 0)
+        nouveau_solde = ancien_solde + recompense
+        
         embed = discord.Embed(
             title="🏆 NOUVEAU SUCCÈS DÉBLOQUÉ !",
             description=f"Incroyable ! <@{user_id}> vient de collectionner **absolument tous** les modèles de la marque **{marque}** !\n\n🎁 **Bonus de collectionnneur : +{recompense} 🪙**",
             color=discord.Color.brand_green()
         )
+        embed.set_footer(text=f"Nouveau solde : {nouveau_solde} 🪙")
         await ctx.send(embed=embed)
 #endregion
 
