@@ -588,13 +588,13 @@
         "masse_kg": "1575"
     },
     {
-        "nom": "GT-R NISMO (R32)",
+        "nom": "GT-R R32 NISMO",
         "marque": "Nissan",
+        "annee": "1990",
+        "pays": "🇯🇵 Japon",
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://www.super-hobby.fr/zdjecia/7/9/9/10482_rd.jpg",
-        "annee": "1990",
-        "pays": "🇯🇵 Japon",
         "moteur": "L6 2.6L Bi-Turbo",
         "puissance": "280 ch",
         "masse_kg": "1430"
@@ -672,13 +672,13 @@
         "masse_kg": "1540"
     },
     {
-        "nom": "GTR R35",
+        "nom": "GT-R R35 CBA",
         "marque": "Nissan",
         "annee": "2007",
         "pays": "🇯🇵 Japon",
         "rareté": "Mythique 🟣",
         "poids": 8,
-        "image": "https://www.downshift.fr/wp-content/uploads/2018/05/Guide-achat-Nissan-GT-R-1-e1530612100740.jpg",
+        "image": "https://i.imgur.com/3NBDgLi.png",
         "moteur": "V6 3.8L Bi-Turbo",
         "puissance": "600 ch",
         "masse_kg": "1740"
@@ -888,13 +888,13 @@
         "masse_kg": "950"
     },
     {
-        "nom": "Civic Type R (EK9)",
+        "nom": "Civic Type R EK9",
         "marque": "Honda",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
-        "image": "https://images.caradisiac.com/logos-ref/modele/modele--honda-civic-type-r/S0-modele--honda-civic-type-r.jpg",
         "annee": "1997",
         "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/N0q1dMU.png",
         "moteur": "L4 1.6L VTEC",
         "puissance": "185 ch",
         "masse_kg": "1050"
@@ -1260,16 +1260,16 @@
         "masse_kg": "740"
     },
     {
-        "nom": "Civic",
+        "nom": "Civic EG5",
         "marque": "Honda",
         "annee": "1992",
         "pays": "🇯🇵 Japon",
-        "rareté": "Commun ⚪",
-        "poids": 100,
+        "rareté": "Rare 🔵",
+        "poids": 30,
         "image": "https://i.imgur.com/KTsy4aY.png",
         "moteur": "L4 1.2L",
-        "puissance": "50 ch",
-        "masse_kg": "1040"
+        "puissance": "125 ch",
+        "masse_kg": "1030"
     },
     {
         "nom": "2cv",
@@ -1575,10 +1575,10 @@
         "nom": "Type 32 Tank",
         "marque": "Bugatti",
         "annee": "1929",
+        "pays": "🇫🇷 France",
         "rareté": "Rare 🔵",
         "poids": 30,
-        "image": "https://www.the7exclusivejournal.com/wp-content/uploads/2023/07/t32tank_100ans_08.jpg",
-        "pays": "🇫🇷 France",
+        "image": "https://i.imgur.com/GeTxr8u.png",
         "moteur": "L8 2.0L",
         "puissance": "90 ch",
         "masse_kg": "650"
@@ -2076,7 +2076,7 @@
         "masse_kg": "3850"
     },
     {
-        "nom": "GTR R33",
+        "nom": "GT-R R33",
         "marque": "Nissan",
         "annee": "1993",
         "pays": "🇯🇵 Japon",
@@ -2448,13 +2448,13 @@
         "masse_kg": "1700"
     },
     {
-        "nom": "Skyline GTR R34 Brian",
+        "nom": "Skyline GT-R R34 Brian",
         "marque": "Nissan",
         "annee": "1999",
+        "pays": "🇯🇵 Japon",
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/89lxsYb.png",
-        "pays": "🇯🇵 Japon",
         "moteur": "L6 RB26DETT 2.6L",
         "puissance": "500 ch",
         "masse_kg": "1560"
@@ -4404,16 +4404,16 @@
         "masse_kg": "1120"
     },
     {
-        "nom": "Civic",
+        "nom": "Civic 1200 RS",
         "marque": "Honda",
         "annee": "1973",
+        "pays": "🇯🇵 Japon",
         "rareté": "Commun ⚪",
         "poids": 100,
-        "image": "https://i.imgur.com/443R7wh.png",
-        "pays": "🇯🇵 Japon",
+        "image": "https://i.imgur.com/gvdqi7Y.png",
         "moteur": "L4 1.2L",
-        "puissance": "50 ch",
-        "masse_kg": "680"
+        "puissance": "76 ch",
+        "masse_kg": "700"
     },
     {
         "nom": "Commodore Eight Wagon",
@@ -4968,13 +4968,13 @@
         "masse_kg": "1710"
     },
     {
-        "nom": "Skyline GTR R32 Godzilla",
+        "nom": "Skyline GT-R R32 Godzilla",
         "marque": "Nissan",
         "annee": "1989",
+        "pays": "🇯🇵 Japon",
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/PRo4Pcv.png",
-        "pays": "🇯🇵 Japon",
         "moteur": "L6 2.6L Bi-Turbo",
         "puissance": "280 ch",
         "masse_kg": "1430"
@@ -11412,7 +11412,7 @@
         "masse_kg": "1250"
     },
     {
-        "nom": "GTR R50",
+        "nom": "GT-R R50",
         "marque": "Nissan",
         "annee": "2020",
         "pays": "🇯🇵 Japon",
@@ -13356,16 +13356,16 @@
         "masse_kg": "1720"
     },
     {
-        "nom": "Skyline GT-R R34 Midnight Purple",
+        "nom": "Skyline GT-R R34 Z-Tune",
         "marque": "Nissan",
         "annee": "1999",
         "pays": "🇯🇵 Japon",
         "rareté": "Légendaire 🟡",
         "poids": 2,
         "image": "https://i.imgur.com/2ZCSWOw.png",
-        "moteur": "L6 2.6L Bi-Turbo",
-        "puissance": "280 ch",
-        "masse_kg": "1560"
+        "moteur": "L6 2.8L Bi-Turbo",
+        "puissance": "500 ch",
+        "masse_kg": "1600"
     },
     {
         "nom": "205 GTI Griffe",
@@ -18876,7 +18876,7 @@
         "masse_kg": "660"
     },
     {
-        "nom": "Skyline GTR R34 Liberty Walk Super Silhouette",
+        "nom": "Skyline GT-R R34 Liberty Walk Super Silhouette",
         "marque": "Nissan",
         "annee": "2020",
         "pays": "🇯🇵 Japon",
@@ -21130,5 +21130,149 @@
         "moteur": "V8 5.2L Compresseur",
         "puissance": "815 ch",
         "masse_kg": "1970"
+    },
+    {
+        "nom": "Skyline GT-R R33 LM",
+        "marque": "Nissan",
+        "annee": "1995",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/EbY6rmD.png",
+        "moteur": "L6 2.6L Twin-Turbo",
+        "puissance": "305 ch",
+        "masse_kg": "1150"
+    },
+    {
+        "nom": "Skyline GT-R R33 Nismo 400R",
+        "marque": "Nissan",
+        "annee": "1997",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Sgi7qG0.png",
+        "moteur": "L6 2.8L Twin-Turbo",
+        "puissance": "400 ch",
+        "masse_kg": "1550"
+    },
+    {
+        "nom": "GT-R R35 DBA",
+        "marque": "Nissan",
+        "annee": "2011",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/6sC0QTj.png",
+        "moteur": "V6 3.8L Biturbo",
+        "puissance": "530 ch",
+        "masse_kg": "1740"
+    },
+    {
+        "nom": "GT-R R35 Nismo",
+        "marque": "Nissan",
+        "annee": "2014",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/jtbCGDh.png",
+        "moteur": "V6 3.8L Biturbo",
+        "puissance": "600 ch",
+        "masse_kg": "1740"
+    },
+    {
+        "nom": "GT-R R35 4BA",
+        "marque": "Nissan",
+        "annee": "2017",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/FXOa7dX.png",
+        "moteur": "V6 3.8L Biturbo",
+        "puissance": "570 ch",
+        "masse_kg": "1740"
+    },
+    {
+        "nom": "GT-R R35 4BA Nismo",
+        "marque": "Nissan",
+        "annee": "2020",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/jmNZxIP.png",
+        "moteur": "V6 3.8L Biturbo",
+        "puissance": "600 ch",
+        "masse_kg": "1740"
+    },
+    {
+        "nom": "720S",
+        "marque": "McLaren",
+        "annee": "2017",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/QOtbxEB.png",
+        "moteur": "V8 4.0L Biturbo",
+        "puissance": "720 ch",
+        "masse_kg": "1283"
+    },
+    {
+        "nom": "Civic SiR II",
+        "marque": "Honda",
+        "annee": "1989",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/iFJVCTR.png",
+        "moteur": "L4 1.6L",
+        "puissance": "160 ch",
+        "masse_kg": "980"
+    },
+    {
+        "nom": "Civic EM1",
+        "marque": "Honda",
+        "annee": "1999",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/8Kej7tt.png",
+        "moteur": "L4 1.6L",
+        "puissance": "160 ch",
+        "masse_kg": "1185"
+    },
+    {
+        "nom": "Civic Mugen RR",
+        "marque": "Honda",
+        "annee": "2007",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/I2kT9XT.jpeg",
+        "moteur": "L4 2.0L",
+        "puissance": "240 ch",
+        "masse_kg": "1245"
+    },
+    {
+        "nom": "Civic Type R FK8",
+        "marque": "Honda",
+        "annee": "2017",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/eNgieHy.png",
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "320 ch",
+        "masse_kg": "1380"
+    },
+    {
+        "nom": "Civic Type R FL5",
+        "marque": "Honda",
+        "annee": "2022",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/D0NDz2A.png",
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "330 ch",
+        "masse_kg": "1429"
     }
 ]
