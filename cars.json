@@ -21274,5 +21274,17 @@
         "moteur": "L4 2.0L Turbo",
         "puissance": "330 ch",
         "masse_kg": "1429"
+    },
+    {
+        "nom": "F40 Competizione",
+        "marque": "Ferrari",
+        "annee": "1989",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/6N26GLo.png",
+        "moteur": "V8 2.9L Biturbo",
+        "puissance": "700 ch",
+        "masse_kg": "1040"
     }
 ]
