@@ -4263,10 +4263,10 @@
         "nom": "Panda 4x4",
         "marque": "Fiat",
         "annee": "1983",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/rxxDJ0L.png",
         "pays": "🇮🇹 Italie",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/rxxDJ0L.png",
         "moteur": "L4 1.0L",
         "puissance": "48 ch",
         "masse_kg": "740"
