@@ -1299,7 +1299,7 @@ async def search(ctx, *, recherche: str):
         
         "cinema": "🎬", "film": "🎬", "serie": "🎬",
         "jeu": "🎮", "jeux": "🎮", "jeux video": "🎮", "jeu video": "🎮",
-        "pirate": "🏴‍☠️", "inconnu": "🏴‍☠️"
+        "pirate": "🏴‍‍☠️", "inconnu": "🏴‍☠️"
     }
 
     resultats = []
@@ -1324,8 +1324,17 @@ async def search(ctx, *, recherche: str):
         couleur_embed = discord.Color.orange()
 
     else:
-        # Recherche souple (comme demandée) : on cherche le texte tapé n'importe où dans "Marque Modèle Année"
-        resultats = [v for v in VOITURES if recherche_lower in f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()]
+        # Recherche ultra-souple : on ignore les espaces, tirets et autres caractères spéciaux
+        recherche_nettoyee = re.sub(r'[^a-z0-9]', '', recherche_lower)
+        
+        resultats = []
+        for v in VOITURES:
+            nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()
+            nom_nettoye = re.sub(r'[^a-z0-9]', '', nom_complet)
+            
+            if recherche_nettoyee in nom_nettoye:
+                resultats.append(v)
+                
         titre_recherche = f"🔍 Résultats pour : {recherche}"
         couleur_embed = discord.Color.teal()
 

@@ -568,9 +568,9 @@
         "marque": "Plymouth",
         "annee": "1970",
         "pays": "🇺🇸 États-Unis",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://static.overfuel.com/dealers/trust-auto/image/1970-Plymouth-Superbird-1024x576.jpg",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/xqmdxVC.png",
         "moteur": "V8 7.0L",
         "puissance": "425 ch",
         "masse_kg": "1740"
@@ -2090,11 +2090,11 @@
     {
         "nom": "350Z",
         "marque": "Nissan",
-        "rareté": "Commun ⚪",
-        "poids": 100,
-        "image": "https://media.whichcar.com.au/uploads/2024/12/f0cc84d0-edewar-240712-nissan-350z-3640-edit.jpg",
         "annee": "2002",
         "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/29YXPqg.png",
         "moteur": "V6 3.5L",
         "puissance": "280 ch",
         "masse_kg": "1530"
@@ -3976,8 +3976,8 @@
         "marque": "Caterham",
         "annee": "2023",
         "pays": "🇬🇧 Royaume-Uni",
-        "rareté": "Commun ⚪",
-        "poids": 100,
+        "rareté": "Rare 🔵",
+        "poids": 30,
         "image": "https://i.imgur.com/F5Jl6ER.jpeg",
         "moteur": "L4 2.0L",
         "puissance": "170 ch",
@@ -21286,5 +21286,29 @@
         "moteur": "V8 2.9L Biturbo",
         "puissance": "700 ch",
         "masse_kg": "1040"
+    },
+    {
+        "nom": "370Z",
+        "marque": "Nissan",
+        "annee": "2009",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/03IPD56.jpeg",
+        "moteur": "V6 3.7L",
+        "puissance": "332 ch",
+        "masse_kg": "1495"
+    },
+    {
+        "nom": "370Z Nismo",
+        "marque": "Nissan",
+        "annee": "2014",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/TxoibM2.png",
+        "moteur": "V6 3.7L",
+        "puissance": "344 ch",
+        "masse_kg": "1530"
     }
 ]
