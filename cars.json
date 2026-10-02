@@ -21310,5 +21310,17 @@
         "moteur": "V6 3.7L",
         "puissance": "344 ch",
         "masse_kg": "1530"
+    },
+    {
+        "nom": "Aztec",
+        "marque": "Italdesign",
+        "annee": "1988",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/cVwHvVO.png",
+        "moteur": "L5 2.2L Turbo",
+        "puissance": "250 ch",
+        "masse_kg": "1250"
     }
 ]
