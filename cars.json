@@ -1806,7 +1806,7 @@
         "pays": "🇺🇸 États-Unis",
         "rareté": "Commun ⚪",
         "poids": 100,
-        "image": "https://cdn-s-www.leprogres.fr/images/9637710F-3015-4082-99D9-7B2EF1C5ABF5/NW_raw/l-aerodynamique-n-est-pas-dans-le-cahier-des-charges-du-hummer-photo-dr-1616698737.jpg",
+        "image": "https://i.imgur.com/bnMGLM9.png",
         "moteur": "V8 6.6L Turbo Diesel",
         "puissance": "300 ch",
         "masse_kg": "3400"
@@ -21334,5 +21334,17 @@
         "moteur": "V6 3.0L",
         "puissance": "194 ch",
         "masse_kg": "1050"
+    },
+    {
+        "nom": "Aztec",
+        "marque": "Italdesign",
+        "annee": "1988",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/cVwHvVO.png",
+        "moteur": "L5 2.2L Turbo",
+        "puissance": "250 ch",
+        "masse_kg": "1250"
     }
 ]
