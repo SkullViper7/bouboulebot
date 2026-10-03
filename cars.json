@@ -13276,8 +13276,8 @@
         "marque": "Mitsubishi",
         "annee": "1999",
         "pays": "🇯🇵 Japon",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://i.imgur.com/RiBwemZ.png",
         "moteur": "L4 2.0L Turbo",
         "puissance": "340 ch",
@@ -21310,5 +21310,29 @@
         "moteur": "V6 3.7L",
         "puissance": "344 ch",
         "masse_kg": "1530"
+    },
+    {
+        "nom": "Renault Spider ACE",
+        "marque": "Alpine",
+        "annee": "1996",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/BZUrh6E.png",
+        "moteur": "L4 2.0L",
+        "puissance": "147 ch",
+        "masse_kg": "790"
+    },
+    {
+        "nom": "Espera Espace Spider",
+        "marque": "Sbarro",
+        "annee": "1998",
+        "pays": "🇨🇭 Suisse",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/Rnw9l5p.png",
+        "moteur": "V6 3.0L",
+        "puissance": "194 ch",
+        "masse_kg": "1050"
     }
 ]
