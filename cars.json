@@ -3867,10 +3867,10 @@
         "nom": "Eldorado Biarritz",
         "marque": "Cadillac",
         "annee": "1959",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/e746Of5.png",
         "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/e746Of5.png",
         "moteur": "V8 6.4L",
         "puissance": "345 ch",
         "masse_kg": "2300"
