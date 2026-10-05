@@ -7924,8 +7924,8 @@
         "marque": "Volvo",
         "annee": "1995",
         "pays": "🇸🇪 Suède",
-        "rareté": "Commun ⚪",
-        "poids": 100,
+        "rareté": "Rare 🔵",
+        "poids": 30,
         "image": "https://i.imgur.com/973Tt20.png",
         "moteur": "L5 2.3L Turbo",
         "puissance": "240 ch",
@@ -8116,8 +8116,8 @@
         "marque": "Meyers",
         "annee": "1965",
         "pays": "🇺🇸 États-Unis",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
+        "rareté": "Rare 🔵",
+        "poids": 30,
         "image": "https://i.imgur.com/oocoAvY.png",
         "moteur": "H4 (Flat-four VW) 1.6L",
         "puissance": "90 ch",
@@ -10720,8 +10720,8 @@
         "marque": "Lincoln",
         "annee": "1996",
         "pays": "🇺🇸 États-Unis",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Commun ⚪",
+        "poids": 100,
         "image": "https://i.imgur.com/1vKQDx4.png",
         "moteur": "V12 6.0L",
         "puissance": "435 ch",
@@ -10999,9 +10999,9 @@
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://i.imgur.com/Zu89xWI.png",
-        "moteur": "2 cylindres 750 cm³",
-        "puissance": "20 ch",
-        "masse_kg": "650"
+        "moteur": "V6 3.0L",
+        "puissance": "194 ch",
+        "masse_kg": "1050"
     },
     {
         "nom": "RX-500",
@@ -21324,18 +21324,6 @@
         "masse_kg": "790"
     },
     {
-        "nom": "Espera Espace Spider",
-        "marque": "Sbarro",
-        "annee": "1998",
-        "pays": "🇨🇭 Suisse",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/Rnw9l5p.png",
-        "moteur": "V6 3.0L",
-        "puissance": "194 ch",
-        "masse_kg": "1050"
-    },
-    {
         "nom": "Aztec",
         "marque": "Italdesign",
         "annee": "1988",
@@ -21346,5 +21334,17 @@
         "moteur": "L5 2.2L Turbo",
         "puissance": "250 ch",
         "masse_kg": "1250"
+    },
+    {
+        "nom": "Manx 2.0",
+        "marque": "Meyers",
+        "annee": "2023",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/bYUi7B9.png",
+        "moteur": "EV",
+        "puissance": "202 ch",
+        "masse_kg": "680"
     }
 ]

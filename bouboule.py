@@ -1108,6 +1108,79 @@ async def sell(ctx, *, recherche: str):
 
     except asyncio.TimeoutError:
         await ctx.send(f"⏳ Temps écoulé, la vente est annulée.")
+
+@bot.hybrid_command(name="sellall", description="Vend absolument TOUTES tes voitures (action irréversible).", aliases=["liquider", "pieton"])
+async def sellall(ctx):
+    user_id = str(ctx.author.id)
+    profil = await collection_inventaires.find_one({"_id": user_id})
+
+    if not profil or not profil.get("garage"):
+        await ctx.send(f"❌ Ton garage est déjà vide, {ctx.author.mention} ! Tu es déjà un piéton.")
+        return
+
+    garage = profil["garage"]
+    nb_voitures = len(garage)
+    
+    # Calcul de la valeur totale du garage
+    infos_voitures = {f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip(): PRIX_REVENTE.get(v['rareté'], 50) for v in VOITURES}
+    valeur_totale = sum(infos_voitures.get(nom, 50) for nom in garage)
+
+    # --- CONFIRMATION 1 ---
+    msg1 = await ctx.send(f"⚠️ **ATTENTION {ctx.author.mention} !**\nTu es sur le point de vendre tes **{nb_voitures} voitures** pour un total de **{valeur_totale} 🪙**.\nEs-tu vraiment sûr de vouloir faire ça ?\n*Réagis avec ✅ pour continuer ou ❌ pour annuler.*")
+    await msg1.add_reaction("✅")
+    await msg1.add_reaction("❌")
+
+    def check1(reaction, user):
+        return user == ctx.author and str(reaction.emoji) in ["✅", "❌"] and reaction.message.id == msg1.id
+
+    try:
+        reaction1, user1 = await bot.wait_for('reaction_add', timeout=30.0, check=check1)
+        if str(reaction1.emoji) == "❌":
+            return await ctx.send("Ouf... Vente annulée. Tes voitures ont eu la peur de leur vie.")
+    except asyncio.TimeoutError:
+        return await ctx.send(f"⏳ Temps écoulé, la vente massive est annulée.")
+
+    # --- CONFIRMATION 2 ---
+    msg2 = await ctx.send(f"🤨 **Hé, attends une seconde {ctx.author.mention}...**\nT'es vraiment sérieux ? Tu vas te retrouver sans rien. Tu comptes aller travailler en trottinette ou prendre le bus ?\n*Réagis avec ✅ si t'aimes les transports en commun, ou ❌ pour tout annuler.*")
+    await msg2.add_reaction("✅")
+    await msg2.add_reaction("❌")
+
+    def check2(reaction, user):
+        return user == ctx.author and str(reaction.emoji) in ["✅", "❌"] and reaction.message.id == msg2.id
+
+    try:
+        reaction2, user2 = await bot.wait_for('reaction_add', timeout=30.0, check=check2)
+        if str(reaction2.emoji) == "❌":
+            return await ctx.send("Excellente décision. Le bus, c'est chiant. Vente annulée.")
+    except asyncio.TimeoutError:
+        return await ctx.send(f"⏳ Tu as trop hésité. Vente annulée.")
+
+    # --- CONFIRMATION 3 ---
+    msg3 = await ctx.send(f"🚨 **DERNIÈRE CHANCE {ctx.author.mention}** 🚨\nC'est le point de non-retour. L'action est **IRRÉVERSIBLE**. Si tu cliques sur ✅, le concessionnaire emporte tout et on ne pourra plus rien faire pour toi.\n*Tu valides ton pass Navigo ?*")
+    await msg3.add_reaction("✅")
+    await msg3.add_reaction("❌")
+
+    def check3(reaction, user):
+        return user == ctx.author and str(reaction.emoji) in ["✅", "❌"] and reaction.message.id == msg3.id
+
+    try:
+        reaction3, user3 = await bot.wait_for('reaction_add', timeout=30.0, check=check3)
+        if str(reaction3.emoji) == "❌":
+            return await ctx.send("Mdr, je savais que t'aurais pas le courage. Vente annulée, ton garage est sauf.")
+            
+        # Si on arrive ici, les 3 confirmations ont été validées
+        await collection_inventaires.update_one(
+            {"_id": user_id},
+            {
+                "$set": {"garage": []},
+                "$inc": {"coins": valeur_totale}
+            }
+        )
+        
+        await ctx.send(f"💥 **VENDU !** {ctx.author.mention} a complètement craqué et liquidé ses **{nb_voitures} voitures** pour **{valeur_totale} 🪙** !\nIl est maintenant officiellement piéton. Félicitations pour cette décision très discutable. 🚶‍♂️")
+
+    except asyncio.TimeoutError:
+        await ctx.send(f"⏳ Le temps a expiré, tes voitures sont sauvées de justesse.")
 #endregion
 
 #region search
@@ -1619,11 +1692,11 @@ async def cmd(ctx):
     embed.add_field(
         name="🎰 Tirages & Souhaits", 
         value=(
-            "**`!roll`** : Tire une voiture au hasard toutes les 12h (*`!timer` pour voir le délai*).\n"
-            "**`!buyroll`** : Achète un tirage supplémentaire immédiat pour 5000 🪙.\n"
-            "**`!wish [modèle]`** : Ajoute une voiture à ta liste de souhaits (x2 chances de drop).\n"
-            "**`!unwish [modèle]`** : Retire une voiture de la liste.\n"
-            "**`!wishlist`** : Affiche tes souhaits en cours."
+            "**`/roll`** : Tire une voiture au hasard toutes les 12h (*`/timer` pour voir le délai*).\n"
+            "**`/buyroll`** : Achète un tirage supplémentaire immédiat pour 5000 🪙.\n"
+            "**`/wish [modèle]`** : Ajoute une voiture à ta liste de souhaits (x2 chances de drop).\n"
+            "**`/unwish [modèle]`** : Retire une voiture de la liste.\n"
+            "**`/wishlist`** : Affiche tes souhaits en cours."
         ),
         inline=False
     )
@@ -1631,10 +1704,11 @@ async def cmd(ctx):
     embed.add_field(
         name="💰 Économie & Échanges", 
         value=(
-            "**`!daily`** : Récupère ton salaire de 500 🪙 toutes les 24h (*`!dtimer` pour le délai*).\n"
-            "**`!solde [@pseudo]`** : Affiche l'argent en banque.\n"
-            "**`!sell [voiture]`** : Vends un de tes modèles au concessionnaire.\n"
-            "**`!trade @pseudo \"Ta Voiture\" \"Sa Voiture\"`** : Propose un échange équitable ou avec compensation (⚠️ *Guillemets obligatoires*)."
+            "**`/daily`** : Récupère ton salaire de 500 🪙 toutes les 24h (*`/dtimer` pour le délai*).\n"
+            "**`/solde [@pseudo]`** : Affiche l'argent en banque.\n"
+            "**`/sell [voiture]`** : Vends un de tes modèles au concessionnaire.\n"
+            "**`/sellall`** : Vend absolument TOUTES tes voitures (action irréversible ⚠️).\n"
+            "**`/trade @pseudo \"Ta Voiture\" \"Sa Voiture\"`** : Propose un échange équitable ou avec compensation.\n"
             "**`/tradeup [rareté]`** : Sacrifie 5 voitures de cette rareté pour en obtenir une de rang supérieur."
         ),
         inline=False
@@ -1643,11 +1717,11 @@ async def cmd(ctx):
     embed.add_field(
         name="🚗 Gestion du Garage", 
         value=(
-            "**`!garage [@pseudo] [page]`** : Affiche ta collection ou celle d'un ami.\n"
-            "**`!sortrarity` / `!sortbrand` / `!sortyear` / `!sortpower` / `!sortclass`** : Trie ton garage selon tes préférences.\n"
-            "**`!search [mot-clé]`** : Cherche un modèle précis, une marque, un pays ou une rareté.\n"
-            "**`!catalogue`** : Affiche le catalogue officiel de toutes les voitures disponibles.\n"
-            "**`!fav [marque]`** : Mets en avant ta marque de cœur sur ton profil."
+            "**`/garage [@pseudo] [page]`** : Affiche ta collection ou celle d'un ami.\n"
+            "**`/sortrarity` / `/sortbrand` / `/sortyear` / `/sortpower` / `/sortclass`** : Trie ton garage.\n"
+            "**`/search [mot-clé]`** : Cherche un modèle précis, une marque, un pays ou une rareté.\n"
+            "**`/catalogue`** : Affiche le catalogue officiel de toutes les voitures disponibles.\n"
+            "**`/fav [marque]`** : Mets en avant ta marque de cœur sur ton profil."
         ),
         inline=False
     )
@@ -1655,10 +1729,10 @@ async def cmd(ctx):
     embed.add_field(
         name="🏁 Compétition & Profil", 
         value=(
-            "**`!profil [@pseudo]`** : Affiche la carte de joueur (Stats, Richesse, Score Elo, Succès).\n"
-            "**`!top`** : Affiche les classements du serveur (Richesse, Pilotes, Collection, Valeur).\n"
-            "**`!race @pseudo [mise] [Classe]`** : Provoque un joueur en duel sur une classe (D, C, B, A, S1, S2, X).\n"
-            "**`!ranks`** : Liste les grades compétitifs et les points Elo requis pour monter en ligue."
+            "**`/profil [@pseudo]`** : Affiche la carte de joueur (Stats, Richesse, Score Elo, Succès).\n"
+            "**`/toplist`** : Affiche les classements du serveur (Richesse, Pilotes, Collection, Valeur).\n"
+            "**`/race @pseudo [mise] [Classe]`** : Provoque un joueur en duel sur une classe (D, C, B, A, S1, S2, X).\n"
+            "**`/ranks`** : Liste les grades compétitifs et les points Elo requis pour monter en ligue."
         ),
         inline=False
     )
@@ -1666,7 +1740,7 @@ async def cmd(ctx):
     if bot.user.avatar:
         embed.set_thumbnail(url=bot.user.avatar.url)
         
-    embed.set_footer(text="Astuce : Utilise les commandes sans crochet ni guillemets (sauf pour trade) !")
+    embed.set_footer(text="Astuce : Utilise les commandes Slash (/) ! C'est plus pratique pour remplir les arguments (comme pour /trade ou /race).")
 
     await ctx.send(embed=embed)
 #endregion
