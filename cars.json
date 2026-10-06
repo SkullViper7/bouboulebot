@@ -21346,5 +21346,17 @@
         "moteur": "EV",
         "puissance": "202 ch",
         "masse_kg": "680"
+    },
+    {
+        "nom": "S1",
+        "marque": "Saleen",
+        "annee": "2017",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/BgRK0bk.png",
+        "moteur": "L4 2.5L Turbo",
+        "puissance": "450 ch",
+        "masse_kg": "1218"
     }
 ]
