@@ -352,8 +352,8 @@
         "marque": "Aston Martin",
         "annee": "2011",
         "pays": "🇬🇧 Royaume-Uni",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
         "image": "https://i.imgur.com/RfrmCxP.png",
         "moteur": "V12 7.3L",
         "puissance": "760 ch",
@@ -21358,5 +21358,41 @@
         "moteur": "L4 2.5L Turbo",
         "puissance": "450 ch",
         "masse_kg": "1218"
+    },
+    {
+        "nom": "911 Targa SC",
+        "marque": "Porsche",
+        "annee": "1981",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/gmF7Ixh.png",
+        "moteur": "F6 3.0L",
+        "puissance": "204 ch",
+        "masse_kg": "1210"
+    },
+    {
+        "nom": "Proxima Concept",
+        "marque": "Peugeot",
+        "annee": "1986",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/F0BPFyq.png",
+        "moteur": "V6 2.8L Bi-Turbo",
+        "puissance": "680 ch",
+        "masse_kg": "1080"
+    },
+    {
+        "nom": "Roadster TR2000",
+        "marque": "Triumph",
+        "annee": "1948",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/V3MjDLC.png",
+        "moteur": "L4 2.1L",
+        "puissance": "68 ch",
+        "masse_kg": "1140"
     }
 ]
