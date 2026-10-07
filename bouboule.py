@@ -2065,42 +2065,193 @@ async def toplist(ctx):
 #endregion
 
 #region wishlist
+class WishSelectionView(discord.ui.View):
+    def __init__(self, ctx, user, eligible_cars, profil):
+        super().__init__(timeout=120)
+        self.ctx = ctx
+        self.user = user
+        self.eligible_cars = eligible_cars
+        self.profil = profil
+        self.current_page = 0
+        self.items_per_page = 5
+        self.total_pages = max(1, math.ceil(len(eligible_cars) / self.items_per_page))
+        self.number_emojis = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
+        self.update_buttons()
+
+    def update_buttons(self):
+        self.btn_prev.disabled = (self.current_page == 0)
+        self.btn_next.disabled = (self.current_page >= self.total_pages - 1)
+        
+        boutons_nombres = [self.btn_1, self.btn_2, self.btn_3, self.btn_4, self.btn_5]
+        wishlist = self.profil.get("wishlist", [])
+        
+        for i, btn in enumerate(boutons_nombres):
+            abs_index = self.current_page * self.items_per_page + i
+            if abs_index >= len(self.eligible_cars):
+                btn.disabled = True
+                btn.style = discord.ButtonStyle.secondary
+            else:
+                btn.disabled = False
+                voiture = self.eligible_cars[abs_index]
+                nom_complet = f"{voiture['marque']} {voiture['nom']} {voiture.get('annee', '')}".strip()
+                # Si la voiture est déjà dans la wishlist, le bouton devient vert
+                if nom_complet in wishlist:
+                    btn.style = discord.ButtonStyle.success
+                else:
+                    btn.style = discord.ButtonStyle.primary
+
+    def get_embed(self):
+        start = self.current_page * self.items_per_page
+        end = start + self.items_per_page
+        page_items = self.eligible_cars[start:end]
+        
+        lignes = []
+        wishlist = self.profil.get("wishlist", [])
+        garage = self.profil.get("garage", [])
+        
+        for i, voiture in enumerate(page_items):
+            nom_complet = f"{voiture['marque']} {voiture['nom']} {voiture.get('annee', '')}".strip()
+            
+            etat = ""
+            if nom_complet in wishlist:
+                etat = " 🌟 *(Dans la wishlist)*"
+            elif nom_complet in garage:
+                etat = " ✅ *(Déjà possédé)*"
+                
+            logo = LOGOS.get(voiture['marque'], "")
+            lignes.append(f"{self.number_emojis[i]} {logo} **{voiture['marque']}** {voiture['nom']} {voiture.get('annee', '')} ({voiture['rareté']}){etat}")
+            
+        embed = discord.Embed(
+            title="🌟 Ajout à la Wishlist",
+            description="Clique sur un numéro pour l'ajouter (ou le retirer) de ta wishlist :\n\n" + "\n".join(lignes),
+            color=discord.Color.gold()
+        )
+        embed.set_footer(text=f"Page {self.current_page + 1}/{self.total_pages} | Ta wishlist contient {len(wishlist)}/10 modèles")
+        return embed
+
+    async def toggle_wishlist(self, interaction: discord.Interaction, idx_offset: int):
+        if interaction.user != self.user:
+            return await interaction.response.send_message("Ce n'est pas ta recherche !", ephemeral=True)
+            
+        abs_index = self.current_page * self.items_per_page + idx_offset
+        if abs_index >= len(self.eligible_cars):
+            return await interaction.response.defer()
+            
+        voiture_choisie = self.eligible_cars[abs_index]
+        nom_complet = f"{voiture_choisie['marque']} {voiture_choisie['nom']} {voiture_choisie.get('annee', '')}".strip()
+        
+        # On met à jour le profil pour avoir les données fraîches
+        self.profil = await collection_inventaires.find_one({"_id": str(self.user.id)}) or {}
+        wishlist = self.profil.get("wishlist", [])
+        garage = self.profil.get("garage", [])
+        
+        if nom_complet in garage:
+            return await interaction.response.send_message(f"❌ Tu possèdes déjà la **{nom_complet}** dans ton garage !", ephemeral=True)
+            
+        if nom_complet in wishlist:
+            # S'il y est déjà, on le retire (Toggle)
+            await collection_inventaires.update_one(
+                {"_id": str(self.user.id)},
+                {"$pull": {"wishlist": nom_complet}}
+            )
+            self.profil["wishlist"].remove(nom_complet)
+            await interaction.response.send_message(f"🗑️ **{nom_complet}** a été retirée de ta wishlist.", ephemeral=True)
+        else:
+            # S'il n'y est pas, on l'ajoute
+            if len(wishlist) >= 10:
+                return await interaction.response.send_message(f"❌ Ta wishlist est pleine (10/10) ! Retire des modèles d'abord.", ephemeral=True)
+                
+            await collection_inventaires.update_one(
+                {"_id": str(self.user.id)},
+                {"$push": {"wishlist": nom_complet}},
+                upsert=True
+            )
+            if "wishlist" not in self.profil:
+                self.profil["wishlist"] = []
+            self.profil["wishlist"].append(nom_complet)
+            await interaction.response.send_message(f"🌟 **{nom_complet}** a été ajoutée à ta wishlist !", ephemeral=True)
+
+        self.update_buttons()
+        await interaction.message.edit(embed=self.get_embed(), view=self)
+
+    @discord.ui.button(label="1️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_1(self, interaction, button): await self.toggle_wishlist(interaction, 0)
+    @discord.ui.button(label="2️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_2(self, interaction, button): await self.toggle_wishlist(interaction, 1)
+    @discord.ui.button(label="3️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_3(self, interaction, button): await self.toggle_wishlist(interaction, 2)
+    @discord.ui.button(label="4️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_4(self, interaction, button): await self.toggle_wishlist(interaction, 3)
+    @discord.ui.button(label="5️⃣", style=discord.ButtonStyle.primary, row=0)
+    async def btn_5(self, interaction, button): await self.toggle_wishlist(interaction, 4)
+
+    @discord.ui.button(label="◀️", style=discord.ButtonStyle.secondary, row=1)
+    async def btn_prev(self, interaction, button):
+        if interaction.user != self.user: return
+        self.current_page -= 1
+        self.update_buttons()
+        await interaction.response.edit_message(embed=self.get_embed(), view=self)
+
+    @discord.ui.button(label="▶️", style=discord.ButtonStyle.secondary, row=1)
+    async def btn_next(self, interaction, button):
+        if interaction.user != self.user: return
+        self.current_page += 1
+        self.update_buttons()
+        await interaction.response.edit_message(embed=self.get_embed(), view=self)
+
 @bot.hybrid_command(name="wish", description="Ajoute une voiture à ta liste de souhaits.")
 async def wish(ctx, *, recherche: str):
     user_id = str(ctx.author.id)
     recherche_lower = recherche.lower().strip()
+    recherche_nettoyee = re.sub(r'[^a-z0-9]', '', recherche_lower)
     
-    modele_trouve = next((v for v in VOITURES if recherche_lower in f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()), None)
-    
-    if not modele_trouve:
+    # Recherche souple (comme /search)
+    resultats = []
+    for v in VOITURES:
+        nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()
+        nom_nettoye = re.sub(r'[^a-z0-9]', '', nom_complet)
+        
+        if recherche_nettoyee in nom_nettoye:
+            resultats.append(v)
+            
+    if not resultats:
         await ctx.send(f"❌ Je n'ai trouvé aucune voiture correspondant à **{recherche}**.")
         return
         
-    nom_complet = f"{modele_trouve['marque']} {modele_trouve['nom']} {modele_trouve.get('annee', '')}".strip()
+    profil = await collection_inventaires.find_one({"_id": user_id}) or {}
     
-    profil = await collection_inventaires.find_one({"_id": user_id})
-    garage = profil.get("garage", []) if profil else []
-    wishlist = profil.get("wishlist", []) if profil else []
-    
-    if nom_complet in garage:
-        await ctx.send(f"❌ Tu possèdes déjà la **{nom_complet}** dans ton garage !")
-        return
+    # S'il n'y a qu'un seul résultat, on l'ajoute directement pour gagner du temps
+    if len(resultats) == 1:
+        voiture_choisie = resultats[0]
+        nom_complet = f"{voiture_choisie['marque']} {voiture_choisie['nom']} {voiture_choisie.get('annee', '')}".strip()
         
-    if nom_complet in wishlist:
-        await ctx.send(f"⚠️ La **{nom_complet}** est déjà dans ta wishlist !")
-        return
+        garage = profil.get("garage", [])
+        wishlist = profil.get("wishlist", [])
         
-    if len(wishlist) >= 10:
-        await ctx.send(f"❌ Ta wishlist est pleine (10/10) ! Utilise `!unwish` pour faire de la place.")
+        if nom_complet in garage:
+            await ctx.send(f"❌ Tu possèdes déjà la **{nom_complet}** dans ton garage !")
+            return
+            
+        if nom_complet in wishlist:
+            await ctx.send(f"⚠️ La **{nom_complet}** est déjà dans ta wishlist !")
+            return
+            
+        if len(wishlist) >= 10:
+            await ctx.send(f"❌ Ta wishlist est pleine (10/10) ! Utilise `/unwish` pour faire de la place.")
+            return
+            
+        await collection_inventaires.update_one(
+            {"_id": user_id},
+            {"$push": {"wishlist": nom_complet}},
+            upsert=True
+        )
+        await ctx.send(f"🌟 **{nom_complet}** a été ajoutée à ta wishlist ! (Ses chances d'apparition sont multipliées par 2).")
         return
-        
-    await collection_inventaires.update_one(
-        {"_id": user_id},
-        {"$push": {"wishlist": nom_complet}},
-        upsert=True
-    )
-    
-    await ctx.send(f"🌟 **{nom_complet}** a été ajoutée à ta wishlist ! (Ses chances d'apparition sont multipliées par 2).")
+
+    # S'il y a plusieurs résultats, on affiche l'interface interactive avec les boutons
+    resultats_tries = sorted(resultats, key=lambda x: (x.get('marque',''), x.get('nom','')))
+    view = WishSelectionView(ctx, ctx.author, resultats_tries, profil)
+    await ctx.send(embed=view.get_embed(), view=view)
 
 @bot.hybrid_command(name="unwish", description="Retire une voiture de ta liste de souhaits.")
 async def unwish(ctx, *, recherche: str):
@@ -2143,7 +2294,8 @@ async def wishlist(ctx, membre: discord.Member = None):
     for i, nom_complet in enumerate(wishlist_cars, 1):
         voiture_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom_complet), None)
         if voiture_info:
-            description += f"**{i}.** {nom_complet} - *{voiture_info['rareté']}*\n"
+            logo = LOGOS.get(voiture_info['marque'], "")
+            description += f"**{i}.** {logo} {nom_complet} - *{voiture_info['rareté']}*\n"
         else:
             description += f"**{i}.** {nom_complet}\n"
             
