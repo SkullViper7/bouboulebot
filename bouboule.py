@@ -2066,12 +2066,13 @@ async def toplist(ctx):
 
 #region wishlist
 class WishSelectionView(discord.ui.View):
-    def __init__(self, ctx, user, eligible_cars, profil):
+    def __init__(self, ctx, user, eligible_cars, profil, titre="🌟 Gestion de la Wishlist"):
         super().__init__(timeout=120)
         self.ctx = ctx
         self.user = user
         self.eligible_cars = eligible_cars
         self.profil = profil
+        self.titre = titre
         self.current_page = 0
         self.items_per_page = 5
         self.total_pages = max(1, math.ceil(len(eligible_cars) / self.items_per_page))
@@ -2122,8 +2123,8 @@ class WishSelectionView(discord.ui.View):
             lignes.append(f"{self.number_emojis[i]} {logo} **{voiture['marque']}** {voiture['nom']} {voiture.get('annee', '')} ({voiture['rareté']}){etat}")
             
         embed = discord.Embed(
-            title="🌟 Ajout à la Wishlist",
-            description="Clique sur un numéro pour l'ajouter (ou le retirer) de ta wishlist :\n\n" + "\n".join(lignes),
+            title=self.titre,
+            description="Clique sur un numéro pour l'ajouter ou le retirer de ta wishlist :\n\n" + "\n".join(lignes),
             color=discord.Color.gold()
         )
         embed.set_footer(text=f"Page {self.current_page + 1}/{self.total_pages} | Ta wishlist contient {len(wishlist)}/10 modèles")
@@ -2205,7 +2206,7 @@ async def wish(ctx, *, recherche: str):
     recherche_lower = recherche.lower().strip()
     recherche_nettoyee = re.sub(r'[^a-z0-9]', '', recherche_lower)
     
-    # Recherche souple (comme /search)
+    # Recherche souple
     resultats = []
     for v in VOITURES:
         nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()
@@ -2250,33 +2251,61 @@ async def wish(ctx, *, recherche: str):
 
     # S'il y a plusieurs résultats, on affiche l'interface interactive avec les boutons
     resultats_tries = sorted(resultats, key=lambda x: (x.get('marque',''), x.get('nom','')))
-    view = WishSelectionView(ctx, ctx.author, resultats_tries, profil)
+    view = WishSelectionView(ctx, ctx.author, resultats_tries, profil, titre="🌟 Ajout à la Wishlist")
     await ctx.send(embed=view.get_embed(), view=view)
 
 @bot.hybrid_command(name="unwish", description="Retire une voiture de ta liste de souhaits.")
-async def unwish(ctx, *, recherche: str):
+async def unwish(ctx, *, recherche: str = None):
     user_id = str(ctx.author.id)
-    recherche_lower = recherche.lower().strip()
+    profil = await collection_inventaires.find_one({"_id": user_id}) or {}
+    wishlist_noms = profil.get("wishlist", [])
     
-    profil = await collection_inventaires.find_one({"_id": user_id})
-    wishlist = profil.get("wishlist", []) if profil else []
-    
-    if not wishlist:
+    if not wishlist_noms:
         await ctx.send("❌ Ta wishlist est déjà vide !")
         return
         
-    voiture_a_retirer = next((v for v in wishlist if recherche_lower in v.lower()), None)
-    
-    if not voiture_a_retirer:
-        await ctx.send(f"❌ Aucune voiture correspondant à **{recherche}** n'a été trouvée dans ta wishlist.")
-        return
+    # Reconvertir les noms de la wishlist en objets 'voiture' pour la View
+    voitures_wishlist = []
+    for nom in wishlist_noms:
+        voiture_trouvee = next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom), None)
+        if voiture_trouvee:
+            voitures_wishlist.append(voiture_trouvee)
+            
+    if recherche:
+        recherche_lower = recherche.lower().strip()
+        recherche_nettoyee = re.sub(r'[^a-z0-9]', '', recherche_lower)
         
-    await collection_inventaires.update_one(
-        {"_id": user_id},
-        {"$pull": {"wishlist": voiture_a_retirer}}
-    )
+        resultats = []
+        for v in voitures_wishlist:
+            nom_complet = f"{v['marque']} {v['nom']} {v.get('annee', '')}".lower()
+            nom_nettoye = re.sub(r'[^a-z0-9]', '', nom_complet)
+            if recherche_nettoyee in nom_nettoye:
+                resultats.append(v)
+                
+        if not resultats:
+            await ctx.send(f"❌ Aucune voiture correspondant à **{recherche}** n'a été trouvée dans ta wishlist.")
+            return
+            
+        if len(resultats) == 1:
+            voiture_a_retirer = f"{resultats[0]['marque']} {resultats[0]['nom']} {resultats[0].get('annee', '')}".strip()
+            await collection_inventaires.update_one(
+                {"_id": user_id},
+                {"$pull": {"wishlist": voiture_a_retirer}}
+            )
+            await ctx.send(f"🗑️ **{voiture_a_retirer}** a été retirée de ta wishlist.")
+            return
+            
+        voitures_a_afficher = resultats
+    else:
+        # Si on n'a rien tapé, on affiche toute la wishlist
+        voitures_a_afficher = voitures_wishlist
+        
+    # S'il y a plusieurs résultats (ou qu'on veut voir toute la liste), on affiche l'interface
+    voitures_triees = sorted(voitures_a_afficher, key=lambda x: (x.get('marque',''), x.get('nom','')))
     
-    await ctx.send(f"🗑️ **{voiture_a_retirer}** a été retirée de ta wishlist.")
+    # On réutilise la même vue qui gère déjà très bien l'ajout et le retrait !
+    view = WishSelectionView(ctx, ctx.author, voitures_triees, profil, titre="🗑️ Retrait de la Wishlist")
+    await ctx.send(content="Voici les modèles correspondants. Clique sur un numéro pour le désélectionner :", embed=view.get_embed(), view=view)
 
 @bot.hybrid_command(name="wishlist", description="Affiche ta liste de souhaits en cours.", aliases=["wl", "wishlists"])
 async def wishlist(ctx, membre: discord.Member = None):
