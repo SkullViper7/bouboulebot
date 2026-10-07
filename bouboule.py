@@ -422,6 +422,8 @@ async def roll(ctx):
 
     voitures_possedees = profil.get("garage", []) if profil else []
     wishlist_joueur = profil.get("wishlist", []) if profil else []
+    marque_favorite = profil.get("favorite_brand") if profil else None
+    
     voitures_disponibles = []
     poids_disponibles = []
 
@@ -429,12 +431,16 @@ async def roll(ctx):
         nom_complet = f"{voiture['marque']} {voiture['nom']} {voiture.get('annee', '')}".strip()
         if nom_complet not in voitures_possedees:
             voitures_disponibles.append(voiture)
-            poids_base = voiture.get("poids", 10)
+            poids_calc = voiture.get("poids", 10)
+            
+            # NOUVEAU : Bonus x1.5 pour la marque favorite
+            if marque_favorite and voiture['marque'] == marque_favorite:
+                poids_calc *= 1.5
             
             if nom_complet in wishlist_joueur:
-                poids_disponibles.append(poids_base * 2)
-            else:
-                poids_disponibles.append(poids_base)
+                poids_calc *= 2
+                
+            poids_disponibles.append(poids_calc)
 
     if not voitures_disponibles:
         await ctx.send(f"🏆 Incroyable {ctx.author.mention}, tu possèdes déjà **TOUTES** les voitures du jeu ! Attends une mise à jour.")
@@ -450,7 +456,7 @@ async def roll(ctx):
 
     maintenant = time.time()
     
-    # NOUVEAU : Application du tri automatique sur le nouveau garage
+    # Application du tri automatique sur le nouveau garage
     sort_preference = profil.get("sort_preference") if profil else None
     voitures_possedees.append(nom_complet_gagnee)
     
@@ -534,6 +540,8 @@ async def roll(ctx):
     voeu_exauce = ""
     if nom_complet_gagnee in wishlist_joueur:
         voeu_exauce = "\n\n🌟 **VŒU EXAUCÉ !** Cette voiture était dans ta wishlist, elle a été retirée de la liste."
+    elif marque_favorite and voiture_gagnee['marque'] == marque_favorite:
+        voeu_exauce = "\n\n⭐ **BINGO !** Ta fidélité a payé, tu viens d'obtenir un modèle de ta marque favorite !"
 
     await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
     await ctx.send(content=f"{ctx.author.mention} **{phrase} !**{voeu_exauce}", embed=embed)
@@ -1849,6 +1857,8 @@ async def buyroll(ctx):
 
     voitures_possedees = profil.get("garage", []) if profil else []
     wishlist_joueur = profil.get("wishlist", []) if profil else []
+    marque_favorite = profil.get("favorite_brand") if profil else None
+    
     voitures_disponibles = []
     poids_disponibles = []
 
@@ -1856,12 +1866,16 @@ async def buyroll(ctx):
         nom_complet = f"{voiture['marque']} {voiture['nom']} {voiture.get('annee', '')}".strip()
         if nom_complet not in voitures_possedees:
             voitures_disponibles.append(voiture)
-            poids_base = voiture.get("poids", 10)
+            poids_calc = voiture.get("poids", 10)
             
+            # NOUVEAU : Bonus x1.5 pour la marque favorite
+            if marque_favorite and voiture['marque'] == marque_favorite:
+                poids_calc *= 1.5
+                
             if nom_complet in wishlist_joueur:
-                poids_disponibles.append(poids_base * 2) 
-            else:
-                poids_disponibles.append(poids_base)
+                poids_calc *= 2 
+            
+            poids_disponibles.append(poids_calc)
 
     if not voitures_disponibles:
         await ctx.send(f"🏆 Tu possèdes déjà **TOUTES** les voitures du jeu !")
@@ -1872,7 +1886,7 @@ async def buyroll(ctx):
     print(f"[LOG 🎰] {ctx.author.name} a obtenu : {nom_complet_gagnee}")
     rarete = voiture_gagnee['rareté']
 
-    # NOUVEAU : Application du tri automatique sur le nouveau garage
+    # Application du tri automatique sur le nouveau garage
     sort_preference = profil.get("sort_preference") if profil else None
     voitures_possedees.append(nom_complet_gagnee)
     
@@ -1952,6 +1966,8 @@ async def buyroll(ctx):
     voeu_exauce = ""
     if nom_complet_gagnee in wishlist_joueur:
         voeu_exauce = "\n\n🌟 **VŒU EXAUCÉ !** Cette voiture était dans ta wishlist, elle a été retirée de la liste."
+    elif marque_favorite and voiture_gagnee['marque'] == marque_favorite:
+        voeu_exauce = "\n\n⭐ **BINGO !** Ta fidélité a payé, tu viens d'obtenir un modèle de ta marque favorite !"
 
     await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
     await ctx.send(content=f"{ctx.author.mention} **{phrase} !**{voeu_exauce}", embed=embed)
