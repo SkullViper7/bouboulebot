@@ -17,6 +17,7 @@ from flask import Flask
 from phrases import PHRASES_RACE, PHRASES_VICTOIRE, PHRASES_INTRO
 from threading import Thread
 from datetime import datetime, timedelta
+from typing import Union, Optional
 try:
     from zoneinfo import ZoneInfo
 except ImportError:
@@ -2255,7 +2256,7 @@ async def wish(ctx, *, recherche: str):
     await ctx.send(embed=view.get_embed(), view=view)
 
 @bot.hybrid_command(name="unwish", description="Retire une voiture de ta liste de souhaits.")
-async def unwish(ctx, *, recherche: str = None):
+async def unwish(ctx, *, recherche: Optional[str] = None):
     user_id = str(ctx.author.id)
     profil = await collection_inventaires.find_one({"_id": user_id}) or {}
     wishlist_noms = profil.get("wishlist", [])
