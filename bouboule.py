@@ -1703,7 +1703,7 @@ async def cmd(ctx):
         value=(
             "**`/roll`** : Tire une voiture au hasard toutes les 2h (*`/timer` pour voir le délai*).\n"
             "**`/buyroll`** : Achète un tirage supplémentaire immédiat pour 5000 🪙.\n"
-            "**`/wish [recherche]`** : Cherche un modèle ou une marque pour l'ajouter à ta wishlist.\n"
+            "**`/wish [recherche]`** : Ajoute un modèle à ta wishlist (x2 chances de drop).\n"
             "**`/unwish (modèle)`** : Affiche ta wishlist pour la gérer, ou retire un modèle précis.\n"
             "**`/wishlist`** : Affiche tes souhaits en cours."
         ),
@@ -1730,7 +1730,7 @@ async def cmd(ctx):
             "**`/sortrarity` / `/sortbrand` / `/sortyear` / `/sortpower` / `/sortclass`** : Trie ton garage.\n"
             "**`/search [mot-clé]`** : Cherche un modèle précis, une marque, un pays ou une rareté.\n"
             "**`/catalogue`** : Affiche le catalogue officiel de toutes les voitures disponibles.\n"
-            "**`/fav [marque]`** : Mets en avant ta marque de cœur sur ton profil."
+            "**`/fav [marque]`** : Mets en avant ta marque favorite (x1.5 chances de drop pour cette marque)."
         ),
         inline=False
     )
