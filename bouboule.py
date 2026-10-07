@@ -1693,10 +1693,10 @@ async def cmd(ctx):
     embed.add_field(
         name="🎰 Tirages & Souhaits", 
         value=(
-            "**`/roll`** : Tire une voiture au hasard toutes les 12h (*`/timer` pour voir le délai*).\n"
+            "**`/roll`** : Tire une voiture au hasard toutes les 2h (*`/timer` pour voir le délai*).\n"
             "**`/buyroll`** : Achète un tirage supplémentaire immédiat pour 5000 🪙.\n"
-            "**`/wish [modèle]`** : Ajoute une voiture à ta liste de souhaits (x2 chances de drop).\n"
-            "**`/unwish [modèle]`** : Retire une voiture de la liste.\n"
+            "**`/wish [recherche]`** : Cherche un modèle ou une marque pour l'ajouter à ta wishlist.\n"
+            "**`/unwish (modèle)`** : Affiche ta wishlist pour la gérer, ou retire un modèle précis.\n"
             "**`/wishlist`** : Affiche tes souhaits en cours."
         ),
         inline=False
