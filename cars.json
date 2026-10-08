@@ -21922,5 +21922,41 @@
         "moteur": "V2 0.5L",
         "puissance": "21 ch",
         "masse_kg": "380"
+    },
+    {
+        "nom": "GTM",
+        "marque": "Adamo",
+        "annee": "1978",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/ecCFE5R.png",
+        "moteur": "F4 1.6L",
+        "puissance": "80 ch",
+        "masse_kg": "820"
+    },
+    {
+        "nom": "ML 1600",
+        "marque": "Farus",
+        "annee": "1978",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/ms9YIRk.png",
+        "moteur": "L4 1.6L",
+        "puissance": "80 ch",
+        "masse_kg": "880"
+    },
+    {
+        "nom": "MP",
+        "marque": "Lafer",
+        "annee": "1974",
+        "pays": "🇧🇷 Brésil",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/wJlcjjh.png",
+        "moteur": "F4 1.6L",
+        "puissance": "60 ch",
+        "masse_kg": "760"
     }
 ]
