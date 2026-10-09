@@ -2467,15 +2467,27 @@ class RaceSelectionView(discord.ui.View):
         page_items = self.eligible_cars[start:end]
         
         lignes = []
-        for i, voiture in enumerate(page_items):
-            lignes.append(f"{self.number_emojis[i]} **{voiture}**")
+        for i, nom_complet in enumerate(page_items):
+            voiture_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom_complet), None)
+            
+            if voiture_info:
+                puissance = voiture_info.get('puissance', 'Inconnue')
+                masse = voiture_info.get('masse_kg', 'Inconnu')
+                
+                # Récupère le ratio et l'arrondit à 2 décimales pour un affichage propre
+                ratio_brut = obtenir_ratio(nom_complet)
+                ratio_affiche = round(ratio_brut, 2)
+                
+                lignes.append(f"{self.number_emojis[i]} **{nom_complet}**\n> ⚙️ *{puissance} | {masse} kg (Ratio: {ratio_affiche})*")
+            else:
+                lignes.append(f"{self.number_emojis[i]} **{nom_complet}**")
             
         embed = discord.Embed(
             title=self.titre,
-            description="Clique sur le numéro de la voiture que tu souhaites piloter :\n\n" + "\n".join(lignes),
+            description="Clique sur le numéro de la voiture que tu souhaites piloter :\n*(Les modèles sont triés du plus au moins performant)*\n\n" + "\n".join(lignes),
             color=discord.Color.orange()
         )
-        embed.set_footer(text=f"Page {self.current_page + 1}/{self.total_pages}")
+        embed.set_footer(text=f"Page {self.current_page + 1}/{self.total_pages} | 🏆 Les petits ratios sont les meilleurs")
         return embed
 
     async def select_item(self, interaction: discord.Interaction, idx_offset: int):
@@ -2543,13 +2555,16 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
     if solde_target < montant:
         return await ctx.send(f"❌ {membre.display_name} n'a pas assez d'argent pour couvrir cette mise (Solde: {solde_target} 🪙).")
     
-    # 2. Filtrage des garages selon la Classe
+    # 2. Filtrage et tri des garages selon la Classe
     def filter_cars_by_class(garage, cls):
         result = []
         for nom in garage:
             v_info = next((v for v in VOITURES if f"{v['marque']} {v['nom']} {v.get('annee', '')}".strip() == nom), None)
             if v_info and obtenir_nom_classe_simple(v_info) == cls:
                 if nom not in result: result.append(nom)
+                
+        # On trie la liste par le ratio (le plus petit ratio = le plus performant)
+        result.sort(key=lambda nom: obtenir_ratio(nom))
         return result
 
     voitures_a = filter_cars_by_class(profil_user.get("garage", []), classe_voulue)
