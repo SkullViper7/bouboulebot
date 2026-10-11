@@ -22258,5 +22258,65 @@
         "moteur": "EV",
         "puissance": "133 ch",
         "masse_kg": "1150"
+    },
+    {
+        "nom": "PS-2",
+        "marque": "Proto",
+        "annee": "2000",
+        "pays": "🇰🇷 Corée du Sud",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/eHfvQrg.png",
+        "moteur": "V6 2.5L",
+        "puissance": "240 ch",
+        "masse_kg": "1150"
+    },
+    {
+        "nom": "Spirra 4.6",
+        "marque": "Proto",
+        "annee": "2002",
+        "pays": "🇰🇷 Corée du Sud",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/vgNFpS7.png",
+        "moteur": "V8 4.6L",
+        "puissance": "324 ch",
+        "masse_kg": "1090"
+    },
+    {
+        "nom": "Drakuma Concept",
+        "marque": "Ajlani Motors",
+        "annee": "2019",
+        "pays": "🇦🇪 Émirats Arabes Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ykaYLTE.jpeg",
+        "moteur": "V8 4.0L Bi-Turbo",
+        "puissance": "1200 ch",
+        "masse_kg": "1300"
+    },
+    {
+        "nom": "Equilibrium Concept",
+        "marque": "Shayton",
+        "annee": "2011",
+        "pays": "🇦🇪 Émirats Arabes Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/is8SbXL.png",
+        "moteur": "V12 6.0L",
+        "puissance": "1084 ch",
+        "masse_kg": "1200"
+    },
+    {
+        "nom": "SandRacer 500 GT",
+        "marque": "Zarooq Motors",
+        "annee": "2017",
+        "pays": "🇦🇪 Émirats Arabes Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/csmjE0j.png",
+        "moteur": "V8 6.5L",
+        "puissance": "525 ch",
+        "masse_kg": "1200"
     }
 ]

@@ -367,5 +367,8 @@ LOGOS = {
     "Link & Co": "<:linkco:1558907447291158689>",
     "HiPhi": "<:hiphi:1558907845661954241>",
     "Neta": "<:neta:1558908111304270004>",
-    "Techrules": "<:techrules:1558910788159148042>"
+    "Techrules": "<:techrules:1558910788159148042>",
+    "Ajlani": "<:ajlani:1558920099241398482>",
+    "Shayton": "<:shayton:1558920823228727468>",
+    "Zarooq Motors": "<:zarooq:1558921533567803432>"
 }
