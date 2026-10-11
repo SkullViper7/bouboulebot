@@ -22174,5 +22174,89 @@
         "moteur": "V6 3.5L",
         "puissance": "425 ch",
         "masse_kg": "1250"
+    },
+    {
+        "nom": "03 Cyan",
+        "marque": "Lynk & Co",
+        "annee": "2018",
+        "pays": "🇨🇳 Chine",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/5wGVi9G.png",
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "350 ch",
+        "masse_kg": "1390"
+    },
+    {
+        "nom": "A",
+        "marque": "HiPhi",
+        "annee": "2023",
+        "pays": "🇨🇳 Chine",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/VmfdLYv.png",
+        "moteur": "EV",
+        "puissance": "1305 ch",
+        "masse_kg": "2450"
+    },
+    {
+        "nom": "GT",
+        "marque": "Neta",
+        "annee": "2023",
+        "pays": "🇨🇳 Chine",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/mFNe2Sf.png",
+        "moteur": "EV",
+        "puissance": "231 ch",
+        "masse_kg": "1820"
+    },
+    {
+        "nom": "AT96",
+        "marque": "Techrules",
+        "annee": "2016",
+        "pays": "🇨🇳 Chine",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/DfLKA9Z.png",
+        "moteur": "EV + Turbine à Gaz",
+        "puissance": "1044 ch",
+        "masse_kg": "1380"
+    },
+    {
+        "nom": "Ren",
+        "marque": "Techrules",
+        "annee": "2017",
+        "pays": "🇨🇳 Chine",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/7tFSj2H.png",
+        "moteur": "EV + Turbine à Gaz",
+        "puissance": "1305 ch",
+        "masse_kg": "1630"
+    },
+    {
+        "nom": "Ren RS",
+        "marque": "Techrules",
+        "annee": "2018",
+        "pays": "🇨🇳 Chine",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/wf4YE2D.png",
+        "moteur": "EV + Turbine à Gaz",
+        "puissance": "1305 ch",
+        "masse_kg": "1854"
+    },
+    {
+        "nom": "GT3 Concept",
+        "marque": "Zedriv",
+        "annee": "2019",
+        "pays": "🇨🇳 Chine",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/Zn5uzI9.png",
+        "moteur": "EV",
+        "puissance": "133 ch",
+        "masse_kg": "1150"
     }
 ]
