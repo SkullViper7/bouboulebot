@@ -10096,8 +10096,8 @@
         "marque": "Honda",
         "annee": "2017",
         "pays": "🇯🇵 Japon",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Commun ⚪",
+        "poids": 100,
         "image": "https://i.imgur.com/QOBSunI.png",
         "moteur": "EV",
         "puissance": "inconnu",
@@ -22399,9 +22399,9 @@
         "rareté": "Rare 🔵",
         "poids": 30,
         "image": "https://i.imgur.com/rzDPM2V.png",
-        "moteur": "EV",
-        "puissance": "1000 ch",
-        "masse_kg": "N/A"
+        "moteur": "V6 2.9L Bi-Turbo Hybride",
+        "puissance": "800 ch",
+        "masse_kg": "1750"
     },
     {
         "nom": "Ultima 2JZ Build",
@@ -22414,5 +22414,29 @@
         "moteur": "L6 3.4L",
         "puissance": "1493 ch",
         "masse_kg": "1050"
+    },
+    {
+        "nom": "TAV 30",
+        "marque": "Bucciali",
+        "annee": "1930",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/cRHy4xj.png",
+        "moteur": "L8 5.2L",
+        "puissance": "130 ch",
+        "masse_kg": "2100"
+    },
+    {
+        "nom": "TAV 12 \"Flèche d'Or\" Saoutchik",
+        "marque": "Bucciali",
+        "annee": "1930",
+        "pays": "🇫🇷 France",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/CmVFe6x.png",
+        "moteur": "V12 4.9L",
+        "puissance": "180 ch",
+        "masse_kg": "2880"
     }
 ]

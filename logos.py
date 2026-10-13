@@ -370,5 +370,6 @@ LOGOS = {
     "Techrules": "<:techrules:1558910788159148042>",
     "Ajlani": "<:ajlani:1558920099241398482>",
     "Shayton": "<:shayton:1558920823228727468>",
-    "Zarooq Motors": "<:zarooq:1558921533567803432>"
+    "Zarooq Motors": "<:zarooq:1558921533567803432>",
+    "Bucciali": "<:bucciali:1559559579321499749>"
 }
