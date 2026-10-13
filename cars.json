@@ -4011,10 +4011,10 @@
         "nom": "Camaro Garage 56",
         "marque": "Chevrolet",
         "annee": "2023",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/bXmbOFQ.png",
         "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/bXmbOFQ.png",
         "moteur": "V8 5.8L",
         "puissance": "680 ch",
         "masse_kg": "1342"
