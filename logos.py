@@ -371,5 +371,6 @@ LOGOS = {
     "Ajlani": "<:ajlani:1558920099241398482>",
     "Shayton": "<:shayton:1558920823228727468>",
     "Zarooq Motors": "<:zarooq:1558921533567803432>",
-    "Bucciali": "<:bucciali:1559559579321499749>"
+    "Bucciali": "<:bucciali:1559559579321499749>",
+    "Vauxhall": "<:vauxhall:1559957111935336499>"
 }
