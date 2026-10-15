@@ -698,11 +698,11 @@
     {
         "nom": "GR Supra",
         "marque": "Toyota",
-        "rareté": "Commun ⚪",
-        "poids": 100,
-        "image": "https://www.auto-mag.fr/wp-content/uploads/2022/06/toyota-gr-supra-bvm-2022-01.jpg",
         "annee": "2022",
         "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/GlwQAFy.png",
         "moteur": "L6 3.0L Turbo",
         "puissance": "340 ch",
         "masse_kg": "1495"
@@ -22534,5 +22534,17 @@
         "moteur": "L3 1.0L Turbo",
         "puissance": "145 ch",
         "masse_kg": "1000"
+    },
+    {
+        "nom": "Mission S",
+        "marque": "Porsche",
+        "annee": "2026",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/zdKgPvo.png",
+        "moteur": "EV",
+        "puissance": "1088 ch",
+        "masse_kg": "1500"
     }
 ]

@@ -403,22 +403,18 @@ async def roll(ctx):
     
     last_reset_ts, next_reset_ts, next_reset_dt = get_reset_timestamps()
     profil = await collection_inventaires.find_one({"_id": user_id})
-
-    tolerance = 60
     
     if profil and "last_roll" in profil:
-        # On vérifie si le dernier roll a été fait dans le créneau actuel, moins la tolérance
-        if profil["last_roll"] >= (last_reset_ts - tolerance):
+        # Vérification stricte : le tirage a-t-il été fait après le dernier reset pile ?
+        if profil["last_roll"] >= last_reset_ts:
             temps_restant = int(next_reset_ts - time.time())
             
-            # Si le temps restant est inférieur à la tolérance, on laisse passer
-            if temps_restant > tolerance:
-                heures = temps_restant // 3600
-                minutes = (temps_restant % 3600) // 60
-                
-                heure_cible = next_reset_dt.strftime("%Hh00")
-                await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Tu as déjà fait ton tirage pour ce créneau.\nLe prochain sera dispo à **{heure_cible}** (dans {heures}h et {minutes}m).")
-                return
+            heures = temps_restant // 3600
+            minutes = (temps_restant % 3600) // 60
+            
+            heure_cible = next_reset_dt.strftime("%Hh00")
+            await ctx.send(f"⏳ Doucement {ctx.author.mention} ! Tu as déjà fait ton tirage pour ce créneau.\nLe prochain sera dispo à **{heure_cible}** (dans {heures}h et {minutes}m).")
+            return
 
     voitures_possedees = profil.get("garage", []) if profil else []
     wishlist_joueur = profil.get("wishlist", []) if profil else []
@@ -433,7 +429,7 @@ async def roll(ctx):
             voitures_disponibles.append(voiture)
             poids_calc = voiture.get("poids", 10)
             
-            # NOUVEAU : Bonus x1.5 pour la marque favorite
+            # Bonus x1.5 pour la marque favorite
             if marque_favorite and voiture['marque'] == marque_favorite:
                 poids_calc *= 1.5
             
