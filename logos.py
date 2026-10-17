@@ -400,5 +400,21 @@ LOGOS = {
     "Kaiser": "<:kaiser:1561050914985349290>",
     "Marmon": "<:marmon:1561051967864701019>",
     "Mercer": "<:mercer:1561053067665870978>",
-    "Mercury": "<:mercury:1561054276577534062>"
+    "Mercury": "<:mercury:1561054276577534062>",
+    "Apex": "<:apex:1561067891703681044>",
+    "Arash": "<:arash:1561069680506966146>",
+    "Ronart": "<:ronart:1561071677532667924>",
+    "Allard": "<:allard:1561075369673498775>",
+    "Alvis": "<:alvis:1561078274858295386>",
+    "Buckler": "<:buckler:1561079489751158976>",
+    "Crossley": "<:crossley:1561080984076820710>",
+    "Elva": "<:elva:1561083062790520902>",
+    "Fairthorpe": "<:fairthorpe:1561083987529564271>",
+    "Farboud": "<:farboud:1561084529706541298>",
+    "Fraser Nash": "<:frazer:1561085262824472667>",
+    "Gilbern": "<:gilbern:1561086499192184984>",
+    "Invicta": "<:invicta:1561087952514449448>",
+    "Jowett": "<:jowett:1561088463133212813>",
+    "Keating": "<:keating:1561090173897277470>",
+    "Lagonda": "<:lagonda:1561091542242828379>"
 }
