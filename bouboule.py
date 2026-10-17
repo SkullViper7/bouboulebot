@@ -105,9 +105,9 @@ def get_reset_timestamps():
         
     now = datetime.now(tz)
     
-    # Remplacement des 4 par des 2
-    heure_dernier_reset = (now.hour // 2) * 2
-    heure_prochain_reset = heure_dernier_reset + 2
+    # Remplacement des reset toutes les 2h par 1h
+    heure_dernier_reset = now.hour
+    heure_prochain_reset = heure_dernier_reset + 1
     
     last_reset = now.replace(hour=heure_dernier_reset, minute=0, second=0, microsecond=0)
     
@@ -397,7 +397,7 @@ def calculer_classe_forza(voiture):
 #endregion
 
 #region roll
-@bot.hybrid_command(name="roll", description="Tire une voiture au hasard toutes les 2h.")
+@bot.hybrid_command(name="roll", description="Tire une voiture au hasard toutes les heures.")
 async def roll(ctx):
     user_id = str(ctx.author.id)
     
@@ -1697,7 +1697,7 @@ async def cmd(ctx):
     embed.add_field(
         name="🎰 Tirages & Souhaits", 
         value=(
-            "**`/roll`** : Tire une voiture au hasard toutes les 2h (*`/timer` pour voir le délai*).\n"
+            "**`/roll`** : Tire une voiture au hasard toutes les heures (*`/timer` pour voir le délai*).\n"
             "**`/buyroll`** : Achète un tirage supplémentaire immédiat pour 5000 🪙.\n"
             "**`/wish [recherche]`** : Ajoute un modèle à ta wishlist (x2 chances de drop).\n"
             "**`/unwish (modèle)`** : Affiche ta wishlist pour la gérer, ou retire un modèle précis.\n"
