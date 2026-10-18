@@ -416,5 +416,10 @@ LOGOS = {
     "Invicta": "<:invicta:1561087952514449448>",
     "Jowett": "<:jowett:1561088463133212813>",
     "Keating": "<:keating:1561090173897277470>",
-    "Lagonda": "<:lagonda:1561091542242828379>"
+    "Lagonda": "<:lagonda:1561091542242828379>",
+    "Nash-Healey": "<:nash:1561426766789353556>",
+    "Peerless": "<:peerless:1561427878741151744>",
+    "SS": "<:ss:1561430157296799744>",
+    "Tornado": "<:tornadocar:1561431157046779985>",
+    "Trident": "<:tridentcar:1561442780977303804>"
 }
