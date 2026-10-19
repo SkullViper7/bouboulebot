@@ -1740,7 +1740,7 @@ async def cmd(ctx):
             "**`/toplist`** : Affiche les classements du serveur (Richesse, Pilotes, Collection, Valeur).\n"
             "**`/race @pseudo [mise] [Classe]`** : Provoque un joueur en duel sur une classe (D, C, B, A, S1, S2, X).\n"
             "**`/ranks`** : Liste les grades compétitifs et les points Elo requis pour monter en ligue.\n"
-            "**`/forms`** : Affiche les suggestions de voitures. (Admin)\n"
+            "**`/forms`** : Affiche les suggestions de voitures.\n"
             "**`/clearforms`** : Efface les suggestions enregistrées. (Admin)"
         ),
         inline=False
@@ -2786,11 +2786,6 @@ async def form(ctx, marque: str, modele: str, annee: str):
 
 @bot.hybrid_command(name="forms", description="Affiche la liste des voitures suggérées par les joueurs.")
 async def forms(ctx):
-    # Vérification par ID Discord
-    if str(ctx.author.id) != ADMIN_ID:
-        await ctx.send("❌ Cette commande t'est interdite !")
-        return
-
     cursor = collection_suggestions.find().sort("date", -1).limit(20)
     suggestions = await cursor.to_list(length=20)
 
