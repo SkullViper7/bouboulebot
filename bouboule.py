@@ -2803,9 +2803,6 @@ async def forms(ctx):
 
 @bot.hybrid_command(name="clearforms", description="Efface toutes les suggestions de voitures (Admin).")
 async def clearforms(ctx):
-    if not ctx.author.guild_permissions.administrator:
-        await ctx.send("❌ Cette commande est réservée aux administrateurs du serveur.")
-        return
 
     await collection_suggestions.delete_many({})
     await ctx.send("🗑️ Toutes les suggestions de voitures ont été effacées avec succès.")
