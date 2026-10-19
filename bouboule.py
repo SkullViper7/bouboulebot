@@ -34,6 +34,7 @@ MONGO_URI = os.getenv("MONGO_URI")
 mongo_client = AsyncIOMotorClient(MONGO_URI)
 db = mongo_client["bouboule_cars"]
 collection_inventaires = db["inventaires"]
+collection_suggestions = db["suggestions_voitures"]
 
 with open('cars.json', 'r', encoding='utf-8') as f:
     VOITURES = json.load(f)
@@ -2755,6 +2756,59 @@ async def race(ctx, membre: discord.Member, montant: int, classe_voulue: str):
 async def race_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument) or isinstance(error, commands.BadArgument):
         await ctx.send(f"❌ **Erreur de syntaxe.**\nUtilise la commande dans cet ordre :\n`/race @pseudo <montant> <Classe>`")
+#endregion
+
+#region suggestions_voitures
+@bot.hybrid_command(name="form", description="Laisse une suggestion de voiture à ajouter au bot.")
+async def form(ctx, marque: str, modele: str, annee: str):
+    user_id = str(ctx.author.id)
+    suggestion = {
+        "user_id": user_id,
+        "auteur": str(ctx.author),
+        "marque": marque.strip(),
+        "modele": modele.strip(),
+        "annee": annee.strip(),
+        "date": datetime.utcnow()
+    }
+    
+    await collection_suggestions.insert_one(suggestion)
+    
+    embed = discord.Embed(
+        title="📝 Suggestion enregistrée !",
+        description=f"Merci {ctx.author.mention} ! La voiture **{marque} {modele} ({annee})** a bien été ajoutée à la liste des suggestions.",
+        color=discord.Color.brand_green()
+    )
+    await ctx.send(embed=embed)
+
+@bot.hybrid_command(name="forms", description="Affiche la liste des voitures suggérées par les joueurs (Admin).")
+async def forms(ctx):
+    cursor = collection_suggestions.find().sort("date", -1).limit(20)
+    suggestions = await cursor.to_list(length=20)
+
+    if not suggestions:
+        await ctx.send("📭 Aucune suggestion de voiture pour le moment.")
+        return
+
+    lignes = []
+    for i, s in enumerate(suggestions, 1):
+        lignes.append(f"**{i}.** **{s['marque']}** {s['modele']} ({s['annee']}) — *suggéré par <@{s['user_id']}>*")
+
+    embed = discord.Embed(
+        title="📋 Liste des suggestions de voitures",
+        description="\n".join(lignes),
+        color=discord.Color.blue()
+    )
+    embed.set_footer(text="Utilise /clearforms pour vider la liste une fois traitée.")
+    await ctx.send(embed=embed)
+
+@bot.hybrid_command(name="clearforms", description="Efface toutes les suggestions de voitures (Admin).")
+async def clearforms(ctx):
+    if not ctx.author.guild_permissions.administrator:
+        await ctx.send("❌ Cette commande est réservée aux administrateurs du serveur.")
+        return
+
+    await collection_suggestions.delete_many({})
+    await ctx.send("🗑️ Toutes les suggestions de voitures ont été effacées avec succès.")
 #endregion
 
 # 4. Lancement
