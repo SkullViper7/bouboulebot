@@ -1696,13 +1696,14 @@ async def cmd(ctx):
     )
     
     embed.add_field(
-        name="🎰 Tirages & Souhaits", 
+        name="🎰 Tirages, Souhaits & Suggestions", 
         value=(
             "**`/roll`** : Tire une voiture au hasard toutes les heures (*`/timer` pour voir le délai*).\n"
             "**`/buyroll`** : Achète un tirage supplémentaire immédiat pour 5000 🪙.\n"
             "**`/wish [recherche]`** : Ajoute un modèle à ta wishlist (x2 chances de drop).\n"
             "**`/unwish (modèle)`** : Affiche ta wishlist pour la gérer, ou retire un modèle précis.\n"
-            "**`/wishlist`** : Affiche tes souhaits en cours."
+            "**`/wishlist`** : Affiche tes souhaits en cours.\n"
+            "**`/form \"marque\" \"modèle\" \"année\"`** : Laisse une note/suggestion de voiture à ajouter au bot."
         ),
         inline=False
     )
@@ -1733,12 +1734,14 @@ async def cmd(ctx):
     )
     
     embed.add_field(
-        name="🏁 Compétition & Profil", 
+        name="🏁 Compétition, Profil & Admin", 
         value=(
             "**`/profil [@pseudo]`** : Affiche la carte de joueur (Stats, Richesse, Score Elo, Succès).\n"
             "**`/toplist`** : Affiche les classements du serveur (Richesse, Pilotes, Collection, Valeur).\n"
             "**`/race @pseudo [mise] [Classe]`** : Provoque un joueur en duel sur une classe (D, C, B, A, S1, S2, X).\n"
-            "**`/ranks`** : Liste les grades compétitifs et les points Elo requis pour monter en ligue."
+            "**`/ranks`** : Liste les grades compétitifs et les points Elo requis pour monter en ligue.\n"
+            "**`/forms`** : Affiche les suggestions de voitures. (Admin)\n"
+            "**`/clearforms`** : Efface les suggestions enregistrées. (Admin)"
         ),
         inline=False
     )
@@ -1746,7 +1749,7 @@ async def cmd(ctx):
     if bot.user.avatar:
         embed.set_thumbnail(url=bot.user.avatar.url)
         
-    embed.set_footer(text="Astuce : Utilise les commandes Slash (/) ! C'est plus pratique pour remplir les arguments (comme pour /trade ou /race).")
+    embed.set_footer(text="Astuce : Utilise les commandes Slash (/) ! C'est plus pratique pour remplir les arguments (comme pour /form ou /trade).")
 
     await ctx.send(embed=embed)
 #endregion
@@ -2759,6 +2762,7 @@ async def race_error(ctx, error):
 #endregion
 
 #region suggestions_voitures
+ADMIN_ID = "320606002837979157"
 @bot.hybrid_command(name="form", description="Laisse une suggestion de voiture à ajouter au bot.")
 async def form(ctx, marque: str, modele: str, annee: str):
     user_id = str(ctx.author.id)
@@ -2780,8 +2784,13 @@ async def form(ctx, marque: str, modele: str, annee: str):
     )
     await ctx.send(embed=embed)
 
-@bot.hybrid_command(name="forms", description="Affiche la liste des voitures suggérées par les joueurs (Admin).")
+@bot.hybrid_command(name="forms", description="Affiche la liste des voitures suggérées par les joueurs.")
 async def forms(ctx):
+    # Vérification par ID Discord
+    if str(ctx.author.id) != ADMIN_ID:
+        await ctx.send("❌ Cette commande t'est interdite !")
+        return
+
     cursor = collection_suggestions.find().sort("date", -1).limit(20)
     suggestions = await cursor.to_list(length=20)
 
@@ -2801,8 +2810,12 @@ async def forms(ctx):
     embed.set_footer(text="Utilise /clearforms pour vider la liste une fois traitée.")
     await ctx.send(embed=embed)
 
-@bot.hybrid_command(name="clearforms", description="Efface toutes les suggestions de voitures (Admin).")
+@bot.hybrid_command(name="clearforms", description="Efface toutes les suggestions de voitures.")
 async def clearforms(ctx):
+    # Vérification par ID Discord
+    if str(ctx.author.id) != ADMIN_ID:
+        await ctx.send("❌ Cette commande t'est interdite !")
+        return
 
     await collection_suggestions.delete_many({})
     await ctx.send("🗑️ Toutes les suggestions de voitures ont été effacées avec succès.")
