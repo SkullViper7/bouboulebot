@@ -23926,5 +23926,17 @@
         "moteur": "V6 3.5L",
         "puissance": "420 ch",
         "masse_kg": "1490"
+    },
+    {
+        "nom": "SP8",
+        "marque": "Ferrari",
+        "annee": "2023",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/RfYCkLY.png",
+        "moteur": "V8 3.9L Twin-Turbo",
+        "puissance": "720 ch",
+        "masse_kg": "1400"
     }
 ]
