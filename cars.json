@@ -23938,5 +23938,53 @@
         "moteur": "V8 3.9L Twin-Turbo",
         "puissance": "720 ch",
         "masse_kg": "1400"
+    },
+    {
+        "nom": "2 CV Concept",
+        "marque": "Citroën",
+        "annee": "2026",
+        "pays": "🇫🇷 France",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/hnn8JW3.png",
+        "moteur": "EV",
+        "puissance": "113 ch",
+        "masse_kg": "1150"
+    },
+    {
+        "nom": "95-59 HDK",
+        "marque": "Lanzante",
+        "annee": "2024",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/QbHUSWa.png",
+        "moteur": "V8 4.0L Twin-Turbo",
+        "puissance": "850 ch",
+        "masse_kg": "1220"
+    },
+    {
+        "nom": "Comète Monte-Carlo",
+        "marque": "Ford",
+        "annee": "1954",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/heqFbb2.png",
+        "moteur": "V8 3.9L",
+        "puissance": "105 ch",
+        "masse_kg": "1450"
+    },
+    {
+        "nom": "Giulia 1300 GT Low Drag Coupé",
+        "marque": "Alfa Romeo",
+        "annee": "1967",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/f8zUBiW.png",
+        "moteur": "L4 1.3L",
+        "puissance": "130 ch",
+        "masse_kg": "740"
     }
 ]
