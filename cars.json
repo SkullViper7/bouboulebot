@@ -24274,5 +24274,17 @@
         "moteur": "L5 2.5L Turbo",
         "puissance": "400 ch",
         "masse_kg": "1380"
+    },
+    {
+        "nom": "540K Autobahnkurier",
+        "marque": "Mercedes-Benz",
+        "annee": "1938",
+        "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/qSqyARC.png",
+        "moteur": "L8 5.4L Compresseur",
+        "puissance": "180 ch",
+        "masse_kg": "2500"
     }
 ]
