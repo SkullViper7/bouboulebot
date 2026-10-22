@@ -2764,22 +2764,35 @@ async def race_error(ctx, error):
 #region suggestions_voitures
 ADMIN_ID = "320606002837979157"
 @bot.hybrid_command(name="form", description="Laisse une suggestion de voiture à ajouter au bot.")
-async def form(ctx, marque: str, modele: str, annee: str):
+async def form(ctx, marque: str, modele: Optional[str] = None, annee: Optional[str] = None):
     user_id = str(ctx.author.id)
+    
+    # Nettoyage des chaînes uniquement si elles sont fournies
+    safe_marque = marque.strip()
+    safe_modele = modele.strip() if modele else ""
+    safe_annee = annee.strip() if annee else ""
+    
     suggestion = {
         "user_id": user_id,
         "auteur": str(ctx.author),
-        "marque": marque.strip(),
-        "modele": modele.strip(),
-        "annee": annee.strip(),
+        "marque": safe_marque,
+        "modele": safe_modele,
+        "annee": safe_annee,
         "date": datetime.utcnow()
     }
     
     await collection_suggestions.insert_one(suggestion)
     
+    # Formatage dynamique du message de confirmation
+    affichage_voiture = f"**{safe_marque}**"
+    if safe_modele:
+        affichage_voiture += f" {safe_modele}"
+    if safe_annee:
+        affichage_voiture += f" ({safe_annee})"
+    
     embed = discord.Embed(
         title="📝 Suggestion enregistrée !",
-        description=f"Merci {ctx.author.mention} ! La voiture **{marque} {modele} ({annee})** a bien été ajoutée à la liste des suggestions.",
+        description=f"Merci {ctx.author.mention} ! La suggestion pour {affichage_voiture} a bien été ajoutée à la liste.",
         color=discord.Color.brand_green()
     )
     await ctx.send(embed=embed)
@@ -2795,7 +2808,9 @@ async def forms(ctx):
 
     lignes = []
     for i, s in enumerate(suggestions, 1):
-        lignes.append(f"**{i}.** **{s['marque']}** {s['modele']} ({s['annee']}) — *suggéré par <@{s['user_id']}>*")
+        texte_annee = f" ({s['annee']})" if s.get('annee') else ""
+        texte_modele = f" {s['modele']}" if s.get('modele') else ""
+        lignes.append(f"**{i}.** **{s['marque']}**{texte_modele}{texte_annee} — *suggéré par <@{s['user_id']}>*")
 
     embed = discord.Embed(
         title="📋 Liste des suggestions de voitures",
