@@ -24430,5 +24430,113 @@
         "moteur": "F4 2.5L Turbo",
         "puissance": "310 ch",
         "masse_kg": "1537"
+    },
+    {
+        "nom": "Chaos",
+        "marque": "Spyros Panopoulos",
+        "annee": "2021",
+        "pays": "🇬🇷 Grèce",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/Qvycjy1.png",
+        "moteur": "V10 4.0L Bi-Turbo",
+        "puissance": "2048 ch",
+        "masse_kg": "1388"
+    },
+    {
+        "nom": "Zion",
+        "marque": "Spyros Panopoulos",
+        "annee": "2021",
+        "pays": "🇬🇷 Grèce",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/y7IYm8r.png",
+        "moteur": "Hydrogène",
+        "puissance": "1750 ch",
+        "masse_kg": "N/A"
+    },
+    {
+        "nom": "Chicago",
+        "marque": "Neorion",
+        "annee": "1974",
+        "pays": "🇬🇷 Grèce",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/SNcBJC1.png",
+        "moteur": "V8 5.9L",
+        "puissance": "177 ch",
+        "masse_kg": "2250"
+    },
+    {
+        "nom": "I",
+        "marque": "Scavas",
+        "annee": "1973",
+        "pays": "🇬🇷 Grèce",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/NsepycL.png",
+        "moteur": "L4 1.2L",
+        "puissance": "55 ch",
+        "masse_kg": "700"
+    },
+    {
+        "nom": "II",
+        "marque": "Scavas",
+        "annee": "1992",
+        "pays": "🇬🇷 Grèce",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/KxlgiTa.png",
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "150 ch",
+        "masse_kg": "880"
+    },
+    {
+        "nom": "Avanti",
+        "marque": "DC",
+        "annee": "2015",
+        "pays": "🇮🇳 Inde",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/N9JXvwH.jpeg",
+        "moteur": "L4 2.0L Turbo",
+        "puissance": "254 ch",
+        "masse_kg": "1580"
+    },
+    {
+        "nom": "Infidel",
+        "marque": "DC",
+        "annee": "2003",
+        "pays": "🇮🇳 Inde",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/cap8blm.png",
+        "moteur": "V6 2.7L",
+        "puissance": "173 ch",
+        "masse_kg": "1150"
+    },
+    {
+        "nom": "TCA",
+        "marque": "DC",
+        "annee": "2018",
+        "pays": "🇮🇳 Inde",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/A6KxpWC.png",
+        "moteur": "V6 3.8L",
+        "puissance": "320 ch",
+        "masse_kg": "1450"
+    },
+    {
+        "nom": "EV Concept",
+        "marque": "Tucuxi",
+        "annee": "2012",
+        "pays": "🇮🇩 Indonésie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/NalIvYK.png",
+        "moteur": "EV",
+        "puissance": "268 ch",
+        "masse_kg": "1110"
     }
 ]
