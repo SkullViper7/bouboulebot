@@ -1128,7 +1128,7 @@
         "masse_kg": "1750"
     },
     {
-        "nom": "Impreza WRX STi",
+        "nom": "Impreza WRX STi II Blob Eye",
         "marque": "Subaru",
         "annee": "2004",
         "pays": "🇯🇵 Japon",
@@ -5547,10 +5547,10 @@
         "nom": "GT",
         "marque": "Ford",
         "annee": "2017",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/zXpc9Bx.png",
         "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/zXpc9Bx.png",
         "moteur": "V6 3.5L Bi-Turbo",
         "puissance": "647 ch",
         "masse_kg": "1385"
@@ -5679,10 +5679,10 @@
         "nom": "M4",
         "marque": "BMW",
         "annee": "2014",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/ZPsHQmv.png",
         "pays": "🇩🇪 Allemagne",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ZPsHQmv.png",
         "moteur": "L6 3.0L Bi-Turbo",
         "puissance": "431 ch",
         "masse_kg": "1570"
@@ -20764,8 +20764,8 @@
         "marque": "Jensen",
         "annee": "2026",
         "pays": "🇬🇧 Royaume-Uni",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://i.imgur.com/f9g0yGL.png",
         "moteur": "V8 6.2L Compresseur",
         "puissance": "650 ch",
@@ -24370,5 +24370,65 @@
         "moteur": "L3 0.9L",
         "puissance": "40 ch",
         "masse_kg": "780"
+    },
+    {
+        "nom": "Impreza WRX STI",
+        "marque": "Subaru",
+        "annee": "1992",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/xMcO9Hb.png",
+        "moteur": "F4 2.0L Turbo",
+        "puissance": "280 ch",
+        "masse_kg": "1230"
+    },
+    {
+        "nom": "Impreza WRX STI II Bug Eye",
+        "marque": "Subaru",
+        "annee": "2000",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/K5ohpp6.png",
+        "moteur": "F4 2.0L Turbo",
+        "puissance": "265 ch",
+        "masse_kg": "1450"
+    },
+    {
+        "nom": "Impreza WRX STI II Hawkeye",
+        "marque": "Subaru",
+        "annee": "2005",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/kEkmy7g.png",
+        "moteur": "F4 2.5L Turbo",
+        "puissance": "300 ch",
+        "masse_kg": "1450"
+    },
+    {
+        "nom": "Impreza WRX STI III",
+        "marque": "Subaru",
+        "annee": "2007",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/kkR7F24.png",
+        "moteur": "F4 2.5L Turbo",
+        "puissance": "300 ch",
+        "masse_kg": "1505"
+    },
+    {
+        "nom": "WRX STI IV",
+        "marque": "Subaru",
+        "annee": "2014",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/KM3OLzp.png",
+        "moteur": "F4 2.5L Turbo",
+        "puissance": "310 ch",
+        "masse_kg": "1537"
     }
 ]
