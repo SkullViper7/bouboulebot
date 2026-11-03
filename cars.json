@@ -939,10 +939,10 @@
         "nom": "Lancer Evolution VI",
         "marque": "Mitsubishi",
         "annee": "1999",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://i.imgur.com/WAkjvan.png",
         "pays": "🇯🇵 Japon",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/WAkjvan.png",
         "moteur": "L4 2.0L Turbo",
         "puissance": "280 ch",
         "masse_kg": "1360"
