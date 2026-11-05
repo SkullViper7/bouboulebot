@@ -25690,5 +25690,101 @@
         "moteur": "L8 3.5L",
         "puissance": "70 ch",
         "masse_kg": "1700"
+    },
+    {
+        "nom": "135 M Coupe Ghia",
+        "marque": "Delahaye",
+        "annee": "1948",
+        "pays": "🇫🇷 France",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/DbddBh7.png",
+        "moteur": "L6 3.6L",
+        "puissance": "115 ch",
+        "masse_kg": "1450"
+    },
+    {
+        "nom": "XK140 Coupe Ghia",
+        "marque": "Jaguar",
+        "annee": "1955",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/7J0nG7U.png",
+        "moteur": "L6 3.4L",
+        "puissance": "210 ch",
+        "masse_kg": "1320"
+    },
+    {
+        "nom": "TD Ghia",
+        "marque": "MG",
+        "annee": "1953",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/m939ZT8.png",
+        "moteur": "L4 1.5L",
+        "puissance": "63 ch",
+        "masse_kg": "860"
+    },
+    {
+        "nom": "Miss R",
+        "marque": "XING",
+        "annee": "2017",
+        "pays": "🇹🇼 Taiwan",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/pNbkYDR.png",
+        "moteur": "EV",
+        "puissance": "1341 ch",
+        "masse_kg": "1500"
+    },
+    {
+        "nom": "Zafer 3.0 V6",
+        "marque": "Etox",
+        "annee": "2009",
+        "pays": "🇹🇷 Turquie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/xUTEYqZ.png",
+        "moteur": "V6 3.0L",
+        "puissance": "272 ch",
+        "masse_kg": "1280"
+    },
+    {
+        "nom": "S1",
+        "marque": "EVT",
+        "annee": "2015",
+        "pays": "🇹🇷 Turquie",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/BLWitxH.png",
+        "moteur": "EV",
+        "puissance": "180 ch",
+        "masse_kg": "1050"
+    },
+    {
+        "nom": "Sazan LS7",
+        "marque": "Onuk",
+        "annee": "2010",
+        "pays": "🇹🇷 Turquie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/BaXg8UV.png",
+        "moteur": "V8 7.0L",
+        "puissance": "512 ch",
+        "masse_kg": "920"
+    },
+    {
+        "nom": "Sazan LM",
+        "marque": "Onuk",
+        "annee": "2015",
+        "pays": "🇹🇷 Turquie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/N7WFQkr.png",
+        "moteur": "V8 6.2L Turbo",
+        "puissance": "700 ch",
+        "masse_kg": "950"
     }
 ]
