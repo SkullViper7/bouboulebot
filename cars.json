@@ -25786,5 +25786,29 @@
         "moteur": "V8 6.2L Turbo",
         "puissance": "700 ch",
         "masse_kg": "950"
+    },
+    {
+        "nom": "Pierce-Arrow Prototype",
+        "marque": "Colani",
+        "annee": "2007",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://i.imgur.com/wAjOGgy.png",
+        "moteur": "V12 10L",
+        "puissance": "1000 ch",
+        "masse_kg": "1600"
+    },
+    {
+        "nom": "One RR",
+        "marque": "ACE",
+        "annee": "2024",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/fXmOFOR.png",
+        "moteur": "L4 1.8L Turbo",
+        "puissance": "330 ch",
+        "masse_kg": "1050"
     }
 ]
