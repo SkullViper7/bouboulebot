@@ -29872,5 +29872,18 @@
         "puissance": "56 ch",
         "masse_kg": "880",
         "id": 2298
+    },
+    {
+        "nom": "Bugnotti Roadster",
+        "marque": "Delahaye",
+        "annee": "2010",
+        "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://i.imgur.com/ucKPmIA.png",
+        "moteur": "V8 6.2L",
+        "puissance": "430 ch",
+        "masse_kg": "1270",
+        "id": 2299
     }
 ]
