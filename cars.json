@@ -15253,8 +15253,8 @@
         "marque": "Dome",
         "annee": "1989",
         "pays": "🇯🇵 Japon",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://i.imgur.com/uTFitVQ.png",
         "moteur": "Flat-12 3.5L",
         "puissance": "585 ch",
@@ -29859,5 +29859,18 @@
         "puissance": "210 ch",
         "masse_kg": "1200",
         "id": 2297
+    },
+    {
+        "nom": "GS Camargue",
+        "marque": "Citroën",
+        "annee": "1972",
+        "pays": "🇫🇷 France",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://i.imgur.com/Jei9QDi.png",
+        "moteur": "F4 1.0L",
+        "puissance": "56 ch",
+        "masse_kg": "880",
+        "id": 2298
     }
 ]
