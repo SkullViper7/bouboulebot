@@ -159,7 +159,7 @@ async def verifier_succes_marque(ctx, user_id, marque):
             color=discord.Color.brand_green()
         )
         embed.set_footer(text=f"Nouveau solde : {nouveau_solde} 🪙")
-        await ctx.send(embed=embed)
+        await ctx.channel.send(embed=embed)
 #endregion
 
 #region sort
@@ -391,14 +391,15 @@ async def roll(ctx):
                    texte_proprietaires, "", f"🎁 *Bonus de drop : +{bonus_coins} 🪙*"])
 
     embed = discord.Embed(title=f"🎰 Vous avez eu : {nom_complet_gagnee}", description="\n".join(lignes), color=COULEURS_RARETE.get(rarete, discord.Color.gold()))
-    if voiture_gagnee.get('image', '').startswith(('http://', 'https://')): embed.set_image(url=voiture_gagnee['image'])
+    image_url = (voiture_gagnee.get('image') or '').strip()
+    if image_url.startswith(('http://', 'https://')): embed.set_image(url=image_url)
     else: embed.add_field(name="⚠️ Image indisponible", value="Lien cassé dans le catalogue.", inline=False)
 
     phrase = {"Commun ⚪": "Ouais basique", "Rare 🔵": "Eh pas mal", "Mythique 🟣": "Eh beh mon salaud", "Légendaire 🟡": "Oh pétard", "GOAT 🔴": "WAAAAAAAA"}.get(rarete, "Bien joué")
     voeu_exauce = "\n\n🌟 **VŒU EXAUCÉ !** Retirée de la wishlist." if voiture_gagnee["id"] in wishlist_joueur_ids else ("\n\n⭐ **BINGO !** Modèle de ta marque favorite !" if marque_favorite and voiture_gagnee['marque'] == marque_favorite else "")
 
-    await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
     await ctx.send(content=f"{ctx.author.mention} **{phrase} !**{voeu_exauce}", embed=embed)
+    await verifier_succes_marque(ctx, user_id, voiture_gagnee['marque'])
 
 @roll.error
 async def roll_error(ctx, error):
@@ -1144,11 +1145,12 @@ async def buyroll(ctx):
     lignes.extend([voiture_gagnee.get('pays', '🏁'), "", "**Rareté**", rarete, "", "**⚙️ Spécifications**", f"Moteur : {voiture_gagnee.get('moteur', 'Inconnu')}", f"Puissance : {voiture_gagnee.get('puissance', 'Inconnue')}", f"Poids : {masse} kg" if masse != "Inconnu" else "Poids : Inconnu", calculer_classe_forza(voiture_gagnee), "", "**Propriétaires :**", proprietaires_mentions, "", f"💸 *Nouveau solde : {solde - 5000} 🪙*"])
 
     embed = discord.Embed(title=f"🎰 Vous avez eu : {get_nom_complet(voiture_gagnee)}", description="\n".join(lignes), color=COULEURS_RARETE.get(rarete, discord.Color.purple()))
-    if voiture_gagnee.get('image', '').startswith(('http://', 'https://')): embed.set_image(url=voiture_gagnee['image'])
+    image_url = (voiture_gagnee.get('image') or '').strip()
+    if image_url.startswith(('http://', 'https://')): embed.set_image(url=image_url)
 
     voeu_exauce = "\n🌟 **VŒU EXAUCÉ !** Retirée de la wishlist." if voiture_gagnee["id"] in wishlist_joueur_ids else ("\n⭐ **BINGO !** Ta marque favorite !" if marque_favorite == voiture_gagnee.get('marque') else "")
-    await verifier_succes_marque(ctx, user_id, voiture_gagnee.get('marque'))
     await ctx.send(content=f"{ctx.author.mention} **Bien joué !**{voeu_exauce}", embed=embed)
+    await verifier_succes_marque(ctx, user_id, voiture_gagnee.get('marque'))
 #endregion
 
 #region leaderboard
