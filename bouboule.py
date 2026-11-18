@@ -1006,6 +1006,20 @@ async def fav(ctx, *, marque: str):
     await ctx.send(f"⭐ C'est noté ! Ta marque favorite est **{marque_trouvee}**.")
 #endregion
 
+def get_elo_rank(elo):
+    if elo >= 1900:
+        return f"{LOGOS.get('Ruby', '🔴')} **Ruby**"
+    elif elo >= 1700:
+        return f"{LOGOS.get('Diamant', '💎')} **Diamant**"
+    elif elo >= 1500:
+        return f"{LOGOS.get('Platine', '🟦')} **Platine**"
+    elif elo >= 1300:
+        return f"{LOGOS.get('Or', '🟨')} **Or**"
+    elif elo >= 1100:
+        return f"{LOGOS.get('Argent', '⬜')} **Argent**"
+    else:
+        return f"{LOGOS.get('Bronze', '🟫')} **Bronze**"
+
 #region profil
 @bot.hybrid_command(name="profil", description="Affiche la carte de joueur et les statistiques.")
 async def profil(ctx, membre: discord.Member = None):
