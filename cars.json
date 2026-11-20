@@ -29989,5 +29989,18 @@
         "puissance": "60 ch",
         "masse_kg": "820",
         "id": 2307
+    },
+    {
+        "nom": "Luxury Sedan",
+        "marque": "Dacora",
+        "annee": "2025",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://i.imgur.com/PlPpUwK.jpeg",
+        "moteur": "EV",
+        "puissance": "800 ch",
+        "masse_kg": "2800",
+        "id": 2308
     }
 ]
