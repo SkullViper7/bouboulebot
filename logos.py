@@ -455,5 +455,6 @@ LOGOS = {
     "Serenissima": "<:serenissima:1569870029258752091>",
     "Packard": "<:packard:1569875078596792450>",
     "Fiberfab": "<:ff:1569876738513829989>",
-    "Acura": "<:acura:1569880342318551091>"
+    "Acura": "<:acura:1569880342318551091>",
+    "Eagle": "<:eaglecar:1573372688779714711>"
 }
