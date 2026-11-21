@@ -30002,5 +30002,18 @@
         "puissance": "800 ch",
         "masse_kg": "2800",
         "id": 2308
+    },
+    {
+        "id": 2309,
+        "nom": "Codatronca Monza",
+        "marque": "Spada",
+        "annee": "2011",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://cdn.jsdelivr.net/gh/SkullViper7/bouboulebot@main/images_webp/2309.webp",
+        "moteur": "V8 7.0L Double Compresseur",
+        "puissance": "720 ch",
+        "masse_kg": "1180"
     }
 ]
