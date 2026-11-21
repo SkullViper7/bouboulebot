@@ -30015,5 +30015,70 @@
         "moteur": "V8 7.0L Double Compresseur",
         "puissance": "720 ch",
         "masse_kg": "1180"
+    },
+    {
+        "id": 2310,
+        "nom": "Comso 20B Type-S",
+        "marque": "Eunos",
+        "annee": "1990",
+        "pays": "🇯🇵 Japon",
+        "rareté": "Commun ⚪",
+        "poids": 100,
+        "image": "https://cdn.jsdelivr.net/gh/SkullViper7/bouboulebot@main/images_webp/2310.webp",
+        "moteur": "R3 2.0L Biturbo",
+        "puissance": "280 ch",
+        "masse_kg": "1570"
+    },
+    {
+        "id": 2311,
+        "nom": "Bandini 750 Sport Internazionale « Saponetta »",
+        "marque": "Bandini",
+        "annee": "1957",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://cdn.jsdelivr.net/gh/SkullViper7/bouboulebot@main/images_webp/2311.webp",
+        "moteur": "L4 0.8L",
+        "puissance": "82 ch",
+        "masse_kg": "385"
+    },
+    {
+        "id": 2312,
+        "nom": "Dora",
+        "marque": "Bandini",
+        "annee": "2020",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://cdn.jsdelivr.net/gh/SkullViper7/bouboulebot@main/images_webp/2312.webp",
+        "moteur": "EV",
+        "puissance": "544 ch",
+        "masse_kg": "1100"
+    },
+    {
+        "id": 2313,
+        "nom": "E10 R",
+        "marque": "Zenos",
+        "annee": "2015",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://cdn.jsdelivr.net/gh/SkullViper7/bouboulebot@main/images_webp/2313.webp",
+        "moteur": "L4 2.3L Turbo",
+        "puissance": "350 ch",
+        "masse_kg": "700"
+    },
+    {
+        "id": 2314,
+        "nom": "Banshee",
+        "marque": "Bravado",
+        "annee": "2013",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://cdn.jsdelivr.net/gh/SkullViper7/bouboulebot@main/images_webp/2314.webp",
+        "moteur": "V10 8.3L",
+        "puissance": "510 ch",
+        "masse_kg": "1540"
     }
 ]
