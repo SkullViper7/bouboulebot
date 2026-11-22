@@ -8177,17 +8177,17 @@
         "id": 629
     },
     {
+        "id": 630,
         "nom": "CD LM64 Coupé",
         "marque": "Panhard",
         "annee": "1964",
         "pays": "🇫🇷 France",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
+        "rareté": "Rare 🔵",
+        "poids": 30,
         "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/630.webp",
         "moteur": "Flat-2 0.8L",
         "puissance": "60 ch",
-        "masse_kg": "560",
-        "id": 630
+        "masse_kg": "560"
     },
     {
         "nom": "T150C SS Goutte d'eau",
