@@ -143,17 +143,17 @@
         "id": 11
     },
     {
+        "id": 12,
         "nom": "P1 GTR",
         "marque": "McLaren",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
-        "image": "https://cdn.jsdelivr.net/gh/SkullViper7/bouboulebot@main/images_webp/12.webp",
         "annee": "2016",
         "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://cdn.jsdelivr.net/gh/SkullViper7/bouboulebot@main/images_webp/12.webp",
         "moteur": "V8 3.8L Bi-Turbo Hybride",
         "puissance": "1000 ch",
-        "masse_kg": "1440",
-        "id": 12
+        "masse_kg": "1440"
     },
     {
         "nom": "787B",
@@ -5252,17 +5252,17 @@
         "id": 404
     },
     {
+        "id": 405,
         "nom": "P1",
         "marque": "McLaren",
         "annee": "2013",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
-        "image": "https://cdn.jsdelivr.net/gh/SkullViper7/bouboulebot@main/images_webp/405.webp",
         "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
+        "image": "https://cdn.jsdelivr.net/gh/SkullViper7/bouboulebot@main/images_webp/405.webp",
         "moteur": "V8 3.8L Bi-Turbo Hybride",
         "puissance": "916 ch",
-        "masse_kg": "1490",
-        "id": 405
+        "masse_kg": "1490"
     },
     {
         "nom": "F1 LM",
