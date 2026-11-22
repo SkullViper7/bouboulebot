@@ -11,7 +11,7 @@ ctk.set_default_color_theme("blue")
 
 FICHIER_JSON = 'cars.json'
 DOSSIER_IMAGES = 'images_webp'
-BASE_URL = "https://cdn.jsdelivr.net/gh/SkullViper7/bouboulebot@main/images_webp"
+BASE_URL = "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp"
 
 # Paramètres d'optimisation WebP
 WEBP_QUALITY = 82
