@@ -9334,17 +9334,17 @@
         "id": 718
     },
     {
+        "id": 719,
         "nom": "Hunaudières",
         "marque": "Bentley",
         "annee": "1999",
         "pays": "🇬🇧 Royaume-Uni",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://cdn.jsdelivr.net/gh/SkullViper7/bouboulebot@main/images_webp/719.webp",
         "moteur": "W16 8.0L",
         "puissance": "632 ch",
-        "masse_kg": "1400",
-        "id": 719
+        "masse_kg": "1400"
     },
     {
         "nom": "EXP 10 Speed 6",
