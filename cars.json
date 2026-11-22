@@ -16575,17 +16575,17 @@
         "id": 1275
     },
     {
+        "id": 1276,
         "nom": "Fulgura",
         "marque": "Laraki",
         "annee": "2004",
         "pays": "🇲🇦 Maroc",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/1276.webp",
         "moteur": "V12 6.0L Quadri-Turbo",
         "puissance": "920 ch",
-        "masse_kg": "1350",
-        "id": 1276
+        "masse_kg": "1350"
     },
     {
         "nom": "Borac",
