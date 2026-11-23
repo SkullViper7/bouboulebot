@@ -28171,17 +28171,17 @@
         "id": 2167
     },
     {
+        "id": 2168,
         "nom": "Pregunta",
         "marque": "Lamborghini",
         "annee": "1998",
         "pays": "🇮🇹 Italie",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Mythique 🟣",
+        "poids": 8,
         "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/2168.webp",
         "moteur": "V12 5.7L",
         "puissance": "530 ch",
-        "masse_kg": "1650",
-        "id": 2168
+        "masse_kg": "1650"
     },
     {
         "nom": "Manifesto",
@@ -30080,5 +30080,18 @@
         "moteur": "V10 8.3L",
         "puissance": "510 ch",
         "masse_kg": "1540"
+    },
+    {
+        "id": 2315,
+        "nom": "Longchamp GTS",
+        "marque": "De Tomaso",
+        "annee": "1972",
+        "pays": "🇮🇹 Italie",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/2315.webp",
+        "moteur": "V8 5.8L",
+        "puissance": "300 ch",
+        "masse_kg": "1690"
     }
 ]
