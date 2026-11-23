@@ -15275,17 +15275,17 @@
         "id": 1175
     },
     {
+        "id": 1176,
         "nom": "Knobbly",
         "marque": "Lister-Jaguar",
         "annee": "1958",
         "pays": "🇬🇧 Royaume-Uni",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
+        "rareté": "Rare 🔵",
+        "poids": 30,
         "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/1176.webp",
         "moteur": "L6 3.8L",
         "puissance": "330 ch",
-        "masse_kg": "850",
-        "id": 1176
+        "masse_kg": "850"
     },
     {
         "nom": "Storm GTM-005",
