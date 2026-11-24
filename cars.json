@@ -30093,5 +30093,18 @@
         "moteur": "V8 5.8L",
         "puissance": "300 ch",
         "masse_kg": "1690"
+    },
+    {
+        "id": 2316,
+        "nom": "XK120 « Black Cat » par Rob Ida",
+        "marque": "Jaguar",
+        "annee": "2013",
+        "pays": "🇬🇧 Royaume-Uni",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/2316.webp",
+        "moteur": "V8 4.2L Compresseur",
+        "puissance": "400 ch",
+        "masse_kg": "1380"
     }
 ]
