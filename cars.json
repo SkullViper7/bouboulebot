@@ -15873,17 +15873,17 @@
         "id": 1221
     },
     {
+        "id": 1222,
         "nom": "Star Wars X-Wing",
         "marque": "Hot Wheels",
         "annee": "2016",
         "pays": "🇺🇸 États-Unis",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
+        "rareté": "Rare 🔵",
+        "poids": 30,
         "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/1222.webp",
         "moteur": "L4 2.0L Turbo",
         "puissance": "175 ch",
-        "masse_kg": "2000",
-        "id": 1222
+        "masse_kg": "2000"
     },
     {
         "nom": "2-Jetz",
