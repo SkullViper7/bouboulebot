@@ -21619,17 +21619,17 @@
         "id": 1663
     },
     {
-        "nom": "GT",
-        "marque": "Marsien",
+        "id": 1664,
+        "nom": "Marsien GT",
+        "marque": "Gemballa",
         "annee": "2026",
-        "pays": "🇩🇪 Allemagne",
+        "pays": "🇺🇸 États-Unis",
         "rareté": "Mythique 🟣",
         "poids": 8,
         "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/1664.webp",
         "moteur": "F6 3.7L Twin-Turbo",
         "puissance": "830 ch",
-        "masse_kg": "1490",
-        "id": 1664
+        "masse_kg": "1490"
     },
     {
         "nom": "European GT XK120",
