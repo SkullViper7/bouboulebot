@@ -8242,17 +8242,17 @@
         "id": 634
     },
     {
+        "id": 635,
         "nom": "Rancho",
         "marque": "Matra-Simca/Talbot",
         "annee": "1977",
         "pays": "🇫🇷 France",
-        "rareté": "Rare 🔵",
-        "poids": 30,
+        "rareté": "Commun ⚪",
+        "poids": 100,
         "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/635.webp",
         "moteur": "L4 1.4L",
         "puissance": "80 ch",
-        "masse_kg": "1130",
-        "id": 635
+        "masse_kg": "1130"
     },
     {
         "nom": "Murena",
@@ -17082,17 +17082,17 @@
         "id": 1314
     },
     {
+        "id": 1315,
         "nom": "202 Gran Sport",
         "marque": "Cisitalia",
         "annee": "1947",
         "pays": "🇮🇹 Italie",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
+        "rareté": "Rare 🔵",
+        "poids": 30,
         "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/1315.webp",
         "moteur": "L4 1.1L",
         "puissance": "50 ch",
-        "masse_kg": "780",
-        "id": 1315
+        "masse_kg": "780"
     },
     {
         "nom": "202 SMM Nuvolari Spider",
@@ -30106,5 +30106,18 @@
         "moteur": "V8 4.2L Compresseur",
         "puissance": "400 ch",
         "masse_kg": "1380"
+    },
+    {
+        "id": 2317,
+        "nom": "Cougar 406 Concept",
+        "marque": "Ford",
+        "annee": "1962",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/2317.webp",
+        "moteur": "V8 6.7L",
+        "puissance": "405 ch",
+        "masse_kg": "1134"
     }
 ]
