@@ -1794,17 +1794,17 @@
         "id": 138
     },
     {
+        "id": 139,
         "nom": "C4 WRC",
         "marque": "Citroën",
-        "rareté": "Rare 🔵",
-        "poids": 30,
-        "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/139.webp",
         "annee": "2008",
         "pays": "🇫🇷 France",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/139.webp",
         "moteur": "L4 2.0L Turbo",
         "puissance": "315 ch",
-        "masse_kg": "1230",
-        "id": 139
+        "masse_kg": "1230"
     },
     {
         "nom": "Xsara WRC",
