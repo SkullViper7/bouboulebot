@@ -461,5 +461,6 @@ LOGOS = {
     "Eunos": "<:eunos:1573807528054104094>",
     "Bandini": "<:bandini:1573808353161908377>",
     "Zenos": "<:zenos:1573809063391666388>",
-    "Bravado": "<:bravado:1573809632353325227>"
+    "Bravado": "<:bravado:1573809632353325227>",
+    "Blastolene": "<:blastolene:1575519138640822403>"
 }

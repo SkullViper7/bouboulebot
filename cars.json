@@ -11453,17 +11453,17 @@
         "id": 881
     },
     {
+        "id": 882,
         "nom": "Aprilia Aerodinamica",
         "marque": "Lancia",
         "annee": "1937",
         "pays": "🇮🇹 Italie",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
+        "rareté": "Rare 🔵",
+        "poids": 30,
         "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/882.webp",
         "moteur": "V4 1.4L",
         "puissance": "48 ch",
-        "masse_kg": "900",
-        "id": 882
+        "masse_kg": "900"
     },
     {
         "nom": "Aurelia B52 PF200",
@@ -30119,5 +30119,31 @@
         "moteur": "V8 6.7L",
         "puissance": "405 ch",
         "masse_kg": "1134"
+    },
+    {
+        "id": 2318,
+        "nom": "Special Tank Car",
+        "marque": "Blastolene",
+        "annee": "2001",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/2318.webp",
+        "moteur": "V12 29.4L Twin-Turbo",
+        "puissance": "1600 ch",
+        "masse_kg": "4300"
+    },
+    {
+        "id": 2319,
+        "nom": "B-702",
+        "marque": "Blastolene",
+        "annee": "2007",
+        "pays": "🇺🇸 États-Unis",
+        "rareté": "Mythique 🟣",
+        "poids": 8,
+        "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/2319.webp",
+        "moteur": "V12 11.5L",
+        "puissance": "350 ch",
+        "masse_kg": "2700"
     }
 ]
