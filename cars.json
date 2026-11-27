@@ -30145,5 +30145,18 @@
         "moteur": "V12 11.5L",
         "puissance": "350 ch",
         "masse_kg": "2700"
+    },
+    {
+        "id": 2320,
+        "nom": "V12 Special",
+        "marque": "Meteor",
+        "annee": "2001",
+        "pays": "🇿🇦 Afrique du Sud",
+        "rareté": "Rare 🔵",
+        "poids": 30,
+        "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/2320.webp",
+        "moteur": "V12 27L",
+        "puissance": "631 ch",
+        "masse_kg": "2267"
     }
 ]
