@@ -21606,17 +21606,17 @@
         "id": 1662
     },
     {
+        "id": 1663,
         "nom": "CCGT1",
         "marque": "Koenigsegg",
         "annee": "2026",
         "pays": "🇸🇪 Suède",
-        "rareté": "Mythique 🟣",
-        "poids": 8,
+        "rareté": "Légendaire 🟡",
+        "poids": 2,
         "image": "https://raw.githubusercontent.com/SkullViper7/bouboulebot/main/images_webp/1663.webp",
         "moteur": "V8 5.0L Twin-Turbo",
         "puissance": "1600 ch",
-        "masse_kg": "1385",
-        "id": 1663
+        "masse_kg": "1385"
     },
     {
         "id": 1664,
